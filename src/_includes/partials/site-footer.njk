@@ -2,6 +2,7 @@
 <footer class="wrap">
   <div class="footer-brand"><span>&copy; 2026 Tether Link Utility</span><span class="sep" aria-hidden="true">&middot;</span><span>{{ t.publisherPrefix }}<a href="{{ site.publisherUrl }}">Steadyline Labs</a></span><span class="sep" aria-hidden="true">&middot;</span><span><a href="mailto:{{ site.email }}">{{ site.email }}</a></span></div>
   <div class="footer-links">
+    <a href="{{ t.prefix }}#help">{{ t.help.link }}</a>
     <a href="{{ blogPrefix }}blog/">{{ t.blog }}</a>
 {% if not hidePrivacyLink %}    <a href="{{ t.privacyHref }}">{{ t.privacy }}</a>
 {% endif %}{% for l in site.languages %}{% if l != lang %}    <a href="{{ i18n[l].prefix }}">{{ i18n[l].name }}</a>
