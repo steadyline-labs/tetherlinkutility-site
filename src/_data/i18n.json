@@ -66,7 +66,6 @@
       "emailBad": "That email doesn't look right. Fix it or leave it empty.",
       "recent": "You just sent one. We'll read it soon.",
       "error": "Couldn't send. Check your internet and try again, or email",
-      "noscript": "This form needs JavaScript. You can also email us at",
       "platforms": {
         "android": "Android phone (with Tether Link Utility)",
         "ios": "iPhone or iPad",
@@ -156,7 +155,6 @@
       "emailBad": "Bu e-posta adresi doğru görünmüyor. Düzeltin ya da boş bırakın.",
       "recent": "Az önce bir mesaj gönderdiniz. Yakında okuyacağız.",
       "error": "Gönderilemedi. İnternet bağlantınızı kontrol edip tekrar deneyin ya da e-posta gönderin:",
-      "noscript": "Bu form için JavaScript gerekiyor. Bize e-posta da gönderebilirsiniz:",
       "platforms": {
         "android": "Android telefon (Tether Link Utility ile)",
         "ios": "iPhone veya iPad",
@@ -245,7 +243,6 @@
       "emailBad": "यह ईमेल सही नहीं लग रहा। इसे ठीक करें या खाली छोड़ दें।",
       "recent": "आपने अभी एक मैसेज भेजा है। हम जल्द पढ़ेंगे।",
       "error": "भेजा नहीं जा सका। अपना इंटरनेट चेक करके फिर से कोशिश करें, या ईमेल करें:",
-      "noscript": "इस फ़ॉर्म के लिए JavaScript चाहिए। आप हमें ईमेल भी कर सकते हैं:",
       "platforms": {
         "android": "Android फ़ोन (Tether Link Utility के साथ)",
         "ios": "iPhone या iPad",
@@ -338,7 +335,6 @@
       "emailBad": "Ese correo no parece correcto. Corrígelo o déjalo vacío.",
       "recent": "Acabas de enviar uno. Lo leeremos pronto.",
       "error": "No se pudo enviar. Revisa tu conexión a internet e inténtalo de nuevo, o escribe a",
-      "noscript": "Este formulario necesita JavaScript. También puedes escribirnos a",
       "platforms": {
         "android": "Teléfono Android (con Tether Link Utility)",
         "ios": "iPhone o iPad",
@@ -430,7 +426,6 @@
       "emailBad": "Esse e-mail não parece certo. Corrija ou deixe em branco.",
       "recent": "Você acabou de enviar uma mensagem. Vamos ler em breve.",
       "error": "Não foi possível enviar. Verifique sua internet e tente de novo, ou escreva para",
-      "noscript": "Este formulário precisa de JavaScript. Você também pode escrever para",
       "platforms": {
         "android": "Celular Android (com o Tether Link Utility)",
         "ios": "iPhone ou iPad",

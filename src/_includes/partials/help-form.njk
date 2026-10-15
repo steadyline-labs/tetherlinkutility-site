@@ -1,7 +1,10 @@
 {#- "Can't connect?" help request form (anchor #help). Text comes from i18n[lang].help.
-    Delivery goes through deliverHelpRequest() only; the delivery method is not decided yet.
-    One send per browser every 5 minutes is checked here, in the page.
-    Set helpPage ("guide" or "support") before including; it is sent as diag.page. -#}
+    Sent to Formspree (our service provider, delivers to the support inbox). With JavaScript the
+    page posts JSON through deliverHelpRequest(); without it the plain form posts to the same URL.
+    helpEndpoint is the only place the Formspree URL lives (FORM_ID_PENDING until the form exists).
+    One send per browser every 5 minutes is checked in the page.
+    Set helpPage ("guide" or "support") before including; it is sent as "page". -#}
+{%- set helpEndpoint = "https://formspree.io/f/FORM_ID_PENDING" -%}
 {%- set hp = t.help -%}
 {%- set stepsFor = {
   "android": "start_sharing scan_qr join_wifi no_internet other",
@@ -16,17 +19,21 @@
         <h2>{{ hp.title }}</h2>
         <p class="help-intro">{{ hp.intro }}</p>
       </div>
-      <form class="help-form" id="helpForm" novalidate data-lang="{{ lang }}" data-page="{{ helpPage or 'guide' }}">
+      <form class="help-form" id="helpForm" action="{{ helpEndpoint }}" method="POST" accept-charset="UTF-8" data-lang="{{ lang }}" data-page="{{ helpPage or 'guide' }}">
+        <input type="hidden" name="source" value="site">
+        <input type="hidden" name="lang" value="{{ lang }}">
+        <input type="hidden" name="page" value="{{ helpPage or 'guide' }}">
+        <input type="hidden" name="_subject" value="TLU help (site)">
         <fieldset class="help-group" id="helpPlatforms">
           <legend>{{ hp.q1 }}</legend>
           <div class="help-opts">
-{% for key, label in hp.platforms %}            <label class="help-opt"><input type="radio" name="platform" value="{{ key }}"><span>{{ label }}</span></label>
+{% for key, label in hp.platforms %}            <label class="help-opt"><input type="radio" name="platform" value="{{ key }}"{% if loop.first %} required{% endif %}><span>{{ label }}</span></label>
 {% endfor %}          </div>
         </fieldset>
-        <fieldset class="help-group" id="helpSteps" hidden>
+        <fieldset class="help-group" id="helpSteps">
           <legend>{{ hp.q2 }}</legend>
           <div class="help-opts">
-{% for key, label in hp.steps %}            <label class="help-opt" data-step="{{ key }}"><input type="radio" name="step" value="{{ key }}"><span>{{ label }}</span></label>
+{% for key, label in hp.steps %}            <label class="help-opt" data-step="{{ key }}"><input type="radio" name="step" value="{{ key }}"{% if loop.first %} required{% endif %}><span>{{ label }}</span></label>
 {% endfor %}          </div>
         </fieldset>
         <div class="help-field">
@@ -39,12 +46,11 @@
           <input id="helpEmail" name="email" type="email" maxlength="120" autocomplete="email" inputmode="email" spellcheck="false">
         </div>
         <div class="help-hp" aria-hidden="true">
-          <label for="helpWebsite">Website</label>
-          <input id="helpWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
+          <label for="helpGotcha">Leave this empty</label>
+          <input id="helpGotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
         </div>
         <button type="submit" class="btn-primary help-send" id="helpSend" data-sending="{{ hp.sending }}">{{ hp.button }}</button>
         <p class="help-status" id="helpStatus" role="status" aria-live="polite"></p>
-        <noscript><p class="help-status">{{ hp.noscript }} <a href="mailto:{{ site.email }}">{{ site.email }}</a></p></noscript>
         <p class="help-note">{{ hp.note }} <a href="{{ hp.privacyHref }}">{{ hp.privacyLink }}</a></p>
       </form>
       <div class="help-done" id="helpDone" hidden tabindex="-1">
@@ -56,14 +62,34 @@
   (function () {
     var form = document.getElementById('helpForm');
     if (!form) return;
+    const HELP_ENDPOINT = {{ helpEndpoint | dump }};
     var STEPS = {{ stepsFor | dump }};
     var TEXT = {{ { recent: hp.recent, choose: hp.choose, emailBad: hp.emailBad, error: hp.error, email: site.email } | dump }};
     var SENT_KEY = 'tlu_help_sent', FIVE_MIN = 5 * 60 * 1000;
 
+    function post(payload) {
+      var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 10000);
+      return fetch(HELP_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: ctrl ? ctrl.signal : undefined
+      }).then(function (r) { clearTimeout(timer); return r.status; },
+              function () { clearTimeout(timer); return 0; });
+    }
+
     // Sends one help request. Returns 'sent', 'too_soon' or 'failed'.
-    // payload = { source: 'site', platform, step, message, email, lang, page }
-    // Delivery method pending: returns 'failed' for now, so the form shows the email fallback.
+    // One retry on a network error (or timeout) or a 5xx answer.
     async function deliverHelpRequest(payload) {
+      if (HELP_ENDPOINT.indexOf('FORM_ID_PENDING') !== -1) return 'failed';
+      var status = await post(payload);
+      if (status === 0 || status >= 500) {
+        await new Promise(function (res) { setTimeout(res, 1500); });
+        status = await post(payload);
+      }
+      if (status >= 200 && status < 300) return 'sent';
+      if (status === 429) return 'too_soon';
       return 'failed';
     }
 
@@ -71,11 +97,15 @@
     var msg = document.getElementById('helpMessage');
     var count = document.getElementById('helpCount');
     var email = document.getElementById('helpEmail');
-    var trap = document.getElementById('helpWebsite');
+    var trap = document.getElementById('helpGotcha');
     var btn = document.getElementById('helpSend');
     var status = document.getElementById('helpStatus');
     var done = document.getElementById('helpDone');
     var label = btn.textContent;
+
+    // With JavaScript the page checks the fields itself and shows the steps after a platform is picked.
+    form.noValidate = true;
+    stepsBox.hidden = true;
 
     function store(key, val) {
       try { if (val === undefined) return localStorage.getItem(key); localStorage.setItem(key, val); } catch (e) {}
@@ -132,8 +162,10 @@
       say('');
       var payload = {
         source: 'site', platform: platform, step: step, message: msg.value.slice(0, 500), email: mail,
-        lang: form.getAttribute('data-lang'), page: form.getAttribute('data-page')
+        lang: form.getAttribute('data-lang'), page: form.getAttribute('data-page'),
+        _subject: 'TLU help (site): ' + platform + ' / ' + step
       };
+      if (mail) payload._replyto = mail;
       deliverHelpRequest(payload).catch(function () { return 'failed'; }).then(function (result) {
         btn.disabled = false;
         btn.textContent = label;
