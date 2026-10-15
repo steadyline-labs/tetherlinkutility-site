@@ -1,10 +1,10 @@
 {#- "Can't connect?" help request form (anchor #help). Text comes from i18n[lang].help.
     Sent to Formspree (our service provider, delivers to the support inbox). With JavaScript the
     page posts JSON through deliverHelpRequest(); without it the plain form posts to the same URL.
-    helpEndpoint is the only place the Formspree URL lives (FORM_ID_PENDING until the form exists).
+    helpEndpoint is the only place the Formspree URL lives (live form xjygjryg).
     One send per browser every 5 minutes is checked in the page.
     Set helpPage ("guide" or "support") before including; it is sent as "page". -#}
-{%- set helpEndpoint = "https://formspree.io/f/FORM_ID_PENDING" -%}
+{%- set helpEndpoint = "https://formspree.io/f/xjygjryg" -%}
 {%- set hp = t.help -%}
 {%- set stepsFor = {
   "android": "start_sharing scan_qr join_wifi no_internet other",
@@ -82,7 +82,6 @@
     // Sends one help request. Returns 'sent', 'too_soon' or 'failed'.
     // One retry on a network error (or timeout) or a 5xx answer.
     async function deliverHelpRequest(payload) {
-      if (HELP_ENDPOINT.indexOf('FORM_ID_PENDING') !== -1) return 'failed';
       var status = await post(payload);
       if (status === 0 || status >= 500) {
         await new Promise(function (res) { setTimeout(res, 1500); });
