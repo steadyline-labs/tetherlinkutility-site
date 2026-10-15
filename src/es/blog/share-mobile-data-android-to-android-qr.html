@@ -31,15 +31,15 @@ index:
 
     <h2>Pasos en el celular servidor</h2>
     <ol>
-      <li>Abre Tether Link Utility y toca <strong>START SERVER</strong>.</li>
+      <li>Abre Tether Link Utility y toca <strong>START</strong>.</li>
       <li>Acepta los permisos que pide Android. Para iniciar un hotspot se necesita el permiso de ubicación en versiones anteriores de Android y el permiso de dispositivos Wi-Fi cercanos en Android 13 y posteriores.</li>
       <li>Espera a que la pantalla muestre la dirección IP y el puerto.</li>
-      <li>Toca <strong>Show QR Code</strong>.</li>
+      <li>Toca <strong>Show QR code</strong>.</li>
     </ol>
 
     <h2>Pasos en el celular cliente</h2>
     <ol>
-      <li>Abre Tether Link Utility y toca <strong>Scan QR Code · Connect to Server</strong>.</li>
+      <li>Abre Tether Link Utility, elige <strong>Use another phone's internet</strong> y luego toca <strong>Scan QR code</strong>.</li>
       <li>Apunta la cámara al código QR del celular servidor.</li>
       <li>En Android 10 y posteriores, la app le pide al sistema que se una al Wi-Fi del servidor. Android puede mostrar un aviso para que confirmes la conexión. Acéptalo.</li>
       <li>La primera vez, Android te pide que permitas la conexión VPN. Es la interfaz local de VpnService descrita arriba. Acéptala.</li>
@@ -52,11 +52,11 @@ index:
     <p>Si el hotspot usa WPA3, se agrega <strong>&amp;sec=wpa3</strong>. El mismo texto aparece debajo del código QR, así que puedes leer los valores y escribirlos a mano en un dispositivo que no pueda escanearlo. Como el código QR incluye la contraseña del Wi-Fi, muéstralo solo a las personas con quienes quieras compartir tu conexión.</p>
 
     <h2>Usar el hotspot de tu propio celular</h2>
-    <p>Si prefieres encender tú mismo el hotspot del sistema (Hotspot móvil en Android, Compartir Internet en iPhone) en lugar de que lo inicie la app, toca <strong>WI-FI</strong> en la app y guarda una sola vez el nombre y la contraseña del hotspot. Se guardan solo en tu dispositivo y la app no modifica tu hotspot. Esos datos se agregan al código QR, así otros dispositivos pueden unirse a la red escaneándolo. En iPhone, la contraseña está en <strong>Configuración &gt; Compartir Internet</strong>. Si la app de Android inicia su propio hotspot automáticamente, puedes saltarte este paso.</p>
+    <p>Si prefieres encender tú mismo el hotspot del sistema (Hotspot móvil en Android, Compartir Internet en iPhone) en lugar de que lo inicie la app, toca <strong>Add hotspot Wi-Fi details</strong> en la app y guarda una sola vez el nombre y la contraseña del hotspot. Se guardan solo en tu dispositivo y la app no modifica tu hotspot. Esos datos se agregan al código QR, así otros dispositivos pueden unirse a la red escaneándolo. En iPhone, la contraseña está en <strong>Configuración &gt; Compartir Internet</strong>. Si la app de Android inicia su propio hotspot automáticamente, puedes saltarte este paso.</p>
 
     <h2>Solución de problemas</h2>
     <ul>
-      <li><strong>El servidor no inicia.</strong> Revisa que el permiso de ubicación (o de dispositivos Wi-Fi cercanos en Android 13+) esté concedido. Si el Hotspot móvil normal del celular ya está encendido, la app no puede iniciar su propio hotspot y ejecuta el servidor sobre el hotspot normal. Puedes apagar el hotspot normal y dejar que la app cree el suyo, o mantenerlo encendido y guardar una vez su nombre y contraseña en <strong>WI-FI</strong> para que el código QR los incluya.</li>
+      <li><strong>El servidor no inicia.</strong> Revisa que el permiso de ubicación (o de dispositivos Wi-Fi cercanos en Android 13+) esté concedido. Si el Hotspot móvil normal del celular ya está encendido, la app no puede iniciar su propio hotspot y ejecuta el servidor sobre el hotspot normal. Puedes apagar el hotspot normal y dejar que la app cree el suyo, o mantenerlo encendido y guardar una vez su nombre y contraseña con <strong>Add hotspot Wi-Fi details</strong> para que el código QR los incluya.</li>
       <li><strong>El cliente no se une al Wi-Fi.</strong> Busca un aviso o una notificación del sistema que pida confirmar la red. Si la descartaste, vuelve a escanear el código QR.</li>
       <li><strong>Cliente con Android 9 o anterior.</strong> No está disponible la conexión automática. Conéctate a la red Wi-Fi a mano con el nombre y la contraseña que aparecen en el texto del QR, y luego escanea el código o escribe la IP y el puerto.</li>
       <li><strong>Antes funcionaba y dejó de hacerlo.</strong> La dirección IP del celular servidor puede cambiar cuando el hotspot se reinicia. La app muestra un aviso cuando esto pasa. Muestra el nuevo código QR y vuelve a escanearlo.</li>

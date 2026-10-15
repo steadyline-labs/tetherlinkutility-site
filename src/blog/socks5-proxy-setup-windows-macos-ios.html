@@ -2,12 +2,12 @@
 title: "How to Set Up a SOCKS5 Proxy on Windows, macOS &amp; iOS"
 description: "Step-by-step SOCKS5 proxy setup for Firefox, Chrome (FoxyProxy), macOS network settings, sing-box TUN mode and iOS apps."
 published: "2026-09-18"
-modified: "2026-09-25"
+modified: "2026-10-15"
 ldHeadline: "How to Set Up a SOCKS5 Proxy on Windows, macOS & iOS"
 h3Style: true
 sitemap:
   order: 7
-  lastmod: "2026-09-25"
+  lastmod: "2026-10-15"
   changefreq: "monthly"
   priority: "0.6"
 index:
@@ -26,18 +26,18 @@ extraJsonLd: |2
       "step": [
         {
           "@type": "HowToStep",
-          "name": "Get the proxy IP and port",
-          "text": "Open Tether Link Utility on the Android device sharing its connection, tap START SERVER, connect your device to the Wi-Fi network shown in the app, and note the IP address and port shown on screen."
+          "name": "Install first, then join the phone's Wi-Fi",
+          "text": "While your device still has its normal internet, install what it needs (Shadowrocket on iPhone, Firefox or FoxyProxy on a computer, sing-box via our script on Mac). Then open Tether Link Utility on the sharing phone, tap START, join the Wi-Fi network shown in the app, and note the IP address and port. That Wi-Fi may show 'No internet'; that's normal."
         },
         {
           "@type": "HowToStep",
           "name": "Windows: Firefox (native) or FoxyProxy for Chrome/Edge",
-          "text": "In Firefox, go to Settings > General > Network Settings > Manual proxy configuration, enter the SOCKS Host and Port, and select SOCKS v5. In Chrome or Edge, install the FoxyProxy extension and enter the same IP/port as a SOCKS5 proxy."
+          "text": "In Firefox, go to Settings > General > Network Settings > Manual proxy configuration, enter the SOCKS Host and Port, select SOCKS v5, and tick Proxy DNS when using SOCKS v5. In Chrome or Edge, install the FoxyProxy extension and enter the same IP/port as a SOCKS5 proxy."
         },
         {
           "@type": "HowToStep",
           "name": "Windows and macOS: all apps with sing-box",
-          "text": "Firefox/FoxyProxy and macOS's native SOCKS setting only route traffic from apps that use them, and not DNS lookups. To route all apps and DNS through the proxy, install sing-box (brew install sing-box on macOS, or download the Windows release), configure a TUN inbound with a SOCKS outbound pointed at the phone's IP/port, and run it with elevated privileges."
+          "text": "Firefox/FoxyProxy and macOS's native SOCKS setting only route traffic from apps that use them, and the macOS setting does not proxy DNS lookups. To route all apps and DNS through the proxy, install sing-box before joining the phone's Wi-Fi (our script or brew install sing-box on macOS, or download the Windows release), configure a TUN inbound with a SOCKS outbound pointed at the phone's IP/port, and run it with elevated privileges."
         },
         {
           "@type": "HowToStep",
@@ -60,22 +60,31 @@ extraJsonLd: |2
 ---
     <div class="page-eyebrow">Blog</div>
     <h1>How to Set Up a SOCKS5 Proxy on Windows, macOS &amp; iOS</h1>
-    <div class="post-meta">Published September 18, 2026 &middot; Updated September 25, 2026</div>
+    <div class="post-meta">Published September 18, 2026 &middot; Updated October 15, 2026</div>
 
     <p>Tether Link Utility runs a local SOCKS5 proxy on your Android phone. Any device that supports SOCKS5 proxy settings can use it over the Wi-Fi network the app creates: no separate client app is needed on Windows or macOS, and a lightweight one is needed on iOS. Here is how to set up each platform.</p>
 
     <h2>Before you start</h2>
+    <p>Do these in this order. The phone's Wi-Fi may have no internet of its own (it only reaches the proxy on the phone), so install everything first.</p>
     <ol>
-      <li>Open Tether Link Utility on the phone and tap <strong>START SERVER</strong>.</li>
-      <li>Connect your laptop or tablet to the Wi-Fi network the app shows under <strong>Wi-Fi Network</strong>, using the password shown under <strong>Wi-Fi Password</strong>.</li>
+      <li><strong>Install what you need first</strong>, while your device still has its normal internet:
+        <ul>
+          <li>iPhone or iPad: Shadowrocket or Potatso Lite from the App Store.</li>
+          <li>Computer: Firefox, or the FoxyProxy extension for Chrome or Edge.</li>
+          <li>Mac, all apps: run our script once now so it installs sing-box (see <a href="#macos">macOS</a>).</li>
+          <li>Windows or Linux, all apps: download sing-box now (see <a href="#windows">Windows</a> or <a href="#linux">Linux</a>).</li>
+        </ul>
+      </li>
+      <li>Open Tether Link Utility on the phone and tap <strong>START</strong>.</li>
+      <li><strong>Then</strong> join the Wi-Fi network the app shows under <strong>Wi-Fi</strong>, using the password shown under <strong>Password</strong>. That Wi-Fi may show "No internet"; that's normal.</li>
       <li>Note the <strong>IP address</strong> and <strong>port</strong> shown in the app. You will enter both in the setup below.</li>
     </ol>
     <p><strong>About the port:</strong> the app saves the port, so you only enter it once on each device. It changes only if another app on the phone takes it, and the app warns you when that happens. To pick your own, tap <strong>Edit</strong> on the Port row and enter a number between 1024 and 65535 (1024 to 32767 is less likely to clash). If that port is free, it stays reserved for you until another app starts using it.</p>
 
     <h2>Using your phone's own hotspot</h2>
-    <p>If you turn on your phone's system hotspot yourself (Mobile Hotspot on Android, Personal Hotspot on iPhone) instead of letting the app start one, tap <strong>WI-FI</strong> in the app and save the hotspot's name and password once. They are stored only on your device and the app doesn't change your hotspot. The details are added to the QR code, so other devices can join the network by scanning it. On iPhone, the password is in <strong>Settings &gt; Personal Hotspot</strong>. When the Android app starts its own hotspot automatically, you can skip this.</p>
+    <p>If you turn on your phone's system hotspot yourself (Mobile Hotspot on Android, Personal Hotspot on iPhone) instead of letting the app start one, tap <strong>Add hotspot Wi-Fi details</strong> in the app and save the hotspot's name and password once. They are stored only on your device and the app doesn't change your hotspot. The details are added to the QR code, so other devices can join the network by scanning it. On iPhone, the password is in <strong>Settings &gt; Personal Hotspot</strong>. When the Android app starts its own hotspot automatically, you can skip this.</p>
 
-    <h2>Windows</h2>
+    <h2 id="windows">Windows</h2>
     <h3>Option A: Firefox (no extension needed)</h3>
     <ol>
       <li>Go to <strong>Settings → General → Network Settings → Settings</strong>.</li>
@@ -92,12 +101,12 @@ extraJsonLd: |2
     <h3>Option C (recommended): all apps with sing-box</h3>
     <p>Firefox and FoxyProxy only send that one browser's traffic through the proxy. To route every app on Windows through it, DNS included, use <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> (open source, actively maintained) in TUN mode:</p>
     <ol>
-      <li>Download the latest Windows release from <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a>.</li>
+      <li>Before joining the phone's Wi-Fi, download the latest Windows release from <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a>.</li>
       <li>Save the config below as <code>config.json</code>, replacing the IP and port with the values shown in the app.</li>
       <li>Run it from an elevated (Administrator) terminal: <code>sing-box run --config config.json</code></li>
     </ol>
 
-    <h2>macOS</h2>
+    <h2 id="macos">macOS</h2>
     <h3>Option A: native Network settings</h3>
     <ol>
       <li>Open <strong>System Settings → Network</strong>.</li>
@@ -105,13 +114,13 @@ extraJsonLd: |2
       <li>Go to <strong>Proxies</strong> and turn on <strong>SOCKS Proxy</strong>.</li>
       <li>Enter the phone's IP address and port, then click <strong>OK</strong>.</li>
     </ol>
-    <p>No third-party app is needed. Note that apps which ignore the system proxy setting, and DNS lookups, are not sent through the proxy this way.</p>
+    <p>No third-party app is needed. Note that this macOS setting does not send DNS lookups through the proxy, and apps which ignore the system proxy setting are not covered either. For full coverage, DNS included, use the script in Option B.</p>
 
     <h3>Option B (recommended): all apps with sing-box</h3>
     <p>To route every app through the proxy, DNS included, run <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> in TUN mode instead of the native setting above.</p>
 
     <div class="callout">
-      <p><strong>Easiest way:</strong> download our wrapper script. It checks for Homebrew, installs sing-box if needed, asks for your phone's IP and port, and runs everything in the background (the Terminal window minimizes and comes back only if something goes wrong).</p>
+      <p><strong>Easiest way:</strong> download our wrapper script and run it once <strong>before</strong> joining the phone's Wi-Fi, so it can install sing-box over your normal internet. It checks for Homebrew, installs sing-box if needed (and stops with a clear message if there is no internet), asks for your phone's IP and port, and runs everything in the background (the Terminal window minimizes and comes back only if something goes wrong).</p>
       <p style="margin-top: 16px;"><img src="/mac-tunnel-script-demo.png" alt="Terminal running tlu-mac-tunnel.sh, asking for the phone's IP and port, then confirming the connection is up" style="width:100%; border-radius: 8px; display: block;" /></p>
       <p style="margin-top: 16px;"><a href="/downloads/tlu-mac-tunnel.zip" class="cta-button" style="display:inline-block;">Download tlu-mac-tunnel.zip</a></p>
       <p style="margin-top: 12px; font-size: 14px;">Unzip it, then in Terminal: <code>chmod +x tlu-mac-tunnel.sh && ./tlu-mac-tunnel.sh</code></p>
@@ -125,14 +134,14 @@ extraJsonLd: |2
 
     <p>Or set it up by hand:</p>
     <ol>
-      <li>Install via Homebrew: <code>brew install sing-box</code></li>
+      <li>Before joining the phone's Wi-Fi, install via Homebrew: <code>brew install sing-box</code></li>
       <li>Save the config below as <code>~/config.json</code>, replacing the IP and port with the values shown in the app.</li>
       <li>Run it (it needs <code>sudo</code> because it creates a virtual network interface and changes routing): <code>sudo sing-box run --config ~/config.json</code></li>
       <li>Turn off the native SOCKS Proxy setting from Option A if you had it on; sing-box's TUN mode replaces it.</li>
     </ol>
 
     <div class="callout">
-      <p><strong>sing-box config</strong> (works for both Windows and macOS, just swap the IP and port). Leave <code>interface_name</code> unset so it picks an available interface automatically:</p>
+      <p><strong>sing-box config</strong> (works on Windows, macOS and Linux, just swap the IP and port). Leave <code>interface_name</code> unset so it picks an available interface automatically:</p>
       <pre style="background:var(--ground); border:1px solid var(--border); border-radius:10px; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; color:var(--muted);">{
   "dns": {
     "servers": [
@@ -159,6 +168,20 @@ extraJsonLd: |2
       <p>Replace both <code>PHONE_IP</code> and <code>PHONE_PORT</code> with the values shown in the app, including the <code>PHONE_IP/32</code> route rule. That rule sends the connection to the phone itself directly instead of looping it back into the tunnel. The app supports SOCKS5 UDP ASSOCIATE, so DNS and QUIC/HTTP3 traffic can also use the proxy.</p>
     </div>
 
+    <h2 id="linux">Linux</h2>
+    <h3>Option A: Firefox</h3>
+    <ol>
+      <li>Go to <strong>Settings → General → Network Settings → Settings</strong> and choose <strong>Manual proxy configuration</strong>.</li>
+      <li>Enter the phone's IP under <strong>SOCKS Host</strong>, the port under <strong>Port</strong>, and select <strong>SOCKS v5</strong>.</li>
+      <li>Tick <strong>Proxy DNS when using SOCKS v5</strong>.</li>
+    </ol>
+    <h3>Option B: all apps with sing-box</h3>
+    <ol>
+      <li>Before joining the phone's Wi-Fi, install sing-box from your distribution's packages or the <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">GitHub releases</a>.</li>
+      <li>Save the config above as <code>config.json</code>, replacing the IP and port with the values shown in the app.</li>
+      <li>Run it as root: <code>sudo sing-box run --config config.json</code></li>
+    </ol>
+
     <h2>iOS</h2>
     <h3>Option A: Shadowrocket (paid, one-time purchase)</h3>
     <ol>
@@ -175,11 +198,11 @@ extraJsonLd: |2
     </ol>
 
     <div class="callout">
-      <p><strong>DNS tip:</strong> where the option exists, let DNS lookups go through the proxy as well (Firefox's "Proxy DNS when using SOCKS v5", Shadowrocket's default behavior). sing-box's TUN mode handles this for every app automatically.</p>
+      <p><strong>DNS tip:</strong> let DNS lookups go through the proxy as well. In Firefox, tick <strong>Proxy DNS when using SOCKS v5</strong>; Shadowrocket does this by default. The macOS System Settings SOCKS proxy does not send DNS through the proxy, so on a Mac use <a href="#macos">our script</a> for full coverage. sing-box's TUN mode handles DNS for every app automatically.</p>
     </div>
 
     <h2>Android to Android is simpler</h2>
-    <p>If both devices are Android, tap <strong>Scan QR Code · Connect to Server</strong> on the other phone and scan the QR code shown on the server phone. The QR code contains the Wi-Fi details and the proxy address, so the phone joins the Wi-Fi and routes its traffic through the proxy using Android's VpnService. On Android 10 and later, a system prompt may ask you to confirm the Wi-Fi connection.</p>
+    <p>If both devices are Android, open Tether Link Utility on the other phone, choose <strong>Use another phone's internet</strong>, tap <strong>Scan QR code</strong> and scan the QR code shown on the sharing phone. The QR code contains the Wi-Fi details and the proxy address, so the phone joins the Wi-Fi and routes its traffic through the proxy using Android's VpnService. On Android 10 and later, a system prompt may ask you to confirm the Wi-Fi connection.</p>
     <p>Data used by connected devices counts toward the server phone's mobile plan, so check your carrier's tethering terms.</p>
 
 

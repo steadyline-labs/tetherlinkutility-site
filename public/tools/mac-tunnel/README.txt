@@ -16,6 +16,9 @@ Requirements
 - macOS
 - Homebrew (https://brew.sh). The script installs sing-box itself if it's
   missing, but Homebrew has to already be there.
+- Run the script once BEFORE joining the phone's Wi-Fi, so it can install
+  sing-box over your normal internet. The phone's Wi-Fi may show
+  "No internet"; that's normal, but brew can't download anything there.
 
 How to use
 ----------
@@ -23,7 +26,7 @@ How to use
 2. Run: chmod +x tlu-mac-tunnel.sh
 3. Run: ./tlu-mac-tunnel.sh
 4. Enter the IP address and port shown in the Tether Link Utility app on your
-   phone (tap START SERVER first to see them).
+   phone (tap START first to see them).
 5. Enter your Mac's admin password once when asked (sudo), it's needed to
    create the network tunnel and change routing, same as any VPN app.
 6. The Terminal window minimizes and the tunnel keeps running in the

@@ -7,7 +7,8 @@
 #
 # Behavior:
 #   1. Checks for Homebrew, warns and exits if missing.
-#   2. Installs sing-box via brew if not already installed.
+#   2. Installs sing-box via brew if not already installed (needs normal
+#      internet, so run it once BEFORE joining the phone's Wi-Fi).
 #   3. Reuses ~/Documents/sing-box.config if it holds a previously used IP/port,
 #      after asking for confirmation, otherwise prompts for IP and port with validation.
 #   4. Writes the sing-box config to that same file (path is announced before writing).
@@ -28,10 +29,32 @@ if ! command -v brew >/dev/null 2>&1; then
 fi
 
 # --- 2. sing-box install if missing ---
+#
+# Install sing-box BEFORE joining the phone's Wi-Fi: that Wi-Fi may have no
+# internet of its own (it only reaches the phone's proxy), so brew can't
+# download anything once the Mac is on it.
 
 if ! command -v sing-box >/dev/null 2>&1; then
-  echo "sing-box not found, installing via brew..."
-  brew install sing-box
+  echo "sing-box is not installed yet."
+  echo "Install it while this Mac is still on its normal internet,"
+  echo "BEFORE joining the phone's Wi-Fi (that Wi-Fi may show 'No internet')."
+  if ! curl -fsS --max-time 8 -o /dev/null https://formulae.brew.sh 2>/dev/null; then
+    echo ""
+    echo "No internet right now, so sing-box can't be downloaded."
+    echo "Switch back to your usual Wi-Fi (or any network with internet),"
+    echo "run this script again to install sing-box, then join the phone's Wi-Fi."
+    exit 1
+  fi
+  echo "Installing sing-box via brew..."
+  if ! brew install sing-box || ! command -v sing-box >/dev/null 2>&1; then
+    echo ""
+    echo "sing-box install failed. Make sure this Mac has normal internet"
+    echo "(not the phone's Wi-Fi), then run this script again."
+    exit 1
+  fi
+  echo ""
+  echo "sing-box is installed. Now join the phone's Wi-Fi, then continue here."
+  read -rp "Press Enter when this Mac is on the phone's Wi-Fi... " _
 fi
 
 SINGBOX_BIN="$(command -v sing-box)"

@@ -29,9 +29,29 @@ fi
 
 # --- 2. sing-box install if missing ---
 
+# sing-box, telefonun Wi-Fi'ına katılmadan ÖNCE kurulmalı: o Wi-Fi'ın kendi
+# interneti olmayabilir, brew orada bir şey indiremez.
 if ! command -v sing-box >/dev/null 2>&1; then
-  echo "sing-box bulunamadı, brew ile kuruluyor..."
-  brew install sing-box
+  echo "sing-box henüz kurulu değil."
+  echo "Mac normal internetteyken, telefonun Wi-Fi'ına katılmadan ÖNCE kurun"
+  echo "(o Wi-Fi 'İnternet yok' gösterebilir)."
+  if ! curl -fsS --max-time 8 -o /dev/null https://formulae.brew.sh 2>/dev/null; then
+    echo ""
+    echo "Şu an internet yok, sing-box indirilemiyor."
+    echo "Normal Wi-Fi'ınıza dönün, sing-box'ı kurmak için script'i tekrar çalıştırın,"
+    echo "sonra telefonun Wi-Fi'ına katılın."
+    exit 1
+  fi
+  echo "sing-box brew ile kuruluyor..."
+  if ! brew install sing-box || ! command -v sing-box >/dev/null 2>&1; then
+    echo ""
+    echo "sing-box kurulamadı. Mac'in normal internette olduğundan emin olun"
+    echo "(telefonun Wi-Fi'ı değil), sonra script'i tekrar çalıştırın."
+    exit 1
+  fi
+  echo ""
+  echo "sing-box kuruldu. Şimdi telefonun Wi-Fi'ına katılın, sonra buradan devam edin."
+  read -rp "Mac telefonun Wi-Fi'ına bağlanınca Enter'a basın... " _
 fi
 
 SINGBOX_BIN="$(command -v sing-box)"

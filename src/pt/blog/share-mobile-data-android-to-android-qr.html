@@ -31,15 +31,15 @@ index:
 
     <h2>Passos no celular servidor</h2>
     <ol>
-      <li>Abra o Tether Link Utility e toque em <strong>START SERVER</strong>.</li>
+      <li>Abra o Tether Link Utility e toque em <strong>START</strong>.</li>
       <li>Conceda as permissões que o Android pedir. Para iniciar o roteador é preciso a permissão de localização nas versões mais antigas do Android e a permissão de dispositivos Wi-Fi por perto no Android 13 ou mais recente.</li>
       <li>Espere a tela mostrar o endereço IP e a porta.</li>
-      <li>Toque em <strong>Show QR Code</strong>.</li>
+      <li>Toque em <strong>Show QR code</strong>.</li>
     </ol>
 
     <h2>Passos no celular cliente</h2>
     <ol>
-      <li>Abra o Tether Link Utility e toque em <strong>Scan QR Code · Connect to Server</strong>.</li>
+      <li>Abra o Tether Link Utility, escolha <strong>Use another phone's internet</strong> e depois toque em <strong>Scan QR code</strong>.</li>
       <li>Aponte a câmera para o QR Code no celular servidor.</li>
       <li>No Android 10 ou mais recente, o app pede ao sistema para entrar no Wi-Fi do servidor. O Android pode mostrar um aviso pedindo que você confirme a conexão. Aceite.</li>
       <li>Na primeira vez, o Android pede que você permita a conexão VPN. É a interface local do VpnService descrita acima. Aceite.</li>
@@ -52,11 +52,11 @@ index:
     <p>Se o roteador usa WPA3, é acrescentado <strong>&amp;sec=wpa3</strong>. O mesmo texto aparece embaixo do QR Code, então você pode ler os valores e digitá-los à mão em um dispositivo que não consegue escanear. Como o QR Code inclui a senha do Wi-Fi, mostre-o só para quem você quer que use a sua conexão.</p>
 
     <h2>Usando o roteador do próprio celular</h2>
-    <p>Se você mesmo liga o roteador do sistema do celular (Roteador Wi-Fi no Android, Acesso Pessoal no iPhone) em vez de deixar o app criar um, toque em <strong>WI-FI</strong> no app e salve uma vez o nome e a senha dessa rede. Eles ficam guardados só no seu aparelho e o app não altera o seu roteador. Os dados entram no QR Code, então outros dispositivos podem entrar na rede escaneando o código. No iPhone, a senha fica em <strong>Ajustes &gt; Acesso Pessoal</strong>. Quando o app Android cria o próprio roteador automaticamente, você pode pular esta etapa.</p>
+    <p>Se você mesmo liga o roteador do sistema do celular (Roteador Wi-Fi no Android, Acesso Pessoal no iPhone) em vez de deixar o app criar um, toque em <strong>Add hotspot Wi-Fi details</strong> no app e salve uma vez o nome e a senha dessa rede. Eles ficam guardados só no seu aparelho e o app não altera o seu roteador. Os dados entram no QR Code, então outros dispositivos podem entrar na rede escaneando o código. No iPhone, a senha fica em <strong>Ajustes &gt; Acesso Pessoal</strong>. Quando o app Android cria o próprio roteador automaticamente, você pode pular esta etapa.</p>
 
     <h2>Solução de problemas</h2>
     <ul>
-      <li><strong>O servidor não inicia.</strong> Confira se a permissão de localização (ou de dispositivos Wi-Fi por perto no Android 13 ou mais recente) foi concedida. Se o Roteador Wi-Fi normal do celular já estiver ligado, o app não consegue criar o próprio roteador e passa a rodar o servidor sobre o roteador normal. Desligue o roteador normal e deixe o app criar o dele, ou mantenha-o ligado e salve uma vez o nome e a senha em <strong>WI-FI</strong> para que o QR Code os inclua.</li>
+      <li><strong>O servidor não inicia.</strong> Confira se a permissão de localização (ou de dispositivos Wi-Fi por perto no Android 13 ou mais recente) foi concedida. Se o Roteador Wi-Fi normal do celular já estiver ligado, o app não consegue criar o próprio roteador e passa a rodar o servidor sobre o roteador normal. Desligue o roteador normal e deixe o app criar o dele, ou mantenha-o ligado e salve uma vez o nome e a senha em <strong>Add hotspot Wi-Fi details</strong> para que o QR Code os inclua.</li>
       <li><strong>O cliente não entra no Wi-Fi.</strong> Procure um aviso ou notificação do sistema pedindo para confirmar a rede. Se você fechou o aviso, escaneie o QR Code de novo.</li>
       <li><strong>Cliente com Android 9 ou anterior.</strong> A entrada automática no Wi-Fi não está disponível. Conecte-se à rede Wi-Fi manualmente com o nome e a senha que aparecem no texto do QR Code e depois escaneie o código ou digite o IP e a porta.</li>
       <li><strong>Funcionava antes, mas parou.</strong> O endereço IP do celular servidor pode mudar quando o roteador reinicia. O app mostra um aviso quando isso acontece. Mostre o novo QR Code e escaneie de novo.</li>

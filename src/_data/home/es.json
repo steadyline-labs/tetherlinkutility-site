@@ -25,7 +25,7 @@
     "name": "Cómo compartir los datos móviles de tu teléfono por Wi-Fi con Tether Link Utility",
     "steps": [
       {
-        "name": "Toca START SERVER",
+        "name": "Toca START",
         "text": "El punto de acceso Wi-Fi se activa automáticamente. La app crea un túnel proxy SOCKS5 local y muestra los datos de conexión."
       },
       {
@@ -34,7 +34,7 @@
       },
       {
         "name": "Conecta tu dispositivo",
-        "text": "Android: escanea el código QR para unirte a la red Wi-Fi y conectar el proxy automáticamente. Windows / macOS / iOS: únete a la red Wi-Fi que aparece y luego introduce la IP y el puerto en la configuración de proxy SOCKS5."
+        "text": "Android: escanea el código QR para unirte a la red Wi-Fi y conectar el proxy automáticamente. Windows / macOS / iOS: primero instala tu app de proxy (el Wi-Fi del teléfono puede mostrar \"Sin internet\"; es normal), luego únete a la red Wi-Fi que aparece e introduce la IP y el puerto en la configuración de proxy SOCKS5."
       },
       {
         "name": "Empieza a navegar",
@@ -113,7 +113,7 @@
         "text": "La IP del operador puede cambiar entre sesiones. La app reconoce el cambio y avisa automáticamente a los dispositivos conectados."
       }
     ],
-    "notes": "<strong>¿Usas el punto de acceso propio de tu teléfono?</strong> Si activas tú mismo el Hotspot móvil (Android) o el Compartir Internet (iPhone), guarda su nombre y contraseña una vez en <strong>WI-FI</strong> dentro de la app. Se quedan en tu dispositivo, el punto de acceso no se modifica y se añaden al código QR para que otros dispositivos se unan escaneándolo. No hace falta cuando la app de Android inicia su propio punto de acceso. Los datos que usan los dispositivos conectados cuentan para tu plan móvil. Revisa las condiciones de tu operador sobre compartir conexión."
+    "notes": "<strong>¿Usas el punto de acceso propio de tu teléfono?</strong> Si activas tú mismo el Hotspot móvil (Android) o el Compartir Internet (iPhone), guarda su nombre y contraseña una vez con <strong>Add hotspot Wi-Fi details</strong> dentro de la app. Se quedan en tu dispositivo, el punto de acceso no se modifica y se añaden al código QR para que otros dispositivos se unan escaneándolo. No hace falta cuando la app de Android inicia su propio punto de acceso. Los datos que usan los dispositivos conectados cuentan para tu plan móvil. Revisa las condiciones de tu operador sobre compartir conexión."
   },
   "demo": {
     "title": "Míralo en acción",
@@ -228,7 +228,7 @@
       },
       {
         "q": "¿Otros dispositivos pueden unirse a mi propio punto de acceso escaneando el código QR?",
-        "a": "Sí. Si activas tú mismo el punto de acceso del sistema de tu teléfono (Hotspot móvil en Android, Compartir Internet en iPhone), guarda su nombre de red y contraseña una vez en WI-FI dentro de la app. Se guardan solo en tu dispositivo, la app no cambia la configuración de tu punto de acceso y los datos se añaden al código QR para que otros dispositivos se unan a la red automáticamente al escanearlo. En iPhone, la contraseña aparece en Ajustes &gt; Compartir Internet. Cuando la app de Android inicia su propio punto de acceso automáticamente, este paso no es necesario."
+        "a": "Sí. Si activas tú mismo el punto de acceso del sistema de tu teléfono (Hotspot móvil en Android, Compartir Internet en iPhone), guarda su nombre de red y contraseña una vez con Add hotspot Wi-Fi details dentro de la app. Se guardan solo en tu dispositivo, la app no cambia la configuración de tu punto de acceso y los datos se añaden al código QR para que otros dispositivos se unan a la red automáticamente al escanearlo. En iPhone, la contraseña aparece en Ajustes &gt; Compartir Internet. Cuando la app de Android inicia su propio punto de acceso automáticamente, este paso no es necesario."
       }
     ],
     "more": "Las 11 preguntas &rarr;",

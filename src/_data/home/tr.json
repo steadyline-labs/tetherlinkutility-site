@@ -20,7 +20,7 @@
     "name": "Tether Link Utility ile telefonun mobil verisi Wi-Fi üzerinden nasıl paylaşılır",
     "steps": [
       {
-        "name": "SUNUCUYU BAŞLAT'a dokunun",
+        "name": "PAYLAŞIMI BAŞLAT'a dokunun",
         "text": "Wi-Fi hotspot otomatik olarak açılır. Uygulama yerel bir SOCKS5 proxy tüneli oluşturur ve bağlantı bilgilerini gösterir."
       },
       {
@@ -29,7 +29,7 @@
       },
       {
         "name": "Cihazınızı bağlayın",
-        "text": "Android: QR kodu tarayın, Wi-Fi ve proxy otomatik bağlanır. Windows / macOS / iOS: gösterilen Wi-Fi'a katılın, ardından SOCKS5 proxy ayarlarınıza IP ve portu girin."
+        "text": "Android: QR kodu tarayın, Wi-Fi ve proxy otomatik bağlanır. Windows / macOS / iOS: önce proxy uygulamanızı kurun (telefonun Wi-Fi'ı \"İnternet yok\" gösterebilir; bu normaldir), sonra gösterilen Wi-Fi'a katılın ve SOCKS5 proxy ayarlarınıza IP ve portu girin."
       },
       {
         "name": "Gezinmeye başlayın",
@@ -78,7 +78,7 @@
     "demoLink": "Tanıtım videosunu izleyin &#9656;",
     "steps": [
       {
-        "title": "BAŞLAT'a dokunun",
+        "title": "PAYLAŞIMI BAŞLAT'a dokunun",
         "text": "Hotspot otomatik olarak açılır ve proxy başlar."
       },
       {
@@ -108,7 +108,7 @@
         "text": "Operatör IP'leri oturumlar arasında değişebilir. Uygulama değişikliği fark eder ve bağlı cihazları otomatik olarak uyarır."
       }
     ],
-    "notes": "<strong>Telefonunuzun kendi hotspot'unu mu kullanıyorsunuz?</strong> Mobil Hotspot'u (Android) veya Kişisel Erişim Noktası'nı (iPhone) kendiniz açıyorsanız, ağ adını ve şifresini uygulamadaki <strong>WI-FI</strong> bölümüne bir kez kaydedin. Bilgiler yalnızca cihazınızda saklanır, hotspot ayarlarınız değiştirilmez ve QR koda eklenir; böylece diğer cihazlar tarayarak ağa katılır. Android uygulaması hotspot'u kendisi başlattığında buna gerek yoktur. Bağlı cihazların kullandığı veri mobil paketinizden düşer. Tethering için operatörünüzün koşullarını kontrol edin."
+    "notes": "<strong>Telefonunuzun kendi hotspot'unu mu kullanıyorsunuz?</strong> Mobil Hotspot'u (Android) veya Kişisel Erişim Noktası'nı (iPhone) kendiniz açıyorsanız, ağ adını ve şifresini uygulamadaki <strong>Hotspot Wi-Fi bilgilerini ekle</strong> ile bir kez kaydedin. Bilgiler yalnızca cihazınızda saklanır, hotspot ayarlarınız değiştirilmez ve QR koda eklenir; böylece diğer cihazlar tarayarak ağa katılır. Android uygulaması hotspot'u kendisi başlattığında buna gerek yoktur. Bağlı cihazların kullandığı veri mobil paketinizden düşer. Tethering için operatörünüzün koşullarını kontrol edin."
   },
   "demo": {
     "title": "Uygulamayı iş başında görün",
@@ -223,7 +223,7 @@
       },
       {
         "q": "Diğer cihazlar QR kodu tarayarak kendi hotspot'uma katılabilir mi?",
-        "a": "Evet. Telefonunuzun sistem hotspot'unu kendiniz açıyorsanız (Android'de Mobil Hotspot, iPhone'da Kişisel Erişim Noktası), ağ adını ve şifresini uygulamadaki WI-FI bölümüne bir kez kaydedin. Bu bilgiler yalnızca cihazınızda saklanır, uygulama hotspot ayarlarınızı değiştirmez ve bilgiler QR koda eklenir; böylece diğer cihazlar kodu tarayarak ağa otomatik olarak katılır. iPhone'da şifre Ayarlar &gt; Kişisel Erişim Noktası bölümünde görünür. Android uygulaması hotspot'u otomatik olarak kendisi başlattığında bu adıma gerek yoktur."
+        "a": "Evet. Telefonunuzun sistem hotspot'unu kendiniz açıyorsanız (Android'de Mobil Hotspot, iPhone'da Kişisel Erişim Noktası), ağ adını ve şifresini uygulamadaki Hotspot Wi-Fi bilgilerini ekle ile bir kez kaydedin. Bu bilgiler yalnızca cihazınızda saklanır, uygulama hotspot ayarlarınızı değiştirmez ve bilgiler QR koda eklenir; böylece diğer cihazlar kodu tarayarak ağa otomatik olarak katılır. iPhone'da şifre Ayarlar &gt; Kişisel Erişim Noktası bölümünde görünür. Android uygulaması hotspot'u otomatik olarak kendisi başlattığında bu adıma gerek yoktur."
       }
     ],
     "more": "11 sorunun tümü &rarr;",

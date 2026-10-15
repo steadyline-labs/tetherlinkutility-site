@@ -24,7 +24,7 @@
     "name": "How to share your phone's mobile data over Wi-Fi with Tether Link Utility",
     "steps": [
       {
-        "name": "Tap START SERVER",
+        "name": "Tap START",
         "text": "The Wi-Fi hotspot turns on automatically. The app creates a local SOCKS5 proxy tunnel and displays the connection details."
       },
       {
@@ -33,7 +33,7 @@
       },
       {
         "name": "Connect your device",
-        "text": "Android: scan the QR code to join the Wi-Fi and connect the proxy automatically. Windows / macOS / iOS: join the Wi-Fi shown, then enter the IP and port in your SOCKS5 proxy settings."
+        "text": "Android: scan the QR code to join the Wi-Fi and connect the proxy automatically. Windows / macOS / iOS: install your proxy app first (the phone's Wi-Fi may show \"No internet\"; that's normal), then join the Wi-Fi shown and enter the IP and port in your SOCKS5 proxy settings."
       },
       {
         "name": "Start browsing",
@@ -112,7 +112,7 @@
         "text": "Carrier IPs can change between sessions. The app notices the change and alerts connected devices automatically."
       }
     ],
-    "notes": "<strong>Using your phone's own hotspot?</strong> If you turn on Mobile Hotspot (Android) or Personal Hotspot (iPhone) yourself, save its name and password once under <strong>WI-FI</strong> in the app. They stay on your device, the hotspot itself isn't changed, and they're added to the QR code so other devices join by scanning. Not needed when the Android app starts its own hotspot. Data used by connected devices counts toward your mobile plan. Check your carrier's terms for tethering."
+    "notes": "<strong>Using your phone's own hotspot?</strong> If you turn on Mobile Hotspot (Android) or Personal Hotspot (iPhone) yourself, save its name and password once with <strong>Add hotspot Wi-Fi details</strong> in the app. They stay on your device, the hotspot itself isn't changed, and they're added to the QR code so other devices join by scanning. Not needed when the Android app starts its own hotspot. Data used by connected devices counts toward your mobile plan. Check your carrier's terms for tethering."
   },
   "demo": {
     "title": "See it in action",
@@ -227,7 +227,7 @@
       },
       {
         "q": "Can other devices join my own hotspot by scanning the QR code?",
-        "a": "Yes. If you turn on your phone's system hotspot yourself (Mobile Hotspot on Android, Personal Hotspot on iPhone), save its network name and password once under WI-FI in the app. They are stored only on your device, the app doesn't change your hotspot settings, and the details are added to the QR code so other devices join the network automatically by scanning. On iPhone, the password is shown in Settings &gt; Personal Hotspot. When the Android app starts its own hotspot automatically, this step isn't needed."
+        "a": "Yes. If you turn on your phone's system hotspot yourself (Mobile Hotspot on Android, Personal Hotspot on iPhone), save its network name and password once with Add hotspot Wi-Fi details in the app. They are stored only on your device, the app doesn't change your hotspot settings, and the details are added to the QR code so other devices join the network automatically by scanning. On iPhone, the password is shown in Settings &gt; Personal Hotspot. When the Android app starts its own hotspot automatically, this step isn't needed."
       }
     ],
     "more": "All 11 questions &rarr;",

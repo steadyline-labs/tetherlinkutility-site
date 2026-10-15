@@ -25,7 +25,7 @@
     "name": "Como compartilhar os dados móveis do seu celular por Wi-Fi com o Tether Link Utility",
     "steps": [
       {
-        "name": "Toque em START SERVER",
+        "name": "Toque em START",
         "text": "O ponto de acesso Wi-Fi é ativado automaticamente. O app cria um túnel proxy SOCKS5 local e mostra os dados de conexão."
       },
       {
@@ -34,7 +34,7 @@
       },
       {
         "name": "Conecte seu dispositivo",
-        "text": "Android: escaneie o QR code para entrar no Wi-Fi e conectar o proxy automaticamente. Windows / macOS / iOS: entre na rede Wi-Fi mostrada e depois informe o IP e a porta nas configurações de proxy SOCKS5."
+        "text": "Android: escaneie o QR code para entrar no Wi-Fi e conectar o proxy automaticamente. Windows / macOS / iOS: primeiro instale seu app de proxy (o Wi-Fi do celular pode mostrar \"Sem internet\"; é normal), depois entre na rede Wi-Fi mostrada e informe o IP e a porta nas configurações de proxy SOCKS5."
       },
       {
         "name": "Comece a navegar",
@@ -113,7 +113,7 @@
         "text": "Os IPs da operadora podem mudar entre as sessões. O app percebe a mudança e avisa os dispositivos conectados automaticamente."
       }
     ],
-    "notes": "<strong>Usando o ponto de acesso do próprio celular?</strong> Se você mesmo ativar o Roteador Wi-Fi (Android) ou o Acesso Pessoal (iPhone), salve o nome e a senha dele uma vez em <strong>WI-FI</strong> no app. Eles ficam no seu dispositivo, o ponto de acesso não é alterado, e são incluídos no QR code para que outros dispositivos entrem na rede escaneando. Não é necessário quando o app Android inicia o próprio ponto de acesso. Os dados usados pelos dispositivos conectados contam no seu plano de dados. Confira os termos da sua operadora sobre ancoragem."
+    "notes": "<strong>Usando o ponto de acesso do próprio celular?</strong> Se você mesmo ativar o Roteador Wi-Fi (Android) ou o Acesso Pessoal (iPhone), salve o nome e a senha dele uma vez em <strong>Add hotspot Wi-Fi details</strong> no app. Eles ficam no seu dispositivo, o ponto de acesso não é alterado, e são incluídos no QR code para que outros dispositivos entrem na rede escaneando. Não é necessário quando o app Android inicia o próprio ponto de acesso. Os dados usados pelos dispositivos conectados contam no seu plano de dados. Confira os termos da sua operadora sobre ancoragem."
   },
   "demo": {
     "title": "Veja funcionando",
@@ -228,7 +228,7 @@
       },
       {
         "q": "Outros dispositivos podem entrar no meu próprio ponto de acesso escaneando o QR code?",
-        "a": "Sim. Se você mesmo ativar o ponto de acesso do sistema do seu celular (Roteador Wi-Fi no Android, Acesso Pessoal no iPhone), salve o nome da rede e a senha uma vez em WI-FI no app. Eles ficam armazenados apenas no seu dispositivo, o app não altera as configurações do seu ponto de acesso, e os dados são incluídos no QR code para que outros dispositivos entrem na rede automaticamente ao escanear. No iPhone, a senha aparece em Ajustes &gt; Acesso Pessoal. Quando o app Android inicia o próprio ponto de acesso automaticamente, esta etapa não é necessária."
+        "a": "Sim. Se você mesmo ativar o ponto de acesso do sistema do seu celular (Roteador Wi-Fi no Android, Acesso Pessoal no iPhone), salve o nome da rede e a senha uma vez em Add hotspot Wi-Fi details no app. Eles ficam armazenados apenas no seu dispositivo, o app não altera as configurações do seu ponto de acesso, e os dados são incluídos no QR code para que outros dispositivos entrem na rede automaticamente ao escanear. No iPhone, a senha aparece em Ajustes &gt; Acesso Pessoal. Quando o app Android inicia o próprio ponto de acesso automaticamente, esta etapa não é necessária."
       }
     ],
     "more": "Todas as 11 perguntas &rarr;",

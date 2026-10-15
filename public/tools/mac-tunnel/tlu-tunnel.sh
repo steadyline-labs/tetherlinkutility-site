@@ -96,7 +96,7 @@ case "$1" in
   start)
     if [ -z "$2" ] || [ -z "$3" ]; then usage; fi
     if [ -z "$SINGBOX_BIN" ]; then
-      echo "sing-box not found. Install it first: brew install sing-box"
+      echo "sing-box not found. Install it first (on your normal internet, BEFORE joining the phone's Wi-Fi): brew install sing-box"
       exit 1
     fi
     write_config "$2" "$3"
