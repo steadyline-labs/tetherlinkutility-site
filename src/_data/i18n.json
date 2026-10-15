@@ -48,6 +48,44 @@
         "verizon-hotspot-data-cap"
       ],
       "moreLabel": "more carrier guides"
+    },
+    "help": {
+      "link": "Can't connect? Tell us",
+      "title": "Can't connect? Tell us where you got stuck",
+      "intro": "We read every message. Leave an email if you'd like a reply.",
+      "q1": "What are you trying to connect?",
+      "q2": "Where did you get stuck?",
+      "message": "Anything else? (optional)",
+      "email": "Email, if you'd like a reply (optional)",
+      "button": "Send",
+      "sending": "Sending...",
+      "success": "Thanks, we got it. If you left an email, we'll write back.",
+      "note": "We only use this to help you and improve the guide. Kept for 90 days.",
+      "privacyLink": "Privacy",
+      "choose": "Please pick what you're connecting and where you got stuck.",
+      "emailBad": "That email doesn't look right. Fix it or leave it empty.",
+      "recent": "You just sent one. We'll read it soon.",
+      "error": "Couldn't send. Check your internet and try again, or email",
+      "noscript": "This form needs JavaScript. You can also email us at",
+      "platforms": {
+        "android": "Android phone (with Tether Link Utility)",
+        "ios": "iPhone or iPad",
+        "windows": "Windows PC",
+        "mac": "Mac",
+        "linux": "Linux",
+        "other": "Something else"
+      },
+      "steps": {
+        "start_sharing": "Starting sharing on the phone",
+        "install": "Installing the app or tool I need",
+        "scan_qr": "Scanning the QR code",
+        "join_wifi": "Joining the phone's Wi-Fi",
+        "set_proxy": "Entering the proxy details",
+        "ios_proxy_app": "Setting up Shadowrocket",
+        "no_internet": "It connects, but nothing loads",
+        "other": "Something else"
+      },
+      "privacyHref": "/privacy.html#help-requests"
     }
   },
   "tr": {
@@ -100,6 +138,44 @@
         "att-hotspot-throttling"
       ],
       "moreLabel": "operatör rehberi daha"
+    },
+    "help": {
+      "link": "Bağlanamadınız mı? Bize yazın",
+      "title": "Bağlanamadınız mı? Nerede takıldığınızı yazın",
+      "intro": "Her mesajı okuyoruz. Yanıt isterseniz e-posta bırakın.",
+      "q1": "Neyi bağlamaya çalışıyorsunuz?",
+      "q2": "Nerede takıldınız?",
+      "message": "Eklemek istediğiniz bir şey var mı? (isteğe bağlı)",
+      "email": "Yanıt isterseniz e-posta adresiniz (isteğe bağlı)",
+      "button": "Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Teşekkürler, aldık. E-posta bıraktıysanız size yazacağız.",
+      "note": "Bunu sadece size yardım etmek ve rehberi iyileştirmek için kullanırız. 90 gün saklanır.",
+      "privacyLink": "Gizlilik",
+      "choose": "Lütfen neyi bağladığınızı ve nerede takıldığınızı seçin.",
+      "emailBad": "Bu e-posta adresi doğru görünmüyor. Düzeltin ya da boş bırakın.",
+      "recent": "Az önce bir mesaj gönderdiniz. Yakında okuyacağız.",
+      "error": "Gönderilemedi. İnternet bağlantınızı kontrol edip tekrar deneyin ya da e-posta gönderin:",
+      "noscript": "Bu form için JavaScript gerekiyor. Bize e-posta da gönderebilirsiniz:",
+      "platforms": {
+        "android": "Android telefon (Tether Link Utility ile)",
+        "ios": "iPhone veya iPad",
+        "windows": "Windows bilgisayar",
+        "mac": "Mac",
+        "linux": "Linux",
+        "other": "Başka bir şey"
+      },
+      "steps": {
+        "start_sharing": "Telefonda paylaşımı başlatmak",
+        "install": "Gereken uygulamayı kurmak",
+        "scan_qr": "QR kodu okutmak",
+        "join_wifi": "Telefonun Wi-Fi ağına bağlanmak",
+        "set_proxy": "Proxy bilgilerini girmek",
+        "ios_proxy_app": "Shadowrocket'ı ayarlamak",
+        "no_internet": "Bağlanıyor ama hiçbir şey açılmıyor",
+        "other": "Başka bir şey"
+      },
+      "privacyHref": "/privacy.html#tr-help-requests"
     }
   },
   "hi": {
@@ -151,6 +227,44 @@
         "verizon-hotspot-data-cap"
       ],
       "moreLabel": "और ऑपरेटर गाइड"
+    },
+    "help": {
+      "link": "कनेक्ट नहीं हो रहा? हमें बताएं",
+      "title": "कनेक्ट नहीं हो रहा? बताएं आप कहां अटके",
+      "intro": "हम हर मैसेज पढ़ते हैं। जवाब चाहिए तो अपना ईमेल छोड़ दें।",
+      "q1": "आप क्या कनेक्ट करने की कोशिश कर रहे हैं?",
+      "q2": "आप कहां अटके?",
+      "message": "कुछ और बताना है? (वैकल्पिक)",
+      "email": "ईमेल, अगर जवाब चाहिए (वैकल्पिक)",
+      "button": "भेजें",
+      "sending": "भेजा जा रहा है...",
+      "success": "शुक्रिया, हमें मिल गया। अगर आपने ईमेल दिया है, तो हम जवाब देंगे।",
+      "note": "हम इसे सिर्फ़ आपकी मदद करने और गाइड को बेहतर बनाने के लिए इस्तेमाल करते हैं। यह 90 दिन तक रखा जाता है।",
+      "privacyLink": "प्राइवेसी",
+      "choose": "कृपया चुनें कि आप क्या कनेक्ट कर रहे हैं और कहां अटके।",
+      "emailBad": "यह ईमेल सही नहीं लग रहा। इसे ठीक करें या खाली छोड़ दें।",
+      "recent": "आपने अभी एक मैसेज भेजा है। हम जल्द पढ़ेंगे।",
+      "error": "भेजा नहीं जा सका। अपना इंटरनेट चेक करके फिर से कोशिश करें, या ईमेल करें:",
+      "noscript": "इस फ़ॉर्म के लिए JavaScript चाहिए। आप हमें ईमेल भी कर सकते हैं:",
+      "platforms": {
+        "android": "Android फ़ोन (Tether Link Utility के साथ)",
+        "ios": "iPhone या iPad",
+        "windows": "Windows PC",
+        "mac": "Mac",
+        "linux": "Linux",
+        "other": "कुछ और"
+      },
+      "steps": {
+        "start_sharing": "फ़ोन पर शेयरिंग शुरू करना",
+        "install": "ज़रूरी ऐप या टूल इंस्टॉल करना",
+        "scan_qr": "QR कोड स्कैन करना",
+        "join_wifi": "फ़ोन के Wi-Fi से जुड़ना",
+        "set_proxy": "प्रॉक्सी की डिटेल डालना",
+        "ios_proxy_app": "Shadowrocket सेट करना",
+        "no_internet": "कनेक्ट हो जाता है, पर कुछ नहीं खुलता",
+        "other": "कुछ और"
+      },
+      "privacyHref": "/privacy.html#hi-help-requests"
     }
   },
   "es": {
@@ -206,6 +320,44 @@
         "claro-argentina-compartir-internet"
       ],
       "moreLabel": "guías de operadores más"
+    },
+    "help": {
+      "link": "¿No logras conectarte? Cuéntanos",
+      "title": "¿No logras conectarte? Cuéntanos en qué paso te quedaste",
+      "intro": "Leemos todos los mensajes. Deja tu correo si quieres una respuesta.",
+      "q1": "¿Qué intentas conectar?",
+      "q2": "¿En qué paso te quedaste?",
+      "message": "¿Algo más? (opcional)",
+      "email": "Correo, si quieres una respuesta (opcional)",
+      "button": "Enviar",
+      "sending": "Enviando...",
+      "success": "Gracias, lo recibimos. Si dejaste tu correo, te responderemos.",
+      "note": "Solo lo usamos para ayudarte y mejorar la guía. Se guarda 90 días.",
+      "privacyLink": "Privacidad",
+      "choose": "Elige qué intentas conectar y en qué paso te quedaste.",
+      "emailBad": "Ese correo no parece correcto. Corrígelo o déjalo vacío.",
+      "recent": "Acabas de enviar uno. Lo leeremos pronto.",
+      "error": "No se pudo enviar. Revisa tu conexión a internet e inténtalo de nuevo, o escribe a",
+      "noscript": "Este formulario necesita JavaScript. También puedes escribirnos a",
+      "platforms": {
+        "android": "Teléfono Android (con Tether Link Utility)",
+        "ios": "iPhone o iPad",
+        "windows": "PC con Windows",
+        "mac": "Mac",
+        "linux": "Linux",
+        "other": "Otra cosa"
+      },
+      "steps": {
+        "start_sharing": "Iniciar el uso compartido en el teléfono",
+        "install": "Instalar la app o herramienta que necesito",
+        "scan_qr": "Escanear el código QR",
+        "join_wifi": "Conectarme al Wi-Fi del teléfono",
+        "set_proxy": "Ingresar los datos del proxy",
+        "ios_proxy_app": "Configurar Shadowrocket",
+        "no_internet": "Se conecta, pero nada carga",
+        "other": "Otra cosa"
+      },
+      "privacyHref": "/privacy.html#es-help-requests"
     }
   },
   "pt": {
@@ -260,6 +412,44 @@
         "tim-limite-roteamento"
       ],
       "moreLabel": "guias de operadoras a mais"
+    },
+    "help": {
+      "link": "Não consegue conectar? Fale com a gente",
+      "title": "Não consegue conectar? Conte onde você travou",
+      "intro": "Lemos todas as mensagens. Deixe seu e-mail se quiser uma resposta.",
+      "q1": "O que você está tentando conectar?",
+      "q2": "Em que parte você travou?",
+      "message": "Mais alguma coisa? (opcional)",
+      "email": "E-mail, se quiser uma resposta (opcional)",
+      "button": "Enviar",
+      "sending": "Enviando...",
+      "success": "Obrigado, recebemos. Se você deixou um e-mail, vamos responder.",
+      "note": "Usamos isso só para ajudar você e melhorar o guia. Fica guardado por 90 dias.",
+      "privacyLink": "Privacidade",
+      "choose": "Escolha o que você está conectando e em que parte travou.",
+      "emailBad": "Esse e-mail não parece certo. Corrija ou deixe em branco.",
+      "recent": "Você acabou de enviar uma mensagem. Vamos ler em breve.",
+      "error": "Não foi possível enviar. Verifique sua internet e tente de novo, ou escreva para",
+      "noscript": "Este formulário precisa de JavaScript. Você também pode escrever para",
+      "platforms": {
+        "android": "Celular Android (com o Tether Link Utility)",
+        "ios": "iPhone ou iPad",
+        "windows": "PC com Windows",
+        "mac": "Mac",
+        "linux": "Linux",
+        "other": "Outra coisa"
+      },
+      "steps": {
+        "start_sharing": "Iniciar o compartilhamento no celular",
+        "install": "Instalar o app ou a ferramenta necessária",
+        "scan_qr": "Ler o QR code",
+        "join_wifi": "Entrar no Wi-Fi do celular",
+        "set_proxy": "Digitar os dados do proxy",
+        "ios_proxy_app": "Configurar o Shadowrocket",
+        "no_internet": "Conecta, mas nada carrega",
+        "other": "Outra coisa"
+      },
+      "privacyHref": "/privacy.html#pt-help-requests"
     }
   }
 }
