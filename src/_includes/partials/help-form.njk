@@ -1,6 +1,6 @@
 {#- "Can't connect?" help request form (anchor #help). Text comes from i18n[lang].help.
-    Sends one Firestore REST commit (no SDK): help_rate/<iid> + help_requests/<random id>.
-    The rules (Firebase project tether-link-utility) allow one send per browser every 5 minutes.
+    Delivery goes through deliverHelpRequest() only; the delivery method is not decided yet.
+    One send per browser every 5 minutes is checked here, in the page.
     Set helpPage ("guide" or "support") before including; it is sent as diag.page. -#}
 {%- set hp = t.help -%}
 {%- set stepsFor = {
@@ -56,11 +56,16 @@
   (function () {
     var form = document.getElementById('helpForm');
     if (!form) return;
-    var ENDPOINT = 'https://firestore.googleapis.com/v1/projects/tether-link-utility/databases/(default)/documents:commit';
-    var DOCS = 'projects/tether-link-utility/databases/(default)/documents/';
     var STEPS = {{ stepsFor | dump }};
     var TEXT = {{ { recent: hp.recent, choose: hp.choose, emailBad: hp.emailBad, error: hp.error, email: site.email } | dump }};
-    var IID_KEY = 'tlu_help_iid', SENT_KEY = 'tlu_help_sent', FIVE_MIN = 5 * 60 * 1000;
+    var SENT_KEY = 'tlu_help_sent', FIVE_MIN = 5 * 60 * 1000;
+
+    // Sends one help request. Returns 'sent', 'too_soon' or 'failed'.
+    // payload = { source: 'site', platform, step, message, email, lang, page }
+    // Delivery method pending: returns 'failed' for now, so the form shows the email fallback.
+    async function deliverHelpRequest(payload) {
+      return 'failed';
+    }
 
     var stepsBox = document.getElementById('helpSteps');
     var msg = document.getElementById('helpMessage');
@@ -72,21 +77,14 @@
     var done = document.getElementById('helpDone');
     var label = btn.textContent;
 
-    function rnd(n, chars) {
-      var out = '', buf = new Uint8Array(n);
-      try { crypto.getRandomValues(buf); } catch (e) { for (var j = 0; j < n; j++) buf[j] = Math.floor(Math.random() * 256); }
-      for (var i = 0; i < n; i++) out += chars.charAt(buf[i] % chars.length);
-      return out;
-    }
-    var ALNUM = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     function store(key, val) {
       try { if (val === undefined) return localStorage.getItem(key); localStorage.setItem(key, val); } catch (e) {}
       return null;
     }
-    // Random id for this form only, so the rules can limit repeat sends. Not linked to anything else.
-    var iid = store(IID_KEY);
-    if (!iid || !/^[A-Za-z0-9_-]{22}$/.test(iid)) { iid = rnd(22, ALNUM + '-_'); store(IID_KEY, iid); }
-
+    function sentRecently() {
+      var last = Number(store(SENT_KEY)) || 0;
+      return Date.now() - last < FIVE_MIN;
+    }
     function picked(name) {
       var el = form.querySelector('input[name="' + name + '"]:checked');
       return el ? el.value : '';
@@ -119,37 +117,6 @@
     });
     msg.addEventListener('input', function () { count.textContent = msg.value.length + '/500'; });
 
-    function body(platform, step) {
-      var s = function (v) { return { stringValue: v }; };
-      return JSON.stringify({ writes: [
-        { update: { name: DOCS + 'help_rate/' + iid, fields: {} },
-          updateTransforms: [{ fieldPath: 'last', setToServerValue: 'REQUEST_TIME' }] },
-        { update: { name: DOCS + 'help_requests/' + rnd(20, ALNUM), fields: {
-            source: s('site'), platform: s(platform), step: s(step),
-            message: s(msg.value.slice(0, 500)), email: s(email.value.trim()),
-            lang: s(form.getAttribute('data-lang')), iid: s(iid), hp: s(''),
-            expireAt: { timestampValue: new Date(Date.now() + 90 * 864e5).toISOString() },
-            diag: { mapValue: { fields: { page: s(form.getAttribute('data-page')) } } }
-          } },
-          currentDocument: { exists: false },
-          updateTransforms: [{ fieldPath: 'createdAt', setToServerValue: 'REQUEST_TIME' }] }
-      ] });
-    }
-
-    function send(payload, attempt, lostOne) {
-      return fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload })
-        .then(function (r) {
-          if (r.status >= 500 || r.status === 429) throw new Error('retry');
-          // A 403 right after a lost response means the first try got through.
-          return r.status === 200 || (r.status === 403 && lostOne) ? 'ok' : r.status === 403 ? 'denied' : 'error';
-        })
-        .catch(function () {
-          if (attempt >= 3) return 'error';
-          return new Promise(function (res) { setTimeout(res, 1000 * Math.pow(2, attempt)); })
-            .then(function () { return send(payload, attempt + 1, true); });
-        });
-    }
-
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (btn.disabled) return;
@@ -159,15 +126,19 @@
       if (mail && (mail.length > 120 || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail))) { say(TEXT.emailBad); email.focus(); return; }
       // Bots fill the hidden field: pretend it worked and send nothing.
       if (trap.value) { showDone(); return; }
+      if (sentRecently()) { say(TEXT.recent); return; }
       btn.disabled = true;
       btn.textContent = btn.getAttribute('data-sending');
       say('');
-      send(body(platform, step), 0, false).then(function (result) {
+      var payload = {
+        source: 'site', platform: platform, step: step, message: msg.value.slice(0, 500), email: mail,
+        lang: form.getAttribute('data-lang'), page: form.getAttribute('data-page')
+      };
+      deliverHelpRequest(payload).catch(function () { return 'failed'; }).then(function (result) {
         btn.disabled = false;
         btn.textContent = label;
-        if (result === 'ok') { store(SENT_KEY, String(Date.now())); showDone(); return; }
-        var last = Number(store(SENT_KEY)) || 0;
-        if (result === 'denied' && Date.now() - last < FIVE_MIN) say(TEXT.recent);
+        if (result === 'sent') { store(SENT_KEY, String(Date.now())); showDone(); return; }
+        if (result === 'too_soon') say(TEXT.recent);
         else say(TEXT.error, true);
       });
     });
