@@ -3,7 +3,7 @@ permalink: /privacy.html
 lang: en
 sitemap:
   order: 3
-  lastmod: "2026-10-15"
+  lastmod: "2026-10-16"
   changefreq: "monthly"
   priority: "0.3"
 ---
@@ -18,7 +18,7 @@ sitemap:
   <link rel="alternate" hreflang="en" href="https://tetherlinkutility.com/privacy.html" />
   <link rel="alternate" hreflang="x-default" href="https://tetherlinkutility.com/privacy.html" />
   <title>Privacy Policy: Tether Link Utility</title>
-  <meta name="description" content="Tether Link Utility's privacy policy: the traffic you share is not logged or sent to our servers; the app uses Google AdMob ads (free version) and Firebase Analytics, Crashlytics and Remote Config, and how to request data deletion.">
+  <meta name="description" content="Tether Link Utility's privacy policy: the traffic you share is not logged or sent to our servers; the app uses Google AdMob ads (free version) and Firebase Analytics, Crashlytics and Remote Config, how optional help requests are handled, and how to request data deletion.">
   <meta name="robots" content="index, follow">
 
   <link rel="icon" type="image/png" href="/favicon.png">
@@ -61,14 +61,14 @@ sitemap:
     <a href="#pt">Português</a>
     <a href="#tr">Türkçe</a>
   </div>
-  <div class="effective-date">Effective Date: October 15, 2026</div>
+  <div class="effective-date">Effective Date: October 16, 2026</div>
 
   <h2>1. Information Collection and Use</h2>
   <p>Tether Link Utility is designed as a local system routing utility.</p>
   <ul>
-    <li><strong>No Account or Contact Details:</strong> The app does not ask for, collect, or store your name, phone number, email address, or account details. The only exception is an email address you choose to add to a help request (see section 9).</li>
+    <li><strong>No Account:</strong> The app has no accounts and does not collect your name, phone number, or account details. It collects an email address only if you choose to type one into the optional help form (see section 9).</li>
     <li><strong>No Network Traffic Logging:</strong> We do not monitor, log, inspect, or store the content of your traffic, your browsing history, or the destination addresses passing through your tethering connection, and this traffic is not sent to any server of ours.</li>
-    <li><strong>Third-Party Services:</strong> The app includes Google AdMob (free version only), Firebase Analytics, Firebase Crashlytics, and Firebase Remote Config. These services collect device identifiers and usage and crash data, as described in section 3.</li>
+    <li><strong>Third-Party Services:</strong> The app includes Google AdMob (free version only), Firebase Analytics, Firebase Crashlytics, and Firebase Remote Config. These services collect device identifiers and usage and crash data, as described in section 3. Help requests you choose to send from the app are stored in Google Firestore and emailed to us through Formspree (section 9).</li>
     <li><strong>Location and Nearby devices:</strong> Android only lets an app start its own Wi-Fi hotspot with the Location permission (Android 8 to 12) or the Nearby devices permission (Android 13 and later). The app asks for it only to start that hotspot. It never reads, stores, or sends your location.</li>
     <li><strong>Camera:</strong> Used only to scan QR codes. Images stay on your device and are not saved or sent.</li>
     <li><strong>iPhone and iPad:</strong> On iPhone and iPad the app does not ask for location; it uses the camera for QR codes and local network access to reach your other device.</li>
@@ -98,7 +98,7 @@ sitemap:
   <p>Subscriptions are processed securely through Google Play Billing on Android and the App Store on iPhone and iPad. We do not receive or store your payment details. The purchase status (Free or Premium, and when it was last confirmed) is stored encrypted on your device so the app works without a connection, and it is re-checked with the store whenever possible. If the store cannot be reached, a previously confirmed Premium status stays valid for up to 7 days offline.</p>
 
   <h2>5. Data Security</h2>
-  <p>All proxy operations are handled on your device, with no remote server of ours in between. The traffic you share through the proxy goes from your devices to your phone and out over your mobile connection; it is not sent to us. Advertising, analytics, and crash data are handled as described in section 3.</p>
+  <p>All proxy operations are handled on your device, with no remote server of ours in between. The traffic you share through the proxy goes from your devices to your phone and out over your mobile connection; it is not sent to us. Advertising, analytics, and crash data are handled as described in section 3. Help requests are handled as described in section 9.</p>
 
   <h2>6. Children's Privacy</h2>
   <p>This application is not directed at children under the age of 13. We do not knowingly collect any information from children.</p>
@@ -119,10 +119,10 @@ sitemap:
   <p>If you can't connect, you can tell us where you got stuck with the "Can't connect?" form on this website or from the app. Sending one is always your choice.</p>
   <ul>
     <li><strong>From this website:</strong> the form sends what you were trying to connect (your device type), where you got stuck, your message if you add one, your email address if you add one (used only to reply to you), and the page language. It is processed by Formspree (Formspree, Inc., formspree.io) as our service provider, only to deliver it to our support inbox. Like any web service, Formspree also receives technical data such as your IP address to deliver the form and block spam, as described in <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Formspree's privacy policy</a>.</li>
-    <li><strong>From the app:</strong> a help request sent from inside the Android app is stored in our Firebase project (Google Firestore). It contains your choices, your message if you add one, your email address if you add one, and non-personal app diagnostics: app version, Android version, phone maker and model, app language, whether you were sharing or using another phone's internet, connection counts, and which guide step you were on. We do not see your IP address, and it never includes your Wi-Fi name or password, advertising ID, or location. We use it only to give you support, and we delete it after 90 days.</li>
+    <li><strong>From the app:</strong> a help request sent from inside the Android or iPhone app is stored in our Firebase project (Google Firestore, EU region). It contains your choices (device type and where you got stuck), your message if you add one (up to 500 characters), your email address if you add one (used only to reply to you), a random ID created only for help requests (so we can group requests from the same install), and non-personal app diagnostics: app version, Android or iOS version, device maker and model, app language, whether you were sharing or using another phone's internet, whether sharing was on, connection counts, which guide step you were on, and the result of the connection check and of joining the Wi-Fi. Your IP address is not stored, and a request never includes your Wi-Fi name or password, advertising ID (or Apple's IDFA or IDFV), or location. Our server then forwards it to our support inbox by email through Formspree (Formspree, Inc.), our service provider for email delivery. We use it only to give you support, and it is automatically deleted after 90 days.</li>
     <li><strong>Why:</strong> to answer you and to improve the setup guide and the app.</li>
     <li><strong>How long:</strong> we keep help requests for up to 90 days, then delete them.</li>
-    <li><strong>Not sold or shared:</strong> we do not sell help requests or share them with anyone beyond the processing described above.</li>
+    <li><strong>Not sold or shared:</strong> we do not sell help requests or share them with anyone beyond the processing described above (Google and Formspree, as our service providers).</li>
     <li><strong>Deletion:</strong> to have a request deleted sooner, email <a href="mailto:support@tetherlinkutility.com?subject=Data%20deletion%20request">support@tetherlinkutility.com</a> and tell us roughly when you sent it.</li>
   </ul>
 
@@ -145,14 +145,14 @@ sitemap:
     <a href="#pt">Português</a>
     <a href="#tr">Türkçe</a>
   </div>
-  <div class="effective-date">Yürürlük Tarihi: 15 Ekim 2026</div>
+  <div class="effective-date">Yürürlük Tarihi: 16 Ekim 2026</div>
 
   <h2>1. Bilgi Toplama ve Kullanımı</h2>
   <p>Tether Link Utility yerel bir sistem yönlendirme yardımcı programı olarak tasarlanmıştır.</p>
   <ul>
-    <li><strong>Hesap veya İletişim Bilgisi Yok:</strong> Uygulama adınızı, telefon numaranızı, e-posta adresinizi veya hesap ayrıntılarınızı istemez, toplamaz ve saklamaz. Tek istisna, bir yardım talebine kendi isteğinizle eklediğiniz e-posta adresidir (bkz. bölüm 9).</li>
+    <li><strong>Hesap Yok:</strong> Uygulamada hesap sistemi yoktur; adınızı, telefon numaranızı veya hesap ayrıntılarınızı toplamaz. E-posta adresi yalnızca isteğe bağlı yardım formuna kendiniz yazarsanız alınır (bkz. bölüm 9).</li>
     <li><strong>Ağ Trafiği Kaydedilmez:</strong> Tethering bağlantınızdan geçen trafiğin içeriğini, tarama geçmişinizi veya hedef adresleri izlemez, kaydetmez, incelemez veya saklamayız; bu trafik sunucularımıza gönderilmez.</li>
-    <li><strong>Üçüncü Taraf Hizmetler:</strong> Uygulama Google AdMob (yalnızca ücretsiz sürüm), Firebase Analytics, Firebase Crashlytics ve Firebase Remote Config içerir. Bu hizmetler, 3. bölümde açıklandığı gibi cihaz tanımlayıcıları ile kullanım ve çökme verilerini toplar.</li>
+    <li><strong>Üçüncü Taraf Hizmetler:</strong> Uygulama Google AdMob (yalnızca ücretsiz sürüm), Firebase Analytics, Firebase Crashlytics ve Firebase Remote Config içerir. Bu hizmetler, 3. bölümde açıklandığı gibi cihaz tanımlayıcıları ile kullanım ve çökme verilerini toplar. Uygulamadan kendi isteğinizle gönderdiğiniz yardım talepleri Google Firestore'da saklanır ve Formspree aracılığıyla bize e-postayla iletilir (bkz. bölüm 9).</li>
     <li><strong>Konum ve Yakındaki cihazlar:</strong> Android, bir uygulamanın kendi Wi-Fi hotspot'unu açmasına yalnızca Konum izni (Android 8-12) veya Yakındaki cihazlar izni (Android 13 ve sonrası) varsa izin verir. Uygulama bu izni sadece hotspot'u açmak için ister. Konumunuzu hiçbir zaman okumaz, saklamaz veya göndermez.</li>
     <li><strong>Kamera:</strong> Yalnızca QR kod taramak için kullanılır. Görüntüler cihazınızda kalır, kaydedilmez ve gönderilmez.</li>
     <li><strong>iPhone ve iPad:</strong> iPhone ve iPad'de uygulama konum izni istemez; QR kod için kamerayı, diğer cihazınıza ulaşmak için yerel ağ erişimini kullanır.</li>
@@ -182,7 +182,7 @@ sitemap:
   <p>Abonelikler Android'de Google Play Faturalama, iPhone ve iPad'de App Store aracılığıyla güvenli bir şekilde işlenir. Ödeme bilgilerinizi almaz veya saklamayız. Satın alma durumu (Ücretsiz ya da Premium ve en son ne zaman doğrulandığı) bağlantı olmadan da çalışabilmesi için cihazda şifreli olarak saklanır ve mümkün olduğunda mağazayla yeniden kontrol edilir. Mağazaya ulaşılamazsa daha önce doğrulanmış Premium durumu çevrimdışıyken en fazla 7 gün geçerli kalır.</p>
 
   <h2>5. Veri Güvenliği</h2>
-  <p>Tüm proxy işlemleri cihazınızda gerçekleşir, arada bize ait uzak bir sunucu yoktur. Proxy üzerinden paylaştığınız trafik cihazlarınızdan telefonunuza, oradan mobil bağlantınıza gider; bize gönderilmez. Reklam, analitik ve çökme verileri 3. bölümde açıklandığı şekilde işlenir.</p>
+  <p>Tüm proxy işlemleri cihazınızda gerçekleşir, arada bize ait uzak bir sunucu yoktur. Proxy üzerinden paylaştığınız trafik cihazlarınızdan telefonunuza, oradan mobil bağlantınıza gider; bize gönderilmez. Reklam, analitik ve çökme verileri 3. bölümde açıklandığı şekilde işlenir. Yardım talepleri 9. bölümde açıklandığı şekilde işlenir.</p>
 
   <h2>6. Çocukların Gizliliği</h2>
   <p>Bu uygulama 13 yaşın altındaki çocuklara yönelik değildir. Çocuklardan bilerek herhangi bir bilgi toplamayız.</p>
@@ -203,10 +203,10 @@ sitemap:
   <p>Bağlanamazsanız bu sitedeki "Bağlanamadınız mı?" formuyla ya da uygulamadan nerede takıldığınızı bize yazabilirsiniz. Göndermek her zaman sizin tercihinizdir.</p>
   <ul>
     <li><strong>Bu siteden:</strong> form neyi bağlamaya çalıştığınızı (cihaz türünüzü), nerede takıldığınızı, eklerseniz mesajınızı, eklerseniz e-posta adresinizi (yalnızca size yanıt vermek için kullanılır) ve sayfanın dilini gönderir. Bu bilgiler, hizmet sağlayıcımız Formspree (Formspree, Inc., formspree.io) tarafından yalnızca destek gelen kutumuza ulaştırılmak için işlenir. Her web hizmeti gibi Formspree da formu ulaştırmak ve spam'i engellemek için IP adresiniz gibi teknik verileri alır; ayrıntılar <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Formspree gizlilik politikasında</a>.</li>
-    <li><strong>Uygulamadan:</strong> Android uygulamasının içinden gönderilen yardım talebi Firebase projemizde (Google Firestore) saklanır. İçinde seçimleriniz, eklerseniz mesajınız, eklerseniz e-posta adresiniz ve kişisel olmayan uygulama tanılama bilgileri bulunur: uygulama sürümü, Android sürümü, telefonun markası ve modeli, uygulama dili, paylaşım mı yaptığınız yoksa başka bir telefonun internetini mi kullandığınız, bağlantı sayıları ve rehberin hangi adımında olduğunuz. IP adresinizi görmeyiz; Wi-Fi adını veya şifresini, reklam kimliğinizi ya da konumunuzu da asla içermez. Yalnızca size destek vermek için kullanırız ve 90 gün sonra sileriz.</li>
+    <li><strong>Uygulamadan:</strong> Android veya iPhone uygulamasının içinden gönderilen yardım talebi Firebase projemizde (Google Firestore, AB bölgesi) saklanır. İçinde seçimleriniz (cihaz türü ve nerede takıldığınız), eklerseniz mesajınız (en fazla 500 karakter), eklerseniz e-posta adresiniz (yalnızca size yanıt vermek için kullanılır), yalnızca yardım talepleri için oluşturulan rastgele bir kimlik (aynı kurulumdan gelen talepleri bir arada görebilmemiz için) ve kişisel olmayan uygulama tanılama bilgileri bulunur: uygulama sürümü, Android veya iOS sürümü, cihazın markası ve modeli, uygulama dili, paylaşım mı yaptığınız yoksa başka bir telefonun internetini mi kullandığınız, paylaşımın açık olup olmadığı, bağlantı sayıları, rehberin hangi adımında olduğunuz, bağlantı kontrolünün ve Wi-Fi ağına bağlanma denemesinin sonucu. IP adresiniz saklanmaz; talep Wi-Fi adını veya şifresini, reklam kimliğinizi (Apple'ın IDFA ve IDFV kimlikleri dahil) ya da konumunuzu asla içermez. Sunucumuz talebi, e-posta iletimi için hizmet sağlayıcımız olan Formspree (Formspree, Inc.) aracılığıyla destek gelen kutumuza e-postayla iletir. Yalnızca size destek vermek için kullanırız; 90 gün sonra otomatik olarak silinir.</li>
     <li><strong>Neden:</strong> size yanıt vermek, kurulum rehberini ve uygulamayı iyileştirmek için.</li>
     <li><strong>Ne kadar süre:</strong> yardım taleplerini en fazla 90 gün saklar, sonra sileriz.</li>
-    <li><strong>Satılmaz, paylaşılmaz:</strong> yardım taleplerini satmayız ve yukarıda anlatılan işleme dışında kimseyle paylaşmayız.</li>
+    <li><strong>Satılmaz, paylaşılmaz:</strong> yardım taleplerini satmayız ve yukarıda anlatılan işleme (hizmet sağlayıcılarımız Google ve Formspree) dışında kimseyle paylaşmayız.</li>
     <li><strong>Silme:</strong> bir talebin daha erken silinmesini isterseniz <a href="mailto:support@tetherlinkutility.com?subject=Data%20deletion%20request">support@tetherlinkutility.com</a> adresine yazın ve yaklaşık ne zaman gönderdiğinizi belirtin.</li>
   </ul>
 
@@ -229,14 +229,14 @@ sitemap:
     <a href="#pt">Português</a>
     <a href="#tr">Türkçe</a>
   </div>
-  <div class="effective-date">लागू होने की तारीख: 15 अक्टूबर, 2026</div>
+  <div class="effective-date">लागू होने की तारीख: 16 अक्टूबर, 2026</div>
 
   <h2>1. जानकारी जुटाना और इस्तेमाल</h2>
   <p>Tether Link Utility को एक लोकल सिस्टम रूटिंग यूटिलिटी के तौर पर डिज़ाइन किया गया है।</p>
   <ul>
-    <li><strong>कोई अकाउंट या संपर्क जानकारी नहीं:</strong> ऐप आपका नाम, फ़ोन नंबर, ईमेल एड्रेस, या अकाउंट डिटेल्स नहीं मांगता, नहीं जुटाता, और स्टोर नहीं करता। सिर्फ़ एक अपवाद है: मदद के अनुरोध में आप अपनी मर्ज़ी से जो ईमेल एड्रेस जोड़ते हैं (सेक्शन 9 देखें)।</li>
+    <li><strong>कोई अकाउंट नहीं:</strong> ऐप में कोई अकाउंट नहीं है, और यह आपका नाम, फ़ोन नंबर या अकाउंट डिटेल्स नहीं जुटाता। ईमेल एड्रेस सिर्फ़ तभी लिया जाता है जब आप उसे अपनी मर्ज़ी से वैकल्पिक मदद फ़ॉर्म में लिखें (सेक्शन 9 देखें)।</li>
     <li><strong>कोई नेटवर्क ट्रैफ़िक लॉगिंग नहीं:</strong> हम आपके टेदरिंग कनेक्शन से गुज़रने वाले ट्रैफ़िक के कंटेंट, ब्राउज़िंग हिस्ट्री, या डेस्टिनेशन एड्रेस को मॉनिटर, लॉग, इंस्पेक्ट, या स्टोर नहीं करते, और यह ट्रैफ़िक हमारे किसी सर्वर पर नहीं भेजा जाता।</li>
-    <li><strong>थर्ड-पार्टी सेवाएं:</strong> ऐप में Google AdMob (सिर्फ फ्री वर्शन), Firebase Analytics, Firebase Crashlytics, और Firebase Remote Config शामिल हैं। ये सेवाएं सेक्शन 3 में बताए गए तरीके से डिवाइस आइडेंटिफ़ायर और इस्तेमाल व क्रैश डेटा जुटाती हैं।</li>
+    <li><strong>थर्ड-पार्टी सेवाएं:</strong> ऐप में Google AdMob (सिर्फ फ्री वर्शन), Firebase Analytics, Firebase Crashlytics, और Firebase Remote Config शामिल हैं। ये सेवाएं सेक्शन 3 में बताए गए तरीके से डिवाइस आइडेंटिफ़ायर और इस्तेमाल व क्रैश डेटा जुटाती हैं। ऐप से आप अपनी मर्ज़ी से जो मदद के अनुरोध भेजते हैं, वे Google Firestore में सेव होते हैं और Formspree के ज़रिए हमें ईमेल से पहुंचते हैं (सेक्शन 9)।</li>
     <li><strong>लोकेशन और आस-पास के डिवाइस:</strong> Android किसी ऐप को अपना Wi-Fi हॉटस्पॉट तभी चालू करने देता है जब उसके पास लोकेशन की अनुमति (Android 8 से 12) या आस-पास के डिवाइस (Nearby devices) की अनुमति (Android 13 और उसके बाद) हो। ऐप यह अनुमति सिर्फ उस हॉटस्पॉट को चालू करने के लिए मांगता है। यह आपकी लोकेशन को कभी नहीं पढ़ता, स्टोर नहीं करता, और न ही भेजता है।</li>
     <li><strong>कैमरा:</strong> सिर्फ QR कोड स्कैन करने के लिए इस्तेमाल होता है। तस्वीरें आपके डिवाइस पर ही रहती हैं, न सेव होती हैं, न भेजी जाती हैं।</li>
     <li><strong>iPhone और iPad:</strong> iPhone और iPad पर ऐप लोकेशन की अनुमति नहीं मांगता; यह QR कोड के लिए कैमरा और आपके दूसरे डिवाइस तक पहुंचने के लिए लोकल नेटवर्क एक्सेस इस्तेमाल करता है।</li>
@@ -266,7 +266,7 @@ sitemap:
   <p>सब्सक्रिप्शन Android पर Google Play Billing और iPhone व iPad पर App Store के ज़रिए सुरक्षित तरीके से प्रोसेस होते हैं। हम आपकी पेमेंट डिटेल्स न तो पाते हैं न स्टोर करते हैं। खरीदारी की स्थिति (फ्री या प्रीमियम, और आखिरी बार कब कन्फ़र्म हुई) आपके डिवाइस पर एन्क्रिप्ट करके रखी जाती है, ताकि ऐप बिना कनेक्शन के भी चले, और जब भी मुमकिन हो स्टोर से दोबारा जांची जाती है। अगर स्टोर तक पहुंच न हो, तो पहले से कन्फ़र्म प्रीमियम स्थिति ऑफ़लाइन रहते हुए ज़्यादा से ज़्यादा 7 दिन तक मान्य रहती है।</p>
 
   <h2>5. डेटा सुरक्षा</h2>
-  <p>सभी प्रॉक्सी ऑपरेशन आपके डिवाइस पर ही होते हैं, बीच में हमारा कोई रिमोट सर्वर नहीं होता। प्रॉक्सी के ज़रिए शेयर किया गया ट्रैफ़िक आपके डिवाइस से आपके फ़ोन तक और फिर आपके मोबाइल कनेक्शन से बाहर जाता है, यह हमें नहीं भेजा जाता। विज्ञापन, एनालिटिक्स, और क्रैश डेटा सेक्शन 3 में बताए गए तरीके से हैंडल होते हैं।</p>
+  <p>सभी प्रॉक्सी ऑपरेशन आपके डिवाइस पर ही होते हैं, बीच में हमारा कोई रिमोट सर्वर नहीं होता। प्रॉक्सी के ज़रिए शेयर किया गया ट्रैफ़िक आपके डिवाइस से आपके फ़ोन तक और फिर आपके मोबाइल कनेक्शन से बाहर जाता है, यह हमें नहीं भेजा जाता। विज्ञापन, एनालिटिक्स, और क्रैश डेटा सेक्शन 3 में बताए गए तरीके से हैंडल होते हैं। मदद के अनुरोध सेक्शन 9 में बताए गए तरीके से हैंडल होते हैं।</p>
 
   <h2>6. बच्चों की प्राइवेसी</h2>
   <p>यह ऐप 13 साल से कम उम्र के बच्चों के लिए नहीं है। हम जानबूझकर बच्चों से कोई जानकारी नहीं जुटाते।</p>
@@ -287,10 +287,10 @@ sitemap:
   <p>अगर आप कनेक्ट नहीं कर पा रहे, तो इस वेबसाइट के "कनेक्ट नहीं हो रहा?" फ़ॉर्म से या ऐप से हमें बता सकते हैं कि आप कहां अटके। इसे भेजना हमेशा आपकी मर्ज़ी है।</p>
   <ul>
     <li><strong>इस वेबसाइट से:</strong> फ़ॉर्म ये भेजता है: आप क्या कनेक्ट करने की कोशिश कर रहे थे (आपके डिवाइस का प्रकार), आप कहां अटके, अगर आप जोड़ें तो आपका मैसेज, अगर आप जोड़ें तो आपका ईमेल एड्रेस (सिर्फ़ आपको जवाब देने के लिए), और पेज की भाषा। इसे हमारा सर्विस प्रोवाइडर Formspree (Formspree, Inc., formspree.io) सिर्फ़ हमारे सपोर्ट इनबॉक्स तक पहुंचाने के लिए प्रोसेस करता है। किसी भी वेब सर्विस की तरह, Formspree फ़ॉर्म पहुंचाने और स्पैम रोकने के लिए आपका IP एड्रेस जैसा तकनीकी डेटा भी पाता है, जैसा <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Formspree की प्राइवेसी पॉलिसी</a> में बताया गया है।</li>
-    <li><strong>ऐप से:</strong> Android ऐप के अंदर से भेजा गया मदद का अनुरोध हमारे Firebase प्रोजेक्ट (Google Firestore) में सेव होता है। इसमें आपके चुने हुए विकल्प, अगर आप जोड़ें तो आपका मैसेज, अगर आप जोड़ें तो आपका ईमेल एड्रेस, और ऐप की गैर-व्यक्तिगत डायग्नोस्टिक जानकारी होती है: ऐप वर्शन, Android वर्शन, फ़ोन का ब्रांड और मॉडल, ऐप की भाषा, आप इंटरनेट शेयर कर रहे थे या किसी दूसरे फ़ोन का इंटरनेट इस्तेमाल कर रहे थे, कनेक्शन की गिनती, और आप गाइड के किस स्टेप पर थे। हमें आपका IP एड्रेस नहीं दिखता, और इसमें Wi-Fi का नाम या पासवर्ड, एडवरटाइज़िंग आईडी या लोकेशन कभी नहीं होती। हम इसे सिर्फ़ सपोर्ट देने के लिए इस्तेमाल करते हैं और 90 दिन बाद हटा देते हैं।</li>
+    <li><strong>ऐप से:</strong> Android या iPhone ऐप के अंदर से भेजा गया मदद का अनुरोध हमारे Firebase प्रोजेक्ट (Google Firestore, EU रीजन) में सेव होता है। इसमें आपके चुने हुए विकल्प (डिवाइस का प्रकार और आप कहां अटके), अगर आप जोड़ें तो आपका मैसेज (ज़्यादा से ज़्यादा 500 अक्षर), अगर आप जोड़ें तो आपका ईमेल एड्रेस (सिर्फ़ आपको जवाब देने के लिए), सिर्फ़ मदद के अनुरोधों के लिए बनाई गई एक रैंडम आईडी (ताकि एक ही इंस्टॉल से आए अनुरोध साथ दिखें), और ऐप की गैर-व्यक्तिगत डायग्नोस्टिक जानकारी होती है: ऐप वर्शन, Android या iOS वर्शन, डिवाइस का ब्रांड और मॉडल, ऐप की भाषा, आप इंटरनेट शेयर कर रहे थे या किसी दूसरे फ़ोन का इंटरनेट इस्तेमाल कर रहे थे, शेयरिंग चालू थी या नहीं, कनेक्शन की गिनती, आप गाइड के किस स्टेप पर थे, और कनेक्शन जांच व Wi-Fi से जुड़ने की कोशिश का नतीजा। आपका IP एड्रेस सेव नहीं होता, और इसमें Wi-Fi का नाम या पासवर्ड, एडवरटाइज़िंग आईडी (Apple की IDFA या IDFV भी नहीं) या लोकेशन कभी नहीं होती। फिर हमारा सर्वर इसे ईमेल डिलीवरी के लिए हमारे सर्विस प्रोवाइडर Formspree (Formspree, Inc.) के ज़रिए हमारे सपोर्ट इनबॉक्स तक ईमेल से पहुंचाता है। हम इसे सिर्फ़ सपोर्ट देने के लिए इस्तेमाल करते हैं, और यह 90 दिन बाद अपने आप हट जाता है।</li>
     <li><strong>क्यों:</strong> आपको जवाब देने और सेटअप गाइड व ऐप को बेहतर बनाने के लिए।</li>
     <li><strong>कितने समय तक:</strong> हम मदद के अनुरोध ज़्यादा से ज़्यादा 90 दिन रखते हैं, फिर हटा देते हैं।</li>
-    <li><strong>न बेचा जाता है, न शेयर किया जाता है:</strong> हम मदद के अनुरोध नहीं बेचते, और ऊपर बताई गई प्रोसेसिंग के अलावा किसी के साथ शेयर नहीं करते।</li>
+    <li><strong>न बेचा जाता है, न शेयर किया जाता है:</strong> हम मदद के अनुरोध नहीं बेचते, और ऊपर बताई गई प्रोसेसिंग (हमारे सर्विस प्रोवाइडर Google और Formspree) के अलावा किसी के साथ शेयर नहीं करते।</li>
     <li><strong>हटाना:</strong> किसी अनुरोध को जल्दी हटवाने के लिए <a href="mailto:support@tetherlinkutility.com?subject=Data%20deletion%20request">support@tetherlinkutility.com</a> पर ईमेल करें और बताएं कि आपने उसे लगभग कब भेजा था।</li>
   </ul>
 
@@ -313,14 +313,14 @@ sitemap:
     <a href="#pt">Português</a>
     <a href="#tr">Türkçe</a>
   </div>
-  <div class="effective-date">Fecha de entrada en vigor: 15 de octubre de 2026</div>
+  <div class="effective-date">Fecha de entrada en vigor: 16 de octubre de 2026</div>
 
   <h2>1. Recopilación y uso de la información</h2>
   <p>Tether Link Utility está diseñada como una utilidad de enrutamiento local del sistema.</p>
   <ul>
-    <li><strong>Sin cuenta ni datos de contacto:</strong> la app no solicita, recopila ni almacena tu nombre, número de teléfono, dirección de correo electrónico ni datos de cuenta. La única excepción es un correo que tú decidas agregar a una solicitud de ayuda (ver la sección 9).</li>
+    <li><strong>Sin cuenta:</strong> la app no tiene cuentas y no recopila tu nombre, número de teléfono ni datos de cuenta. Solo recibe una dirección de correo electrónico si decides escribirla en el formulario de ayuda opcional (ver la sección 9).</li>
     <li><strong>Sin registro del tráfico de red:</strong> no supervisamos, registramos, inspeccionamos ni almacenamos el contenido de tu tráfico, tu historial de navegación ni las direcciones de destino que pasan por tu conexión compartida, y este tráfico no se envía a ningún servidor nuestro.</li>
-    <li><strong>Servicios de terceros:</strong> la app incluye Google AdMob (solo en la versión gratuita), Firebase Analytics, Firebase Crashlytics y Firebase Remote Config. Estos servicios recopilan identificadores del dispositivo y datos de uso y de fallos, como se describe en la sección 3.</li>
+    <li><strong>Servicios de terceros:</strong> la app incluye Google AdMob (solo en la versión gratuita), Firebase Analytics, Firebase Crashlytics y Firebase Remote Config. Estos servicios recopilan identificadores del dispositivo y datos de uso y de fallos, como se describe en la sección 3. Las solicitudes de ayuda que decidas enviar desde la app se guardan en Google Firestore y nos llegan por correo a través de Formspree (sección 9).</li>
     <li><strong>Ubicación y dispositivos cercanos:</strong> Android solo permite que una app active su propio punto de acceso Wi-Fi con el permiso de ubicación (Android 8 a 12) o el permiso de dispositivos cercanos (Android 13 y posteriores). La app lo pide solo para activar ese punto de acceso. Nunca lee, almacena ni envía tu ubicación.</li>
     <li><strong>Cámara:</strong> se usa solo para escanear códigos QR. Las imágenes se quedan en tu dispositivo y no se guardan ni se envían.</li>
     <li><strong>iPhone y iPad:</strong> en iPhone y iPad la app no pide acceso a la ubicación; usa la cámara para los códigos QR y el acceso a la red local para llegar a tu otro dispositivo.</li>
@@ -350,7 +350,7 @@ sitemap:
   <p>Las suscripciones se procesan de forma segura a través de Google Play Billing en Android y de la App Store en iPhone y iPad. No recibimos ni almacenamos tus datos de pago. El estado de la compra (Gratis o Premium, y cuándo se confirmó por última vez) se guarda cifrado en tu dispositivo para que la app funcione sin conexión, y se vuelve a comprobar con la tienda siempre que es posible. Si no se puede contactar con la tienda, un estado Premium ya confirmado sigue siendo válido hasta 7 días sin conexión.</p>
 
   <h2>5. Seguridad de los datos</h2>
-  <p>Todas las operaciones del proxy se realizan en tu dispositivo, sin ningún servidor remoto nuestro de por medio. El tráfico que compartes a través del proxy va desde tus dispositivos hasta tu teléfono y sale por tu conexión móvil; no se nos envía. Los datos de publicidad, analítica y fallos se tratan como se describe en la sección 3.</p>
+  <p>Todas las operaciones del proxy se realizan en tu dispositivo, sin ningún servidor remoto nuestro de por medio. El tráfico que compartes a través del proxy va desde tus dispositivos hasta tu teléfono y sale por tu conexión móvil; no se nos envía. Los datos de publicidad, analítica y fallos se tratan como se describe en la sección 3. Las solicitudes de ayuda se tratan como se describe en la sección 9.</p>
 
   <h2>6. Privacidad de los menores</h2>
   <p>Esta aplicación no está dirigida a menores de 13 años. No recopilamos de forma consciente ninguna información de menores.</p>
@@ -371,10 +371,10 @@ sitemap:
   <p>Si no logras conectarte, puedes contarnos en qué paso te quedaste con el formulario "¿No logras conectarte?" de este sitio o desde la app. Enviarlo siempre es tu decisión.</p>
   <ul>
     <li><strong>Desde este sitio:</strong> el formulario envía qué intentabas conectar (tu tipo de dispositivo), en qué paso te quedaste, tu mensaje si agregas uno, tu correo si lo agregas (solo lo usamos para responderte) y el idioma de la página. Lo procesa Formspree (Formspree, Inc., formspree.io) como nuestro proveedor de servicios, solo para entregarlo en nuestra bandeja de soporte. Como cualquier servicio web, Formspree también recibe datos técnicos como tu dirección IP para entregar el formulario y bloquear el spam, según la <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">política de privacidad de Formspree</a>.</li>
-    <li><strong>Desde la app:</strong> una solicitud de ayuda enviada desde dentro de la app de Android se guarda en nuestro proyecto de Firebase (Google Firestore). Contiene tus elecciones, tu mensaje si agregas uno, tu correo si lo agregas y diagnósticos no personales de la app: versión de la app, versión de Android, marca y modelo del teléfono, idioma de la app, si estabas compartiendo o usando el internet de otro teléfono, los conteos de conexiones y en qué paso de la guía estabas. No vemos tu dirección IP, y nunca incluye el nombre ni la contraseña del Wi-Fi, tu ID de publicidad ni tu ubicación. La usamos solo para darte soporte y la eliminamos después de 90 días.</li>
+    <li><strong>Desde la app:</strong> una solicitud de ayuda enviada desde dentro de la app de Android o de iPhone se guarda en nuestro proyecto de Firebase (Google Firestore, región de la UE). Contiene tus elecciones (tipo de dispositivo y en qué paso te quedaste), tu mensaje si agregas uno (hasta 500 caracteres), tu correo si lo agregas (solo lo usamos para responderte), un ID aleatorio creado solo para las solicitudes de ayuda (para agrupar las solicitudes de una misma instalación) y diagnósticos no personales de la app: versión de la app, versión de Android o iOS, marca y modelo del dispositivo, idioma de la app, si estabas compartiendo o usando el internet de otro teléfono, si el uso compartido estaba activo, los conteos de conexiones, en qué paso de la guía estabas y el resultado de la prueba de conexión y del intento de unirse al Wi-Fi. Tu dirección IP no se guarda, y nunca incluye el nombre ni la contraseña del Wi-Fi, tu ID de publicidad (ni los identificadores IDFA o IDFV de Apple) ni tu ubicación. Nuestro servidor la reenvía por correo a nuestra bandeja de soporte a través de Formspree (Formspree, Inc.), nuestro proveedor de servicios para el envío de correos. La usamos solo para darte soporte y se elimina automáticamente después de 90 días.</li>
     <li><strong>Para qué:</strong> para responderte y mejorar la guía de configuración y la app.</li>
     <li><strong>Por cuánto tiempo:</strong> guardamos las solicitudes de ayuda hasta 90 días y después las eliminamos.</li>
-    <li><strong>No se venden ni se comparten:</strong> no vendemos las solicitudes de ayuda ni las compartimos con nadie más allá del procesamiento descrito arriba.</li>
+    <li><strong>No se venden ni se comparten:</strong> no vendemos las solicitudes de ayuda ni las compartimos con nadie más allá del procesamiento descrito arriba (Google y Formspree, como nuestros proveedores de servicios).</li>
     <li><strong>Eliminación:</strong> si quieres que borremos una solicitud antes, escribe a <a href="mailto:support@tetherlinkutility.com?subject=Data%20deletion%20request">support@tetherlinkutility.com</a> e indica más o menos cuándo la enviaste.</li>
   </ul>
 
@@ -397,14 +397,14 @@ sitemap:
     <a href="#pt">Português</a>
     <a href="#tr">Türkçe</a>
   </div>
-  <div class="effective-date">Data de vigência: 15 de outubro de 2026</div>
+  <div class="effective-date">Data de vigência: 16 de outubro de 2026</div>
 
   <h2>1. Coleta e uso de informações</h2>
   <p>O Tether Link Utility foi projetado como um utilitário de roteamento local do sistema.</p>
   <ul>
-    <li><strong>Sem conta nem dados de contato:</strong> o app não solicita, coleta nem armazena seu nome, número de telefone, endereço de e-mail ou dados de conta. A única exceção é um e-mail que você decida incluir em um pedido de ajuda (veja a seção 9).</li>
+    <li><strong>Sem conta:</strong> o app não tem contas e não coleta seu nome, número de telefone ou dados de conta. Ele só recebe um endereço de e-mail se você decidir digitá-lo no formulário de ajuda opcional (veja a seção 9).</li>
     <li><strong>Sem registro do tráfego de rede:</strong> não monitoramos, registramos, inspecionamos nem armazenamos o conteúdo do seu tráfego, seu histórico de navegação ou os endereços de destino que passam pela sua conexão compartilhada, e esse tráfego não é enviado a nenhum servidor nosso.</li>
-    <li><strong>Serviços de terceiros:</strong> o app inclui o Google AdMob (somente na versão gratuita), o Firebase Analytics, o Firebase Crashlytics e o Firebase Remote Config. Esses serviços coletam identificadores do dispositivo e dados de uso e de falhas, conforme descrito na seção 3.</li>
+    <li><strong>Serviços de terceiros:</strong> o app inclui o Google AdMob (somente na versão gratuita), o Firebase Analytics, o Firebase Crashlytics e o Firebase Remote Config. Esses serviços coletam identificadores do dispositivo e dados de uso e de falhas, conforme descrito na seção 3. Os pedidos de ajuda que você decidir enviar pelo app são guardados no Google Firestore e chegam até nós por e-mail pela Formspree (seção 9).</li>
     <li><strong>Localização e dispositivos próximos:</strong> o Android só permite que um app ative o próprio ponto de acesso Wi-Fi com a permissão de localização (Android 8 a 12) ou a permissão de dispositivos próximos (Android 13 e posteriores). O app pede essa permissão apenas para ativar esse ponto de acesso. Ele nunca lê, armazena nem envia sua localização.</li>
     <li><strong>Câmera:</strong> usada apenas para escanear QR codes. As imagens ficam no seu dispositivo e não são salvas nem enviadas.</li>
     <li><strong>iPhone e iPad:</strong> no iPhone e no iPad o app não pede acesso à localização; ele usa a câmera para QR codes e o acesso à rede local para chegar ao seu outro dispositivo.</li>
@@ -434,7 +434,7 @@ sitemap:
   <p>As assinaturas são processadas com segurança pelo Google Play Billing no Android e pela App Store no iPhone e no iPad. Não recebemos nem armazenamos seus dados de pagamento. O status da compra (Gratuito ou Premium, e quando foi confirmado pela última vez) fica salvo de forma criptografada no seu dispositivo para que o app funcione sem conexão, e é verificado novamente com a loja sempre que possível. Se não for possível acessar a loja, um status Premium já confirmado continua válido por até 7 dias sem conexão.</p>
 
   <h2>5. Segurança dos dados</h2>
-  <p>Todas as operações do proxy acontecem no seu dispositivo, sem nenhum servidor remoto nosso no meio. O tráfego que você compartilha pelo proxy vai dos seus dispositivos até o seu celular e sai pela sua conexão móvel; ele não é enviado para nós. Os dados de publicidade, análise e falhas são tratados conforme descrito na seção 3.</p>
+  <p>Todas as operações do proxy acontecem no seu dispositivo, sem nenhum servidor remoto nosso no meio. O tráfego que você compartilha pelo proxy vai dos seus dispositivos até o seu celular e sai pela sua conexão móvel; ele não é enviado para nós. Os dados de publicidade, análise e falhas são tratados conforme descrito na seção 3. Os pedidos de ajuda são tratados conforme descrito na seção 9.</p>
 
   <h2>6. Privacidade de crianças</h2>
   <p>Este aplicativo não se destina a menores de 13 anos. Não coletamos intencionalmente nenhuma informação de crianças.</p>
@@ -455,10 +455,10 @@ sitemap:
   <p>Se você não consegue conectar, pode contar onde travou pelo formulário "Não consegue conectar?" deste site ou pelo app. Enviar é sempre uma escolha sua.</p>
   <ul>
     <li><strong>Pelo site:</strong> o formulário envia o que você estava tentando conectar (seu tipo de dispositivo), onde travou, sua mensagem se você escrever uma, seu e-mail se você informar (usado só para responder você) e o idioma da página. Ele é processado pela Formspree (Formspree, Inc., formspree.io) como nossa prestadora de serviço, só para entregá-lo na nossa caixa de suporte. Como qualquer serviço web, a Formspree também recebe dados técnicos como seu endereço IP para entregar o formulário e bloquear spam, conforme a <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">política de privacidade da Formspree</a>.</li>
-    <li><strong>Pelo app:</strong> um pedido de ajuda enviado de dentro do app Android é guardado no nosso projeto do Firebase (Google Firestore). Ele contém suas escolhas, sua mensagem se você escrever uma, seu e-mail se você informar e diagnósticos não pessoais do app: versão do app, versão do Android, marca e modelo do celular, idioma do app, se você estava compartilhando ou usando a internet de outro celular, as contagens de conexões e em qual passo do guia você estava. Não vemos seu endereço IP, e ele nunca inclui o nome ou a senha do Wi-Fi, seu ID de publicidade nem sua localização. Usamos só para dar suporte e excluímos após 90 dias.</li>
+    <li><strong>Pelo app:</strong> um pedido de ajuda enviado de dentro do app Android ou iPhone é guardado no nosso projeto do Firebase (Google Firestore, região da UE). Ele contém suas escolhas (tipo de dispositivo e onde você travou), sua mensagem se você escrever uma (até 500 caracteres), seu e-mail se você informar (usado só para responder você), um ID aleatório criado só para pedidos de ajuda (para agrupar pedidos da mesma instalação) e diagnósticos não pessoais do app: versão do app, versão do Android ou do iOS, marca e modelo do aparelho, idioma do app, se você estava compartilhando ou usando a internet de outro celular, se o compartilhamento estava ligado, as contagens de conexões, em qual passo do guia você estava e o resultado do teste de conexão e da tentativa de entrar no Wi-Fi. Seu endereço IP não é armazenado, e o pedido nunca inclui o nome ou a senha do Wi-Fi, seu ID de publicidade (nem os identificadores IDFA ou IDFV da Apple) nem sua localização. Nosso servidor encaminha o pedido por e-mail para a nossa caixa de suporte pela Formspree (Formspree, Inc.), nossa prestadora de serviço de envio de e-mail. Usamos só para dar suporte, e ele é excluído automaticamente após 90 dias.</li>
     <li><strong>Por quê:</strong> para responder você e melhorar o guia de configuração e o app.</li>
     <li><strong>Por quanto tempo:</strong> guardamos os pedidos de ajuda por até 90 dias e depois os excluímos.</li>
-    <li><strong>Não vendemos nem compartilhamos:</strong> não vendemos os pedidos de ajuda nem os compartilhamos com ninguém além do processamento descrito acima.</li>
+    <li><strong>Não vendemos nem compartilhamos:</strong> não vendemos os pedidos de ajuda nem os compartilhamos com ninguém além do processamento descrito acima (Google e Formspree, como nossos prestadores de serviço).</li>
     <li><strong>Exclusão:</strong> para excluir um pedido antes, escreva para <a href="mailto:support@tetherlinkutility.com?subject=Data%20deletion%20request">support@tetherlinkutility.com</a> e diga mais ou menos quando você o enviou.</li>
   </ul>
 
