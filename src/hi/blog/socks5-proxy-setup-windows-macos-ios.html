@@ -71,10 +71,10 @@ extraJsonLd: |2-
           <li>Mac, सभी ऐप्स: हमारी स्क्रिप्ट अभी एक बार चलाएं ताकि वह sing-box इंस्टॉल कर दे (देखें <a href="#macos">macOS</a>)।</li>
           <li>Windows या Linux, सभी ऐप्स: sing-box अभी डाउनलोड करें (देखें <a href="#windows">Windows</a> या <a href="#linux">Linux</a>)।</li>
         </ul>
-      </li>
-      <li>फ़ोन पर Tether Link Utility खोलें और <strong>START</strong> दबाएं।</li>
-      <li><strong>इसके बाद</strong> ऐप में <strong>Wi-Fi</strong> के नीचे दिखे नेटवर्क से, <strong>Password</strong> के नीचे दिखे पासवर्ड के साथ जुड़ें (ये <strong>Show QR code</strong> स्क्रीन पर QR के नीचे भी लिखे होते हैं)। यह Wi-Fi "No internet" दिखा सकता है; यह सामान्य है।</li>
-      <li>ऐप में दिखाए गए <strong>IP एड्रेस</strong> और <strong>पोर्ट</strong> नोट करें। नीचे के सेटअप में दोनों डालने होंगे।</li>
+      <!--help::install--></li>
+      <li>फ़ोन पर Tether Link Utility खोलें और <strong>START</strong> दबाएं।<!--help::start-sharing--></li>
+      <li><strong>इसके बाद</strong> ऐप में <strong>Wi-Fi</strong> के नीचे दिखे नेटवर्क से, <strong>Password</strong> के नीचे दिखे पासवर्ड के साथ जुड़ें (ये <strong>Show QR code</strong> स्क्रीन पर QR के नीचे भी लिखे होते हैं)। यह Wi-Fi "No internet" दिखा सकता है; यह सामान्य है।<!--help::join-wifi--></li>
+      <li>ऐप में दिखाए गए <strong>IP एड्रेस</strong> और <strong>पोर्ट</strong> नोट करें। नीचे के सेटअप में दोनों डालने होंगे।<!--help::start-sharing--></li>
     </ol>
     <p><strong>पोर्ट के बारे में:</strong> ऐप पोर्ट को सेव रखता है, इसलिए हर डिवाइस पर इसे सिर्फ़ एक बार डालना होता है। पोर्ट तभी बदलता है जब फ़ोन का कोई दूसरा ऐप उसे इस्तेमाल करने लगे, और ऐसा होने पर ऐप आपको बताता है। अपना पोर्ट चुनने के लिए Port वाली लाइन पर <strong>Edit</strong> दबाएं और 1024 से 65535 के बीच कोई नंबर डालें (1024 से 32767 के बीच टकराव की संभावना कम होती है)। चुना गया पोर्ट खाली हो तो वह आपके लिए तब तक रिज़र्व रहता है जब तक कोई दूसरा ऐप उसे इस्तेमाल न करने लगे।</p>
 
@@ -84,32 +84,32 @@ extraJsonLd: |2-
     <h2 id="windows">Windows</h2>
     <h3>विकल्प A: Firefox (किसी एक्सटेंशन की ज़रूरत नहीं)</h3>
     <ol>
-      <li><strong>Settings → General → Network Settings → Settings</strong> पर जाएं।</li>
-      <li><strong>Manual proxy configuration</strong> चुनें।</li>
-      <li>फ़ोन का IP <strong>SOCKS Host</strong> में डालें, पोर्ट <strong>Port</strong> में, और <strong>SOCKS v5</strong> चुनें।</li>
-      <li><strong>Proxy DNS when using SOCKS v5</strong> चेक करें, ताकि DNS लुकअप भी प्रॉक्सी से जाएं।</li>
+      <li><strong>Settings → General → Network Settings → Settings</strong> पर जाएं।<!--help:windows:set-proxy--></li>
+      <li><strong>Manual proxy configuration</strong> चुनें।<!--help:windows:set-proxy--></li>
+      <li>फ़ोन का IP <strong>SOCKS Host</strong> में डालें, पोर्ट <strong>Port</strong> में, और <strong>SOCKS v5</strong> चुनें।<!--help:windows:set-proxy--></li>
+      <li><strong>Proxy DNS when using SOCKS v5</strong> चेक करें, ताकि DNS लुकअप भी प्रॉक्सी से जाएं।<!--help:windows:set-proxy--></li>
     </ol>
     <h3>विकल्प B: Chrome या Edge, FoxyProxy के ज़रिए</h3>
     <ol>
-      <li>Chrome Web Store से FoxyProxy एक्सटेंशन इंस्टॉल करें।</li>
-      <li>एक नया प्रॉक्सी जोड़ें: टाइप <strong>SOCKS5</strong>, host = फ़ोन का IP, port = ऐप में दिखाया गया पोर्ट।</li>
-      <li>टूलबार आइकन से FoxyProxy को उस प्रॉक्सी पर स्विच करें।</li>
+      <li>Chrome Web Store से FoxyProxy एक्सटेंशन इंस्टॉल करें।<!--help:windows:install--></li>
+      <li>एक नया प्रॉक्सी जोड़ें: टाइप <strong>SOCKS5</strong>, host = फ़ोन का IP, port = ऐप में दिखाया गया पोर्ट।<!--help:windows:set-proxy--></li>
+      <li>टूलबार आइकन से FoxyProxy को उस प्रॉक्सी पर स्विच करें।<!--help:windows:set-proxy--></li>
     </ol>
     <h3>विकल्प C (सुझाया गया): sing-box से सभी ऐप्स के लिए</h3>
     <p>Firefox और FoxyProxy सिर्फ उस एक ब्राउज़र का ट्रैफ़िक प्रॉक्सी से भेजते हैं, बाकी ऐप्स और DNS लुकअप नहीं। Windows पर हर ऐप और DNS को प्रॉक्सी से भेजने के लिए इसके बजाय <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> (ओपन सोर्स, MIT-जैसा लाइसेंस, सक्रिय रूप से मेंटेन्ड) को TUN मोड में इस्तेमाल करें:</p>
     <ol>
-      <li><a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a> से लेटेस्ट Windows रिलीज़ डाउनलोड करें, फ़ोन के Wi-Fi से जुड़ने से पहले।</li>
-      <li>नीचे दिया कॉन्फ़िग <code>config.json</code> के तौर पर सेव करें, IP/पोर्ट को ऐप में दिखाए गए से बदल दें।</li>
-      <li>एक एलिवेटेड (Administrator) टर्मिनल से चलाएं: <code>sing-box run --config config.json</code></li>
+      <li><a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a> से लेटेस्ट Windows रिलीज़ डाउनलोड करें, फ़ोन के Wi-Fi से जुड़ने से पहले।<!--help:windows:install--></li>
+      <li>नीचे दिया कॉन्फ़िग <code>config.json</code> के तौर पर सेव करें, IP/पोर्ट को ऐप में दिखाए गए से बदल दें।<!--help:windows:set-proxy--></li>
+      <li>एक एलिवेटेड (Administrator) टर्मिनल से चलाएं: <code>sing-box run --config config.json</code><!--help:windows:set-proxy--></li>
     </ol>
 
     <h2 id="macos">macOS</h2>
     <h3>विकल्प A: native Network सेटिंग्स</h3>
     <ol>
-      <li><strong>System Settings → Network</strong> खोलें।</li>
-      <li>जिस Wi-Fi नेटवर्क से जुड़े हैं (जो फ़ोन प्रसारित कर रहा है) उसे चुनें और <strong>Details…</strong> दबाएं।</li>
-      <li><strong>Proxies</strong> पर जाएं, <strong>SOCKS Proxy</strong> चेक करें।</li>
-      <li>फ़ोन का IP एड्रेस और पोर्ट डालें, फिर <strong>OK → Apply</strong> दबाएं।</li>
+      <li><strong>System Settings → Network</strong> खोलें।<!--help:mac:set-proxy--></li>
+      <li>जिस Wi-Fi नेटवर्क से जुड़े हैं (जो फ़ोन प्रसारित कर रहा है) उसे चुनें और <strong>Details…</strong> दबाएं।<!--help:mac:set-proxy--></li>
+      <li><strong>Proxies</strong> पर जाएं, <strong>SOCKS Proxy</strong> चेक करें।<!--help:mac:set-proxy--></li>
+      <li>फ़ोन का IP एड्रेस और पोर्ट डालें, फिर <strong>OK → Apply</strong> दबाएं।<!--help:mac:set-proxy--></li>
     </ol>
     <p>किसी थर्ड-पार्टी ऐप की ज़रूरत नहीं, पर ध्यान दें macOS की native SOCKS सेटिंग DNS को प्रॉक्सी से रूट नहीं करती, इसलिए DNS क्वेरी प्रॉक्सी के बजाय सीधे जा सकती हैं, और कुछ ऐप्स सिस्टम प्रॉक्सी सेटिंग को नहीं मानते। DNS सहित पूरी कवरेज के लिए विकल्प B वाली स्क्रिप्ट इस्तेमाल करें।</p>
 
@@ -132,10 +132,10 @@ extraJsonLd: |2-
 
     <p>या इसे हाथ से सेटअप करें:</p>
     <ol>
-      <li>फ़ोन के Wi-Fi से जुड़ने से पहले Homebrew से इंस्टॉल करें: <code>brew install sing-box</code></li>
-      <li>नीचे दिया कॉन्फ़िग <code>~/config.json</code> के तौर पर सेव करें, IP/पोर्ट को ऐप में दिखाए गए से बदल दें।</li>
-      <li>इसे चलाएं (<code>sudo</code> चाहिए, यह एक वर्चुअल नेटवर्क इंटरफ़ेस बनाता है और राउटिंग बदलता है): <code>sudo sing-box run --config ~/config.json</code></li>
-      <li>अगर विकल्प A वाली native SOCKS Proxy सेटिंग ऑन थी तो उसे बंद कर दें, sing-box का TUN मोड इसे पूरी तरह बदल देता है।</li>
+      <li>फ़ोन के Wi-Fi से जुड़ने से पहले Homebrew से इंस्टॉल करें: <code>brew install sing-box</code><!--help:mac:install--></li>
+      <li>नीचे दिया कॉन्फ़िग <code>~/config.json</code> के तौर पर सेव करें, IP/पोर्ट को ऐप में दिखाए गए से बदल दें।<!--help:mac:set-proxy--></li>
+      <li>इसे चलाएं (<code>sudo</code> चाहिए, यह एक वर्चुअल नेटवर्क इंटरफ़ेस बनाता है और राउटिंग बदलता है): <code>sudo sing-box run --config ~/config.json</code><!--help:mac:set-proxy--></li>
+      <li>अगर विकल्प A वाली native SOCKS Proxy सेटिंग ऑन थी तो उसे बंद कर दें, sing-box का TUN मोड इसे पूरी तरह बदल देता है।<!--help:mac:set-proxy--></li>
     </ol>
 
     <div class="callout">
@@ -169,30 +169,30 @@ extraJsonLd: |2-
     <h2 id="linux">Linux</h2>
     <h3>विकल्प A: Firefox</h3>
     <ol>
-      <li><strong>Settings → General → Network Settings → Settings</strong> पर जाएं और <strong>Manual proxy configuration</strong> चुनें।</li>
-      <li>फ़ोन का IP <strong>SOCKS Host</strong> में डालें, पोर्ट <strong>Port</strong> में, और <strong>SOCKS v5</strong> चुनें।</li>
-      <li><strong>Proxy DNS when using SOCKS v5</strong> चेक करें।</li>
+      <li><strong>Settings → General → Network Settings → Settings</strong> पर जाएं और <strong>Manual proxy configuration</strong> चुनें।<!--help:linux:set-proxy--></li>
+      <li>फ़ोन का IP <strong>SOCKS Host</strong> में डालें, पोर्ट <strong>Port</strong> में, और <strong>SOCKS v5</strong> चुनें।<!--help:linux:set-proxy--></li>
+      <li><strong>Proxy DNS when using SOCKS v5</strong> चेक करें।<!--help:linux:set-proxy--></li>
     </ol>
     <h3>विकल्प B: sing-box से सभी ऐप्स के लिए</h3>
     <ol>
-      <li>फ़ोन के Wi-Fi से जुड़ने से पहले sing-box अपने डिस्ट्रीब्यूशन के पैकेज से या <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">GitHub releases</a> से इंस्टॉल करें।</li>
-      <li>ऊपर दिया कॉन्फ़िग <code>config.json</code> के तौर पर सेव करें, IP/पोर्ट को ऐप में दिखाए गए से बदल दें।</li>
-      <li>root के तौर पर चलाएं: <code>sudo sing-box run --config config.json</code></li>
+      <li>फ़ोन के Wi-Fi से जुड़ने से पहले sing-box अपने डिस्ट्रीब्यूशन के पैकेज से या <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">GitHub releases</a> से इंस्टॉल करें।<!--help:linux:install--></li>
+      <li>ऊपर दिया कॉन्फ़िग <code>config.json</code> के तौर पर सेव करें, IP/पोर्ट को ऐप में दिखाए गए से बदल दें।<!--help:linux:set-proxy--></li>
+      <li>root के तौर पर चलाएं: <code>sudo sing-box run --config config.json</code><!--help:linux:set-proxy--></li>
     </ol>
 
     <h2>iOS</h2>
     <h3>विकल्प A: Shadowrocket (पेड, एक बार की खरीद)</h3>
     <ol>
-      <li>Shadowrocket खोलें और ऊपर दाईं तरफ़ <strong>+</strong> बटन दबाएं।</li>
-      <li>टाइप <strong>Socks5</strong> चुनें।</li>
-      <li>फ़ोन का IP एड्रेस के तौर पर और ऐप में दिखाया गया पोर्ट डालें।</li>
-      <li>सेव करें, फिर कनेक्ट करने के लिए ऊपर टॉगल दबाएं।</li>
+      <li>Shadowrocket खोलें और ऊपर दाईं तरफ़ <strong>+</strong> बटन दबाएं।<!--help:ios:ios-proxy-app--></li>
+      <li>टाइप <strong>Socks5</strong> चुनें।<!--help:ios:ios-proxy-app--></li>
+      <li>फ़ोन का IP एड्रेस के तौर पर और ऐप में दिखाया गया पोर्ट डालें।<!--help:ios:ios-proxy-app--></li>
+      <li>सेव करें, फिर कनेक्ट करने के लिए ऊपर टॉगल दबाएं।<!--help:ios:ios-proxy-app--></li>
     </ol>
     <h3>विकल्प B: Potatso Lite (फ्री)</h3>
     <ol>
-      <li>Potatso Lite खोलें और एक नई प्रॉक्सी प्रोफ़ाइल जोड़ें।</li>
-      <li><strong>SOCKS5</strong> चुनें, IP और पोर्ट डालें, और सेव करें।</li>
-      <li>iOS के पूछने पर VPN प्रोफ़ाइल इनेबल करें, यही तरीका है जिससे Potatso ट्रैफ़िक को SOCKS5 प्रॉक्सी से रूट करता है, क्योंकि iOS में macOS जैसी native SOCKS5 सेटिंग नहीं होती।</li>
+      <li>Potatso Lite खोलें और एक नई प्रॉक्सी प्रोफ़ाइल जोड़ें।<!--help:ios:ios-proxy-app--></li>
+      <li><strong>SOCKS5</strong> चुनें, IP और पोर्ट डालें, और सेव करें।<!--help:ios:ios-proxy-app--></li>
+      <li>iOS के पूछने पर VPN प्रोफ़ाइल इनेबल करें, यही तरीका है जिससे Potatso ट्रैफ़िक को SOCKS5 प्रॉक्सी से रूट करता है, क्योंकि iOS में macOS जैसी native SOCKS5 सेटिंग नहीं होती।<!--help:ios:ios-proxy-app--></li>
     </ol>
 
     <div class="callout">
@@ -204,9 +204,7 @@ extraJsonLd: |2-
 
     <p>अगर आप अपने फ़ोन का मोबाइल डेटा लैपटॉप या दूसरे फ़ोन के साथ शेयर करना चाहते हैं, तो Tether Link Utility एक Android ऐप है जो यह काम एक लोकल SOCKS5 प्रॉक्सी के ज़रिए करता है। कनेक्टेड डिवाइस का डेटा फिर भी आपके मोबाइल प्लान में गिना जाता है, इसलिए अपने कैरियर की टेदरिंग शर्तें ज़रूर देखें।</p>
 
-    <div class="callout">
-      <p><strong>कनेक्ट नहीं हो रहा?</strong> <a href="/hi/#help">हमें बताएं आप कहां अटके</a>। हम हर मैसेज पढ़ते हैं।</p>
-    </div>
+    <!--help-end:-->
 
     <div class="cta-box">
       <h3>Tether Link Utility</h3>

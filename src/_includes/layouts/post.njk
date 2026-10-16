@@ -87,7 +87,7 @@
 {%- set quickHtml = "" -%}{%- if quick -%}{%- set quickHtml -%}{% include "partials/quick-answer.njk" %}{%- endset -%}{%- endif -%}
 {%- set faqHtml = "" -%}{%- if faq -%}{%- set faqHtml -%}{% include "partials/faq.njk" %}{%- endset -%}{%- endif -%}
 {%- set crumbHtml = "" -%}{%- if region and carrier -%}{%- set crumbHtml -%}{% include "partials/breadcrumb.njk" %}{%- endset -%}{%- endif -%}
-{{ content | enhancePost({ quick: quickHtml, faq: faqHtml, breadcrumb: crumbHtml, region: region, slug: slug, posts: collections["posts_" + lang], labels: t.post }) }}  </article>
+{{ content | enhancePost({ quick: quickHtml, faq: faqHtml, breadcrumb: crumbHtml, region: region, slug: slug, posts: collections["posts_" + lang], labels: t.post, help: t.help, prefix: t.prefix }) }}  </article>
 </main>
 
 {% include "partials/site-footer.njk" %}

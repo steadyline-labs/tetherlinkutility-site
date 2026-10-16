@@ -1,0 +1,58 @@
+---
+# Help request page, one per language: /help.html, /tr/help.html, ... (the form is partials/help-form.njk).
+# Thin utility page: noindex, follow and not in sitemap.xml (no `sitemap` front matter).
+pagination:
+  data: site.languages
+  size: 1
+  alias: lang
+permalink: "{{ i18n[lang].prefix }}help.html"
+---
+{%- set t = i18n[lang] -%}
+{%- set hp = t.help -%}
+{%- set blogPrefix = t.prefix if (collections | hasBlog(lang)) else i18n[t.blogLang or "en"].prefix -%}
+{%- set navMode = "help" -%}
+{%- set pageUrl = site.url + t.prefix + "help.html" -%}
+<!DOCTYPE html>
+<html lang="{{ t.hreflang or lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="{{ pageUrl }}" />
+{% for l in site.languages %}  <link rel="alternate" hreflang="{{ i18n[l].hreflang or l }}" href="{{ site.url }}{{ i18n[l].prefix }}help.html" />
+{% endfor %}  <link rel="alternate" hreflang="x-default" href="{{ site.url }}/help.html" />
+  <title>{{ hp.metaTitle }}</title>
+  <meta name="description" content="{{ hp.metaDescription }}">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tether Link Utility">
+  <meta property="og:url" content="{{ pageUrl }}">
+  <meta property="og:locale" content="{{ t.ogLocale }}">
+  <meta property="og:title" content="{{ hp.metaTitle }}">
+  <meta property="og:description" content="{{ hp.metaDescription }}">
+  <meta property="og:image" content="{{ site.url }}/og-image.png">
+
+  <style>
+{% include "partials/site-chrome-style.njk" %}
+{% include "partials/read-base-style.njk" %}
+{% include "partials/help-form-style.njk" %}
+  </style>
+</head>
+<body>
+
+{% include "partials/site-nav.njk" %}
+
+<main>
+  <h1>{{ hp.title }}</h1>
+  <p class="help-intro">{{ hp.intro }}</p>
+{% set helpPage = "guide" %}{% include "partials/help-form.njk" %}
+</main>
+
+{% include "partials/site-footer.njk" %}
+
+{% include "partials/site-nav-script.njk" %}
+</body>
+</html>

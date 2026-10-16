@@ -1,4 +1,4 @@
-{#- Homepage body (hero, how it works, demo, platforms, pricing, guides, help form, FAQ).
+{#- Homepage body (hero, how it works, demo, platforms, pricing, guides, FAQ).
     All page text comes from src/_data/home/<lang>.json; the markup is shared by every language.
     FAQ: the first `faq.visible` questions are shown, the rest go inside the "show more" block. -#}
 {%- set h = home[lang] %}
@@ -134,8 +134,6 @@
 
   {% if collections | hasBlog(lang) %}{% include "partials/home-guides.njk" %}{% endif %}
 
-  {% set helpPage = "guide" %}{% include "partials/help-form.njk" %}
-
   <section class="section wrap faq" id="faq">
     <div class="faq-wrap">
     <h2>{{ h.faq.title }}</h2>
@@ -149,6 +147,7 @@
 {% endfor %}
     </div>
     <button type="button" class="faq-toggle" id="faqToggle" aria-controls="faqMore" aria-expanded="false" data-more="{{ h.faq.more }}" data-less="{{ h.faq.less }}" hidden>{{ h.faq.more }}</button>
+    <a class="faq-help" href="{{ t.prefix }}help.html">{{ t.help.link }}</a>
     </div>
   </section>
 

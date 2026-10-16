@@ -165,6 +165,20 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("enhancePost", (content, o) => {
     let html = content;
+    // Setup guide help links: <!--help:<device>:<step>--> at the end of a step becomes a quiet
+    // "Stuck on this step?" link, <!--help-end:<device>--> the "Still not connected?" card. Both
+    // open this language's /help page with the device (and step) prefilled; device may be empty.
+    if (o.help) {
+      const helpUrl = (device, step) => {
+        const q = [device && `device=${device}`, step && `step=${step}`].filter(Boolean).join("&amp;");
+        return `${o.prefix}help.html${q ? `?${q}` : ""}`;
+      };
+      html = html
+        .replace(/<!--help:([a-z]*):([a-z-]+)-->/g, (m, device, step) =>
+          `<a class="step-help" href="${helpUrl(device, step)}">${o.help.stepLink}</a>`)
+        .replace(/<!--help-end:([a-z]*)-->/g, (m, device) =>
+          `<div class="help-end"><p>${o.help.endText}</p><a class="help-end-btn" href="${helpUrl(device)}">${o.help.endButton}</a></div>`);
+    }
     if (o.breadcrumb) {
       html = html.replace(/<div class="page-eyebrow">[^<]*<\/div>\s*/, o.breadcrumb);
     }

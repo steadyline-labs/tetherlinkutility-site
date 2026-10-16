@@ -69,10 +69,10 @@ extraJsonLd: |2
           <li>Mac, todos os apps: rode nosso script uma vez agora para ele instalar o sing-box (veja <a href="#macos">macOS</a>).</li>
           <li>Windows ou Linux, todos os apps: baixe o sing-box agora (veja <a href="#windows">Windows</a> ou <a href="#linux">Linux</a>).</li>
         </ul>
-      </li>
-      <li>Abra o Tether Link Utility no celular e toque em <strong>START</strong>.</li>
-      <li><strong>Depois</strong> conecte o outro dispositivo à rede Wi-Fi que o app mostra em <strong>Wi-Fi</strong>, usando a senha mostrada em <strong>Password</strong>. Esse Wi-Fi pode mostrar "Sem internet"; é normal.</li>
-      <li>Anote o <strong>endereço IP</strong> e a <strong>porta</strong> que aparecem no app. Você vai digitar os dois nas configurações abaixo.</li>
+      <!--help::install--></li>
+      <li>Abra o Tether Link Utility no celular e toque em <strong>START</strong>.<!--help::start-sharing--></li>
+      <li><strong>Depois</strong> conecte o outro dispositivo à rede Wi-Fi que o app mostra em <strong>Wi-Fi</strong>, usando a senha mostrada em <strong>Password</strong>. Esse Wi-Fi pode mostrar "Sem internet"; é normal.<!--help::join-wifi--></li>
+      <li>Anote o <strong>endereço IP</strong> e a <strong>porta</strong> que aparecem no app. Você vai digitar os dois nas configurações abaixo.<!--help::start-sharing--></li>
     </ol>
     <p><strong>Sobre a porta:</strong> o app salva a porta, então você só precisa digitá-la uma vez em cada dispositivo. Ela só muda se outro app do celular passar a usá-la, e nesse caso o app avisa você. Para escolher a sua, toque em <strong>Edit</strong> na linha Port e digite um número entre 1024 e 65535 (entre 1024 e 32767 o risco de conflito é menor). Se essa porta estiver livre, ela fica reservada para você até outro app começar a usá-la.</p>
 
@@ -82,32 +82,32 @@ extraJsonLd: |2
     <h2 id="windows">Windows</h2>
     <h3>Opção A: Firefox (sem extensão)</h3>
     <ol>
-      <li>Vá em <strong>Configurações → Geral → Configurações de rede → Configurar conexão</strong>.</li>
-      <li>Escolha <strong>Configuração manual de proxy</strong>.</li>
-      <li>Digite o IP do celular em <strong>Servidor SOCKS</strong>, a porta em <strong>Porta</strong> e selecione <strong>SOCKS v5</strong>.</li>
-      <li>Marque a opção de usar DNS pelo proxy ao usar SOCKS v5 (<strong>Proxy DNS when using SOCKS v5</strong> no Firefox em inglês), para que as consultas de DNS também passem pelo proxy.</li>
+      <li>Vá em <strong>Configurações → Geral → Configurações de rede → Configurar conexão</strong>.<!--help:windows:set-proxy--></li>
+      <li>Escolha <strong>Configuração manual de proxy</strong>.<!--help:windows:set-proxy--></li>
+      <li>Digite o IP do celular em <strong>Servidor SOCKS</strong>, a porta em <strong>Porta</strong> e selecione <strong>SOCKS v5</strong>.<!--help:windows:set-proxy--></li>
+      <li>Marque a opção de usar DNS pelo proxy ao usar SOCKS v5 (<strong>Proxy DNS when using SOCKS v5</strong> no Firefox em inglês), para que as consultas de DNS também passem pelo proxy.<!--help:windows:set-proxy--></li>
     </ol>
     <h3>Opção B: Chrome ou Edge, com FoxyProxy</h3>
     <ol>
-      <li>Instale a extensão FoxyProxy pela Chrome Web Store.</li>
-      <li>Adicione um novo proxy: tipo <strong>SOCKS5</strong>, host = IP do celular, porta = a porta mostrada no app.</li>
-      <li>Ative esse proxy pelo ícone do FoxyProxy na barra de ferramentas.</li>
+      <li>Instale a extensão FoxyProxy pela Chrome Web Store.<!--help:windows:install--></li>
+      <li>Adicione um novo proxy: tipo <strong>SOCKS5</strong>, host = IP do celular, porta = a porta mostrada no app.<!--help:windows:set-proxy--></li>
+      <li>Ative esse proxy pelo ícone do FoxyProxy na barra de ferramentas.<!--help:windows:set-proxy--></li>
     </ol>
     <h3>Opção C (recomendada): todos os apps com sing-box</h3>
     <p>O Firefox e o FoxyProxy só mandam pelo proxy o tráfego daquele navegador. Para passar todos os apps do Windows pelo proxy, incluindo o DNS, use o <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> (código aberto e mantido ativamente) em modo TUN:</p>
     <ol>
-      <li>Antes de entrar no Wi-Fi do celular, baixe a versão mais recente para Windows em <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a>.</li>
-      <li>Salve a configuração abaixo como <code>config.json</code>, trocando o IP e a porta pelos valores mostrados no app.</li>
-      <li>Execute em um terminal aberto como Administrador: <code>sing-box run --config config.json</code></li>
+      <li>Antes de entrar no Wi-Fi do celular, baixe a versão mais recente para Windows em <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a>.<!--help:windows:install--></li>
+      <li>Salve a configuração abaixo como <code>config.json</code>, trocando o IP e a porta pelos valores mostrados no app.<!--help:windows:set-proxy--></li>
+      <li>Execute em um terminal aberto como Administrador: <code>sing-box run --config config.json</code><!--help:windows:set-proxy--></li>
     </ol>
 
     <h2 id="macos">macOS</h2>
     <h3>Opção A: ajustes de rede nativos</h3>
     <ol>
-      <li>Abra <strong>Ajustes do Sistema → Rede</strong>.</li>
-      <li>Selecione a rede Wi-Fi em que você está conectado (a que o celular criou) e clique em <strong>Detalhes…</strong></li>
-      <li>Vá em <strong>Proxies</strong> e ative <strong>Proxy SOCKS</strong>.</li>
-      <li>Digite o endereço IP e a porta do celular e clique em <strong>OK</strong>.</li>
+      <li>Abra <strong>Ajustes do Sistema → Rede</strong>.<!--help:mac:set-proxy--></li>
+      <li>Selecione a rede Wi-Fi em que você está conectado (a que o celular criou) e clique em <strong>Detalhes…</strong><!--help:mac:set-proxy--></li>
+      <li>Vá em <strong>Proxies</strong> e ative <strong>Proxy SOCKS</strong>.<!--help:mac:set-proxy--></li>
+      <li>Digite o endereço IP e a porta do celular e clique em <strong>OK</strong>.<!--help:mac:set-proxy--></li>
     </ol>
     <p>Não é preciso nenhum app de terceiros. Mas atenção: esse ajuste do macOS não passa as consultas de DNS pelo proxy, e os apps que ignoram o proxy do sistema também ficam de fora. Para cobertura completa, incluindo o DNS, use o script da Opção B.</p>
 
@@ -130,10 +130,10 @@ extraJsonLd: |2
 
     <p>Ou configure manualmente:</p>
     <ol>
-      <li>Antes de entrar no Wi-Fi do celular, instale pelo Homebrew: <code>brew install sing-box</code></li>
-      <li>Salve a configuração abaixo como <code>~/config.json</code>, trocando o IP e a porta pelos valores mostrados no app.</li>
-      <li>Execute (é preciso <code>sudo</code> porque ele cria uma interface de rede virtual e altera as rotas): <code>sudo sing-box run --config ~/config.json</code></li>
-      <li>Desative o Proxy SOCKS nativo da Opção A se ele estiver ligado; o modo TUN do sing-box substitui esse ajuste.</li>
+      <li>Antes de entrar no Wi-Fi do celular, instale pelo Homebrew: <code>brew install sing-box</code><!--help:mac:install--></li>
+      <li>Salve a configuração abaixo como <code>~/config.json</code>, trocando o IP e a porta pelos valores mostrados no app.<!--help:mac:set-proxy--></li>
+      <li>Execute (é preciso <code>sudo</code> porque ele cria uma interface de rede virtual e altera as rotas): <code>sudo sing-box run --config ~/config.json</code><!--help:mac:set-proxy--></li>
+      <li>Desative o Proxy SOCKS nativo da Opção A se ele estiver ligado; o modo TUN do sing-box substitui esse ajuste.<!--help:mac:set-proxy--></li>
     </ol>
 
     <div class="callout">
@@ -167,30 +167,30 @@ extraJsonLd: |2
     <h2 id="linux">Linux</h2>
     <h3>Opção A: Firefox</h3>
     <ol>
-      <li>Vá em <strong>Configurações → Geral → Configurações de rede → Configurar conexão</strong> e escolha <strong>Configuração manual de proxy</strong>.</li>
-      <li>Digite o IP do celular em <strong>Servidor SOCKS</strong>, a porta em <strong>Porta</strong> e selecione <strong>SOCKS v5</strong>.</li>
-      <li>Marque a opção de DNS pelo proxy ao usar SOCKS v5 (<strong>Proxy DNS when using SOCKS v5</strong> no Firefox em inglês).</li>
+      <li>Vá em <strong>Configurações → Geral → Configurações de rede → Configurar conexão</strong> e escolha <strong>Configuração manual de proxy</strong>.<!--help:linux:set-proxy--></li>
+      <li>Digite o IP do celular em <strong>Servidor SOCKS</strong>, a porta em <strong>Porta</strong> e selecione <strong>SOCKS v5</strong>.<!--help:linux:set-proxy--></li>
+      <li>Marque a opção de DNS pelo proxy ao usar SOCKS v5 (<strong>Proxy DNS when using SOCKS v5</strong> no Firefox em inglês).<!--help:linux:set-proxy--></li>
     </ol>
     <h3>Opção B: todos os apps com sing-box</h3>
     <ol>
-      <li>Antes de entrar no Wi-Fi do celular, instale o sing-box pelos pacotes da sua distribuição ou pelas <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">versões no GitHub</a>.</li>
-      <li>Salve a configuração acima como <code>config.json</code>, trocando o IP e a porta pelos valores mostrados no app.</li>
-      <li>Execute como root: <code>sudo sing-box run --config config.json</code></li>
+      <li>Antes de entrar no Wi-Fi do celular, instale o sing-box pelos pacotes da sua distribuição ou pelas <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">versões no GitHub</a>.<!--help:linux:install--></li>
+      <li>Salve a configuração acima como <code>config.json</code>, trocando o IP e a porta pelos valores mostrados no app.<!--help:linux:set-proxy--></li>
+      <li>Execute como root: <code>sudo sing-box run --config config.json</code><!--help:linux:set-proxy--></li>
     </ol>
 
     <h2>iOS</h2>
     <h3>Opção A: Shadowrocket (pago, compra única)</h3>
     <ol>
-      <li>Abra o Shadowrocket e toque no botão <strong>+</strong> no canto superior direito.</li>
-      <li>Escolha o tipo <strong>Socks5</strong>.</li>
-      <li>Digite o IP do celular como endereço e a porta mostrada no app.</li>
-      <li>Salve e toque no botão de ativação no topo para conectar.</li>
+      <li>Abra o Shadowrocket e toque no botão <strong>+</strong> no canto superior direito.<!--help:ios:ios-proxy-app--></li>
+      <li>Escolha o tipo <strong>Socks5</strong>.<!--help:ios:ios-proxy-app--></li>
+      <li>Digite o IP do celular como endereço e a porta mostrada no app.<!--help:ios:ios-proxy-app--></li>
+      <li>Salve e toque no botão de ativação no topo para conectar.<!--help:ios:ios-proxy-app--></li>
     </ol>
     <h3>Opção B: Potatso Lite (gratuito)</h3>
     <ol>
-      <li>Abra o Potatso Lite e adicione um novo perfil de proxy.</li>
-      <li>Selecione <strong>SOCKS5</strong>, digite o IP e a porta e salve.</li>
-      <li>Permita o perfil de VPN quando o iOS pedir. É assim que o Potatso envia o tráfego para o proxy SOCKS5, já que o iOS não tem um ajuste SOCKS5 para o sistema inteiro como o macOS.</li>
+      <li>Abra o Potatso Lite e adicione um novo perfil de proxy.<!--help:ios:ios-proxy-app--></li>
+      <li>Selecione <strong>SOCKS5</strong>, digite o IP e a porta e salve.<!--help:ios:ios-proxy-app--></li>
+      <li>Permita o perfil de VPN quando o iOS pedir. É assim que o Potatso envia o tráfego para o proxy SOCKS5, já que o iOS não tem um ajuste SOCKS5 para o sistema inteiro como o macOS.<!--help:ios:ios-proxy-app--></li>
     </ol>
 
     <div class="callout">
@@ -201,10 +201,7 @@ extraJsonLd: |2
     <p>Se os dois aparelhos forem Android, abra o Tether Link Utility no outro celular, escolha <strong>Use another phone's internet</strong>, toque em <strong>Scan QR code</strong> e escaneie o QR Code mostrado no celular que compartilha. O QR Code contém os dados do Wi-Fi e o endereço do proxy, então o celular entra no Wi-Fi e passa o tráfego pelo proxy usando o VpnService do Android. No Android 10 ou mais recente, o sistema pode pedir que você confirme a conexão Wi-Fi. Veja o passo a passo em <a href="/pt/blog/share-mobile-data-android-to-android-qr.html">Compartilhar internet de Android para Android com QR Code</a>.</p>
     <p>Os dados usados pelos dispositivos conectados contam no plano de dados do celular servidor, então confira as regras de roteamento da sua operadora.</p>
 
-
-    <div class="callout">
-      <p><strong>Não consegue conectar?</strong> <a href="/pt/#help">Conte onde você travou</a>. Lemos todas as mensagens.</p>
-    </div>
+    <!--help-end:-->
 
     <div class="cta-box">
       <h3>Tether Link Utility</h3>

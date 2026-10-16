@@ -70,10 +70,10 @@ extraJsonLd: |2
           <li>Mac, tüm uygulamalar: sing-box'ı kurması için script'imizi şimdi bir kez çalıştırın (bkz. <a href="#macos">macOS</a>).</li>
           <li>Windows veya Linux, tüm uygulamalar: sing-box'ı şimdi indirin (bkz. <a href="#windows">Windows</a> veya <a href="#linux">Linux</a>).</li>
         </ul>
-      </li>
-      <li>Android telefonda Tether Link Utility'yi açın ve <strong>PAYLAŞIMI BAŞLAT</strong>'a dokunun. Uygulama bir Wi-Fi ağı açar ve telefonda yerel bir SOCKS5 proxy başlatır.</li>
-      <li><strong>Sonra</strong> bilgisayarınızı veya iPhone'unuzu uygulamada <strong>Wi-Fi</strong> altında gösterilen ağa, <strong>Şifre</strong> altındaki şifreyle bağlayın. Bu Wi-Fi "İnternet yok" gösterebilir; bu normaldir.</li>
-      <li>Ekranda gösterilen <strong>IP adresini</strong> ve <strong>portu</strong> not edin. Aşağıdaki ayarlarda ikisini de gireceksiniz.</li>
+      <!--help::install--></li>
+      <li>Android telefonda Tether Link Utility'yi açın ve <strong>PAYLAŞIMI BAŞLAT</strong>'a dokunun. Uygulama bir Wi-Fi ağı açar ve telefonda yerel bir SOCKS5 proxy başlatır.<!--help::start-sharing--></li>
+      <li><strong>Sonra</strong> bilgisayarınızı veya iPhone'unuzu uygulamada <strong>Wi-Fi</strong> altında gösterilen ağa, <strong>Şifre</strong> altındaki şifreyle bağlayın. Bu Wi-Fi "İnternet yok" gösterebilir; bu normaldir.<!--help::join-wifi--></li>
+      <li>Ekranda gösterilen <strong>IP adresini</strong> ve <strong>portu</strong> not edin. Aşağıdaki ayarlarda ikisini de gireceksiniz.<!--help::start-sharing--></li>
     </ol>
     <p><strong>Port hakkında:</strong> Uygulama portu kaydeder, yani her cihazda bir kere girmeniz yeterli. Port sadece telefondaki başka bir uygulama onu kullanmaya başlarsa değişir, bu durumda uygulama sizi uyarır. Kendi portunuzu seçmek için Port satırındaki <strong>Düzenle</strong>'ye dokunup 1024 ile 65535 arasında bir sayı girin (1024 ile 32767 arası çakışmaya daha az açıktır). Seçtiğiniz port boştaysa, başka bir uygulama kullanmaya başlayana kadar sizin için ayrılır.</p>
 
@@ -83,32 +83,32 @@ extraJsonLd: |2
     <h2 id="windows">Windows</h2>
     <h3>Seçenek A: Firefox (eklenti gerekmez)</h3>
     <ol>
-      <li><strong>Ayarlar → Genel → Ağ Ayarları → Ayarlar</strong>'a gidin.</li>
-      <li><strong>Elle vekil sunucu yapılandırması</strong>'nı (Manual proxy configuration) seçin.</li>
-      <li>Telefonun IP'sini <strong>SOCKS sunucusu</strong> alanına, portu <strong>Port</strong> alanına girin ve <strong>SOCKS v5</strong>'i seçin.</li>
-      <li>DNS sorgularının da proxy üzerinden yapılması için <strong>Proxy DNS when using SOCKS v5</strong> seçeneğini (Türkçe arayüzde DNS'i vekil sunucu üzerinden yapma seçeneği) işaretleyin.</li>
+      <li><strong>Ayarlar → Genel → Ağ Ayarları → Ayarlar</strong>'a gidin.<!--help:windows:set-proxy--></li>
+      <li><strong>Elle vekil sunucu yapılandırması</strong>'nı (Manual proxy configuration) seçin.<!--help:windows:set-proxy--></li>
+      <li>Telefonun IP'sini <strong>SOCKS sunucusu</strong> alanına, portu <strong>Port</strong> alanına girin ve <strong>SOCKS v5</strong>'i seçin.<!--help:windows:set-proxy--></li>
+      <li>DNS sorgularının da proxy üzerinden yapılması için <strong>Proxy DNS when using SOCKS v5</strong> seçeneğini (Türkçe arayüzde DNS'i vekil sunucu üzerinden yapma seçeneği) işaretleyin.<!--help:windows:set-proxy--></li>
     </ol>
     <h3>Seçenek B: Chrome veya Edge, FoxyProxy ile</h3>
     <ol>
-      <li>Chrome Web Mağazası'ndan FoxyProxy eklentisini kurun.</li>
-      <li>Yeni bir proxy ekleyin: tür <strong>SOCKS5</strong>, host = telefonun IP'si, port = uygulamada gösterilen port.</li>
-      <li>Araç çubuğundaki FoxyProxy simgesinden bu proxy'yi seçin.</li>
+      <li>Chrome Web Mağazası'ndan FoxyProxy eklentisini kurun.<!--help:windows:install--></li>
+      <li>Yeni bir proxy ekleyin: tür <strong>SOCKS5</strong>, host = telefonun IP'si, port = uygulamada gösterilen port.<!--help:windows:set-proxy--></li>
+      <li>Araç çubuğundaki FoxyProxy simgesinden bu proxy'yi seçin.<!--help:windows:set-proxy--></li>
     </ol>
     <h3>Seçenek C (önerilen): sing-box ile tüm uygulamalar</h3>
     <p>Firefox ve FoxyProxy yalnızca o tarayıcının trafiğini proxy'ye gönderir. Diğer uygulamalar ve DNS sorguları doğrudan Wi-Fi bağlantısını kullanmaya devam eder ve telefonun proxy'si olmadan internete çıkamayabilir. Windows'ta tüm uygulamaların ve DNS'in proxy üzerinden gitmesi için TUN modunda <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> kullanın (açık kaynak, aktif olarak geliştiriliyor):</p>
     <ol>
-      <li><a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a> adresinden en son Windows sürümünü, telefonun Wi-Fi'ına katılmadan önce indirin.</li>
-      <li>Aşağıdaki yapılandırmayı <code>config.json</code> olarak kaydedin, IP ve portu uygulamada gösterilenlerle değiştirin.</li>
-      <li>Yönetici olarak açılmış bir terminalde çalıştırın: <code>sing-box run --config config.json</code></li>
+      <li><a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a> adresinden en son Windows sürümünü, telefonun Wi-Fi'ına katılmadan önce indirin.<!--help:windows:install--></li>
+      <li>Aşağıdaki yapılandırmayı <code>config.json</code> olarak kaydedin, IP ve portu uygulamada gösterilenlerle değiştirin.<!--help:windows:set-proxy--></li>
+      <li>Yönetici olarak açılmış bir terminalde çalıştırın: <code>sing-box run --config config.json</code><!--help:windows:set-proxy--></li>
     </ol>
 
     <h2 id="macos">macOS</h2>
     <h3>Seçenek A: yerleşik ağ ayarları</h3>
     <ol>
-      <li><strong>Sistem Ayarları → Ağ</strong>'ı açın.</li>
-      <li>Bağlı olduğunuz Wi-Fi ağını (telefonun yayınladığı ağ) seçin ve <strong>Ayrıntılar…</strong>'a tıklayın.</li>
-      <li><strong>Proxy'ler</strong> bölümünde <strong>SOCKS Proxy</strong>'yi işaretleyin.</li>
-      <li>Telefonun IP adresini ve portunu girin, ardından <strong>Tamam → Uygula</strong>'ya tıklayın.</li>
+      <li><strong>Sistem Ayarları → Ağ</strong>'ı açın.<!--help:mac:set-proxy--></li>
+      <li>Bağlı olduğunuz Wi-Fi ağını (telefonun yayınladığı ağ) seçin ve <strong>Ayrıntılar…</strong>'a tıklayın.<!--help:mac:set-proxy--></li>
+      <li><strong>Proxy'ler</strong> bölümünde <strong>SOCKS Proxy</strong>'yi işaretleyin.<!--help:mac:set-proxy--></li>
+      <li>Telefonun IP adresini ve portunu girin, ardından <strong>Tamam → Uygula</strong>'ya tıklayın.<!--help:mac:set-proxy--></li>
     </ol>
     <p>Ek bir uygulama gerekmez. Ancak macOS'un yerleşik SOCKS ayarını her uygulama kullanmaz ve DNS sorguları bu ayarla proxy üzerinden gitmez. DNS dahil tam kapsama için Seçenek B'deki script'i kullanın.</p>
 
@@ -131,10 +131,10 @@ extraJsonLd: |2
 
     <p>Ya da elle kurun:</p>
     <ol>
-      <li>Telefonun Wi-Fi'ına katılmadan önce Homebrew ile kurun: <code>brew install sing-box</code></li>
-      <li>Aşağıdaki yapılandırmayı <code>~/config.json</code> olarak kaydedin, IP ve portu uygulamada gösterilenlerle değiştirin.</li>
-      <li>Çalıştırın (<code>sudo</code> gerekir, çünkü sanal bir ağ arayüzü oluşturur ve yönlendirmeyi değiştirir): <code>sudo sing-box run --config ~/config.json</code></li>
-      <li>Seçenek A'daki yerleşik SOCKS Proxy ayarı açıksa kapatın, sing-box'ın TUN modu onun yerini alır.</li>
+      <li>Telefonun Wi-Fi'ına katılmadan önce Homebrew ile kurun: <code>brew install sing-box</code><!--help:mac:install--></li>
+      <li>Aşağıdaki yapılandırmayı <code>~/config.json</code> olarak kaydedin, IP ve portu uygulamada gösterilenlerle değiştirin.<!--help:mac:set-proxy--></li>
+      <li>Çalıştırın (<code>sudo</code> gerekir, çünkü sanal bir ağ arayüzü oluşturur ve yönlendirmeyi değiştirir): <code>sudo sing-box run --config ~/config.json</code><!--help:mac:set-proxy--></li>
+      <li>Seçenek A'daki yerleşik SOCKS Proxy ayarı açıksa kapatın, sing-box'ın TUN modu onun yerini alır.<!--help:mac:set-proxy--></li>
     </ol>
 
     <div class="callout">
@@ -168,31 +168,31 @@ extraJsonLd: |2
     <h2 id="linux">Linux</h2>
     <h3>Seçenek A: Firefox</h3>
     <ol>
-      <li><strong>Ayarlar → Genel → Ağ Ayarları → Ayarlar</strong>'a gidin ve <strong>Elle vekil sunucu yapılandırması</strong>'nı seçin.</li>
-      <li>Telefonun IP'sini <strong>SOCKS sunucusu</strong> alanına, portu <strong>Port</strong> alanına girin ve <strong>SOCKS v5</strong>'i seçin.</li>
-      <li><strong>Proxy DNS when using SOCKS v5</strong> seçeneğini (Türkçe arayüzde DNS'i vekil sunucu üzerinden yapma seçeneği) işaretleyin.</li>
+      <li><strong>Ayarlar → Genel → Ağ Ayarları → Ayarlar</strong>'a gidin ve <strong>Elle vekil sunucu yapılandırması</strong>'nı seçin.<!--help:linux:set-proxy--></li>
+      <li>Telefonun IP'sini <strong>SOCKS sunucusu</strong> alanına, portu <strong>Port</strong> alanına girin ve <strong>SOCKS v5</strong>'i seçin.<!--help:linux:set-proxy--></li>
+      <li><strong>Proxy DNS when using SOCKS v5</strong> seçeneğini (Türkçe arayüzde DNS'i vekil sunucu üzerinden yapma seçeneği) işaretleyin.<!--help:linux:set-proxy--></li>
     </ol>
     <h3>Seçenek B: sing-box ile tüm uygulamalar</h3>
     <ol>
-      <li>Telefonun Wi-Fi'ına katılmadan önce sing-box'ı dağıtımınızın paketlerinden veya <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">GitHub sürümlerinden</a> kurun.</li>
-      <li>Yukarıdaki yapılandırmayı <code>config.json</code> olarak kaydedin, IP ve portu uygulamada gösterilenlerle değiştirin.</li>
-      <li>root olarak çalıştırın: <code>sudo sing-box run --config config.json</code></li>
+      <li>Telefonun Wi-Fi'ına katılmadan önce sing-box'ı dağıtımınızın paketlerinden veya <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">GitHub sürümlerinden</a> kurun.<!--help:linux:install--></li>
+      <li>Yukarıdaki yapılandırmayı <code>config.json</code> olarak kaydedin, IP ve portu uygulamada gösterilenlerle değiştirin.<!--help:linux:set-proxy--></li>
+      <li>root olarak çalıştırın: <code>sudo sing-box run --config config.json</code><!--help:linux:set-proxy--></li>
     </ol>
 
     <h2>iOS</h2>
     <p>iOS'ta macOS'taki gibi yerleşik bir SOCKS5 ayarı yok, bu yüzden SOCKS5 destekleyen bir uygulama gerekir.</p>
     <h3>Seçenek A: Shadowrocket (ücretli, tek seferlik satın alma)</h3>
     <ol>
-      <li>Shadowrocket'ı açın ve sağ üstteki <strong>+</strong> düğmesine dokunun.</li>
-      <li>Tür olarak <strong>Socks5</strong>'i seçin.</li>
-      <li>Adres olarak telefonun IP'sini, port olarak uygulamada gösterilen portu girin.</li>
-      <li>Kaydedin, sonra bağlanmak için üstteki anahtara dokunun.</li>
+      <li>Shadowrocket'ı açın ve sağ üstteki <strong>+</strong> düğmesine dokunun.<!--help:ios:ios-proxy-app--></li>
+      <li>Tür olarak <strong>Socks5</strong>'i seçin.<!--help:ios:ios-proxy-app--></li>
+      <li>Adres olarak telefonun IP'sini, port olarak uygulamada gösterilen portu girin.<!--help:ios:ios-proxy-app--></li>
+      <li>Kaydedin, sonra bağlanmak için üstteki anahtara dokunun.<!--help:ios:ios-proxy-app--></li>
     </ol>
     <h3>Seçenek B: Potatso Lite (ücretsiz)</h3>
     <ol>
-      <li>Potatso Lite'ı açın ve yeni bir proxy profili ekleyin.</li>
-      <li><strong>SOCKS5</strong>'i seçin, IP ve portu girin, kaydedin.</li>
-      <li>iOS sorduğunda VPN profiline izin verin. Potatso, trafiği SOCKS5 proxy'ye bu yerel VPN profili üzerinden yönlendirir.</li>
+      <li>Potatso Lite'ı açın ve yeni bir proxy profili ekleyin.<!--help:ios:ios-proxy-app--></li>
+      <li><strong>SOCKS5</strong>'i seçin, IP ve portu girin, kaydedin.<!--help:ios:ios-proxy-app--></li>
+      <li>iOS sorduğunda VPN profiline izin verin. Potatso, trafiği SOCKS5 proxy'ye bu yerel VPN profili üzerinden yönlendirir.<!--help:ios:ios-proxy-app--></li>
     </ol>
 
     <div class="callout">
@@ -211,9 +211,7 @@ extraJsonLd: |2
 
     <p>Bağlı cihazların kullandığı veri, paylaşan telefonun mobil tarifesinden düşer. Tarifenizin paylaşım koşullarını ve kalan hakkınızı kontrol etmeyi unutmayın.</p>
 
-    <div class="callout">
-      <p><strong>Bağlanamadınız mı?</strong> <a href="/tr/#help">Nerede takıldığınızı bize yazın</a>. Her mesajı okuyoruz.</p>
-    </div>
+    <!--help-end:-->
 
     <div class="cta-box">
       <h3>Tether Link Utility</h3>

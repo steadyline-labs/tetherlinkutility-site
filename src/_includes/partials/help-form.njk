@@ -1,9 +1,11 @@
-{#- "Can't connect?" help request form (anchor #help). Text comes from i18n[lang].help.
+{#- Help request form, shown on the /help page (src/help.njk). Text comes from i18n[lang].help.
     Sent to Formspree (our service provider, delivers to the support inbox). With JavaScript the
     page posts JSON through deliverHelpRequest(); without it the plain form posts to the same URL.
     helpEndpoint is the only place the Formspree URL lives (live form xjygjryg).
     One send per browser every 5 minutes is checked in the page.
-    Set helpPage ("guide" or "support") before including; it is sent as "page". -#}
+    Set helpPage ("guide" or "support") before including; it is sent as "page".
+    Prefill: ?device=<platform>&step=<step> (hyphens or underscores) preselects matching options;
+    unknown values are ignored. -#}
 {%- set helpEndpoint = "https://formspree.io/f/xjygjryg" -%}
 {%- set hp = t.help -%}
 {%- set stepsFor = {
@@ -13,12 +15,6 @@
   "mac": "start_sharing install join_wifi set_proxy no_internet other",
   "linux": "start_sharing install join_wifi set_proxy no_internet other"
 } -%}
-  <section class="section wrap help" id="help">
-    <div class="help-wrap">
-      <div class="help-head">
-        <h2>{{ hp.title }}</h2>
-        <p class="help-intro">{{ hp.intro }}</p>
-      </div>
       <form class="help-form" id="helpForm" action="{{ helpEndpoint }}" method="POST" accept-charset="UTF-8" data-lang="{{ lang }}" data-page="{{ helpPage or 'guide' }}">
         <input type="hidden" name="source" value="site">
         <input type="hidden" name="lang" value="{{ lang }}">
@@ -56,8 +52,6 @@
       <div class="help-done" id="helpDone" hidden tabindex="-1">
         <p>{{ hp.success }}</p>
       </div>
-    </div>
-  </section>
 <script>
   (function () {
     var form = document.getElementById('helpForm');
@@ -143,7 +137,23 @@
         if (!show) opt.querySelector('input').checked = false;
       });
       stepsBox.hidden = false;
+      if (wantStep) {
+        var want = stepsBox.querySelector('input[value="' + wantStep + '"]');
+        if (want && !want.closest('.help-opt').hidden) want.checked = true;
+      }
     });
+
+    // Prefill from the guide links: ?device=ios&step=join-wifi. Only values the form has are used.
+    var query = new URLSearchParams(location.search);
+    function param(name) { return (query.get(name) || '').toLowerCase().replace(/-/g, '_'); }
+    var ALIAS = { macos: 'mac', iphone: 'ios', ipad: 'ios' };
+    var wantDevice = ALIAS[param('device')] || param('device');
+    var wantStep = /^[a-z_]+$/.test(param('step')) ? param('step') : '';
+    var deviceInput = /^[a-z_]+$/.test(wantDevice) && form.querySelector('input[name="platform"][value="' + wantDevice + '"]');
+    if (deviceInput) {
+      deviceInput.checked = true;
+      deviceInput.dispatchEvent(new Event('change', { bubbles: true }));
+    }
     msg.addEventListener('input', function () { count.textContent = msg.value.length + '/500'; });
 
     form.addEventListener('submit', function (e) {

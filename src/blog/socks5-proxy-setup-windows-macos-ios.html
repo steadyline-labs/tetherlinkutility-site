@@ -74,10 +74,10 @@ extraJsonLd: |2
           <li>Mac, all apps: run our script once now so it installs sing-box (see <a href="#macos">macOS</a>).</li>
           <li>Windows or Linux, all apps: download sing-box now (see <a href="#windows">Windows</a> or <a href="#linux">Linux</a>).</li>
         </ul>
-      </li>
-      <li>Open Tether Link Utility on the phone and tap <strong>START</strong>.</li>
-      <li><strong>Then</strong> join the Wi-Fi network the app shows under <strong>Wi-Fi</strong>, using the password shown under <strong>Password</strong>. That Wi-Fi may show "No internet"; that's normal.</li>
-      <li>Note the <strong>IP address</strong> and <strong>port</strong> shown in the app. You will enter both in the setup below.</li>
+      <!--help::install--></li>
+      <li>Open Tether Link Utility on the phone and tap <strong>START</strong>.<!--help::start-sharing--></li>
+      <li><strong>Then</strong> join the Wi-Fi network the app shows under <strong>Wi-Fi</strong>, using the password shown under <strong>Password</strong>. That Wi-Fi may show "No internet"; that's normal.<!--help::join-wifi--></li>
+      <li>Note the <strong>IP address</strong> and <strong>port</strong> shown in the app. You will enter both in the setup below.<!--help::start-sharing--></li>
     </ol>
     <p><strong>About the port:</strong> the app saves the port, so you only enter it once on each device. It changes only if another app on the phone takes it, and the app warns you when that happens. To pick your own, tap <strong>Edit</strong> on the Port row and enter a number between 1024 and 65535 (1024 to 32767 is less likely to clash). If that port is free, it stays reserved for you until another app starts using it.</p>
 
@@ -87,32 +87,32 @@ extraJsonLd: |2
     <h2 id="windows">Windows</h2>
     <h3>Option A: Firefox (no extension needed)</h3>
     <ol>
-      <li>Go to <strong>Settings → General → Network Settings → Settings</strong>.</li>
-      <li>Choose <strong>Manual proxy configuration</strong>.</li>
-      <li>Enter the phone's IP under <strong>SOCKS Host</strong>, the port under <strong>Port</strong>, and select <strong>SOCKS v5</strong>.</li>
-      <li>Check <strong>Proxy DNS when using SOCKS v5</strong> so DNS lookups also go through the proxy.</li>
+      <li>Go to <strong>Settings → General → Network Settings → Settings</strong>.<!--help:windows:set-proxy--></li>
+      <li>Choose <strong>Manual proxy configuration</strong>.<!--help:windows:set-proxy--></li>
+      <li>Enter the phone's IP under <strong>SOCKS Host</strong>, the port under <strong>Port</strong>, and select <strong>SOCKS v5</strong>.<!--help:windows:set-proxy--></li>
+      <li>Check <strong>Proxy DNS when using SOCKS v5</strong> so DNS lookups also go through the proxy.<!--help:windows:set-proxy--></li>
     </ol>
     <h3>Option B: Chrome or Edge, via FoxyProxy</h3>
     <ol>
-      <li>Install the FoxyProxy extension from the Chrome Web Store.</li>
-      <li>Add a new proxy: type <strong>SOCKS5</strong>, host = phone's IP, port = the port shown in the app.</li>
-      <li>Switch FoxyProxy to that proxy from its toolbar icon.</li>
+      <li>Install the FoxyProxy extension from the Chrome Web Store.<!--help:windows:install--></li>
+      <li>Add a new proxy: type <strong>SOCKS5</strong>, host = phone's IP, port = the port shown in the app.<!--help:windows:set-proxy--></li>
+      <li>Switch FoxyProxy to that proxy from its toolbar icon.<!--help:windows:set-proxy--></li>
     </ol>
     <h3>Option C (recommended): all apps with sing-box</h3>
     <p>Firefox and FoxyProxy only send that one browser's traffic through the proxy. To route every app on Windows through it, DNS included, use <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> (open source, actively maintained) in TUN mode:</p>
     <ol>
-      <li>Before joining the phone's Wi-Fi, download the latest Windows release from <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a>.</li>
-      <li>Save the config below as <code>config.json</code>, replacing the IP and port with the values shown in the app.</li>
-      <li>Run it from an elevated (Administrator) terminal: <code>sing-box run --config config.json</code></li>
+      <li>Before joining the phone's Wi-Fi, download the latest Windows release from <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a>.<!--help:windows:install--></li>
+      <li>Save the config below as <code>config.json</code>, replacing the IP and port with the values shown in the app.<!--help:windows:set-proxy--></li>
+      <li>Run it from an elevated (Administrator) terminal: <code>sing-box run --config config.json</code><!--help:windows:set-proxy--></li>
     </ol>
 
     <h2 id="macos">macOS</h2>
     <h3>Option A: native Network settings</h3>
     <ol>
-      <li>Open <strong>System Settings → Network</strong>.</li>
-      <li>Select the Wi-Fi network you're connected to (the one the phone created) and click <strong>Details…</strong></li>
-      <li>Go to <strong>Proxies</strong> and turn on <strong>SOCKS Proxy</strong>.</li>
-      <li>Enter the phone's IP address and port, then click <strong>OK</strong>.</li>
+      <li>Open <strong>System Settings → Network</strong>.<!--help:mac:set-proxy--></li>
+      <li>Select the Wi-Fi network you're connected to (the one the phone created) and click <strong>Details…</strong><!--help:mac:set-proxy--></li>
+      <li>Go to <strong>Proxies</strong> and turn on <strong>SOCKS Proxy</strong>.<!--help:mac:set-proxy--></li>
+      <li>Enter the phone's IP address and port, then click <strong>OK</strong>.<!--help:mac:set-proxy--></li>
     </ol>
     <p>No third-party app is needed. Note that this macOS setting does not send DNS lookups through the proxy, and apps which ignore the system proxy setting are not covered either. For full coverage, DNS included, use the script in Option B.</p>
 
@@ -135,10 +135,10 @@ extraJsonLd: |2
 
     <p>Or set it up by hand:</p>
     <ol>
-      <li>Before joining the phone's Wi-Fi, install via Homebrew: <code>brew install sing-box</code></li>
-      <li>Save the config below as <code>~/config.json</code>, replacing the IP and port with the values shown in the app.</li>
-      <li>Run it (it needs <code>sudo</code> because it creates a virtual network interface and changes routing): <code>sudo sing-box run --config ~/config.json</code></li>
-      <li>Turn off the native SOCKS Proxy setting from Option A if you had it on; sing-box's TUN mode replaces it.</li>
+      <li>Before joining the phone's Wi-Fi, install via Homebrew: <code>brew install sing-box</code><!--help:mac:install--></li>
+      <li>Save the config below as <code>~/config.json</code>, replacing the IP and port with the values shown in the app.<!--help:mac:set-proxy--></li>
+      <li>Run it (it needs <code>sudo</code> because it creates a virtual network interface and changes routing): <code>sudo sing-box run --config ~/config.json</code><!--help:mac:set-proxy--></li>
+      <li>Turn off the native SOCKS Proxy setting from Option A if you had it on; sing-box's TUN mode replaces it.<!--help:mac:set-proxy--></li>
     </ol>
 
     <div class="callout">
@@ -172,30 +172,30 @@ extraJsonLd: |2
     <h2 id="linux">Linux</h2>
     <h3>Option A: Firefox</h3>
     <ol>
-      <li>Go to <strong>Settings → General → Network Settings → Settings</strong> and choose <strong>Manual proxy configuration</strong>.</li>
-      <li>Enter the phone's IP under <strong>SOCKS Host</strong>, the port under <strong>Port</strong>, and select <strong>SOCKS v5</strong>.</li>
-      <li>Tick <strong>Proxy DNS when using SOCKS v5</strong>.</li>
+      <li>Go to <strong>Settings → General → Network Settings → Settings</strong> and choose <strong>Manual proxy configuration</strong>.<!--help:linux:set-proxy--></li>
+      <li>Enter the phone's IP under <strong>SOCKS Host</strong>, the port under <strong>Port</strong>, and select <strong>SOCKS v5</strong>.<!--help:linux:set-proxy--></li>
+      <li>Tick <strong>Proxy DNS when using SOCKS v5</strong>.<!--help:linux:set-proxy--></li>
     </ol>
     <h3>Option B: all apps with sing-box</h3>
     <ol>
-      <li>Before joining the phone's Wi-Fi, install sing-box from your distribution's packages or the <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">GitHub releases</a>.</li>
-      <li>Save the config above as <code>config.json</code>, replacing the IP and port with the values shown in the app.</li>
-      <li>Run it as root: <code>sudo sing-box run --config config.json</code></li>
+      <li>Before joining the phone's Wi-Fi, install sing-box from your distribution's packages or the <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">GitHub releases</a>.<!--help:linux:install--></li>
+      <li>Save the config above as <code>config.json</code>, replacing the IP and port with the values shown in the app.<!--help:linux:set-proxy--></li>
+      <li>Run it as root: <code>sudo sing-box run --config config.json</code><!--help:linux:set-proxy--></li>
     </ol>
 
     <h2>iOS</h2>
     <h3>Option A: Shadowrocket (paid, one-time purchase)</h3>
     <ol>
-      <li>Open Shadowrocket and tap the <strong>+</strong> button in the top right.</li>
-      <li>Choose type <strong>Socks5</strong>.</li>
-      <li>Enter the phone's IP as the address and the port shown in the app.</li>
-      <li>Save, then tap the toggle at the top to connect.</li>
+      <li>Open Shadowrocket and tap the <strong>+</strong> button in the top right.<!--help:ios:ios-proxy-app--></li>
+      <li>Choose type <strong>Socks5</strong>.<!--help:ios:ios-proxy-app--></li>
+      <li>Enter the phone's IP as the address and the port shown in the app.<!--help:ios:ios-proxy-app--></li>
+      <li>Save, then tap the toggle at the top to connect.<!--help:ios:ios-proxy-app--></li>
     </ol>
     <h3>Option B: Potatso Lite (free)</h3>
     <ol>
-      <li>Open Potatso Lite and add a new proxy profile.</li>
-      <li>Select <strong>SOCKS5</strong>, enter the IP and port, and save.</li>
-      <li>Allow the VPN profile when iOS asks. This is how Potatso sends traffic to the SOCKS5 proxy, since iOS has no system-wide SOCKS5 setting like macOS does.</li>
+      <li>Open Potatso Lite and add a new proxy profile.<!--help:ios:ios-proxy-app--></li>
+      <li>Select <strong>SOCKS5</strong>, enter the IP and port, and save.<!--help:ios:ios-proxy-app--></li>
+      <li>Allow the VPN profile when iOS asks. This is how Potatso sends traffic to the SOCKS5 proxy, since iOS has no system-wide SOCKS5 setting like macOS does.<!--help:ios:ios-proxy-app--></li>
     </ol>
 
     <div class="callout">
@@ -206,10 +206,7 @@ extraJsonLd: |2
     <p>If both devices are Android, open Tether Link Utility on the other phone, choose <strong>Use another phone's internet</strong>, tap <strong>Scan QR code</strong> and scan the QR code shown on the sharing phone. The QR code contains the Wi-Fi details and the proxy address, so the phone joins the Wi-Fi and routes its traffic through the proxy using Android's VpnService. On Android 10 and later, a system prompt may ask you to confirm the Wi-Fi connection.</p>
     <p>Data used by connected devices counts toward the server phone's mobile plan, so check your carrier's tethering terms.</p>
 
-
-    <div class="callout">
-      <p><strong>Can't connect?</strong> <a href="/#help">Tell us where you got stuck</a>. We read every message.</p>
-    </div>
+    <!--help-end:-->
 
     <div class="cta-box">
       <h3>Tether Link Utility</h3>

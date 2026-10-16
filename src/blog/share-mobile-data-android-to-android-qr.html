@@ -33,19 +33,19 @@ llms:
 
     <h2>Steps on the server phone</h2>
     <ol>
-      <li>Open Tether Link Utility and tap <strong>START</strong>.</li>
-      <li>Allow the permissions Android asks for. Starting a hotspot requires the location permission on older Android versions and the nearby Wi-Fi devices permission on Android 13 and newer.</li>
-      <li>Wait until the screen shows the IP address and port.</li>
-      <li>Tap <strong>Show QR code</strong>.</li>
+      <li>Open Tether Link Utility and tap <strong>START</strong>.<!--help:android:start-sharing--></li>
+      <li>Allow the permissions Android asks for. Starting a hotspot requires the location permission on older Android versions and the nearby Wi-Fi devices permission on Android 13 and newer.<!--help:android:start-sharing--></li>
+      <li>Wait until the screen shows the IP address and port.<!--help:android:start-sharing--></li>
+      <li>Tap <strong>Show QR code</strong>.<!--help:android:start-sharing--></li>
     </ol>
 
     <h2>Steps on the client phone</h2>
     <ol>
-      <li>Open Tether Link Utility, choose <strong>Use another phone's internet</strong>, then tap <strong>Scan QR code</strong>.</li>
-      <li>Point the camera at the QR code on the server phone.</li>
-      <li>On Android 10 and newer, the app asks the system to join the server's Wi-Fi. Android may show a prompt asking you to confirm the connection. Accept it.</li>
-      <li>Android then asks you to allow the VPN connection the first time. This is the local VpnService interface described above. Accept it.</li>
-      <li>When the status shows connected, apps on the client phone use the server phone's mobile data.</li>
+      <li>Open Tether Link Utility, choose <strong>Use another phone's internet</strong>, then tap <strong>Scan QR code</strong>.<!--help:android:scan-qr--></li>
+      <li>Point the camera at the QR code on the server phone.<!--help:android:scan-qr--></li>
+      <li>On Android 10 and newer, the app asks the system to join the server's Wi-Fi. Android may show a prompt asking you to confirm the connection. Accept it.<!--help:android:join-wifi--></li>
+      <li>Android then asks you to allow the VPN connection the first time. This is the local VpnService interface described above. Accept it.<!--help:android:other--></li>
+      <li>When the status shows connected, apps on the client phone use the server phone's mobile data.<!--help:android:no-internet--></li>
     </ol>
 
     <h2>What the QR code contains</h2>
@@ -73,6 +73,8 @@ llms:
     </ul>
 
     <p>If you want to connect a laptop or an iPhone instead of a second Android phone, see <a href="/blog/socks5-proxy-setup-windows-macos-ios.html">How to Set Up a SOCKS5 Proxy on Windows, macOS &amp; iOS</a>.</p>
+
+    <!--help-end:android-->
 
     <div class="cta-box">
       <h3>Tether Link Utility</h3>

@@ -1,5 +1,5 @@
 {#- Site header, shared by the home, blog and privacy pages.
-    navMode: unset on the home page (section links are in-page anchors), "blog" or "privacy" elsewhere.
+    navMode: unset on the home page (section links are in-page anchors), "blog", "privacy" or "help" elsewhere.
     Needs `blogPrefix` (set by each layout, also used by the footer). -#}
 {%- set navBase = t.prefix if navMode else "" -%}
 <nav>
@@ -32,8 +32,8 @@
       </button>
       <div class="lang-dropdown-menu" id="langDropdownMenu" role="menu">
 {#- Home: each language's home. Blog: the same post if it exists there, else that language's blog index,
-    else (no blog yet) its home. Privacy: the language's section on the same page. -#}
-{% for l in site.languages %}        <a href="{% if navMode == "privacy" %}#{{ l }}{% elif navMode == "blog" %}{{ site.url }}{{ i18n[l].prefix }}{% if slug and (collections | hasPost(l, slug)) %}{{ langPath }}{% elif (collections | hasBlog(l)) or l == lang %}blog/{% endif %}{% else %}{{ i18n[l].prefix }}{% endif %}"{% if l == lang %} class="is-current"{% endif %} role="menuitem">{{ i18n[l].name }}</a>
+    else (no blog yet) its home. Privacy: the language's section on the same page. Help: that language's help page. -#}
+{% for l in site.languages %}        <a href="{% if navMode == "privacy" %}#{{ l }}{% elif navMode == "help" %}{{ i18n[l].prefix }}help.html{% elif navMode == "blog" %}{{ site.url }}{{ i18n[l].prefix }}{% if slug and (collections | hasPost(l, slug)) %}{{ langPath }}{% elif (collections | hasBlog(l)) or l == lang %}blog/{% endif %}{% else %}{{ i18n[l].prefix }}{% endif %}"{% if l == lang %} class="is-current"{% endif %} role="menuitem">{{ i18n[l].name }}</a>
 {% endfor %}      </div>
     </div>
     <a href="{{ site.playUrl }}" class="btn-nav">{{ t.homeNav.getApp }}</a>
