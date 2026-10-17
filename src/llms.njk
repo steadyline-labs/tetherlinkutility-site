@@ -27,6 +27,7 @@ eleventyExcludeFromCollections: true
 - Hindi homepage: https://tetherlinkutility.com/hi/ : same content in Hindi
 - Spanish homepage: https://tetherlinkutility.com/es/ : same content in Spanish
 - Portuguese homepage: https://tetherlinkutility.com/pt/ : same content in Brazilian Portuguese
+- Help connecting (troubleshooting steps): https://tetherlinkutility.com/help.html : Turkish /tr/help.html, Hindi /hi/help.html, Spanish /es/help.html, Portuguese /pt/help.html (same path under each language prefix)
 - Privacy Policy: https://tetherlinkutility.com/privacy.html (English, Turkish, Hindi, Spanish, and Portuguese sections on one page, via #en/#tr/#hi/#es/#pt anchors)
 - Pricing (structured, machine-readable): https://tetherlinkutility.com/pricing.md
 - Google Play listing: https://play.google.com/store/apps/details?id=com.alparslan.tetherlinkutility
@@ -36,7 +37,7 @@ eleventyExcludeFromCollections: true
 {% endfor %}
 Most guides are also available in Turkish (https://tetherlinkutility.com/tr/blog/) and Hindi (https://tetherlinkutility.com/hi/blog/), same filenames under each language's `/blog/` path.
 {% if collections | hasBlog("es") %}Spanish (Latin America) guides: {{ site.url }}/es/blog/ . Translations of the general English guides use the same filenames; carrier guides have their own filenames:
-{% for post in collections.posts_es %}{% if post.data.carrier %}- {{ site.url }}{{ post.url }} : {{ post.data.title | plainText }}
+{% for post in collections.posts_es %}{% if post.data.carrier or "como-compartir-internet-del-celular" in post.url %}- {{ site.url }}{{ post.url }} : {{ post.data.title | plainText }}
 {% endif %}{% endfor %}{% endif %}{% if collections | hasBlog("pt") %}Brazilian Portuguese guides: {{ site.url }}/pt/blog/ . Translations of the general English guides use the same filenames; carrier guides have their own filenames:
 {% for post in collections.posts_pt %}{% if post.data.carrier %}- {{ site.url }}{{ post.url }} : {{ post.data.title | plainText }}
 {% endif %}{% endfor %}{% endif %}
