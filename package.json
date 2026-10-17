@@ -6,7 +6,8 @@
     "build": "eleventy",
     "serve": "eleventy --serve",
     "compare": "node scripts/compare.mjs",
-    "screenshots": "node scripts/screenshots.mjs"
+    "screenshots": "node scripts/screenshots.mjs",
+    "test": "eleventy --quiet && node --test --test-timeout=60000 \"tests/*.test.mjs\""
   },
   "engines": {
     "node": ">=20"
