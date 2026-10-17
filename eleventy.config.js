@@ -259,6 +259,24 @@ export default function (eleventyConfig) {
     return head + body;
   });
 
+  // Google Play link with an install referrer, so Play Console shows which page sent the install:
+  // utm_medium = page type (home, blog, help), utm_campaign = page slug, utm_content = language.
+  // The referrer value is URL-encoded as one parameter. JSON-LD and llms.txt keep the plain site.playUrl.
+  const siteData = JSON.parse(fs.readFileSync(new URL("./src/_data/site.json", import.meta.url), "utf8"));
+  eleventyConfig.addFilter("playLink", (url, lang) => {
+    const rest = String(url || "/").replace(new RegExp(`^/(${languages.join("|")})/`), "/");
+    let medium = "home", campaign = "home";
+    const post = rest.match(/^\/blog\/([^/]+)\.html$/);
+    if (post) { medium = "blog"; campaign = post[1]; }
+    else if (rest.startsWith("/blog/")) { medium = "blog"; campaign = "blog-index"; }
+    else if (rest !== "/" && rest !== "/index.html") {
+      campaign = rest.replace(/^\//, "").replace(/\.html$/, "").replace(/\/$/, "") || "home";
+      medium = campaign;
+    }
+    const referrer = `utm_source=tetherlinkutility.com&utm_medium=${medium}&utm_campaign=${campaign}&utm_content=${lang || "en"}`;
+    return `${siteData.playUrl}&referrer=${encodeURIComponent(referrer)}`;
+  });
+
   return {
     dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },
     templateFormats: ["njk", "html", "md"],

@@ -36,6 +36,6 @@
 {% for l in site.languages %}        <a href="{% if navMode == "privacy" %}#{{ l }}{% elif navMode == "help" %}{{ i18n[l].prefix }}help.html{% elif navMode == "blog" %}{{ site.url }}{{ i18n[l].prefix }}{% if slug and (collections | hasPost(l, slug)) %}{{ langPath }}{% elif (collections | hasBlog(l)) or l == lang %}blog/{% endif %}{% else %}{{ i18n[l].prefix }}{% endif %}"{% if l == lang %} class="is-current"{% endif %} role="menuitem">{{ i18n[l].name }}</a>
 {% endfor %}      </div>
     </div>
-    <a href="{{ site.playUrl }}" class="btn-nav">{{ t.homeNav.getApp }}</a>
+    <a href="{{ page.url | playLink(lang) }}" class="btn-nav">{{ t.homeNav.getApp }}</a>
   </div>
 </nav>

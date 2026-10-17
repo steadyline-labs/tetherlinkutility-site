@@ -10,11 +10,11 @@ const pages = htmlPages().map((p) => ({ p, html: read(p) })).filter((x) => !isRe
 const indexable = pages.filter((x) => !String(robots(x.html)).includes("noindex"));
 
 for (const lang of LANGS) {
-  test(`home ${prefix(lang)}: title starts with the brand, one h1, Play link`, () => {
+  test(`home ${prefix(lang)}: title starts with the brand, one h1, Play link with referrer`, () => {
     const html = read(prefix(lang));
     assert.ok(title(html).startsWith("Tether Link Utility:"), title(html));
     assert.equal((html.match(/<h1[\s>]/g) || []).length, 1);
-    assert.ok(links(html).some((a) => a.href === site.playUrl), "Play link");
+    assert.ok(links(html).some((a) => a.href === `${site.playUrl}&referrer=${encodeURIComponent(`utm_source=tetherlinkutility.com&utm_medium=home&utm_campaign=home&utm_content=${lang}`)}`), "Play link with referrer");
   });
 
   test(`home ${prefix(lang)}: footer and FAQ link to ${prefix(lang)}help.html`, () => {

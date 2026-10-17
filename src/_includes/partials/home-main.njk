@@ -8,7 +8,7 @@
       <h1><span class="hero-brand">{{ site.name }}</span>{{ h.hero.h1 }}<span>{{ h.hero.h1Accent }}</span></h1>
       <p class="hero-body">{{ h.hero.body }}</p>
       <div class="hero-actions">
-        <a href="{{ site.playUrl }}" class="play-badge" aria-label="{{ h.hero.playLabel }}">
+        <a href="{{ page.url | playLink(lang) }}" class="play-badge" aria-label="{{ h.hero.playLabel }}">
           <svg width="30" height="30" viewBox="0 0 24 24">
             <defs>
               <linearGradient id="pbBlue" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -157,7 +157,7 @@
         <h2>{{ h.closing.title }}</h2>
         <p>{{ t.homeNav.sticky }}</p>
       </div>
-      <a href="{{ site.playUrl }}" class="play-badge" aria-label="{{ h.hero.playLabel }}">
+      <a href="{{ page.url | playLink(lang) }}" class="play-badge" aria-label="{{ h.hero.playLabel }}">
         <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M3.18 23.76c.3.17.64.24.99.19L15.89 12 3.18.05C2.83 0 2.48.07 2.18.24 1.59.57 1.2 1.22 1.2 2v20c0 .78.39 1.43.98 1.76z" fill="url(#pbBlue)"/>
           <path d="M4.14 1.37l12.22 7.07-3.27 3.27L4.14 1.37z" fill="url(#pbGreen)"/>

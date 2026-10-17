@@ -16,7 +16,7 @@
 
 <div class="sticky-cta" id="stickyCta">
   <span>{{ t.homeNav.sticky }}</span>
-  <a href="{{ site.playUrl }}" class="btn-primary">{{ t.homeNav.stickyButton }}</a>
+  <a href="{{ page.url | playLink(lang) }}" class="btn-primary">{{ t.homeNav.stickyButton }}</a>
 </div>
 
 {% include "partials/site-nav-script.njk" %}
