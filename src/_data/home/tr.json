@@ -4,6 +4,12 @@
   "description": "Android telefonunuzun mobil verisini dizüstü bilgisayarınız, tabletiniz veya başka bir telefonla yerel bir SOCKS5 proxy üzerinden paylaşın. Root yok, hesap yok, uzak sunucu yok.",
   "jsonld": [
     {
+      "type": "website"
+    },
+    {
+      "type": "organization"
+    },
+    {
       "type": "app"
     },
     {

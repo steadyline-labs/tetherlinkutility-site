@@ -1,7 +1,7 @@
 // privacy.feature and app_ads.feature.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { LANGS, SITE_URL, prefix, read, links, robots, canonicals } from "./lib/site.mjs";
+import { LANGS, SITE_URL, i18n, prefix, read, links, robots, canonicals } from "./lib/site.mjs";
 
 const html = read("/privacy.html");
 const text = (s) => s.replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/\s+/g, " ");
@@ -49,6 +49,22 @@ for (const lang of LANGS) {
     assert.ok(links(html).some((a) => a.href === `${prefix(lang)}help.html`), `link to ${prefix(lang)}help.html`);
   });
 }
+
+// privacy.feature: the help requests part names the form like the site's help links.
+for (const lang of LANGS) {
+  test(`privacy ${lang}: help form is called "${i18n[lang].help.link}" in the text and in its link`, () => {
+    const label = i18n[lang].help.link;
+    assert.ok(helpPart(lang).includes(`"${label}"`), `${lang}: form name in text`);
+    const help = links(html).filter((a) => a.href === `${prefix(lang)}help.html`);
+    assert.ok(help.length > 0 && help.every((a) => a.text === label), `${lang}: link text ${help.map((a) => a.text)}`);
+  });
+}
+
+// privacy.feature: comma between the guide step and the connection test result (ES, PT).
+test("privacy es/pt: guide step and connection test result are separated by a comma", () => {
+  assert.ok(helpPart("es").includes("en qué paso de la guía estabas, el resultado"), "es");
+  assert.ok(helpPart("pt").includes("em qual passo do guia você estava, o resultado"), "pt");
+});
 
 test("privacy page is indexable with its canonical", () => {
   assert.equal(robots(html), "index, follow");

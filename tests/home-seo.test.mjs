@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   LANGS, SITE_URL, site, i18n, prefix, hreflang, read, fileFor, htmlPages, isRedirectStub,
-  title, canonicals, robots, metaDescription, hreflangs, links, jsonLd, ldTypes, ldFind,
+  title, canonicals, robots, metaDescription, hreflangs, links, jsonLd, ldTypes, ldFind, htmlLang, sitemap,
 } from "./lib/site.mjs";
 
 const pages = htmlPages().map((p) => ({ p, html: read(p) })).filter((x) => !isRedirectStub(x.html));
@@ -55,14 +55,34 @@ test("home JSON-LD has SoftwareApplication, FAQPage and HowTo in every language"
 });
 
 // STANDARTLAR 3.2.1 also asks for WebSite and Organization on every home page.
-// The Turkish home (src/_data/home/tr.json, jsonld) lists only app, faq and howTo today.
 for (const lang of LANGS) {
-  const missing = lang === "tr" ? { todo: "tr home has no WebSite/Organization blocks" } : {};
-  test(`home ${prefix(lang)} JSON-LD has WebSite and Organization (STANDARTLAR 3.2.1)`, missing, () => {
+  test(`home ${prefix(lang)} JSON-LD has WebSite and Organization (STANDARTLAR 3.2.1)`, () => {
     const types = ldTypes(jsonLd(read(prefix(lang))));
     for (const t of ["WebSite", "Organization"]) assert.ok(types.includes(t), `${lang}: ${t}`);
   });
 }
+
+// seo.feature: Spanish pages use es-419 everywhere (STANDARTLAR 3.1.3), never a bare "es".
+test("no html lang, hreflang, sitemap alternate or JSON-LD inLanguage uses a bare \"es\"", () => {
+  const bad = [];
+  for (const { p, html } of pages) {
+    if (htmlLang(html) === "es") bad.push(`${p}: html lang`);
+    if ("es" in hreflangs(html)) bad.push(`${p}: hreflang`);
+    const walk = (v) => {
+      if (Array.isArray(v)) v.forEach(walk);
+      else if (v && typeof v === "object") {
+        if (v.inLanguage === "es") bad.push(`${p}: inLanguage`);
+        Object.values(v).forEach(walk);
+      }
+    };
+    walk(jsonLd(html));
+  }
+  for (const e of sitemap()) if ("es" in e.alternates) bad.push(`sitemap ${e.loc}`);
+  assert.deepEqual(bad, []);
+  assert.equal(htmlLang(read("/es/")), "es-419");
+  assert.equal(sitemap().find((e) => e.loc === `${SITE_URL}/tr/`).alternates["es-419"], `${SITE_URL}/es/`);
+  assert.equal(ldFind(jsonLd(read("/es/")), "SoftwareApplication")[0].inLanguage, "es-419");
+});
 
 test("every page has a title, a meta description and one canonical on the site URL", () => {
   for (const { p, html } of pages) {

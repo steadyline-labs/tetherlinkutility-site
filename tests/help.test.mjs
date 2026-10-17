@@ -72,7 +72,8 @@ test("help page titles are unique, Turkish title as written", () => {
   assert.equal(title(read("/tr/help.html")), "Bağlantı Yardımı: Tether Link Utility");
 });
 
-// STANDARTLAR 3.1.3 asks for "es-419"; the site currently uses "es". Kept as a todo until the owner decides.
-test("Spanish hreflang code is es-419 (STANDARTLAR 3.1.3)", { todo: "site uses hreflang \"es\"" }, () => {
+// help_seo.feature: STANDARTLAR 3.1.3 Spanish code.
+test("Spanish hreflang code is es-419 (STANDARTLAR 3.1.3)", () => {
   assert.equal(hreflang("es"), "es-419");
+  assert.equal(hreflangs(read("/es/help.html"))["es-419"], `${SITE_URL}/es/help.html`);
 });
