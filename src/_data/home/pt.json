@@ -81,13 +81,37 @@
   "how": {
     "title": "Conectado em quatro passos",
     "demoLink": "Assista à demonstração &#9656;",
+    "before": {
+      "title": "Antes de começar",
+      "lead": "Você precisa de pelo menos dois dispositivos: um celular compartilha os dados móveis e os seus outros dispositivos se conectam a ele.",
+      "roles": [
+        {
+          "tag": "Compartilha",
+          "kind": "share",
+          "title": "Este celular",
+          "lines": [
+            "Ative os dados móveis. Abra o app em <span class=\"app-ui\">Share mode</span>, toque em <span class=\"app-ui\">START SHARING</span> e depois em <span class=\"app-ui\">Show QR code</span>."
+          ]
+        },
+        {
+          "tag": "Conecta",
+          "kind": "connect",
+          "title": "Seus outros dispositivos",
+          "lines": [
+            "<b>Celular Android com o app:</b> toque em <span class=\"app-ui\">Share mode</span> no topo, escolha <span class=\"app-ui\">Use another phone's internet</span> e siga os passos.",
+            "<b>Windows, Mac ou Linux:</b> no celular que compartilha, abra <span class=\"app-ui\">Connection help</span>, escolha o tipo de dispositivo e aplique as configurações recomendadas."
+          ]
+        }
+      ],
+      "help": "Travou? Abra <span class=\"app-ui\">Connection help</span> no app."
+    },
     "steps": [
       {
-        "title": "Toque em START",
+        "title": "Toque em START SHARING",
         "text": "O ponto de acesso é ativado automaticamente e o proxy é iniciado."
       },
       {
-        "title": "Mostre o QR code",
+        "title": "Toque em Show QR code",
         "text": "Um único código traz a rede Wi-Fi e o endereço do proxy."
       },
       {

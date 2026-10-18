@@ -80,13 +80,37 @@
   "how": {
     "title": "Connected in four steps",
     "demoLink": "Watch the demo &#9656;",
+    "before": {
+      "title": "Before you start",
+      "lead": "You need at least two devices: one phone shares its mobile data, your other devices connect to it.",
+      "roles": [
+        {
+          "tag": "Shares",
+          "kind": "share",
+          "title": "This phone",
+          "lines": [
+            "Turn on mobile data. Open the app in <span class=\"app-ui\">Share mode</span>, tap <span class=\"app-ui\">START SHARING</span>, then <span class=\"app-ui\">Show QR code</span>."
+          ]
+        },
+        {
+          "tag": "Connects",
+          "kind": "connect",
+          "title": "Your other devices",
+          "lines": [
+            "<b>Android phone with the app:</b> tap <span class=\"app-ui\">Share mode</span> at the top, choose <span class=\"app-ui\">Use another phone's internet</span> and follow the steps.",
+            "<b>Windows, Mac or Linux:</b> on the sharing phone, open <span class=\"app-ui\">Connection help</span>, pick the device type and apply the recommended settings."
+          ]
+        }
+      ],
+      "help": "Stuck? Open <span class=\"app-ui\">Connection help</span> in the app."
+    },
     "steps": [
       {
-        "title": "Tap START",
+        "title": "Tap START SHARING",
         "text": "The hotspot turns on automatically and the proxy starts."
       },
       {
-        "title": "Show the QR code",
+        "title": "Show QR code",
         "text": "One code carries the Wi-Fi network and the proxy address."
       },
       {

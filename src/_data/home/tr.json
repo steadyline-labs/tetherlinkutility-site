@@ -82,13 +82,37 @@
   "how": {
     "title": "Dört adımda bağlanın",
     "demoLink": "Tanıtım videosunu izleyin &#9656;",
+    "before": {
+      "title": "Başlamadan önce",
+      "lead": "En az iki cihaz gerekir: bir telefon mobil verisini paylaşır, diğer cihazlarınız ona bağlanır.",
+      "roles": [
+        {
+          "tag": "Paylaşır",
+          "kind": "share",
+          "title": "Bu telefon",
+          "lines": [
+            "Mobil veriyi açın. Uygulamayı <span class=\"app-ui\">Paylaşım modu</span>'nda açın, <span class=\"app-ui\">PAYLAŞIMI BAŞLAT</span>'a, sonra <span class=\"app-ui\">QR kodu göster</span>'e dokunun."
+          ]
+        },
+        {
+          "tag": "Bağlanır",
+          "kind": "connect",
+          "title": "Diğer cihazlarınız",
+          "lines": [
+            "<b>Uygulama yüklü Android telefon:</b> üstteki <span class=\"app-ui\">Paylaşım modu</span>'na dokunun, <span class=\"app-ui\">Başka bir telefonun internetini kullan</span>'ı seçin ve adımları izleyin.",
+            "<b>Windows, Mac veya Linux:</b> paylaşan telefonda <span class=\"app-ui\">Bağlanma yardımı</span>'nı açın, cihaz türünü seçin ve önerilen ayarları uygulayın."
+          ]
+        }
+      ],
+      "help": "Takıldınız mı? Uygulamada <span class=\"app-ui\">Bağlanma yardımı</span>'nı açın."
+    },
     "steps": [
       {
         "title": "PAYLAŞIMI BAŞLAT'a dokunun",
         "text": "Hotspot otomatik olarak açılır ve proxy başlar."
       },
       {
-        "title": "QR kodu gösterin",
+        "title": "QR kodu göster'e dokunun",
         "text": "Tek bir kod, Wi-Fi ağını ve proxy adresini birlikte taşır."
       },
       {

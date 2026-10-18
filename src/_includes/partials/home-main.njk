@@ -73,6 +73,19 @@
       <h2>{{ h.how.title }}</h2>
       <a class="demo-link" href="#demo">{{ h.how.demoLink }}</a>
     </div>
+    <div class="before" aria-labelledby="before-title">
+      <h3 class="before-title" id="before-title">{{ h.how.before.title }}</h3>
+      <p class="before-lead">{{ h.how.before.lead }}</p>
+      <div class="roles">
+{% for r in h.how.before.roles %}        <div class="role role-{{ r.kind }}">
+          <span class="role-tag">{{ r.tag }}</span>
+          <h4>{{ r.title }}</h4>
+{% for l in r.lines %}          <p>{{ l | safe }}</p>
+{% endfor %}        </div>
+{% if loop.first %}        <span class="roles-arrow" aria-hidden="true"></span>
+{% endif %}{% endfor %}      </div>
+      <p class="before-help">{{ h.how.before.help | safe }}</p>
+    </div>
     <ol class="steps">
 {% for step in h.how.steps %}      <li class="step">
         <div class="step-num">0{{ loop.index }}</div>

@@ -80,13 +80,37 @@
   "how": {
     "title": "चार स्टेप में कनेक्ट करें",
     "demoLink": "डेमो देखें &#9656;",
+    "before": {
+      "title": "शुरू करने से पहले",
+      "lead": "आपको कम से कम दो डिवाइस चाहिए: एक फ़ोन अपना मोबाइल डेटा शेयर करता है, आपके बाकी डिवाइस उससे कनेक्ट होते हैं।",
+      "roles": [
+        {
+          "tag": "शेयर करता है",
+          "kind": "share",
+          "title": "यह फ़ोन",
+          "lines": [
+            "मोबाइल डेटा ऑन करें। ऐप को <span class=\"app-ui\">Share mode</span> में खोलें, <span class=\"app-ui\">START SHARING</span> पर टैप करें, फिर <span class=\"app-ui\">Show QR code</span> पर।"
+          ]
+        },
+        {
+          "tag": "कनेक्ट होते हैं",
+          "kind": "connect",
+          "title": "आपके बाकी डिवाइस",
+          "lines": [
+            "<b>ऐप वाला Android फ़ोन:</b> ऊपर <span class=\"app-ui\">Share mode</span> पर टैप करें, <span class=\"app-ui\">Use another phone's internet</span> चुनें और स्टेप फ़ॉलो करें।",
+            "<b>Windows, Mac या Linux:</b> शेयर करने वाले फ़ोन पर <span class=\"app-ui\">Connection help</span> खोलें, डिवाइस टाइप चुनें और सुझाई गई सेटिंग्स लागू करें।"
+          ]
+        }
+      ],
+      "help": "अटक गए? ऐप में <span class=\"app-ui\">Connection help</span> खोलें।"
+    },
     "steps": [
       {
-        "title": "START पर टैप करें",
+        "title": "START SHARING पर टैप करें",
         "text": "हॉटस्पॉट अपने आप ऑन हो जाता है और प्रॉक्सी शुरू हो जाती है।"
       },
       {
-        "title": "QR कोड दिखाएं",
+        "title": "Show QR code पर टैप करें",
         "text": "एक ही कोड में Wi-Fi नेटवर्क और प्रॉक्सी एड्रेस दोनों होते हैं।"
       },
       {
