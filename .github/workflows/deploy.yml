@@ -1,8 +1,7 @@
-# Builds the site with Eleventy and deploys _site/ to GitHub Pages.
+# Tests and builds the site with Eleventy, then deploys _site/ to GitHub Pages.
 #
-# Inactive until go-live: this file only exists on the `eleventy` branch, and it only
-# runs on pushes to `main` (or by hand). Before merging into main, switch
-# Settings > Pages > Build and deployment > Source to "GitHub Actions".
+# Runs on pushes to main, daily, or by hand. A manual run on another branch
+# (gh workflow run deploy.yml --ref <branch>) only tests and builds; it never deploys.
 name: Deploy site
 
 on:
@@ -35,9 +34,10 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
-      # A failing test stops the deploy. Browser tests (*.browser.test.mjs) need a local Chrome
-      # and run with `npm test` on the developer machine.
-      - run: npm run test:ci
+      # All tests, browser tests included (they use the runner's preinstalled Google Chrome).
+      # A failing test fails this job, and the deploy job below never starts.
+      - run: google-chrome --version
+      - run: npm test
       - run: npx @11ty/eleventy
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
@@ -46,6 +46,8 @@ jobs:
 
   deploy:
     needs: build
+    # Only main deploys. Any other branch (run by hand) only builds and tests.
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

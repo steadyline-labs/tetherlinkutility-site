@@ -8,8 +8,15 @@ import os from "node:os";
 import path from "node:path";
 import { siteDir } from "./site.mjs";
 
-export const CHROME = process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+// $CHROME wins; otherwise the usual macOS and Linux (GitHub runner) install paths.
+const CANDIDATES = [
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "/usr/bin/google-chrome", "/usr/bin/google-chrome-stable", "/usr/bin/chromium", "/usr/bin/chromium-browser",
+];
+export const CHROME = process.env.CHROME || CANDIDATES.find((p) => fs.existsSync(p)) || CANDIDATES[0];
 export const hasChrome = () => fs.existsSync(CHROME) && typeof WebSocket === "function";
+// On CI (GitHub sets CI=true) a missing Chrome is an error, never a silent skip.
+export const skipBrowser = () => !hasChrome() && !process.env.CI && "Chrome not found (set CHROME)";
 
 const TYPES = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".xml": "application/xml", ".txt": "text/plain", ".mp4": "video/mp4" };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -42,7 +49,8 @@ export async function launch() {
   ], { stdio: "ignore" });
 
   const portFile = path.join(profile, "DevToolsActivePort");
-  for (let i = 0; i < 100 && !fs.existsSync(portFile); i++) await sleep(100);
+  for (let i = 0; i < 100 && !fs.existsSync(portFile) && chrome.exitCode === null; i++) await sleep(100);
+  if (!fs.existsSync(portFile)) throw new Error(`Chrome did not start (${CHROME}, exit ${chrome.exitCode})`);
   const [port, wsPath] = fs.readFileSync(portFile, "utf8").trim().split("\n");
   const ws = new WebSocket(`ws://127.0.0.1:${port}${wsPath}`);
   await new Promise((resolve, reject) => { ws.onopen = resolve; ws.onerror = reject; });

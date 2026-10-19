@@ -1,15 +1,15 @@
 // help_form.feature and help_redirect.feature in headless Chrome: prefill, validation, honeypot,
 // send success and failure (Formspree is intercepted, nothing is sent), the 5 minute guard,
-// JavaScript off, and the old /#help redirect. Skipped when Chrome is not installed (set CHROME).
+// JavaScript off, and the old /#help redirect. Skipped locally when Chrome is not found (set CHROME); fails on CI.
 import { describe, test, before, after } from "node:test";
 import assert from "node:assert/strict";
 import { LANGS, FORMSPREE, SITE_URL, i18n, prefix } from "./lib/site.mjs";
-import { launch, hasChrome } from "./lib/browser.mjs";
+import { launch, skipBrowser } from "./lib/browser.mjs";
 
 const EN = i18n.en.help;
 const TR = i18n.tr.help;
 
-describe("help form in a browser", { skip: !hasChrome() && "Chrome not found (set CHROME)" }, () => {
+describe("help form in a browser", { skip: skipBrowser() }, () => {
   let browser;
   before(async () => { browser = await launch(); });
   after(async () => { await browser?.close(); });

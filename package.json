@@ -7,8 +7,7 @@
     "serve": "eleventy --serve",
     "compare": "node scripts/compare.mjs",
     "screenshots": "node scripts/screenshots.mjs",
-    "test": "eleventy --quiet && node --test --test-timeout=60000 \"tests/*.test.mjs\"",
-    "test:ci": "eleventy --quiet && node --test --test-timeout=60000 $(ls tests/*.test.mjs | grep -v '[.]browser[.]')"
+    "test": "eleventy --quiet && node --test --test-timeout=60000 \"tests/*.test.mjs\""
   },
   "engines": {
     "node": ">=20"
