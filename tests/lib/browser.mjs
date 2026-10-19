@@ -133,6 +133,8 @@ export async function launch() {
       }
       throw new Error(`timed out waiting for: ${expression}`);
     };
+    // Raw DevTools protocol call for this page (viewport, media emulation, screenshots).
+    page.cdp = (method, params = {}) => send(method, params, sessionId);
     page.close = async () => {
       listeners.delete(onEvent);
       await send("Target.closeTarget", { targetId });

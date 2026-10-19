@@ -40,9 +40,12 @@
       --accent-text: #F07A45;
       --success-text: #00BF8A;
       color: var(--text);
+      /* The border image paints the full-width band; the same background colour under it changes
+         nothing on screen but lets contrast checkers (axe) see the real background. */
+      background-color: var(--navy);
       border-image: conic-gradient(var(--navy) 0 0) fill 0 / / 0 100vmax;
     }
-    .band-peach { border-image: conic-gradient(var(--peach) 0 0) fill 0 / / 0 100vmax; }
+    .band-peach { background-color: var(--peach); border-image: conic-gradient(var(--peach) 0 0) fill 0 / / 0 100vmax; }
 
     html { scroll-behavior: smooth; }
     [id] { scroll-margin-top: 80px; }

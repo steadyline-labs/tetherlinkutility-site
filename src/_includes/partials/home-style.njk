@@ -215,6 +215,8 @@
     .card h3::before { content: ""; display: block; width: 28px; height: 4px; border-radius: 2px; background: var(--success); margin-bottom: 14px; }
     .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
     .card p { font-size: 15px; color: var(--muted); line-height: 1.55; }
+    /* Links inside card text are underlined: colour alone is not enough next to grey text (WCAG 1.4.1). */
+    .card p a { text-decoration: underline; text-underline-offset: 2px; }
     .notes {
       margin-top: 24px; font-size: 14px; color: var(--muted); line-height: 1.6;
       background: var(--elevated); border: 1px solid var(--border); border-left: 4px solid var(--accent);

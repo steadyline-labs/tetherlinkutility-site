@@ -173,7 +173,8 @@ export default function (eleventyConfig) {
   const stripTags = (s) => s.replace(/<[^>]+>/g, "").trim();
 
   eleventyConfig.addFilter("enhancePost", (content, o) => {
-    let html = content;
+    // Code blocks scroll sideways on small screens: make them keyboard-focusable so they can be scrolled.
+    let html = content.replace(/<pre(?=[\s>])(?![^>]*\btabindex=)/g, '<pre tabindex="0"');
     // Setup guide help links: <!--help:<device>:<step>--> at the end of a step becomes a quiet
     // "Stuck on this step?" link, <!--help-end:<device>--> the "Still not connected?" card. Both
     // open this language's /help page with the device (and step) prefilled; device may be empty.
