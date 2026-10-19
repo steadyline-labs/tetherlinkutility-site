@@ -131,3 +131,29 @@ export function postSources(lang) {
 }
 
 export const GUIDES = ["socks5-proxy-setup-windows-macos-ios.html", "share-mobile-data-android-to-android-qr.html"];
+
+// Every start tag as { name, attrs } (lower-case names; entities in values decoded). Comments and the
+// bodies of <script>, <style> and <template> are skipped; their own start tags are kept.
+export function tags(html) {
+  const body = html
+    .replace(/<!--[\s\S]*?-->/g, "")
+    .replace(/(<(script|style|template)\b[^>]*>)[\s\S]*?<\/\2>/gi, "$1");
+  return [...body.matchAll(/<([a-zA-Z][\w:-]*)((?:\s+[^\s=>\/]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?)*)\s*\/?>/g)].map((m) => {
+    const attrs = {};
+    for (const a of m[2].matchAll(/([^\s=>\/]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?/g)) {
+      const k = a[1].toLowerCase();
+      if (!(k in attrs)) attrs[k] = decode(a[2] ?? a[3] ?? a[4] ?? "");
+    }
+    return { name: m[1].toLowerCase(), attrs };
+  });
+}
+
+// Fragment targets on a page: every id, plus <a name>.
+export function ids(html) {
+  const out = new Set();
+  for (const t of tags(html)) {
+    if (t.attrs.id !== undefined) out.add(t.attrs.id);
+    if (t.name === "a" && t.attrs.name) out.add(t.attrs.name);
+  }
+  return out;
+}

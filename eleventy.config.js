@@ -197,7 +197,9 @@ export default function (eleventyConfig) {
       html = html.replace(/(<div class="post-meta">[\s\S]*?<\/div>\n?)/, `$1${o.quick}${toc}`);
     }
     if (o.faq) {
-      html = html.replace(/(\s*)<div class="cta-box">/, `\n${o.faq}$1<div class="cta-box">`);
+      // Before the CTA box; posts without one (no app mention) get it before the related links.
+      const anchor = [/(\s*)<div class="cta-box">/, /(\s*)<div class="related">/, /(\s*)<\/article>/].find((re) => re.test(html));
+      if (anchor) html = html.replace(anchor, (m, ws) => `\n${o.faq}${m}`);
     }
     if (o.region && o.posts) {
       html = html.replace(/<div class="related">([\s\S]*?)<\/div>/, (block, inner) => {
