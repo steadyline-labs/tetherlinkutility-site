@@ -15,7 +15,7 @@ const withLd = pages.map((x) => ({ ...x, ld: parsed(x.html) })).filter((x) => x.
 const today = new Date().toLocaleDateString("sv-SE", { timeZone: "Europe/Istanbul" });
 const KNOWN = new Set([
   "WebSite", "Organization", "SoftwareApplication", "MobileApplication", "Offer", "FAQPage", "Question", "Answer",
-  "HowTo", "HowToStep", "BlogPosting", "Article", "Blog", "BreadcrumbList", "ListItem", "ImageObject",
+  "HowTo", "HowToStep", "BlogPosting", "Article", "Blog", "BreadcrumbList", "ListItem", "ImageObject", "VideoObject",
 ]);
 
 const isIsoDate = (s) => {
@@ -47,6 +47,7 @@ const REQUIRED = {
   BreadcrumbList: ["itemListElement"],
   ListItem: ["position", "name", "item"],
   ImageObject: ["url"],
+  VideoObject: ["name", "description", "thumbnailUrl", "uploadDate"],
 };
 
 // Every object with an @type, with its parent type: [{ node, parent }].
@@ -113,7 +114,7 @@ test("no JSON-LD string carries HTML tags or entities (&amp; etc.)", () => {
 
 test("URL fields are absolute https URLs; the site's own URLs point to built files", () => {
   const bad = [];
-  const URL_KEYS = new Set(["url", "item", "logo", "mainEntityOfPage", "installUrl", "downloadUrl", "sameAs", "image", "@id"]);
+  const URL_KEYS = new Set(["url", "item", "logo", "mainEntityOfPage", "installUrl", "downloadUrl", "sameAs", "image", "@id", "thumbnailUrl", "embedUrl", "contentUrl"]);
   for (const { p, ld } of withLd) {
     const walk = (v, k) => {
       if (Array.isArray(v)) return v.forEach((x) => walk(x, k));

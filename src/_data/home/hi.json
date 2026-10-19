@@ -18,6 +18,10 @@
     {
       "type": "faq",
       "gap": true
+    },
+    {
+      "type": "video",
+      "gap": true
     }
   ],
   "howTo": {
@@ -141,7 +145,7 @@
   "demo": {
     "title": "इसे काम करते देखें",
     "videoId": "866HxsnLb2U",
-    "cover": "/demo-cover-en.jpg",
+    "cover": "/demo-cover-en-2026-10.jpg",
     "playLabel": "डेमो वीडियो चलाएं",
     "previewAlt": "डेमो वीडियो प्रीव्यू"
   },

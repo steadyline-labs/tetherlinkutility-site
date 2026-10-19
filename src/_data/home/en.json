@@ -18,6 +18,10 @@
     {
       "type": "faq",
       "gap": true
+    },
+    {
+      "type": "video",
+      "gap": true
     }
   ],
   "howTo": {
@@ -141,7 +145,7 @@
   "demo": {
     "title": "See it in action",
     "videoId": "866HxsnLb2U",
-    "cover": "/demo-cover-en.jpg",
+    "cover": "/demo-cover-en-2026-10.jpg",
     "playLabel": "Play demo video",
     "previewAlt": "Demo video preview"
   },

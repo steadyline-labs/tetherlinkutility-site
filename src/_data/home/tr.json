@@ -19,6 +19,10 @@
     {
       "type": "howTo",
       "gap": true
+    },
+    {
+      "type": "video",
+      "gap": true
     }
   ],
   "ldUrl": "https://tetherlinkutility.com/",
@@ -143,7 +147,7 @@
   "demo": {
     "title": "Uygulamayı iş başında görün",
     "videoId": "Xs4J50JHhZI",
-    "cover": "/demo-cover-tr.jpg",
+    "cover": "/demo-cover-tr-2026-10.jpg",
     "playLabel": "Tanıtım videosunu oynat",
     "previewAlt": "Tanıtım videosu önizlemesi"
   },

@@ -1,9 +1,10 @@
 {#- Homepage JSON-LD blocks. Text comes from src/_data/home/<lang>.json.
     `jsonld` in that file lists the blocks in output order (type: website, organization, howTo,
-    app, faq); `gap: true` puts an empty line before the block. WebSite and Organization always
+    app, faq, video); `gap: true` puts an empty line before the block. WebSite and Organization always
     use the site root (Google reads the site name from the domain's home page); `ldUrl` overrides
     the page URL used in the SoftwareApplication block.
-    `inLanguage` (optional) adds inLanguage to every block except Organization.
+    `inLanguage` (optional) adds inLanguage to every block except Organization and VideoObject (es/hi/pt show the
+    English video). VideoObject text comes from src/_data/videos.json, keyed by demo.videoId.
     FAQPage answers are the FAQ answers with HTML tags removed. -#}
 {%- set h = home[lang] -%}
 {%- set ldUrl = h.ldUrl or (site.url + t.prefix) -%}
@@ -12,7 +13,7 @@
 {% endif %}  {% endif %}<script type="application/ld+json">
   {
     "@context": "https://schema.org",
-{% if h.inLanguage and b.type != "organization" %}    "inLanguage": "{{ h.inLanguage }}",
+{% if h.inLanguage and b.type != "organization" and b.type != "video" %}    "inLanguage": "{{ h.inLanguage }}",
 {% endif %}{% if b.type == "website" %}    "@type": "WebSite",
     "name": "{{ site.name }}",
     "alternateName": ["TetherLinkUtility", "Tether Link"],
@@ -65,6 +66,14 @@
         "description": {{ h.app.proDescription | dump }}
       }
     ]
+{% elif b.type == "video" %}{% set v = videos[h.demo.videoId] %}    "@type": "VideoObject",
+    "name": {{ v.name | dump }},
+    "description": {{ v.description | dump }},
+    "thumbnailUrl": ["{{ site.url }}{{ h.demo.cover }}", "https://i.ytimg.com/vi/{{ h.demo.videoId }}/maxresdefault.jpg"],
+    "uploadDate": "{{ v.uploadDate }}",
+    "duration": "{{ v.duration }}",
+    "embedUrl": "https://www.youtube.com/embed/{{ h.demo.videoId }}",
+    "url": "https://www.youtube.com/shorts/{{ h.demo.videoId }}"
 {% elif b.type == "faq" %}    "@type": "FAQPage",
     "mainEntity": [
 {% for item in h.faq.items %}      {

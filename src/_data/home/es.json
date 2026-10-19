@@ -19,6 +19,10 @@
     {
       "type": "faq",
       "gap": true
+    },
+    {
+      "type": "video",
+      "gap": true
     }
   ],
   "howTo": {
@@ -142,7 +146,7 @@
   "demo": {
     "title": "Míralo en acción",
     "videoId": "866HxsnLb2U",
-    "cover": "/demo-cover-en.jpg",
+    "cover": "/demo-cover-en-2026-10.jpg",
     "playLabel": "Reproducir el video de demostración",
     "previewAlt": "Vista previa del video de demostración"
   },

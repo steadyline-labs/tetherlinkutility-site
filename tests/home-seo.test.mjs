@@ -4,7 +4,10 @@ import assert from "node:assert/strict";
 import {
   LANGS, SITE_URL, site, i18n, prefix, hreflang, read, fileFor, htmlPages, isRedirectStub,
   title, canonicals, robots, metaDescription, hreflangs, links, jsonLd, ldTypes, ldFind, htmlLang, sitemap,
+  siteDir,
 } from "./lib/site.mjs";
+import fs from "node:fs";
+import nodePath from "node:path";
 
 const pages = htmlPages().map((p) => ({ p, html: read(p) })).filter((x) => !isRedirectStub(x.html));
 const indexable = pages.filter((x) => !String(robots(x.html)).includes("noindex"));
@@ -155,3 +158,36 @@ test("internal links point to built files", () => {
   }
   assert.deepEqual(broken, []);
 });
+
+// The 19 Sep 2026 demo Shorts were replaced on 29 Sep; Google kept showing their thumbnail for the
+// site. Neither the old video IDs nor the old unversioned cover file names may come back anywhere in
+// the build, and every home page carries a VideoObject for the video it actually shows.
+test("no built file mentions the old demo videos or old cover file names", () => {
+  const OLD = ["XdQTXdNc_4w", "8T_M4cgN8_E", "/demo-cover-en.jpg", "/demo-cover-tr.jpg"];
+  const bad = [];
+  const walk = (dir) => {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = nodePath.join(dir, e.name);
+      if (e.isDirectory()) walk(full);
+      else if (/\.(html|txt|xml|md|json|js|css|webmanifest)$/.test(e.name)) {
+        const text = fs.readFileSync(full, "utf8");
+        for (const o of OLD) if (text.includes(o)) bad.push(`${nodePath.relative(siteDir, full)}: ${o}`);
+      }
+    }
+  };
+  walk(siteDir);
+  assert.deepEqual(bad, []);
+});
+
+for (const lang of LANGS) {
+  test(`home ${prefix(lang)}: VideoObject matches the demo video on the page`, () => {
+    const html = read(prefix(lang));
+    const id = (html.match(/data-yt-id="([^"]+)"/) || [])[1];
+    assert.ok(id, "demo video id");
+    const v = ldFind(jsonLd(html), "VideoObject");
+    assert.equal(v.length, 1, "one VideoObject");
+    assert.equal(v[0].embedUrl, `https://www.youtube.com/embed/${id}`);
+    const cover = (html.match(/<img src="(\/demo-cover-[^"]+)"/) || [])[1];
+    assert.ok(cover && [].concat(v[0].thumbnailUrl).includes(`${SITE_URL}${cover}`), `thumbnailUrl has ${cover}`);
+  });
+}

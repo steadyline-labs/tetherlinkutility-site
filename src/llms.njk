@@ -31,6 +31,7 @@ eleventyExcludeFromCollections: true
 - Privacy Policy: https://tetherlinkutility.com/privacy.html (English, Turkish, Hindi, Spanish, and Portuguese sections on one page, via #en/#tr/#hi/#es/#pt anchors)
 - Pricing (structured, machine-readable): https://tetherlinkutility.com/pricing.md
 - Google Play listing: https://play.google.com/store/apps/details?id=com.alparslan.tetherlinkutility
+- Demo video (30-second how-to, YouTube Short): English https://www.youtube.com/shorts/866HxsnLb2U , Turkish https://www.youtube.com/shorts/Xs4J50JHhZI
 
 ## Blog
 {% for post in collections.posts_en | sortByKey("llms", "order") %}- {{ site.url }}{{ post.url }} : {{ post.data.llms.text if post.data.llms else (post.data.title | plainText) }}
