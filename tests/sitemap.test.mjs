@@ -72,6 +72,7 @@ test("robots.txt points to the sitemap", () => {
 // Counted: commits that modify the file (--diff-filter=M; the commit that added it keeps the date it
 // was written with). Not counted: commits whose changed lines are all `lastmod:` or `text:` (llms.txt
 // text), since neither is shown on the page and bumping lastmod must not need another bump.
+// Pages whose visible text lives in a data file also count that file's changes (DATA_DEPS below).
 // Needs full git history: in CI, actions/checkout runs with fetch-depth: 0.
 test("sitemap lastmod is not older than the last content change in git", () => {
   const git = (...args) => execFileSync("git", args, { cwd: root, encoding: "utf8" });
@@ -93,6 +94,11 @@ test("sitemap lastmod is not older than the last content change in git", () => {
     return null;
   };
 
+  // Page source -> data files that hold its visible text; the newest change of any of them counts.
+  const DATA_DEPS = Object.fromEntries(
+    LANGS.map((l) => [l === "en" ? "src/index.njk" : `src/${l}/index.njk`, [`src/_data/home/${l}.json`]]),
+  );
+
   const sources = [];
   const walk = (dir) => {
     for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -111,8 +117,12 @@ test("sitemap lastmod is not older than the last content change in git", () => {
 
   const stale = [];
   for (const s of sources) {
-    const changed = lastContentChange(s.rel);
+    const changed = [s.rel, ...(DATA_DEPS[s.rel] || [])].map(lastContentChange).filter(Boolean).sort().pop();
     if (changed && s.lastmod < changed) stale.push(`${s.rel}: lastmod ${s.lastmod}, changed ${changed}`);
+  }
+  for (const [page, deps] of Object.entries(DATA_DEPS)) {
+    assert.ok(sources.some((s) => s.rel === page), `DATA_DEPS page has no lastmod: ${page}`);
+    for (const d of deps) assert.ok(fs.existsSync(nodePath.join(root, d)), `DATA_DEPS file missing: ${d}`);
   }
   assert.deepEqual(stale, [], "bump sitemap.lastmod for these pages");
 });
