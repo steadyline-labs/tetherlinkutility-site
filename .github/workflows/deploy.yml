@@ -2,6 +2,8 @@
 #
 # Runs on pushes to main, daily, or by hand. A manual run on another branch
 # (gh workflow run deploy.yml --ref <branch>) only tests and builds; it never deploys.
+# `-f update_snapshots=true` re-renders the visual baselines instead of comparing them; download
+# them from the run's visual-snapshots artifact and commit them to tests/visual/.
 name: Deploy site
 
 on:
@@ -11,6 +13,11 @@ on:
   schedule:
     - cron: "15 3 * * *"
   workflow_dispatch:
+    inputs:
+      update_snapshots:
+        description: "Re-render visual test baselines (artifact visual-snapshots)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -23,7 +30,8 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Pinned, not ubuntu-latest: the visual baselines depend on the runner's fonts and Chrome build.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
         with:
@@ -38,6 +46,16 @@ jobs:
       # A failing test fails this job, and the deploy job below never starts.
       - run: google-chrome --version
       - run: npm test
+        env:
+          UPDATE_SNAPSHOTS: ${{ inputs.update_snapshots && '1' || '' }}
+      # New baselines (update run) or the actual and diff images of a failed visual comparison.
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visual-snapshots
+          path: tests/visual/out/
+          if-no-files-found: ignore
+          retention-days: 14
       - run: npx @11ty/eleventy
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4

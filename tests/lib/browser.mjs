@@ -36,7 +36,8 @@ function serve() {
   return new Promise((resolve) => server.listen(0, "127.0.0.1", () => resolve(server)));
 }
 
-export async function launch() {
+// `args`: extra Chrome flags (the visual test adds rendering flags for stable pixels).
+export async function launch({ args = [] } = {}) {
   const server = await serve();
   const origin = `http://127.0.0.1:${server.address().port}`;
   const profile = fs.mkdtempSync(path.join(os.tmpdir(), "tlu-site-test-"));
@@ -45,7 +46,7 @@ export async function launch() {
     "--disable-background-networking", "--disable-component-update", "--disable-sync",
     // Belt and braces: a dead proxy for everything except 127.0.0.1, so no request can leave the machine.
     "--proxy-server=http://127.0.0.1:9", "--proxy-bypass-list=127.0.0.1",
-    "--remote-debugging-port=0", `--user-data-dir=${profile}`, "about:blank",
+    "--remote-debugging-port=0", `--user-data-dir=${profile}`, ...args, "about:blank",
   ], { stdio: "ignore" });
 
   const portFile = path.join(profile, "DevToolsActivePort");
