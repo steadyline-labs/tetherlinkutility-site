@@ -81,6 +81,15 @@ export default function (eleventyConfig) {
     String(s).replace(/&amp;/g, "&").replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"')
   );
 
+  // A JSON string literal for JSON-LD: tags removed, HTML entities decoded, quotes escaped.
+  const ENTITIES = { amp: "&", quot: '"', apos: "'", lt: "<", gt: ">", nbsp: "\u00a0", rarr: "\u2192", middot: "\u00b7", mdash: "\u2014", ndash: "\u2013", hellip: "\u2026" };
+  eleventyConfig.addFilter("ldText", (s) =>
+    JSON.stringify(
+      String(s ?? "").replace(/<[^>]+>/g, "").replace(/&(#x[0-9a-f]+|#[0-9]+|[a-z]+);/gi, (m, e) =>
+        e[0] === "#" ? String.fromCodePoint(e[1] === "x" || e[1] === "X" ? parseInt(e.slice(2), 16) : Number(e.slice(1))) : ENTITIES[e.toLowerCase()] ?? m)
+    )
+  );
+
   // sitemap.xml entries: every page with `sitemap` front matter, plus files listed in
   // src/_data/sitemapExtra.json (for passthrough files such as pricing.md), sorted by `order`.
   // Pages without an `order` go last, sorted by URL.

@@ -1,7 +1,8 @@
 {#- Homepage JSON-LD blocks. Text comes from src/_data/home/<lang>.json.
     `jsonld` in that file lists the blocks in output order (type: website, organization, howTo,
-    app, faq); `gap: true` puts an empty line before the block. `ldUrl` overrides the page URL
-    used in the WebSite, Organization and SoftwareApplication blocks.
+    app, faq); `gap: true` puts an empty line before the block. WebSite and Organization always
+    use the site root (Google reads the site name from the domain's home page); `ldUrl` overrides
+    the page URL used in the SoftwareApplication block.
     `inLanguage` (optional) adds inLanguage to every block except Organization.
     FAQPage answers are the FAQ answers with HTML tags removed. -#}
 {%- set h = home[lang] -%}
@@ -15,10 +16,10 @@
 {% endif %}{% if b.type == "website" %}    "@type": "WebSite",
     "name": "{{ site.name }}",
     "alternateName": ["TetherLinkUtility", "Tether Link"],
-    "url": "{{ ldUrl }}"
+    "url": "{{ site.url }}/"
 {% elif b.type == "organization" %}    "@type": "Organization",
     "name": "{{ site.name }}",
-    "url": "{{ ldUrl }}",
+    "url": "{{ site.url }}/",
     "logo": "{{ site.url }}/favicon.png",
     "email": "{{ site.email }}",
     "sameAs": [

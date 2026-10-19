@@ -45,7 +45,7 @@
     "blogPost": [
 {% for post in collections["posts_" + lang] | byPublished %}      {
         "@type": "BlogPosting",
-        "headline": "{{ post.data.index.ldHeadline or post.data.index.title or post.data.title }}",
+        "headline": {{ (post.data.index.ldHeadline or post.data.index.title or post.data.title) | ldText }},
         "url": "{{ site.url }}{{ post.url }}",
         "datePublished": "{{ post.data.index.published or post.data.published }}"
       }{% if not loop.last %},{% endif %}
