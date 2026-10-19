@@ -27,11 +27,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          # Full history: the sitemap test compares lastmod with git commit dates.
+          fetch-depth: 0
       - uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      # A failing test stops the deploy. Browser tests (*.browser.test.mjs) need a local Chrome
+      # and run with `npm test` on the developer machine.
+      - run: npm run test:ci
       - run: npx @11ty/eleventy
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4

@@ -1,7 +1,11 @@
-// sitemap.feature: coverage, no noindex pages, no scheduled posts, alternates, robots.txt.
+// sitemap.feature: coverage, no noindex pages, no scheduled posts, alternates, robots.txt, lastmod vs git.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { LANGS, SITE_URL, prefix, hreflang, read, fileFor, robots, sitemap, postSources } from "./lib/site.mjs";
+import { execFileSync } from "node:child_process";
+import fs from "node:fs";
+import nodePath from "node:path";
+import { LANGS, SITE_URL, root, prefix, hreflang, read, fileFor, robots, sitemap, postSources } from "./lib/site.mjs";
+import sitemapExtra from "../src/_data/sitemapExtra.json" with { type: "json" };
 import postData from "../src/_includes/post-data.js";
 
 const entries = sitemap();
@@ -62,4 +66,53 @@ test("home entries carry alternates for every language and x-default", () => {
 
 test("robots.txt points to the sitemap", () => {
   assert.match(read("/robots.txt"), /^Sitemap: https:\/\/tetherlinkutility\.com\/sitemap\.xml$/m);
+});
+
+// sitemap.lastmod must not be older than the last git commit that changed the page's source file.
+// Counted: commits that modify the file (--diff-filter=M; the commit that added it keeps the date it
+// was written with). Not counted: commits whose changed lines are all `lastmod:` or `text:` (llms.txt
+// text), since neither is shown on the page and bumping lastmod must not need another bump.
+// Needs full git history: in CI, actions/checkout runs with fetch-depth: 0.
+test("sitemap lastmod is not older than the last content change in git", () => {
+  const git = (...args) => execFileSync("git", args, { cwd: root, encoding: "utf8" });
+  let shallow;
+  try {
+    shallow = git("rev-parse", "--is-shallow-repository").trim();
+  } catch {
+    assert.fail("not a git checkout: the lastmod test needs git history");
+  }
+  assert.equal(shallow, "false", "shallow clone: fetch the full history (actions/checkout fetch-depth: 0)");
+
+  const lastContentChange = (rel) => {
+    const log = git("log", "--diff-filter=M", "--format=@@commit %cs", "-p", "--unified=0", "--", rel);
+    for (const chunk of log.split("@@commit ").slice(1)) {
+      const [date, ...lines] = chunk.split("\n");
+      const changed = lines.filter((l) => /^[+-]/.test(l) && !/^(\+\+\+|---) /.test(l));
+      if (changed.some((l) => !/^[+-]\s+(lastmod|text):/.test(l))) return date;
+    }
+    return null;
+  };
+
+  const sources = [];
+  const walk = (dir) => {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = nodePath.join(dir, e.name);
+      if (e.isDirectory()) walk(full);
+      else if (/\.(html|njk|md)$/.test(e.name)) {
+        const fm = (fs.readFileSync(full, "utf8").match(/^---\n([\s\S]*?)\n---/) || [])[1] || "";
+        const lastmod = (fm.match(/^sitemap:\n(?:[ \t]+.*\n)*?[ \t]+lastmod:\s*"?([0-9-]+)"?/m) || [])[1];
+        if (lastmod) sources.push({ rel: nodePath.relative(root, full), lastmod });
+      }
+    }
+  };
+  walk(nodePath.join(root, "src"));
+  assert.equal(sources.length + sitemapExtra.length, entries.length, "every sitemap entry has a source with a lastmod");
+  for (const e of sitemapExtra) sources.push({ rel: `public${e.url}`, lastmod: e.lastmod });
+
+  const stale = [];
+  for (const s of sources) {
+    const changed = lastContentChange(s.rel);
+    if (changed && s.lastmod < changed) stale.push(`${s.rel}: lastmod ${s.lastmod}, changed ${changed}`);
+  }
+  assert.deepEqual(stale, [], "bump sitemap.lastmod for these pages");
 });
