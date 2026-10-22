@@ -1,7 +1,7 @@
 {
-  "title": "Tether Link Utility: Telefonunuzun Mobil Verisini SOCKS5 ile Paylaşın",
-  "ogTitle": "Tether Link Utility: Telefonunuzun Mobil Verisini SOCKS5 ile Paylaşın",
-  "description": "Android telefonunuzun mobil verisini dizüstü bilgisayarınız, tabletiniz veya başka bir telefonla yerel bir SOCKS5 proxy üzerinden paylaşın. Root yok, hesap yok, uzak sunucu yok.",
+  "title": "Tether Link Utility: Telefonunun Mobil Verisini SOCKS5 ile Paylaş",
+  "ogTitle": "Tether Link Utility: Telefonunun Mobil Verisini SOCKS5 ile Paylaş",
+  "description": "Android telefonunun mobil verisini dizüstü bilgisayarın, tabletin veya başka bir telefonla yerel bir SOCKS5 proxy üzerinden paylaş. Root yok, hesap yok, uzak sunucu yok.",
   "jsonld": [
     {
       "type": "website"
@@ -30,44 +30,44 @@
     "name": "Tether Link Utility ile telefonun mobil verisi Wi-Fi üzerinden nasıl paylaşılır",
     "steps": [
       {
-        "name": "PAYLAŞIMI BAŞLAT'a dokunun",
-        "text": "Wi-Fi hotspot otomatik olarak açılır. Uygulama yerel bir SOCKS5 proxy tüneli oluşturur ve bağlantı bilgilerini gösterir."
+        "name": "PAYLAŞIMI BAŞLAT'a dokun",
+        "text": "Wi-Fi hotspot otomatik olarak açılır ve uygulama telefonda yerel bir SOCKS5 proxy başlatır. İlk seferde İzin ver'e, sonra telefonun Bağlantı isteği penceresinde Tamam'a dokun."
       },
       {
-        "name": "QR kodu gösterin",
-        "text": "Bir QR kod, Wi-Fi ağını ve proxy adresini birlikte taşır. Ağ adı ve şifresi dizüstü bilgisayarlar için düz metin olarak da gösterilir."
+        "name": "Diğer cihazı seç",
+        "text": "Telefonun internetini kullanacak cihaza dokun: Android, Windows, iPhone, Mac, Linux veya Diğer (TV, oyun konsolu). Uygulama, herhangi bir Wi-Fi bilgisini göstermeden önce cihazda uygulamanın (veya Firefox'un) olup olmadığını sorar ve internet olmasa bile nasıl kuracağını gösterir."
       },
       {
-        "name": "Cihazınızı bağlayın",
-        "text": "Android: QR kodu tarayın, Wi-Fi ve proxy otomatik bağlanır. Windows / macOS / iOS: önce proxy uygulamanızı kurun (telefonun Wi-Fi'ı \"İnternet yok\" gösterebilir; bu normaldir), sonra gösterilen Wi-Fi'a katılın ve SOCKS5 proxy ayarlarınıza IP ve portu girin."
+        "name": "Cihazını bağla",
+        "text": "Android: diğer telefonda Başka bir telefonun internetini kullan'a, sonra QR kodu tara'ya dokun. Windows, Mac, Linux, iPhone: gösterilen Wi-Fi'ye bağlan (\"İnternet yok\" diyebilir; bu normal) ve iki değeri Firefox'a, Mac'in proxy ayarlarına veya Potatso'ya gir. Uygulamanın ekranı, cihaz bağlanana kadar kendiliğinden bekler."
       },
       {
-        "name": "Gezinmeye başlayın",
-        "text": "Trafik mobil veriniz üzerinden yönlendirilir. Uzak sunucu yok, her şey cihazınızda kalır."
+        "name": "Gezinmeye başla",
+        "text": "Trafik mobil verin üzerinden yönlendirilir. Uzak sunucu yok, her şey cihazında kalır."
       }
     ]
   },
   "app": {
-    "description": "Android telefonunuzun mobil verisini yerel bir SOCKS5 proxy ile Wi-Fi üzerinden diğer cihazlarınızla paylaştırır. Root yok, hesap yok, uzak sunucu yok.",
+    "description": "Android telefonunun mobil verisini yerel bir SOCKS5 proxy ile Wi-Fi üzerinden diğer cihazlarınla paylaştırır. Root yok, hesap yok, uzak sunucu yok.",
     "featureList": [
       "Mobil veriyi dizüstü bilgisayar, tablet ve telefonlarla Wi-Fi üzerinden paylaşma",
       "Ücretsiz katman root gerektirmeden bağlantıyı 1 cihazla paylaşır",
       "Uzak sunucu yok, tüm proxy trafiği cihaz üzerinde yerel olarak yönlendirilir",
       "Android cihazlar arasında tek dokunuşla otomatik hotspot ve Wi-Fi bağlantısı",
       "Anında bağlantı için QR kod kurulumu",
-      "Windows, macOS ve iOS istemcileri için SOCKS5 proxy desteği"
+      "Windows, macOS, Linux ve iOS istemcileri için SOCKS5 proxy desteği"
     ],
     "freeName": "Ücretsiz",
     "proDescription": "Aylık 109,99 TL, yıllık 609,99 TL. Kesin fiyat Google Play veya App Store'da gösterilir, platforma göre değişebilir."
   },
   "hero": {
     "iosPill": "çok yakında",
-    "h1": "Telefonunuzun mobil verisi, ",
-    "h1Accent": "tüm cihazlarınızda.",
-    "body": "Tether Link Utility, Android telefonunuzda yerel bir SOCKS5 proxy çalıştırır ve bunu Wi-Fi hotspot üzerinden paylaşır; böylece dizüstü bilgisayarınız, tabletiniz veya başka bir telefon mobil verinizi kullanabilir. Her şey cihazınızda çalışır.",
-    "playLabel": "Google Play'den Hemen İndirin",
+    "h1": "Telefonunun mobil verisi, ",
+    "h1Accent": "tüm cihazlarında.",
+    "body": "Tether Link Utility, Android telefonunda yerel bir SOCKS5 proxy çalıştırır ve bunu Wi-Fi hotspot üzerinden paylaşır; böylece dizüstü bilgisayarın, tabletin veya başka bir telefon mobil verini kullanabilir. Her şey cihazında çalışır.",
+    "playLabel": "Google Play'den Hemen İndir",
     "playEyebrow": "GOOGLE PLAY'DE",
-    "playWord": "Hemen İndirin",
+    "playWord": "Hemen İndir",
     "iosLabel": "iOS sürümü çok yakında",
     "iosEyebrow": "ÇOK YAKINDA",
     "trustNoRoot": "Root yok",
@@ -77,75 +77,75 @@
       "Uzak sunucu yok"
     ],
     "visual": {
-      "host": "Android telefonunuz",
-      "devices": "Diğer cihazlarınız"
+      "host": "Android telefonun",
+      "devices": "Diğer cihazların"
     },
     "screenshot": "/app-screenshot-tr.png",
     "screenshotAlt": "Android'de çalışan Tether Link Utility: anlık indirme ve yükleme hızı, oturum istatistikleri, 1 bağlı cihaz ve SOCKS5 host ile port bilgisi"
   },
   "how": {
-    "title": "Dört adımda bağlanın",
-    "demoLink": "Tanıtım videosunu izleyin &#9656;",
+    "title": "Dört adımda bağlan",
+    "demoLink": "Tanıtım videosunu izle &#9656;",
     "before": {
       "title": "Başlamadan önce",
-      "lead": "En az iki cihaz gerekir: bir telefon mobil verisini paylaşır, diğer cihazlarınız ona bağlanır.",
+      "lead": "En az iki cihaz gerekir: bir telefon mobil verisini paylaşır, diğer cihazların ona bağlanır.",
       "roles": [
         {
           "tag": "Paylaşır",
           "kind": "share",
           "title": "Bu telefon",
           "lines": [
-            "Mobil veriyi açın. Uygulamayı <span class=\"app-ui\">Paylaşım modu</span>'nda açın, <span class=\"app-ui\">PAYLAŞIMI BAŞLAT</span>'a, sonra <span class=\"app-ui\">QR kodu göster</span>'e dokunun."
+            "Mobil veriyi aç. Uygulamayı <span class=\"app-ui\">Paylaşım modu</span>'nda aç, <span class=\"app-ui\">PAYLAŞIMI BAŞLAT</span>'a ve bağlamak istediğin cihaza dokun."
           ]
         },
         {
           "tag": "Bağlanır",
           "kind": "connect",
-          "title": "Diğer cihazlarınız",
+          "title": "Diğer cihazların",
           "lines": [
-            "<b>Uygulama yüklü Android telefon:</b> üstteki <span class=\"app-ui\">Paylaşım modu</span>'na dokunun, <span class=\"app-ui\">Başka bir telefonun internetini kullan</span>'ı seçin ve adımları izleyin.",
-            "<b>Windows, Mac veya Linux:</b> paylaşan telefonda <span class=\"app-ui\">Bağlanma yardımı</span>'nı açın, cihaz türünü seçin ve önerilen ayarları uygulayın."
+            "<b>Android telefon:</b> uygulama yok mu? Paylaşan telefon, internet olmasa bile nasıl kuracağını gösterir. Sonra <span class=\"app-ui\">Başka bir telefonun internetini kullan</span>'a ve <span class=\"app-ui\">QR kodu tara</span>'ya dokun.",
+            "<b>Windows, Mac, Linux veya iPhone:</b> önce Firefox'u kur (iPhone'da Potatso; Mac'te bir şey gerekmez), sonra paylaşan telefonda gösterilen Wi-Fi'ye bağlan ve iki değeri gir."
           ]
         }
       ],
-      "help": "Takıldınız mı? Uygulamada <span class=\"app-ui\">Bağlanma yardımı</span>'nı açın."
+      "help": "Takıldın mı? Uygulamada <span class=\"app-ui\">Hâlâ bağlanmadı mı?</span>'ya dokun ve ne gördüğünü seç."
     },
     "steps": [
       {
-        "title": "PAYLAŞIMI BAŞLAT'a dokunun",
+        "title": "PAYLAŞIMI BAŞLAT'a dokun",
         "text": "Hotspot otomatik olarak açılır ve proxy başlar."
       },
       {
-        "title": "QR kodu göster'e dokunun",
-        "text": "Tek bir kod, Wi-Fi ağını ve proxy adresini birlikte taşır."
+        "title": "Diğer cihazı seç",
+        "text": "Uygulama, Wi-Fi'den önce cihazda uygulamanın olup olmadığını sorar."
       },
       {
-        "title": "Cihazınızı bağlayın",
-        "text": "Android tarar ve ağa katılır. Dizüstü bilgisayarlarda SOCKS5 ayarlarına IP ve port girilir."
+        "title": "Cihazını bağla",
+        "text": "Android QR kodu tarar. Bilgisayarlar ve iPhone'lar Wi-Fi'ye bağlanıp iki değeri girer."
       },
       {
-        "title": "Gezinmeye başlayın",
-        "text": "Trafik mobil veriniz üzerinden yönlendirilir. Hiçbir şey sunucularımızdan geçmez."
+        "title": "Gezinmeye başla",
+        "text": "Trafik mobil verin üzerinden yönlendirilir. Hiçbir şey sunucularımızdan geçmez."
       }
     ],
     "cards": [
       {
         "title": "Tamamen yerel",
-        "text": "Proxy telefonunuzda çalışır. Hesap yok, uzak sunucu yok: yönlendirilen trafiğiniz asla sunucularımıza gönderilmez ve proxy tarafından kaydedilmez. Ücretsiz sürüm reklam gösterir ve reklam sağlayıcımız cihaz tanımlayıcılarını toplayabilir. <a href=\"/privacy.html#tr\">Gizlilik Politikası</a>'na bakın."
+        "text": "Proxy telefonunda çalışır. Hesap yok, uzak sunucu yok: yönlendirilen trafiğin asla sunucularımıza gönderilmez ve proxy tarafından kaydedilmez. Ücretsiz sürüm reklam gösterir ve reklam sağlayıcımız cihaz tanımlayıcılarını toplayabilir. <a href=\"/privacy.html#tr\">Gizlilik Politikası</a>'na bak."
       },
       {
         "title": "Android'den Android'e otomatik bağlantı",
-        "text": "Diğer Android telefonda QR kodu tarayın; çoğu cihazda Wi-Fi'ye katılır ve proxy otomatik bağlanır."
+        "text": "Diğer Android telefonda QR kodu tara; çoğu cihazda Wi-Fi'ye katılır ve proxy otomatik bağlanır."
       },
       {
         "title": "IP değişikliği uyarısı",
         "text": "Operatör IP'leri oturumlar arasında değişebilir. Uygulama değişikliği fark eder ve bağlı cihazları otomatik olarak uyarır."
       }
     ],
-    "notes": "<strong>Telefonunuzun kendi hotspot'unu mu kullanıyorsunuz?</strong> Mobil Hotspot'u (Android) veya Kişisel Erişim Noktası'nı (iPhone) kendiniz açıyorsanız, ağ adını ve şifresini uygulamadaki <strong>Hotspot Wi-Fi bilgilerini ekle</strong> ile bir kez kaydedin. Bilgiler yalnızca cihazınızda saklanır, hotspot ayarlarınız değiştirilmez ve QR koda eklenir; böylece diğer cihazlar tarayarak ağa katılır. Android uygulaması hotspot'u kendisi başlattığında buna gerek yoktur. Bağlı cihazların kullandığı veri mobil paketinizden düşer. Tethering için operatörünüzün koşullarını kontrol edin."
+    "notes": "<strong>Telefonunun kendi hotspot'unu mu kullanıyorsun?</strong> Mobil Hotspot'u (Android) veya Kişisel Erişim Noktası'nı (iPhone) kendin açıyorsan, ağ adını ve şifresini uygulamadaki <strong>Hotspot Wi-Fi bilgilerini ekle</strong> ile bir kez kaydet. Bilgiler yalnızca cihazında saklanır, hotspot ayarların değiştirilmez ve QR koda eklenir; böylece diğer cihazlar tarayarak ağa katılır. Android uygulaması hotspot'u kendisi başlattığında buna gerek yoktur. Bağlı cihazların kullandığı veri mobil paketinden düşer. Tethering için operatörünün koşullarını kontrol et."
   },
   "demo": {
-    "title": "Uygulamayı iş başında görün",
+    "title": "Uygulamayı iş başında gör",
     "videoId": "Xs4J50JHhZI",
     "cover": "/demo-cover-tr-2026-10.jpg",
     "playLabel": "Tanıtım videosunu oynat",
@@ -153,39 +153,39 @@
   },
   "platforms": {
     "label": "Platformlar",
-    "title": "Zaten kullandığınız cihazlarla çalışır",
-    "text": "Dizüstü bilgisayarlar ve iPhone'lar standart SOCKS5 proxy ayarlarıyla ya da Shadowrocket gibi uygulamalarla bağlanır. Windows veya macOS'ta DNS dahil tam sistem kapsaması için <strong>sing-box</strong>'ı TUN modunda çalıştırın.",
+    "title": "Zaten kullandığın cihazlarla çalışır",
+    "text": "Dizüstü bilgisayarlar ve iPhone'lar standart SOCKS5 proxy ayarlarıyla ya da Potatso gibi uygulamalarla bağlanır. Windows veya macOS'ta DNS dahil tam sistem kapsaması için <strong>sing-box</strong>'ı TUN modunda çalıştır.",
     "guideLink": "Tam kurulum rehberi &rarr;",
     "items": [
       {
         "mono": "WIN",
         "name": "Windows",
-        "text": "Firefox'ta SOCKS5 desteği yerleşiktir. Chrome ve Edge: FoxyProxy.",
+        "text": "Firefox: Ayarlar, vekil ara, Vekil sunucuyu yapılandır. Chrome ve Edge: FoxyProxy.",
         "chip": "SOCKS5"
       },
       {
         "mono": "MAC",
         "name": "macOS",
-        "text": "Sistem Ayarları &rarr; Ağ &rarr; Proxy'ler &rarr; SOCKS Proxy ya da sing-box.",
+        "text": "Sistem Ayarları &rarr; Wi-Fi &rarr; Ayrıntılar&hellip; &rarr; Proxy'ler &rarr; SOCKS proxy ya da sing-box.",
         "chip": "yerleşik"
       },
       {
         "mono": "AND",
         "name": "Android",
-        "text": "Tether Link Utility ile QR kodu tarayın. Ekstra uygulama gerekmez.",
+        "text": "Tether Link Utility ile QR kodu tara. Ekstra uygulama gerekmez.",
         "chip": "yerleşik"
       },
       {
         "mono": "iOS",
         "name": "iOS",
-        "text": "Shadowrocket (ücretli) veya Potatso Lite (ücretsiz), yalnızca o uygulamanın kendi trafiği için.",
+        "text": "Potatso (ücretsiz) veya Shadowrocket (ücretli), yalnızca o uygulamanın kendi trafiği için.",
         "chip": "SOCKS5"
       }
     ]
   },
   "pricing": {
     "label": "Fiyatlar",
-    "title": "Ücretsiz başlayın. Daha fazlası için Pro'ya geçin.",
+    "title": "Ücretsiz başla. Daha fazlası için Pro'ya geç.",
     "plans": [
       {
         "name": "Ücretsiz",
@@ -217,7 +217,7 @@
     "items": [
       {
         "q": "Tether Link Utility nasıl çalışır?",
-        "a": "Android telefonunuzda, Android'in VpnService API'sini kullanarak yerel bir SOCKS5 proxy çalıştırır ve bunu telefonun Wi-Fi hotspot'u üzerinden paylaşır (USB kablo yok). Diğer cihazlarınız trafiklerini bu proxy'ye gönderir, telefon da bunu mobil veri bağlantısı üzerinden iletir. Arada uzak bir sunucu yoktur."
+        "a": "Android telefonunda, Android'in VpnService API'sini kullanarak yerel bir SOCKS5 proxy çalıştırır ve bunu telefonun Wi-Fi hotspot'u üzerinden paylaşır (USB kablo yok). Diğer cihazların trafiklerini bu proxy'ye gönderir, telefon da bunu mobil veri bağlantısı üzerinden iletir. Arada uzak bir sunucu yoktur."
       },
       {
         "q": "Root yetkisi gerekiyor mu?",
@@ -225,19 +225,19 @@
       },
       {
         "q": "Uzak bir sunucu kullanıyor mu?",
-        "a": "Hayır. Proxy trafiği cihazlarınızdan telefonunuza, oradan mobil verinize gider; sunucularımızdan geçirilmez, kaydedilmez veya saklanmaz. Ücretsiz sürüm Google AdMob reklamları gösterir ve uygulama Firebase Analytics ile Crashlytics kullanır; bunlar <a href=\"/privacy.html#tr\">gizlilik politikamızda</a> açıklandığı gibi cihaz tanımlayıcıları ile kullanım ve çökme verilerini toplar."
+        "a": "Hayır. Proxy trafiği cihazlarından telefonuna, oradan mobil verine gider; sunucularımızdan geçirilmez, kaydedilmez veya saklanmaz. Ücretsiz sürüm Google AdMob reklamları gösterir ve uygulama Firebase Analytics ile Crashlytics kullanır; bunlar <a href=\"/privacy.html#tr\">gizlilik politikamızda</a> açıklandığı gibi cihaz tanımlayıcıları ile kullanım ve çökme verilerini toplar."
       },
       {
         "q": "Windows veya Mac dizüstü bilgisayar bağlayabilir miyim?",
-        "a": "Evet, dizüstü bilgisayarınızın SOCKS5 proxy ayarlarını (macOS'ta yerleşik, Windows'ta Firefox/FoxyProxy ile) uygulamada gösterilen IP ve porta yönlendirin. Bu, sadece o ayarı kontrol eden uygulamaları kapsar; DNS dahil tam sistem kapsaması için sing-box'ı TUN modunda kullanın."
+        "a": "Evet, dizüstü bilgisayarının SOCKS5 proxy ayarlarını (macOS'ta yerleşik, Windows'ta Firefox/FoxyProxy ile) uygulamada gösterilen IP ve porta yönlendir. Bu, sadece o ayarı kontrol eden uygulamaları kapsar; DNS dahil tam sistem kapsaması için sing-box'ı TUN modunda kullan."
       },
       {
         "q": "SOCKS5 proxy ayarı tüm trafiğimi korur mu?",
-        "a": "Tam olarak değil. Bir tarayıcı ya da sistem SOCKS5 ayarı sadece bu ayarı kontrol eden uygulamaların trafiğini yönlendirir; DNS sorguları ve diğer arka plan trafiği proxy yerine düz hotspot bağlantısından gidebilir. Windows veya macOS'ta tam kapsama için <a href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html\">sing-box'ı TUN modunda</a> çalıştırın, tüm sistem trafiğinizi, DNS dahil, tünelden geçirir."
+        "a": "Tam olarak değil. Bir tarayıcı ya da sistem SOCKS5 ayarı sadece bu ayarı kontrol eden uygulamaların trafiğini yönlendirir; DNS sorguları ve diğer arka plan trafiği proxy yerine düz hotspot bağlantısından gidebilir. Windows veya macOS'ta tam kapsama için <a href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html\">sing-box'ı TUN modunda</a> çalıştır, tüm sistem trafiğini, DNS dahil, tünelden geçirir."
       },
       {
         "q": "iPhone ile çalışıyor mu?",
-        "a": "iOS'ta yerleşik bir SOCKS5 ayarı yok, ancak Shadowrocket veya Potatso gibi uygulamalar aynı şekilde proxy'ye bağlanabilir, sadece o uygulamanın kendi trafiği için, tüm cihaz için değil. iOS'ta doğrulanmış, tam cihaz kapsayan bir seçenek şu an mevcut değil. Yerel bir iOS uygulaması geliştiriliyor, çok yakında yayında."
+        "a": "iOS'ta yerleşik bir SOCKS5 ayarı yok, ancak Potatso veya Shadowrocket gibi uygulamalar aynı şekilde proxy'ye bağlanabilir, sadece o uygulamanın kendi trafiği için, tüm cihaz için değil. iOS'ta doğrulanmış, tam cihaz kapsayan bir seçenek şu an mevcut değil. Yerel bir iOS uygulaması geliştiriliyor, çok yakında yayında."
       },
       {
         "q": "Aynı anda kaç cihaz bağlanabilir?",
@@ -245,25 +245,25 @@
       },
       {
         "q": "5G ve 4G/LTE ile çalışıyor mu?",
-        "a": "Evet, telefonunuzun o anda sahip olduğu aktif mobil veri bağlantısını, ağ jenerasyonundan bağımsız olarak paylaşır."
+        "a": "Evet, telefonunun o anda sahip olduğu aktif mobil veri bağlantısını, ağ jenerasyonundan bağımsız olarak paylaşır."
       },
       {
         "q": "Mobil veri paketimi kullanıyor mu?",
-        "a": "Evet. Bağlı cihazların kullandığı veri paketinizden düşer. Tethering için operatörünüzün koşullarını kontrol edin."
+        "a": "Evet. Bağlı cihazların kullandığı veri paketinden düşer. Tethering için operatörünün koşullarını kontrol et."
       },
       {
         "q": "Ücretsiz mi?",
-        "a": "Evet, ücretsiz sürümü kullanmak ücretsizdir: aynı anda 1 cihaz, reklamlı. Pro reklamları kaldırır ve aynı anda 5 cihaza kadar bağlanmaya izin verir. Uygulamanın kendisi şu anda bir hız sınırı eklemiyor; gerçek hız operatörünüze, paketinize ve sinyale bağlıdır."
+        "a": "Evet, ücretsiz sürümü kullanmak ücretsizdir: aynı anda 1 cihaz, reklamlı. Pro reklamları kaldırır ve aynı anda 5 cihaza kadar bağlanmaya izin verir. Uygulamanın kendisi şu anda bir hız sınırı eklemiyor; gerçek hız operatörüne, paketine ve sinyale bağlıdır."
       },
       {
         "q": "Diğer cihazlar QR kodu tarayarak kendi hotspot'uma katılabilir mi?",
-        "a": "Evet. Telefonunuzun sistem hotspot'unu kendiniz açıyorsanız (Android'de Mobil Hotspot, iPhone'da Kişisel Erişim Noktası), ağ adını ve şifresini uygulamadaki Hotspot Wi-Fi bilgilerini ekle ile bir kez kaydedin. Bu bilgiler yalnızca cihazınızda saklanır, uygulama hotspot ayarlarınızı değiştirmez ve bilgiler QR koda eklenir; böylece diğer cihazlar kodu tarayarak ağa otomatik olarak katılır. iPhone'da şifre Ayarlar &gt; Kişisel Erişim Noktası bölümünde görünür. Android uygulaması hotspot'u otomatik olarak kendisi başlattığında bu adıma gerek yoktur."
+        "a": "Evet. Telefonunun sistem hotspot'unu kendin açıyorsan (Android'de Mobil Hotspot, iPhone'da Kişisel Erişim Noktası), ağ adını ve şifresini uygulamadaki Hotspot Wi-Fi bilgilerini ekle ile bir kez kaydet. Bu bilgiler yalnızca cihazında saklanır, uygulama hotspot ayarlarını değiştirmez ve bilgiler QR koda eklenir; böylece diğer cihazlar kodu tarayarak ağa otomatik olarak katılır. iPhone'da şifre Ayarlar &gt; Kişisel Erişim Noktası bölümünde görünür. Android uygulaması hotspot'u otomatik olarak kendisi başlattığında bu adıma gerek yoktur."
       }
     ],
     "more": "11 sorunun tümü &rarr;",
     "less": "Daha az soru göster"
   },
   "closing": {
-    "title": "Google Play'den ücretsiz indirin"
+    "title": "Google Play'den ücretsiz indir"
   }
 }

@@ -29,16 +29,16 @@
     "name": "Cómo compartir los datos móviles de tu teléfono por Wi-Fi con Tether Link Utility",
     "steps": [
       {
-        "name": "Toca START",
-        "text": "El punto de acceso Wi-Fi se activa automáticamente. La app crea un túnel proxy SOCKS5 local y muestra los datos de conexión."
+        "name": "Toca START SHARING",
+        "text": "El punto de acceso Wi-Fi se activa automáticamente y la app inicia un proxy SOCKS5 local en el teléfono. La primera vez, toca Allow y luego Aceptar en la ventana Solicitud de conexión del teléfono."
       },
       {
-        "name": "Muestra el código QR",
-        "text": "Un solo código QR incluye la red Wi-Fi y la dirección del proxy. El nombre de la red y la contraseña también se muestran como texto para las computadoras."
+        "name": "Elige el otro dispositivo",
+        "text": "Toca el dispositivo que usará el internet del teléfono: Android, Windows, iPhone, Mac, Linux u Other (TV, consola). Antes de mostrar cualquier dato del Wi-Fi, la app pregunta si ya tiene la app (o Firefox) y te muestra cómo instalarla, incluso sin internet."
       },
       {
         "name": "Conecta tu dispositivo",
-        "text": "Android: escanea el código QR para unirte a la red Wi-Fi y conectar el proxy automáticamente. Windows / macOS / iOS: primero instala tu app de proxy (el Wi-Fi del teléfono puede mostrar \"Sin internet\"; es normal), luego únete a la red Wi-Fi que aparece e introduce la IP y el puerto en la configuración de proxy SOCKS5."
+        "text": "Android: en el otro teléfono, toca Use another phone's internet y luego Scan QR code. Windows, Mac, Linux, iPhone: únete al Wi-Fi que aparece (puede decir \"Sin internet\"; es normal) y escribe los dos valores en Firefox, en los ajustes de proxy de la Mac o en Potatso. La pantalla de la app espera sola hasta que el dispositivo se conecta."
       },
       {
         "name": "Empieza a navegar",
@@ -94,7 +94,7 @@
           "kind": "share",
           "title": "Este teléfono",
           "lines": [
-            "Activa los datos móviles. Abre la app en <span class=\"app-ui\">Share mode</span>, toca <span class=\"app-ui\">START SHARING</span> y luego <span class=\"app-ui\">Show QR code</span>."
+            "Activa los datos móviles. Abre la app en <span class=\"app-ui\">Share mode</span>, toca <span class=\"app-ui\">START SHARING</span> y toca el dispositivo que quieres conectar."
           ]
         },
         {
@@ -102,12 +102,12 @@
           "kind": "connect",
           "title": "Tus otros dispositivos",
           "lines": [
-            "<b>Teléfono Android con la app:</b> toca <span class=\"app-ui\">Share mode</span> arriba, elige <span class=\"app-ui\">Use another phone's internet</span> y sigue los pasos.",
-            "<b>Windows, Mac o Linux:</b> en el teléfono que comparte, abre <span class=\"app-ui\">Connection help</span>, elige el tipo de dispositivo y aplica la configuración recomendada."
+            "<b>Teléfono Android:</b> ¿todavía no tiene la app? El teléfono que comparte te muestra cómo instalarla, incluso sin internet. Luego toca <span class=\"app-ui\">Use another phone's internet</span> y <span class=\"app-ui\">Scan QR code</span>.",
+            "<b>Windows, Mac, Linux o iPhone:</b> primero instala Firefox (Potatso en iPhone; nada en una Mac), luego únete al Wi-Fi que muestra el teléfono que comparte y escribe los dos valores."
           ]
         }
       ],
-      "help": "¿No logras conectar? Abre <span class=\"app-ui\">Connection help</span> en la app."
+      "help": "¿No logras conectar? Toca <span class=\"app-ui\">Still not connected?</span> en la app y elige lo que ves."
     },
     "steps": [
       {
@@ -115,12 +115,12 @@
         "text": "El punto de acceso se activa automáticamente y el proxy se inicia."
       },
       {
-        "title": "Toca Show QR code",
-        "text": "Un solo código incluye la red Wi-Fi y la dirección del proxy."
+        "title": "Elige el otro dispositivo",
+        "text": "La app pregunta primero si tiene la app, antes de cualquier Wi-Fi."
       },
       {
         "title": "Conecta tu dispositivo",
-        "text": "Android lo escanea y se une. En una computadora, introduce la IP y el puerto en la configuración SOCKS5."
+        "text": "Android escanea el código QR. Las computadoras y los iPhone se unen al Wi-Fi y escriben los dos valores."
       },
       {
         "title": "Empieza a navegar",
@@ -153,19 +153,19 @@
   "platforms": {
     "label": "Plataformas",
     "title": "Funciona con lo que ya tienes",
-    "text": "Las computadoras y los iPhone se conectan con la configuración estándar de proxy SOCKS5 o con apps como Shadowrocket. Para cubrir todo el sistema, DNS incluido, ejecuta <strong>sing-box</strong> en modo TUN en Windows o macOS.",
+    "text": "Las computadoras y los iPhone se conectan con la configuración estándar de proxy SOCKS5 o con apps como Potatso. Para cubrir todo el sistema, DNS incluido, ejecuta <strong>sing-box</strong> en modo TUN en Windows o macOS.",
     "guideLink": "Guía de configuración completa &rarr;",
     "items": [
       {
         "mono": "WIN",
         "name": "Windows",
-        "text": "Firefox incluye SOCKS5. Chrome y Edge: FoxyProxy.",
+        "text": "Firefox: Ajustes, busca proxy, Configurar proxy. Chrome y Edge: FoxyProxy.",
         "chip": "SOCKS5"
       },
       {
         "mono": "MAC",
         "name": "macOS",
-        "text": "Ajustes del Sistema &rarr; Red &rarr; Proxies &rarr; Proxy SOCKS, o sing-box.",
+        "text": "Ajustes del Sistema &rarr; Wi-Fi &rarr; Detalles&hellip; &rarr; Proxies &rarr; Proxy SOCKS, o sing-box.",
         "chip": "nativo"
       },
       {
@@ -177,7 +177,7 @@
       {
         "mono": "iOS",
         "name": "iOS",
-        "text": "Shadowrocket (de pago) o Potatso Lite (gratis), solo para el tráfico de esa app.",
+        "text": "Potatso (gratis) o Shadowrocket (de pago), solo para el tráfico de esa app.",
         "chip": "SOCKS5"
       }
     ]
@@ -236,7 +236,7 @@
       },
       {
         "q": "¿Funciona con iPhone?",
-        "a": "iOS no tiene una configuración SOCKS5 nativa, pero apps como Shadowrocket o Potatso pueden conectarse al proxy de la misma forma, solo para el tráfico de esa app y no para todo el dispositivo. Por ahora no hay una opción verificada para todo el dispositivo en iOS. Una app nativa para iOS está en desarrollo y llegará muy pronto."
+        "a": "iOS no tiene una configuración SOCKS5 nativa, pero apps como Potatso o Shadowrocket pueden conectarse al proxy de la misma forma, solo para el tráfico de esa app y no para todo el dispositivo. Por ahora no hay una opción verificada para todo el dispositivo en iOS. Una app nativa para iOS está en desarrollo y llegará muy pronto."
       },
       {
         "q": "¿Cuántos dispositivos pueden conectarse a la vez?",

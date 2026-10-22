@@ -2,10 +2,10 @@
 title: "Servidor proxy SOCKS5 no Android: o que é e como usar"
 description: "O que faz um servidor proxy SOCKS5 no celular Android, como outros dispositivos se conectam a ele pelo Wi-Fi e como configurar Windows, macOS, iOS e Android."
 published: "2026-09-27"
-modified: "2026-09-27"
+modified: "2026-10-22"
 sitemap:
   order: 72
-  lastmod: "2026-10-15"
+  lastmod: "2026-10-22"
   changefreq: "monthly"
   priority: "0.7"
 index:
@@ -14,7 +14,7 @@ index:
 ---
     <div class="page-eyebrow">Blog</div>
     <h1>Servidor proxy SOCKS5 no Android: o que é e como usar</h1>
-    <div class="post-meta">Publicado em 27 de setembro de 2026</div>
+    <div class="post-meta">Publicado em 27 de setembro de 2026 &middot; Atualizado em 22 de outubro de 2026</div>
 
     <p>Um servidor proxy SOCKS5 costuma rodar em um computador ou em um data center. Mas ele também pode rodar em um celular Android, e isso acaba sendo um jeito prático de compartilhar os dados móveis do celular com outros dispositivos na mesma rede Wi-Fi. Este guia explica o que é SOCKS5, por que rodar um no celular, como ele funciona junto com o roteador local do Android e como conectar cada tipo de dispositivo.</p>
 
@@ -32,16 +32,16 @@ index:
 
     <h2>Como funciona com o LocalOnlyHotspot</h2>
     <p>Os outros dispositivos precisam de um caminho de rede até o celular. O Tether Link Utility consegue esse caminho com o recurso <strong>LocalOnlyHotspot</strong> do Android (disponível desde o Android 8): o sistema cria uma rede Wi-Fi com nome e senha gerados automaticamente. Sozinho, um LocalOnlyHotspot dá aos dispositivos conectados acesso ao celular, mas não à internet. O proxy SOCKS5 completa essa parte: os dispositivos no Wi-Fi local se conectam ao IP e à porta do proxy, e o proxy encaminha as conexões deles pelos dados móveis do celular.</p>
-    <p>No app, toque em <strong>START</strong>. Quando o roteador e o proxy estiverem ativos, a tela mostra o endereço IP e a porta, e <strong>Show QR code</strong> exibe um código com os dados do Wi-Fi e o endereço do proxy.</p>
+    <p>No app, toque em <strong>START SHARING</strong> e depois no dispositivo que você quer conectar. Antes de mostrar qualquer dado do Wi-Fi, o app pergunta se esse dispositivo já tem o que precisa. Depois ele mostra uma única tela de conexão: um QR Code com os dados do Wi-Fi e o endereço do proxy para outro celular Android, ou o nome e a senha do Wi-Fi e os dois valores (endereço IP e porta) para os outros dispositivos. A tela espera sozinha até o dispositivo conectar.</p>
 
     <h2>Conectando os clientes</h2>
     <p>Primeiro, cada cliente entra na rede Wi-Fi do celular. Depois, é preciso dizer a ele para usar o proxy:</p>
     <ul>
       <li><strong>Android:</strong> instale o Tether Link Utility também no outro celular e escaneie o QR Code. No Android 10 ou mais recente ele entra no Wi-Fi automaticamente e depois passa o tráfego do celular pelo proxy com o VpnService do Android (uma interface de VPN local, sem servidor remoto). Veja <a href="/pt/blog/share-mobile-data-android-to-android-qr.html">Compartilhar internet de Android para Android com QR Code</a>.</li>
-      <li><strong>Windows:</strong> configure SOCKS5 no Firefox ou use uma extensão de proxy como o FoxyProxy no Chrome ou no Edge. Para passar todos os apps e o DNS pelo proxy, e não só o navegador, rode o sing-box em modo TUN.</li>
+      <li><strong>Windows:</strong> no Firefox, abra Configurações, digite proxy na caixa de pesquisa, clique em Configurar proxy e escolha Configuração manual de proxy. Ou use uma extensão de proxy como o FoxyProxy no Chrome ou no Edge. Para passar todos os apps e o DNS pelo proxy, e não só o navegador, rode o sing-box em modo TUN.</li>
       <li><strong>macOS:</strong> digite o IP e a porta em Ajustes do Sistema, Rede, Wi-Fi, Detalhes, Proxies, Proxy SOCKS. Para todos os apps e o DNS, o sing-box em modo TUN é a opção mais completa.</li>
-      <li><strong>Linux:</strong> use as configurações de proxy de rede do seu ambiente gráfico ou a opção SOCKS5 de cada aplicativo; o sing-box também roda no Linux.</li>
-      <li><strong>iOS e iPadOS:</strong> o iOS não tem ajuste SOCKS5 nativo, então use um app que aceite proxy SOCKS5, como o Shadowrocket ou o Potatso Lite.</li>
+      <li><strong>Linux:</strong> use o Firefox do mesmo jeito que no Windows, ou as configurações de proxy de rede do seu ambiente gráfico; o sing-box também roda no Linux.</li>
+      <li><strong>iOS e iPadOS:</strong> o iOS não tem ajuste SOCKS5 nativo, então use um app que aceite proxy SOCKS5, como o Potatso (gratuito) ou o Shadowrocket.</li>
     </ul>
     <p>O passo a passo de cada plataforma, com um arquivo de configuração do sing-box, está em <a href="/pt/blog/socks5-proxy-setup-windows-macos-ios.html">Como configurar um proxy SOCKS5 no Windows, macOS e iOS</a>.</p>
 

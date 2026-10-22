@@ -2,12 +2,12 @@
 title: "QR कोड से Android से Android पर मोबाइल डेटा शेयर करें"
 description: "QR कोड स्कैन करके अपने फ़ोन का मोबाइल डेटा दूसरे Android फ़ोन के साथ कैसे शेयर करें: QR में क्या होता है, कनेक्शन कैसे काम करता है, और सेटअप के स्टेप्स।"
 published: "2026-09-25"
-modified: "2026-09-25"
+modified: "2026-10-22"
 carrierTable: true
 h3Style: true
 sitemap:
   order: 61
-  lastmod: "2026-10-17"
+  lastmod: "2026-10-22"
   changefreq: "monthly"
   priority: "0.7"
 index:
@@ -15,7 +15,7 @@ index:
 ---
     <div class="page-eyebrow">Blog</div>
     <h1>QR कोड से Android से Android पर मोबाइल डेटा शेयर करें</h1>
-    <div class="post-meta">प्रकाशित 25 सितंबर, 2026</div>
+    <div class="post-meta">प्रकाशित 25 सितंबर, 2026 &middot; अपडेट 22 अक्टूबर, 2026</div>
 
     <p>अगर आपके पास दो Android फ़ोन हैं और सिर्फ़ एक में मोबाइल डेटा है, तो आप एक QR कोड स्कैन करके वह कनेक्शन शेयर कर सकते हैं। इस गाइड में बताया गया है कि Tether Link Utility के साथ यह कैसे काम करता है: आपको क्या चाहिए, QR कोड में असल में क्या होता है, दोनों फ़ोन पर क्या स्टेप्स हैं, और कनेक्ट न होने पर क्या जाँचें।</p>
 
@@ -32,19 +32,26 @@ index:
 
     <h2>सर्वर फ़ोन पर स्टेप्स</h2>
     <ol>
-      <li>Tether Link Utility खोलें और <strong>START</strong> पर टैप करें।<!--help:android:start-sharing--></li>
-      <li>Android जो परमिशन माँगे, वह दें। हॉटस्पॉट शुरू करने के लिए पुराने Android वर्ज़न पर लोकेशन परमिशन और Android 13 व नए पर nearby Wi-Fi devices परमिशन चाहिए।<!--help:android:start-sharing--></li>
-      <li>स्क्रीन पर IP एड्रेस और पोर्ट दिखने तक रुकें।<!--help:android:start-sharing--></li>
-      <li><strong>Show QR code</strong> पर टैप करें।<!--help:android:start-sharing--></li>
+      <li>Tether Link Utility खोलें और <strong>START SHARING</strong> पर टैप करें।<!--help:android:start-sharing--></li>
+      <li>Android जो परमिशन माँगे, वह दें। हॉटस्पॉट शुरू करने के लिए पुराने Android वर्ज़न पर लोकेशन परमिशन और Android 13 व नए पर nearby Wi-Fi devices परमिशन चाहिए। पहली बार ऐप <strong>One permission is needed</strong> भी दिखाता है: <strong>Allow</strong> पर टैप करें, फिर फ़ोन की <strong>कनेक्शन अनुरोध</strong> (Connection request) विंडो में <strong>ठीक है</strong> (OK) पर।<!--help:android:start-sharing--></li>
+      <li>जब ऐप पूछे <strong>Which device will use this phone's internet?</strong>, तो <strong>Android phone or tablet</strong> पर टैप करें।<!--help:android:start-sharing--></li>
+      <li>ऐप पूछता है <strong>Is Tether Link Utility on the other phone?</strong> दूसरे फ़ोन को अभी इस फ़ोन के Wi-Fi से न जोड़ें।
+        <ul>
+          <li><strong>Yes, it's installed:</strong> अगले स्टेप पर जाएँ।</li>
+          <li><strong>No, but it has internet:</strong> दूसरे फ़ोन पर कैमरा खोलें और दिखे कोड की ओर करें। आने वाले लिंक पर टैप करें, फिर <strong>Install</strong> पर। उसके बाद <strong>It's installed</strong> पर टैप करें।</li>
+          <li><strong>No, and it has no internet:</strong> यह फ़ोन ऐप भेज सकता है। दोनों फ़ोन पास रखें। दोनों फ़ोन पर Play Store खोलें, ऊपर दाईं ओर अपनी प्रोफ़ाइल फ़ोटो पर टैप करें, फिर <strong>Manage apps &amp; device</strong> पर। <strong>Share</strong> पर टैप करें। इस फ़ोन पर <strong>Send</strong> और दूसरे फ़ोन पर <strong>Receive</strong> पर टैप करें। इस फ़ोन पर Tether Link Utility पर टिक करें और भेजने वाले तीर पर टैप करें। दूसरे फ़ोन पर <strong>Install</strong> पर टैप करें। नहीं हुआ? दूसरे फ़ोन को एक मिनट के लिए किसी दूसरे Wi-Fi से जोड़ें और Play Store से इंस्टॉल करें।</li>
+        </ul>
+      <!--help:android:start-sharing--></li>
+      <li>स्क्रीन पर <strong>Scan this code with the other phone</strong> दिखता है और दूसरा फ़ोन जुड़ने तक वह अपने आप इंतज़ार करती है।<!--help:android:scan-qr--></li>
     </ol>
 
     <h2>क्लाइंट फ़ोन पर स्टेप्स</h2>
     <ol>
-      <li>Tether Link Utility खोलें, <strong>Use another phone's internet</strong> चुनें, फिर <strong>Scan QR code</strong> पर टैप करें।<!--help:android:scan-qr--></li>
+      <li>Tether Link Utility खोलें, <strong>Use another phone's internet</strong> पर टैप करें, फिर <strong>Scan QR code</strong> पर।<!--help:android:scan-qr--></li>
       <li>कैमरा सर्वर फ़ोन के QR कोड की ओर करें।<!--help:android:scan-qr--></li>
-      <li>Android 10 और नए पर ऐप सिस्टम से सर्वर के Wi-Fi से जुड़ने को कहता है। Android कनेक्शन कन्फ़र्म करने के लिए एक प्रॉम्प्ट दिखा सकता है, उसे स्वीकार करें।<!--help:android:join-wifi--></li>
-      <li>पहली बार Android VPN कनेक्शन की अनुमति माँगता है। यह ऊपर बताया गया लोकल VpnService इंटरफ़ेस है, इसे स्वीकार करें।<!--help:android:other--></li>
-      <li>स्टेटस कनेक्टेड दिखने पर क्लाइंट फ़ोन के ऐप सर्वर फ़ोन का मोबाइल डेटा इस्तेमाल करते हैं।<!--help:android:no-internet--></li>
+      <li>फ़ोन सर्वर के Wi-Fi से अपने आप जुड़ता है। पूछे तो <strong>Connect</strong> पर टैप करें। Wi-Fi "No internet" दिखा सकता है; यह सामान्य है, उसी से जुड़े रहें।<!--help:android:join-wifi--></li>
+      <li>पहली बार ऐप <strong>One permission is needed</strong> दिखाता है: <strong>Allow</strong> पर टैप करें, फिर फ़ोन की <strong>कनेक्शन अनुरोध</strong> (Connection request) विंडो में <strong>ठीक है</strong> (OK) पर। यह ऊपर बताया गया लोकल VpnService कनेक्शन है। <strong>ठीक है</strong> सिर्फ़ आप ही दबा सकते हैं; <strong>रद्द करें</strong> (Cancel) दबाने पर कुछ शुरू नहीं होता और आप <strong>Allow again</strong> पर टैप कर सकते हैं।<!--help:android:other--></li>
+      <li>स्टेटस कनेक्टेड दिखने पर क्लाइंट फ़ोन के ऐप सर्वर फ़ोन का मोबाइल डेटा इस्तेमाल करते हैं। जाँचने के लिए कोई वेबसाइट खोलें।<!--help:android:no-internet--></li>
     </ol>
 
     <h2>QR कोड में क्या होता है</h2>
@@ -54,6 +61,16 @@ index:
 
     <h2>फ़ोन का अपना हॉटस्पॉट इस्तेमाल करना</h2>
     <p>अगर ऐप के बजाय आप फ़ोन का सिस्टम हॉटस्पॉट खुद ऑन करते हैं (Android पर Mobile Hotspot, iPhone पर Personal Hotspot), तो ऐप में <strong>Add hotspot Wi-Fi details</strong> पर टैप करें और हॉटस्पॉट का नाम और पासवर्ड एक बार सेव करें। ये सिर्फ़ आपके डिवाइस पर स्टोर होते हैं और ऐप आपका हॉटस्पॉट नहीं बदलता। ये डिटेल्स QR कोड में जोड़ दी जाती हैं, ताकि दूसरे डिवाइस उसे स्कैन करके नेटवर्क से जुड़ सकें। iPhone पर पासवर्ड <strong>Settings &gt; Personal Hotspot</strong> में मिलता है। जब Android ऐप अपने आप अपना हॉटस्पॉट शुरू करता है, तब आप यह स्टेप छोड़ सकते हैं।</p>
+
+    <h2>अब भी कनेक्ट नहीं हुआ?</h2>
+    <p>सर्वर फ़ोन की कनेक्ट स्क्रीन पर <strong>Still not connected?</strong> पर टैप करें और चुनें कि दूसरे फ़ोन पर क्या दिख रहा है:</p>
+    <ul>
+      <li><strong>It couldn't join the Wi-Fi</strong> (Wi-Fi से नहीं जुड़ पाया): दूसरे फ़ोन पर Wi-Fi सेटिंग खोलें, दिखाए गए नेटवर्क नाम पर टैप करें और दिखाया गया पासवर्ड लिखें। फिर कोड दोबारा स्कैन करें।</li>
+      <li><strong>The camera doesn't read the code</strong> (कैमरा कोड नहीं पढ़ता): फ़ोन को लगभग एक हथेली की दूरी पर रखें और सर्वर फ़ोन की स्क्रीन ब्राइटनेस बढ़ाएँ।</li>
+      <li><strong>Wi-Fi says "No internet"</strong> (Wi-Fi "No internet" दिखा रहा है): यह सामान्य है। इसी Wi-Fi पर रहें और Tether Link Utility पर वापस जाएँ।</li>
+      <li><strong>It says connected, but websites don't open</strong> (कनेक्टेड दिखता है, पर वेबसाइटें नहीं खुलतीं): पक्का करें कि सर्वर फ़ोन पर मोबाइल डेटा चालू है। दूसरे फ़ोन पर कोई दूसरा VPN ऐप हो तो उसे बंद करें।</li>
+      <li><strong>I can't find the app on the other phone</strong> (दूसरे फ़ोन पर ऐप नहीं मिल रहा): ऐप वापस <strong>Is Tether Link Utility on the other phone?</strong> पर जाता है और इंस्टॉल करने का तरीका दिखाता है।</li>
+    </ul>
 
     <h2>समस्या आने पर</h2>
     <ul>
