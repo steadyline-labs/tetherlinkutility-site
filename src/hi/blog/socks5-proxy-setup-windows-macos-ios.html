@@ -2,18 +2,18 @@
 title: "Windows, macOS और iOS पर SOCKS5 प्रॉक्सी कैसे सेट करें"
 description: "Firefox, Chrome (FoxyProxy), macOS नेटवर्क सेटिंग्स, sing-box TUN मोड और iOS ऐप्स के लिए स्टेप-बाय-स्टेप SOCKS5 प्रॉक्सी सेटअप।"
 published: "2026-09-18"
-modified: "2026-10-17"
+modified: "2026-10-22"
 ldDescription: "Step-by-step SOCKS5 proxy setup for Firefox, Chrome (FoxyProxy), macOS network settings, sing-box TUN mode and iOS apps."
 carrierTable: true
 h3Style: true
 sitemap:
   order: 39
-  lastmod: "2026-10-20"
+  lastmod: "2026-10-22"
   changefreq: "monthly"
   priority: "0.6"
 index:
   order: 4
-  excerpt: "Firefox, FoxyProxy, macOS नेटवर्क सेटिंग्स, sing-box TUN मोड, और iOS पर Shadowrocket/Potatso Lite के लिए स्टेप-बाय-स्टेप सेटअप।"
+  excerpt: "Firefox, FoxyProxy, macOS नेटवर्क सेटिंग्स, sing-box TUN मोड, और iOS पर Potatso/Shadowrocket के लिए स्टेप-बाय-स्टेप सेटअप।"
 extraJsonLd: |2-
     <script type="application/ld+json">
     {
@@ -24,12 +24,12 @@ extraJsonLd: |2-
         {
           "@type": "HowToStep",
           "name": "Install first, then join the phone's Wi-Fi",
-          "text": "While your device still has its normal internet, install what it needs (Shadowrocket on iPhone, Firefox or FoxyProxy on a computer, sing-box via our script on Mac). Then open Tether Link Utility on the sharing phone, tap START, join the Wi-Fi network shown in the app, and note the IP address and port. That Wi-Fi may show 'No internet'; that's normal."
+          "text": "While your device still has its normal internet, install what it needs (Potatso on iPhone, Firefox or FoxyProxy on a computer, sing-box via our script on Mac). Then open Tether Link Utility on the sharing phone, tap START SHARING, tap the device you want to connect and answer whether it already has the app. Only then join the Wi-Fi shown under Name with the Password shown, and enter the two values (SOCKS Host and Port). That Wi-Fi may show 'No internet'; that's normal. The app's screen waits by itself until the device connects."
         },
         {
           "@type": "HowToStep",
           "name": "Windows: Firefox (native) or FoxyProxy for Chrome/Edge",
-          "text": "In Firefox, go to Settings > General > Network Settings > Manual proxy configuration, enter the SOCKS Host and Port, select SOCKS v5, and tick Proxy DNS when using SOCKS v5. In Chrome or Edge, install the FoxyProxy extension and enter the same IP/port as a SOCKS5 proxy."
+          "text": "In Firefox, open Settings, type proxy in the search box, click Configure proxy and choose Manual proxy configuration. Enter the SOCKS Host and Port, select SOCKS v5, tick Proxy DNS when using SOCKS v5 and click OK. In Chrome or Edge, install the FoxyProxy extension and enter the same IP/port as a SOCKS5 proxy."
         },
         {
           "@type": "HowToStep",
@@ -38,18 +38,18 @@ extraJsonLd: |2-
         },
         {
           "@type": "HowToStep",
-          "name": "macOS: native Network settings",
-          "text": "Go to System Settings > Network > Wi-Fi > Details > Proxies, check SOCKS Proxy, and enter the IP address and port. Covers apps that check the system proxy setting, but not DNS."
+          "name": "macOS: built-in proxy setting",
+          "text": "Open System Settings > Wi-Fi, click Details… next to the phone's Wi-Fi, then Proxies. Turn on SOCKS proxy, enter the IP address and port, and click OK. Covers apps that check the system proxy setting, but not DNS."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "iOS: Potatso (free)",
+          "text": "Open Potatso, tap +, add a SOCKS5 server with the two values from the app (Server and Port) and save. Turn on the switch in Potatso. If the iPhone asks, tap Allow."
         },
         {
           "@type": "HowToStep",
           "name": "iOS: Shadowrocket (paid)",
           "text": "Open Shadowrocket, tap the + button, choose Socks5, enter the address and port, and save. Tap the toggle to connect."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "iOS: Potatso Lite (free)",
-          "text": "Open Potatso Lite, add a new SOCKS5 proxy profile with the IP and port from the app, save it, and enable the VPN profile when prompted."
         }
       ]
     }
@@ -57,7 +57,7 @@ extraJsonLd: |2-
 ---
     <div class="page-eyebrow">ब्लॉग</div>
     <h1>Windows, macOS और iOS पर SOCKS5 प्रॉक्सी कैसे सेट करें</h1>
-    <div class="post-meta">प्रकाशित 18 सितंबर, 2026 &middot; अपडेट 15 अक्टूबर, 2026</div>
+    <div class="post-meta">प्रकाशित 18 सितंबर, 2026 &middot; अपडेट 22 अक्टूबर, 2026</div>
 
     <p>Tether Link Utility आपके Android फ़ोन पर एक लोकल SOCKS5 प्रॉक्सी चलाता है। SOCKS5 प्रॉक्सी सेटिंग सपोर्ट करने वाला कोई भी डिवाइस फ़ोन के Wi-Fi (Android का LocalOnlyHotspot) से जुड़कर इस प्रॉक्सी से कनेक्ट हो सकता है, Windows या macOS पर किसी अलग क्लाइंट ऐप की ज़रूरत नहीं, और iOS पर एक हल्का सा। यहां हर प्लेटफ़ॉर्म को इससे जोड़ने का तरीका बताया गया है।</p>
 
@@ -66,15 +66,18 @@ extraJsonLd: |2-
     <ol>
       <li><strong>पहले ज़रूरी चीज़ें इंस्टॉल करें</strong>, जब तक आपके डिवाइस पर उसका सामान्य इंटरनेट चल रहा है:
         <ul>
-          <li>iPhone या iPad: App Store से Shadowrocket या Potatso Lite।</li>
-          <li>कंप्यूटर: Firefox, या Chrome/Edge के लिए FoxyProxy एक्सटेंशन।</li>
-          <li>Mac, सभी ऐप्स: हमारी स्क्रिप्ट अभी एक बार चलाएं ताकि वह sing-box इंस्टॉल कर दे (देखें <a href="#macos">macOS</a>)।</li>
+          <li>iPhone या iPad: App Store से Potatso (फ्री) या Shadowrocket (पेड)।</li>
+          <li>Windows या Linux कंप्यूटर: firefox.com से Firefox, या Chrome/Edge के लिए FoxyProxy एक्सटेंशन।</li>
+          <li>Mac: बिल्ट-इन सेटिंग के लिए कुछ नहीं चाहिए। सभी ऐप्स के लिए हमारी स्क्रिप्ट अभी एक बार चलाएं ताकि वह sing-box इंस्टॉल कर दे (देखें <a href="#macos">macOS</a>)।</li>
           <li>Windows या Linux, सभी ऐप्स: sing-box अभी डाउनलोड करें (देखें <a href="#windows">Windows</a> या <a href="#linux">Linux</a>)।</li>
         </ul>
+        <p>उस डिवाइस पर इंटरनेट नहीं है? उसे कुछ मिनट के लिए किसी दूसरे Wi-Fi (घर, ऑफ़िस, कैफ़े) से जोड़ें और वहीं से इंस्टॉल करें। Windows कंप्यूटर पर Firefox केबल से भी पहुंच सकता है: फ़ोन पर Windows के लिए Firefox डाउनलोड करें, फ़ोन को USB केबल से कंप्यूटर से जोड़ें, फ़ाइल कंप्यूटर पर कॉपी करें और खोलें।</p>
       <!--help::install--></li>
-      <li>फ़ोन पर Tether Link Utility खोलें और <strong>START</strong> दबाएं।<!--help::start-sharing--></li>
-      <li><strong>इसके बाद</strong> ऐप में <strong>Wi-Fi</strong> के नीचे दिखे नेटवर्क से, <strong>Password</strong> के नीचे दिखे पासवर्ड के साथ जुड़ें (ये <strong>Show QR code</strong> स्क्रीन पर QR के नीचे भी लिखे होते हैं)। यह Wi-Fi "No internet" दिखा सकता है; यह सामान्य है।<!--help::join-wifi--></li>
-      <li>ऐप में दिखाए गए <strong>IP एड्रेस</strong> और <strong>पोर्ट</strong> नोट करें। नीचे के सेटअप में दोनों डालने होंगे।<!--help::start-sharing--></li>
+      <li>शेयर करने वाले फ़ोन पर Tether Link Utility खोलें और <strong>START SHARING</strong> दबाएं। पहली बार ऐप <strong>One permission is needed</strong> दिखाता है: <strong>Allow</strong> दबाएं, फिर फ़ोन की <strong>कनेक्शन अनुरोध</strong> (Connection request) विंडो में <strong>ठीक है</strong> (OK) दबाएं।<!--help::start-sharing--></li>
+      <li>ऐप पूछता है <strong>Which device will use this phone's internet?</strong> अपना डिवाइस चुनें: <strong>Android phone or tablet</strong>, <strong>Windows computer</strong>, <strong>iPhone or iPad</strong>, <strong>Mac</strong>, <strong>Linux</strong> या <strong>Other (TV, game console…)</strong>।<!--help::start-sharing--></li>
+      <li>फिर ऐप पूछता है कि डिवाइस पर ज़रूरी चीज़ पहले से है या नहीं, जैसे <strong>Is Firefox on the computer?</strong> <strong>Yes</strong>, <strong>No, but it has internet</strong> या <strong>No, and it has no internet</strong> दबाएं, ऐप इंस्टॉल करने का तरीका दिखाएगा। अभी फ़ोन के Wi-Fi से न जुड़ें।<!--help::install--></li>
+      <li><strong>इसके बाद</strong> अपने डिवाइस पर ऐप में <strong>Name</strong> के नीचे दिखे Wi-Fi से, <strong>Password</strong> के नीचे दिखे पासवर्ड के साथ जुड़ें। अगर "No internet" दिखे, तो यह सामान्य है।<!--help::join-wifi--></li>
+      <li>ऐप में दिखी दो वैल्यू (<strong>SOCKS Host</strong> या <strong>Server</strong>, और <strong>Port</strong>) नीचे अपने डिवाइस के सेटअप में डालें। ऐप की स्क्रीन अपने आप इंतज़ार करती है और डिवाइस जुड़ते ही आगे बढ़ जाती है।<!--help::start-sharing--></li>
     </ol>
     <p><strong>पोर्ट के बारे में:</strong> ऐप पोर्ट को सेव रखता है, इसलिए हर डिवाइस पर इसे सिर्फ़ एक बार डालना होता है। पोर्ट तभी बदलता है जब फ़ोन का कोई दूसरा ऐप उसे इस्तेमाल करने लगे, और ऐसा होने पर ऐप आपको बताता है। अपना पोर्ट चुनने के लिए Port वाली लाइन पर <strong>Edit</strong> दबाएं और 1024 से 65535 के बीच कोई नंबर डालें (1024 से 32767 के बीच टकराव की संभावना कम होती है)। चुना गया पोर्ट खाली हो तो वह आपके लिए तब तक रिज़र्व रहता है जब तक कोई दूसरा ऐप उसे इस्तेमाल न करने लगे।</p>
 
@@ -84,10 +87,11 @@ extraJsonLd: |2-
     <h2 id="windows">Windows</h2>
     <h3>विकल्प A: Firefox (किसी एक्सटेंशन की ज़रूरत नहीं)</h3>
     <ol>
-      <li><strong>Settings → General → Network Settings → Settings</strong> पर जाएं।<!--help:windows:set-proxy--></li>
-      <li><strong>Manual proxy configuration</strong> चुनें।<!--help:windows:set-proxy--></li>
-      <li>फ़ोन का IP <strong>SOCKS Host</strong> में डालें, पोर्ट <strong>Port</strong> में, और <strong>SOCKS v5</strong> चुनें।<!--help:windows:set-proxy--></li>
-      <li><strong>Proxy DNS when using SOCKS v5</strong> चेक करें, ताकि DNS लुकअप भी प्रॉक्सी से जाएं।<!--help:windows:set-proxy--></li>
+      <li>Firefox में <strong>Settings</strong> खोलें, ऊपर के सर्च बॉक्स में <strong>proxy</strong> लिखें और <strong>Configure proxy</strong> पर क्लिक करें।<!--help:windows:set-proxy--></li>
+      <li><strong>खुद से प्रॉक्सी कॉन्फ़िगर करें</strong> (Manual proxy configuration) चुनें।<!--help:windows:set-proxy--></li>
+      <li>फ़ोन का IP <strong>SOCKS होस्ट</strong> (SOCKS Host) में डालें, पोर्ट <strong>पोर्ट</strong> (Port) में, और <strong>SOCKS v5</strong> चुनें।<!--help:windows:set-proxy--></li>
+      <li><strong>SOCKS v5 उपयोग करने पर स्थानापन्न डीएनएस</strong> (Proxy DNS when using SOCKS v5) चेक करें, ताकि DNS लुकअप भी प्रॉक्सी से जाएं, फिर <strong>OK</strong> पर क्लिक करें।<!--help:windows:set-proxy--></li>
+      <li>Firefox में कोई भी वेबसाइट खोलें। फ़ोन का इंटरनेट सिर्फ़ Firefox इस्तेमाल करता है, कंप्यूटर के बाकी ऐप्स नहीं।<!--help:windows:no-internet--></li>
     </ol>
     <h3>विकल्प B: Chrome या Edge, FoxyProxy के ज़रिए</h3>
     <ol>
@@ -104,12 +108,12 @@ extraJsonLd: |2-
     </ol>
 
     <h2 id="macos">macOS</h2>
-    <h3>विकल्प A: native Network सेटिंग्स</h3>
+    <h3>विकल्प A: बिल्ट-इन प्रॉक्सी सेटिंग</h3>
     <ol>
-      <li><strong>System Settings → Network</strong> खोलें।<!--help:mac:set-proxy--></li>
-      <li>जिस Wi-Fi नेटवर्क से जुड़े हैं (जो फ़ोन प्रसारित कर रहा है) उसे चुनें और <strong>Details…</strong> दबाएं।<!--help:mac:set-proxy--></li>
-      <li><strong>Proxies</strong> पर जाएं, <strong>SOCKS Proxy</strong> चेक करें।<!--help:mac:set-proxy--></li>
-      <li>फ़ोन का IP एड्रेस और पोर्ट डालें, फिर <strong>OK → Apply</strong> दबाएं।<!--help:mac:set-proxy--></li>
+      <li><strong>System Settings → Wi-Fi</strong> खोलें।<!--help:mac:set-proxy--></li>
+      <li>फ़ोन वाले Wi-Fi के बगल में <strong>Details…</strong> पर क्लिक करें, फिर <strong>Proxies</strong> पर।<!--help:mac:set-proxy--></li>
+      <li><strong>SOCKS proxy</strong> ऑन करें, फ़ोन का IP एड्रेस और पोर्ट डालें, फिर <strong>OK</strong> पर क्लिक करें।<!--help:mac:set-proxy--></li>
+      <li>Safari में कोई भी वेबसाइट खोलें।<!--help:mac:no-internet--></li>
     </ol>
     <p>किसी थर्ड-पार्टी ऐप की ज़रूरत नहीं, पर ध्यान दें macOS की native SOCKS सेटिंग DNS को प्रॉक्सी से रूट नहीं करती, इसलिए DNS क्वेरी प्रॉक्सी के बजाय सीधे जा सकती हैं, और कुछ ऐप्स सिस्टम प्रॉक्सी सेटिंग को नहीं मानते। DNS सहित पूरी कवरेज के लिए विकल्प B वाली स्क्रिप्ट इस्तेमाल करें।</p>
 
@@ -169,9 +173,9 @@ extraJsonLd: |2-
     <h2 id="linux">Linux</h2>
     <h3>विकल्प A: Firefox</h3>
     <ol>
-      <li><strong>Settings → General → Network Settings → Settings</strong> पर जाएं और <strong>Manual proxy configuration</strong> चुनें।<!--help:linux:set-proxy--></li>
-      <li>फ़ोन का IP <strong>SOCKS Host</strong> में डालें, पोर्ट <strong>Port</strong> में, और <strong>SOCKS v5</strong> चुनें।<!--help:linux:set-proxy--></li>
-      <li><strong>Proxy DNS when using SOCKS v5</strong> चेक करें।<!--help:linux:set-proxy--></li>
+      <li>Firefox में <strong>Settings</strong> खोलें, सर्च बॉक्स में <strong>proxy</strong> लिखें, <strong>Configure proxy</strong> पर क्लिक करें और <strong>खुद से प्रॉक्सी कॉन्फ़िगर करें</strong> (Manual proxy configuration) चुनें।<!--help:linux:set-proxy--></li>
+      <li>फ़ोन का IP <strong>SOCKS होस्ट</strong> (SOCKS Host) में डालें, पोर्ट <strong>पोर्ट</strong> (Port) में, और <strong>SOCKS v5</strong> चुनें।<!--help:linux:set-proxy--></li>
+      <li><strong>SOCKS v5 उपयोग करने पर स्थानापन्न डीएनएस</strong> (Proxy DNS when using SOCKS v5) चेक करें और <strong>OK</strong> पर क्लिक करें।<!--help:linux:set-proxy--></li>
     </ol>
     <h3>विकल्प B: sing-box से सभी ऐप्स के लिए</h3>
     <ol>
@@ -181,26 +185,45 @@ extraJsonLd: |2-
     </ol>
 
     <h2>iOS</h2>
-    <h3>विकल्प A: Shadowrocket (पेड, एक बार की खरीद)</h3>
+    <h3>विकल्प A: Potatso (फ्री)</h3>
+    <ol>
+      <li>Potatso खोलें और <strong>+</strong> दबाएं।<!--help:ios:ios-proxy-app--></li>
+      <li>ऐप में दिखी दो वैल्यू (<strong>Server</strong> और <strong>Port</strong>) के साथ एक <strong>SOCKS5</strong> सर्वर जोड़ें और सेव करें।<!--help:ios:ios-proxy-app--></li>
+      <li>Potatso में स्विच ऑन करें। iPhone पूछे तो <strong>Allow</strong> दबाएं। इसी तरह Potatso ट्रैफ़िक को SOCKS5 प्रॉक्सी तक भेजता है, क्योंकि iOS में macOS जैसी सिस्टम-वाइड SOCKS5 सेटिंग नहीं होती।<!--help:ios:ios-proxy-app--></li>
+    </ol>
+    <h3>विकल्प B: Shadowrocket (पेड, एक बार की खरीद)</h3>
     <ol>
       <li>Shadowrocket खोलें और ऊपर दाईं तरफ़ <strong>+</strong> बटन दबाएं।<!--help:ios:ios-proxy-app--></li>
       <li>टाइप <strong>Socks5</strong> चुनें।<!--help:ios:ios-proxy-app--></li>
       <li>फ़ोन का IP एड्रेस के तौर पर और ऐप में दिखाया गया पोर्ट डालें।<!--help:ios:ios-proxy-app--></li>
       <li>सेव करें, फिर कनेक्ट करने के लिए ऊपर टॉगल दबाएं।<!--help:ios:ios-proxy-app--></li>
     </ol>
-    <h3>विकल्प B: Potatso Lite (फ्री)</h3>
-    <ol>
-      <li>Potatso Lite खोलें और एक नई प्रॉक्सी प्रोफ़ाइल जोड़ें।<!--help:ios:ios-proxy-app--></li>
-      <li><strong>SOCKS5</strong> चुनें, IP और पोर्ट डालें, और सेव करें।<!--help:ios:ios-proxy-app--></li>
-      <li>iOS के पूछने पर VPN प्रोफ़ाइल इनेबल करें, यही तरीका है जिससे Potatso ट्रैफ़िक को SOCKS5 प्रॉक्सी से रूट करता है, क्योंकि iOS में macOS जैसी native SOCKS5 सेटिंग नहीं होती।<!--help:ios:ios-proxy-app--></li>
-    </ol>
 
     <div class="callout">
-      <p><strong>DNS टिप:</strong> पक्का करें कि DNS क्वेरी भी प्रॉक्सी से जाएं। Firefox में <strong>Proxy DNS when using SOCKS v5</strong> चेक करें; Shadowrocket यह डिफ़ॉल्ट रूप से करता है। macOS की System Settings वाली SOCKS सेटिंग DNS को प्रॉक्सी से नहीं भेजती, इसलिए Mac पर पूरी कवरेज के लिए <a href="#macos">हमारी स्क्रिप्ट</a> इस्तेमाल करें। ऊपर बताया गया sing-box का TUN मोड यह अपने आप संभालता है, क्योंकि यह हर ऐप की सेटिंग पर निर्भर रहने के बजाय बाकी ट्रैफ़िक के साथ DNS भी प्रॉक्सी से भेजता है।</p>
+      <p><strong>DNS टिप:</strong> पक्का करें कि DNS क्वेरी भी प्रॉक्सी से जाएं। Firefox में <strong>SOCKS v5 उपयोग करने पर स्थानापन्न डीएनएस</strong> (Proxy DNS when using SOCKS v5) चेक करें; Shadowrocket यह डिफ़ॉल्ट रूप से करता है। macOS की System Settings वाली SOCKS सेटिंग DNS को प्रॉक्सी से नहीं भेजती, इसलिए Mac पर पूरी कवरेज के लिए <a href="#macos">हमारी स्क्रिप्ट</a> इस्तेमाल करें। ऊपर बताया गया sing-box का TUN मोड यह अपने आप संभालता है, क्योंकि यह हर ऐप की सेटिंग पर निर्भर रहने के बजाय बाकी ट्रैफ़िक के साथ DNS भी प्रॉक्सी से भेजता है।</p>
     </div>
 
+    <h2 id="other">TV और गेम कंसोल</h2>
+    <p>ज़्यादातर TV और गेम कंसोल इस तरह फ़ोन का इंटरनेट इस्तेमाल नहीं कर पाते। ऐप में <strong>Other (TV, game console…)</strong> दबाएं। फिर भी आज़माना हो तो <strong>Try anyway</strong> दबाएं, डिवाइस पर दिखे Wi-Fi से जुड़ें, और अगर उसकी नेटवर्क सेटिंग में प्रॉक्सी का विकल्प हो तो दो वैल्यू डालें। नहीं तो <strong>Choose another device</strong> दबाएं और उसकी जगह कोई फ़ोन, टैबलेट या कंप्यूटर जोड़ें।</p>
+
+    <h2 id="still-not-connected">अब भी कनेक्ट नहीं हुआ?</h2>
+    <p>ऐप की कनेक्ट स्क्रीन पर <strong>Still not connected?</strong> दबाएं और चुनें कि दूसरे डिवाइस पर क्या दिख रहा है:</p>
+    <ul>
+      <li><strong>I can't see the Wi-Fi name</strong> (Wi-Fi का नाम नहीं दिख रहा): फ़ोन की स्क्रीन ऑन रखें और उसे डिवाइस के पास लाएं, फिर Wi-Fi लिस्ट रिफ़्रेश करें। तब भी न दिखे तो डिवाइस इस तरह का Wi-Fi नहीं देख पाता: इसकी जगह फ़ोन का अपना हॉटस्पॉट इस्तेमाल करें (ऊपर देखें)।</li>
+      <li><strong>Wi-Fi says "No internet"</strong> (Wi-Fi "No internet" दिखा रहा है): यह सामान्य है। उसी से जुड़े रहें और स्टेप पूरे करें।</li>
+      <li><strong>Firefox says the proxy server is refusing connections</strong> (Firefox कहता है प्रॉक्सी सर्वर कनेक्शन मना कर रहा है): दोनों वैल्यू (SOCKS Host और Port) जांचें और पक्का करें कि फ़ोन पर शेयरिंग अब भी चालू है।</li>
+      <li><strong>Firefox works, other apps don't</strong> (Firefox चलता है, बाकी ऐप्स नहीं): ऐसा ही होना है। फ़ोन का इंटरनेट सिर्फ़ Firefox इस्तेमाल करता है। सभी ऐप्स के लिए sing-box इस्तेमाल करें (ऊपर देखें)।</li>
+      <li><strong>Websites don't open</strong> (वेबसाइटें नहीं खुलतीं; iPhone, Mac, दूसरे डिवाइस): दोनों वैल्यू जांचें, पक्का करें कि फ़ोन पर मोबाइल डेटा और शेयरिंग चालू हैं, और डिवाइस पर कोई दूसरा VPN ऐप हो तो बंद करें।</li>
+    </ul>
+
     <h2>Android-to-Android आसान है</h2>
-    <p>अगर दोनों डिवाइस Android हैं, ऊपर का सब कुछ छोड़ें, दूसरे फ़ोन पर Tether Link Utility खोलें, <strong>Use another phone's internet</strong> चुनें, <strong>Scan QR code</strong> दबाएं और कैमरा शेयर करने वाले फ़ोन पर दिखाए गए QR कोड पर रखें। QR कोड में फ़ोन के Wi-Fi की डिटेल्स और प्रॉक्सी एड्रेस दोनों होते हैं। Android 10+ पर ऐप सिस्टम के ज़रिए Wi-Fi से जुड़ता है (सिस्टम पुष्टि मांग सकता है), फिर Android के VpnService से डिवाइस का ट्रैफ़िक प्रॉक्सी से भेजता है। किसी रिमोट सर्वर का इस्तेमाल नहीं होता।</p>
+    <p>अगर दोनों डिवाइस Android हैं, तो शेयर करने वाले फ़ोन पर <strong>Android phone or tablet</strong> दबाएं। ऐप पूछता है <strong>Is Tether Link Utility on the other phone?</strong></p>
+    <ul>
+      <li><strong>Yes, it's installed:</strong> QR कोड तुरंत दिखता है।</li>
+      <li><strong>No, but it has internet:</strong> दूसरे फ़ोन पर कैमरा खोलें, दिखे कोड पर रखें, आने वाले लिंक पर टैप करें, फिर <strong>Install</strong>।</li>
+      <li><strong>No, and it has no internet:</strong> शेयर करने वाला फ़ोन ऐप भेज सकता है। दोनों फ़ोन पर Play Store खोलें, ऊपर दाईं तरफ़ अपनी प्रोफ़ाइल फ़ोटो पर टैप करें, फिर <strong>Manage apps &amp; device</strong> और <strong>Share</strong>। शेयर करने वाले फ़ोन पर <strong>Send</strong> और दूसरे पर <strong>Receive</strong> दबाएं, Tether Link Utility पर टिक करें, भेजने वाला तीर दबाएं, फिर दूसरे फ़ोन पर <strong>Install</strong> दबाएं।</li>
+    </ul>
+    <p>फिर दूसरे फ़ोन पर Tether Link Utility खोलें, <strong>Use another phone's internet</strong> दबाएं, <strong>Scan QR code</strong> दबाएं और कैमरा कोड पर रखें। पूछे तो <strong>Connect</strong> दबाएं। स्टेप-बाय-स्टेप: <a href="/hi/blog/share-mobile-data-android-to-android-qr.html">QR कोड से Android से Android पर मोबाइल डेटा शेयर करें</a>।</p>
 
     <p>अगर आप अपने फ़ोन का मोबाइल डेटा लैपटॉप या दूसरे फ़ोन के साथ शेयर करना चाहते हैं, तो Tether Link Utility एक Android ऐप है जो यह काम एक लोकल SOCKS5 प्रॉक्सी के ज़रिए करता है। कनेक्टेड डिवाइस का डेटा फिर भी आपके मोबाइल प्लान में गिना जाता है, इसलिए अपने कैरियर की टेदरिंग शर्तें ज़रूर देखें।</p>
 

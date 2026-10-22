@@ -2,10 +2,10 @@
 title: "Share Mobile Data From Android to Android With a QR Code"
 description: "How to share your phone's mobile data with another Android phone by scanning a QR code: what the QR contains, how the connection works, and setup steps."
 published: "2026-09-25"
-modified: "2026-09-25"
+modified: "2026-10-22"
 sitemap:
   order: 57
-  lastmod: "2026-10-17"
+  lastmod: "2026-10-22"
   changefreq: "monthly"
   priority: "0.7"
 index:
@@ -16,7 +16,7 @@ llms:
 ---
     <div class="page-eyebrow">Blog</div>
     <h1>Share Mobile Data From Android to Android With a QR Code</h1>
-    <div class="post-meta">Published September 25, 2026</div>
+    <div class="post-meta">Published September 25, 2026 &middot; Updated October 22, 2026</div>
 
     <p>If you have two Android phones and only one of them has mobile data, you can share that connection by scanning a QR code. This guide explains how that works with Tether Link Utility: what you need, what the QR code actually contains, the steps on each phone, and what to check if something doesn't connect.</p>
 
@@ -33,19 +33,26 @@ llms:
 
     <h2>Steps on the server phone</h2>
     <ol>
-      <li>Open Tether Link Utility and tap <strong>START</strong>.<!--help:android:start-sharing--></li>
-      <li>Allow the permissions Android asks for. Starting a hotspot requires the location permission on older Android versions and the nearby Wi-Fi devices permission on Android 13 and newer.<!--help:android:start-sharing--></li>
-      <li>Wait until the screen shows the IP address and port.<!--help:android:start-sharing--></li>
-      <li>Tap <strong>Show QR code</strong>.<!--help:android:start-sharing--></li>
+      <li>Open Tether Link Utility and tap <strong>START SHARING</strong>.<!--help:android:start-sharing--></li>
+      <li>Allow the permissions Android asks for. Starting a hotspot requires the location permission on older Android versions and the nearby Wi-Fi devices permission on Android 13 and newer. The first time, the app also says <strong>One permission is needed</strong>: tap <strong>Allow</strong>, then <strong>OK</strong> in the phone's <strong>Connection request</strong> window.<!--help:android:start-sharing--></li>
+      <li>When the app asks <strong>Which device will use this phone's internet?</strong>, tap <strong>Android phone or tablet</strong>.<!--help:android:start-sharing--></li>
+      <li>The app asks <strong>Is Tether Link Utility on the other phone?</strong> Don't connect the other phone to this phone's Wi-Fi yet.
+        <ul>
+          <li><strong>Yes, it's installed:</strong> go on to the next step.</li>
+          <li><strong>No, but it has internet:</strong> open the camera on the other phone and point it at the code shown. Tap the link that appears, then <strong>Install</strong>. Then tap <strong>It's installed</strong>.</li>
+          <li><strong>No, and it has no internet:</strong> this phone can send the app. Keep both phones close. On both phones, open Play Store, tap your profile picture at the top right, then <strong>Manage apps &amp; device</strong>. Tap <strong>Share</strong>. Tap <strong>Send</strong> on this phone and <strong>Receive</strong> on the other phone. On this phone, tick Tether Link Utility and tap the send arrow. On the other phone, tap <strong>Install</strong>. Didn't work? Connect the other phone to any other Wi-Fi for a minute and install from Play Store.</li>
+        </ul>
+      <!--help:android:start-sharing--></li>
+      <li>The screen says <strong>Scan this code with the other phone</strong> and waits by itself until the other phone connects.<!--help:android:scan-qr--></li>
     </ol>
 
     <h2>Steps on the client phone</h2>
     <ol>
-      <li>Open Tether Link Utility, choose <strong>Use another phone's internet</strong>, then tap <strong>Scan QR code</strong>.<!--help:android:scan-qr--></li>
+      <li>Open Tether Link Utility, tap <strong>Use another phone's internet</strong>, then tap <strong>Scan QR code</strong>.<!--help:android:scan-qr--></li>
       <li>Point the camera at the QR code on the server phone.<!--help:android:scan-qr--></li>
-      <li>On Android 10 and newer, the app asks the system to join the server's Wi-Fi. Android may show a prompt asking you to confirm the connection. Accept it.<!--help:android:join-wifi--></li>
-      <li>Android then asks you to allow the VPN connection the first time. This is the local VpnService interface described above. Accept it.<!--help:android:other--></li>
-      <li>When the status shows connected, apps on the client phone use the server phone's mobile data.<!--help:android:no-internet--></li>
+      <li>The phone joins the server's Wi-Fi by itself. If it asks, tap <strong>Connect</strong>. The Wi-Fi may say "No internet"; that's normal, stay on it.<!--help:android:join-wifi--></li>
+      <li>The first time, the app says <strong>One permission is needed</strong>: tap <strong>Allow</strong>, then <strong>OK</strong> in the phone's <strong>Connection request</strong> window. This is the local VpnService connection described above. Only you can tap OK; if you tap Cancel, nothing starts and you can tap <strong>Allow again</strong>.<!--help:android:other--></li>
+      <li>When the status shows connected, apps on the client phone use the server phone's mobile data. Open a website to check.<!--help:android:no-internet--></li>
     </ol>
 
     <h2>What the QR code contains</h2>
@@ -55,6 +62,16 @@ llms:
 
     <h2>Using your phone's own hotspot</h2>
     <p>If you turn on your phone's system hotspot yourself (Mobile Hotspot on Android, Personal Hotspot on iPhone) instead of letting the app start one, tap <strong>Add hotspot Wi-Fi details</strong> in the app and save the hotspot's name and password once. They are stored only on your device and the app doesn't change your hotspot. The details are added to the QR code, so other devices can join the network by scanning it. On iPhone, the password is in <strong>Settings &gt; Personal Hotspot</strong>. When the Android app starts its own hotspot automatically, you can skip this.</p>
+
+    <h2>Still not connected?</h2>
+    <p>On the server phone's connect screen, tap <strong>Still not connected?</strong> and pick what you see on the other phone:</p>
+    <ul>
+      <li><strong>It couldn't join the Wi-Fi:</strong> on the other phone, open Wi-Fi settings, tap the network name shown and type the password shown. Then scan the code again.</li>
+      <li><strong>The camera doesn't read the code:</strong> hold the phones about a hand apart and turn the server phone's screen brightness up.</li>
+      <li><strong>Wi-Fi says "No internet":</strong> that's normal. Stay on this Wi-Fi and go back to Tether Link Utility.</li>
+      <li><strong>It says connected, but websites don't open:</strong> make sure mobile data is on on the server phone. If the other phone has another VPN app, turn it off.</li>
+      <li><strong>I can't find the app on the other phone:</strong> the app goes back to <strong>Is Tether Link Utility on the other phone?</strong> and shows how to install it.</li>
+    </ul>
 
     <h2>Troubleshooting</h2>
     <ul>

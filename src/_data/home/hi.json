@@ -28,16 +28,16 @@
     "name": "Tether Link Utility से फ़ोन का मोबाइल डेटा Wi-Fi पर कैसे शेयर करें",
     "steps": [
       {
-        "name": "START पर टैप करें",
-        "text": "Wi-Fi हॉटस्पॉट अपने आप ऑन हो जाता है। ऐप एक लोकल SOCKS5 प्रॉक्सी टनल बनाता है और कनेक्शन डिटेल्स दिखाता है।"
+        "name": "START SHARING पर टैप करें",
+        "text": "Wi-Fi हॉटस्पॉट अपने आप ऑन हो जाता है और ऐप फ़ोन पर एक लोकल SOCKS5 प्रॉक्सी शुरू करता है। पहली बार Allow पर टैप करें, फिर फ़ोन की कनेक्शन अनुरोध (Connection request) विंडो में ठीक है (OK) पर।"
       },
       {
-        "name": "QR कोड दिखाएं",
-        "text": "एक ही QR कोड में Wi-Fi नेटवर्क और प्रॉक्सी एड्रेस दोनों साथ होते हैं। लैपटॉप के लिए नेटवर्क नाम और पासवर्ड प्लेन टेक्स्ट में भी दिखाए जाते हैं।"
+        "name": "दूसरा डिवाइस चुनें",
+        "text": "वह डिवाइस चुनें जो फ़ोन का इंटरनेट इस्तेमाल करेगा: Android, Windows, iPhone, Mac, Linux या Other (TV, गेम कंसोल)। कोई भी Wi-Fi जानकारी दिखाने से पहले ऐप पूछता है कि उस पर ज़रूरी ऐप (या Firefox) पहले से है या नहीं, और इंटरनेट न हो तब भी इंस्टॉल करने का तरीका दिखाता है।"
       },
       {
         "name": "अपना डिवाइस कनेक्ट करें",
-        "text": "Android: QR कोड स्कैन करें, इससे Wi-Fi अपने आप जुड़ जाता है और प्रॉक्सी भी कनेक्ट हो जाती है। Windows / macOS / iOS: पहले अपना प्रॉक्सी ऐप इंस्टॉल करें (फ़ोन का Wi-Fi \"No internet\" दिखा सकता है; यह सामान्य है), फिर दिखाए गए Wi-Fi से जुड़ें और अपनी SOCKS5 प्रॉक्सी सेटिंग्स में IP और पोर्ट डालें।"
+        "text": "Android: दूसरे फ़ोन पर Use another phone's internet पर टैप करें, फिर Scan QR code पर। Windows, Mac, Linux, iPhone: दिखाए गए Wi-Fi से जुड़ें (यह \"No internet\" दिखा सकता है; यह सामान्य है) और दो वैल्यू Firefox, Mac की प्रॉक्सी सेटिंग या Potatso में डालें। डिवाइस जुड़ने तक ऐप की स्क्रीन अपने आप इंतज़ार करती है।"
       },
       {
         "name": "ब्राउज़ करना शुरू करें",
@@ -93,7 +93,7 @@
           "kind": "share",
           "title": "यह फ़ोन",
           "lines": [
-            "मोबाइल डेटा ऑन करें। ऐप को <span class=\"app-ui\">Share mode</span> में खोलें, <span class=\"app-ui\">START SHARING</span> पर टैप करें, फिर <span class=\"app-ui\">Show QR code</span> पर।"
+            "मोबाइल डेटा ऑन करें। ऐप को <span class=\"app-ui\">Share mode</span> में खोलें, <span class=\"app-ui\">START SHARING</span> पर टैप करें और जिस डिवाइस को जोड़ना है उस पर टैप करें।"
           ]
         },
         {
@@ -101,12 +101,12 @@
           "kind": "connect",
           "title": "आपके बाकी डिवाइस",
           "lines": [
-            "<b>ऐप वाला Android फ़ोन:</b> ऊपर <span class=\"app-ui\">Share mode</span> पर टैप करें, <span class=\"app-ui\">Use another phone's internet</span> चुनें और स्टेप फ़ॉलो करें।",
-            "<b>Windows, Mac या Linux:</b> शेयर करने वाले फ़ोन पर <span class=\"app-ui\">Connection help</span> खोलें, डिवाइस टाइप चुनें और सुझाई गई सेटिंग्स लागू करें।"
+            "<b>Android फ़ोन:</b> उसमें अभी ऐप नहीं है? शेयर करने वाला फ़ोन इंस्टॉल करने का तरीका दिखाता है, इंटरनेट न हो तब भी। फिर <span class=\"app-ui\">Use another phone's internet</span> और <span class=\"app-ui\">Scan QR code</span> पर टैप करें।",
+            "<b>Windows, Mac, Linux या iPhone:</b> पहले Firefox इंस्टॉल करें (iPhone पर Potatso; Mac पर कुछ नहीं), फिर शेयर करने वाले फ़ोन पर दिखे Wi-Fi से जुड़ें और दो वैल्यू डालें।"
           ]
         }
       ],
-      "help": "अटक गए? ऐप में <span class=\"app-ui\">Connection help</span> खोलें।"
+      "help": "अटक गए? ऐप में <span class=\"app-ui\">Still not connected?</span> पर टैप करें और चुनें कि आपको क्या दिख रहा है।"
     },
     "steps": [
       {
@@ -114,12 +114,12 @@
         "text": "हॉटस्पॉट अपने आप ऑन हो जाता है और प्रॉक्सी शुरू हो जाती है।"
       },
       {
-        "title": "Show QR code पर टैप करें",
-        "text": "एक ही कोड में Wi-Fi नेटवर्क और प्रॉक्सी एड्रेस दोनों होते हैं।"
+        "title": "दूसरा डिवाइस चुनें",
+        "text": "Wi-Fi से पहले ऐप पूछता है कि उसमें ऐप है या नहीं।"
       },
       {
         "title": "अपना डिवाइस कनेक्ट करें",
-        "text": "Android स्कैन करके जुड़ जाता है। लैपटॉप पर SOCKS5 सेटिंग्स में IP और पोर्ट डालें।"
+        "text": "Android QR कोड स्कैन करता है। कंप्यूटर और iPhone Wi-Fi से जुड़कर दो वैल्यू डालते हैं।"
       },
       {
         "title": "ब्राउज़ करना शुरू करें",
@@ -152,19 +152,19 @@
   "platforms": {
     "label": "प्लेटफ़ॉर्म",
     "title": "आपके मौजूदा डिवाइस के साथ काम करता है",
-    "text": "लैपटॉप और iPhone स्टैंडर्ड SOCKS5 प्रॉक्सी सेटिंग्स या Shadowrocket जैसे ऐप से कनेक्ट होते हैं। Windows या macOS पर DNS सहित पूरे सिस्टम कवरेज के लिए <strong>sing-box</strong> को TUN मोड में चलाएं।",
+    "text": "लैपटॉप और iPhone स्टैंडर्ड SOCKS5 प्रॉक्सी सेटिंग्स या Potatso जैसे ऐप से कनेक्ट होते हैं। Windows या macOS पर DNS सहित पूरे सिस्टम कवरेज के लिए <strong>sing-box</strong> को TUN मोड में चलाएं।",
     "guideLink": "पूरी सेटअप गाइड &rarr;",
     "items": [
       {
         "mono": "WIN",
         "name": "Windows",
-        "text": "Firefox में SOCKS5 बिल्ट-इन है। Chrome और Edge: FoxyProxy।",
+        "text": "Firefox: Settings, proxy सर्च करें, Configure proxy। Chrome और Edge: FoxyProxy।",
         "chip": "SOCKS5"
       },
       {
         "mono": "MAC",
         "name": "macOS",
-        "text": "System Settings &rarr; Network &rarr; Proxies &rarr; SOCKS Proxy, या sing-box।",
+        "text": "System Settings &rarr; Wi-Fi &rarr; Details&hellip; &rarr; Proxies &rarr; SOCKS proxy, या sing-box।",
         "chip": "native"
       },
       {
@@ -176,7 +176,7 @@
       {
         "mono": "iOS",
         "name": "iOS",
-        "text": "Shadowrocket (पेड) या Potatso Lite (फ्री), सिर्फ उस ऐप के अपने ट्रैफ़िक के लिए।",
+        "text": "Potatso (फ्री) या Shadowrocket (पेड), सिर्फ उस ऐप के अपने ट्रैफ़िक के लिए।",
         "chip": "SOCKS5"
       }
     ]
@@ -234,7 +234,7 @@
       },
       {
         "q": "क्या यह iPhone पर काम करता है?",
-        "a": "iOS में native SOCKS5 सेटिंग नहीं होती, लेकिन Shadowrocket या Potatso जैसे ऐप्स उसी तरह प्रॉक्सी से कनेक्ट हो सकते हैं, सिर्फ उस ऐप के अपने ट्रैफ़िक के लिए, पूरे डिवाइस के लिए नहीं। iOS पर फिलहाल कोई सत्यापित फुल-डिवाइस विकल्प उपलब्ध नहीं है। iOS के लिए एक नेटिव ऐप बनाया जा रहा है और जल्द ही उपलब्ध होगा।"
+        "a": "iOS में native SOCKS5 सेटिंग नहीं होती, लेकिन Potatso या Shadowrocket जैसे ऐप्स उसी तरह प्रॉक्सी से कनेक्ट हो सकते हैं, सिर्फ उस ऐप के अपने ट्रैफ़िक के लिए, पूरे डिवाइस के लिए नहीं। iOS पर फिलहाल कोई सत्यापित फुल-डिवाइस विकल्प उपलब्ध नहीं है। iOS के लिए एक नेटिव ऐप बनाया जा रहा है और जल्द ही उपलब्ध होगा।"
       },
       {
         "q": "एक साथ कितने डिवाइस कनेक्ट हो सकते हैं?",

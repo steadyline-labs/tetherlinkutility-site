@@ -1,11 +1,11 @@
 ---
 title: "QR Kod ile Android'den Android'e Mobil Veri Paylaşımı"
-description: "Telefonunuzun mobil verisini QR kod okutarak başka bir Android telefonla nasıl paylaşacağınızı anlatıyoruz: QR kodun içeriği, bağlantının nasıl çalıştığı ve kurulum adımları."
+description: "Telefonunun mobil verisini QR kod okutarak başka bir Android telefonla nasıl paylaşacağını anlatıyoruz: QR kodun içeriği, bağlantının nasıl çalıştığı ve kurulum adımları."
 published: "2026-09-25"
-modified: "2026-09-25"
+modified: "2026-10-22"
 sitemap:
   order: 59
-  lastmod: "2026-10-17"
+  lastmod: "2026-10-22"
   changefreq: "monthly"
   priority: "0.7"
 index:
@@ -13,70 +13,87 @@ index:
 ---
     <div class="page-eyebrow">Blog</div>
     <h1>QR Kod ile Android'den Android'e Mobil Veri Paylaşımı</h1>
-    <div class="post-meta">25 Eylül 2026'da yayınlandı</div>
+    <div class="post-meta">25 Eylül 2026'da yayınlandı &middot; 22 Ekim 2026'da güncellendi</div>
 
-    <p>İki Android telefonunuz var ve yalnızca birinde mobil veri varsa, bu bağlantıyı bir QR kod okutarak paylaşabilirsiniz. Bu rehberde Tether Link Utility ile bunun nasıl çalıştığını anlatıyoruz: neye ihtiyacınız var, QR kodun içinde ne var, her iki telefonda hangi adımlar izleniyor ve bağlantı kurulmazsa neleri kontrol etmelisiniz.</p>
+    <p>İki Android telefonun var ve yalnızca birinde mobil veri varsa, bu bağlantıyı bir QR kod okutarak paylaşabilirsin. Bu rehberde Tether Link Utility ile bunun nasıl çalıştığını anlatıyoruz: neye ihtiyacın var, QR kodun içinde ne var, her iki telefonda hangi adımlar izleniyor ve bağlantı kurulmazsa neleri kontrol etmen gerekiyor.</p>
 
-    <h2>Neye ihtiyacınız var?</h2>
+    <h2>Neye ihtiyacın var?</h2>
     <ul>
       <li><strong>Sunucu telefon</strong>: mobil verisi olan, Android 8 veya üstü sürüme sahip ve Tether Link Utility yüklü telefon.</li>
       <li><strong>İstemci telefon</strong>: bu veriyi kullanacak, yine Tether Link Utility yüklü Android telefon. Wi-Fi ağına otomatik katılma için istemcide Android 10 veya üstü gerekir.</li>
-      <li>Sunucu telefonda mobil verinin açık olması. İstemcinin kullandığı veri sunucu telefonun mobil tarifesinden düşer; operatörünüzün paylaşım (tethering) koşullarını kontrol edin.</li>
+      <li>Sunucu telefonda mobil verinin açık olması. İstemcinin kullandığı veri sunucu telefonun mobil tarifesinden düşer; operatörünün paylaşım (tethering) koşullarını kontrol et.</li>
     </ul>
 
     <h2>Bağlantı nasıl çalışıyor?</h2>
-    <p>Sunucuyu başlattığınızda uygulama Android'den bir <strong>LocalOnlyHotspot</strong> ister: sistemin oluşturduğu, ağ adı ve şifresi Android tarafından üretilen bir Wi-Fi ağı. Aynı anda uygulama telefonda bir <strong>SOCKS5 proxy</strong> çalıştırır. Bu Wi-Fi ağına katılan cihazlar trafiklerini proxy'ye gönderir, proxy de bu trafiği telefonun mobil veri bağlantısı üzerinden iletir.</p>
+    <p>Sunucuyu başlattığında uygulama Android'den bir <strong>LocalOnlyHotspot</strong> ister: sistemin oluşturduğu, ağ adı ve şifresi Android tarafından üretilen bir Wi-Fi ağı. Aynı anda uygulama telefonda bir <strong>SOCKS5 proxy</strong> çalıştırır. Bu Wi-Fi ağına katılan cihazlar trafiklerini proxy'ye gönderir, proxy de bu trafiği telefonun mobil veri bağlantısı üzerinden iletir.</p>
     <p>İstemci telefonda uygulama, Android'in <strong>VpnService</strong> özelliğiyle yerel bir VPN arayüzü oluşturur. Bu arayüz telefonun trafiğini sunucu telefondaki proxy'ye yönlendirir. Arada uzak bir sunucu yoktur: buradaki "VPN" yalnızca yerel bir yönlendirme yöntemidir; trafik istemci telefondan sunucu telefona, oradan da mobil veriyle internete çıkar.</p>
 
     <h2>Sunucu telefondaki adımlar</h2>
     <ol>
-      <li>Tether Link Utility'yi açın ve <strong>PAYLAŞIMI BAŞLAT</strong> düğmesine dokunun.<!--help:android:start-sharing--></li>
-      <li>Android'in istediği izinleri verin. Hotspot başlatmak için eski Android sürümlerinde konum izni, Android 13 ve üstünde yakındaki Wi-Fi cihazları izni gerekir.<!--help:android:start-sharing--></li>
-      <li>Ekranda IP adresi ve port görünene kadar bekleyin.<!--help:android:start-sharing--></li>
-      <li><strong>QR kodu göster</strong> düğmesine dokunun.<!--help:android:start-sharing--></li>
+      <li>Tether Link Utility'yi aç ve <strong>PAYLAŞIMI BAŞLAT</strong>'a dokun.<!--help:android:start-sharing--></li>
+      <li>Android'in istediği izinleri ver. Hotspot başlatmak için eski Android sürümlerinde konum izni, Android 13 ve üstünde yakındaki Wi-Fi cihazları izni gerekir. İlk seferde uygulama ayrıca <strong>Bir izin gerekiyor</strong> der: <strong>İzin ver</strong>'e, sonra telefonun <strong>Bağlantı isteği</strong> penceresinde <strong>Tamam</strong>'a dokun.<!--help:android:start-sharing--></li>
+      <li>Uygulama <strong>Bu telefonun internetini hangi cihaz kullanacak?</strong> diye sorduğunda <strong>Android telefon veya tablet</strong>'e dokun.<!--help:android:start-sharing--></li>
+      <li>Uygulama <strong>Diğer telefonda Tether Link Utility var mı?</strong> diye sorar. Diğer telefonu henüz bu telefonun Wi-Fi'sine bağlama.
+        <ul>
+          <li><strong>Evet, yüklü:</strong> sonraki adıma geç.</li>
+          <li><strong>Hayır, ama interneti var:</strong> diğer telefonda kamerayı aç ve gösterilen koda tut. Çıkan bağlantıya, sonra <strong>Yükle</strong>'ye dokun. Ardından <strong>Kuruldu</strong>'ya dokun.</li>
+          <li><strong>Hayır, interneti de yok:</strong> bu telefon uygulamayı gönderebilir. İki telefonu yan yana tut. İki telefonda da Play Store'u aç, sağ üstteki profil resmine, sonra <strong>Uygulamaları ve cihazı yönet</strong>'e dokun. <strong>Paylaş</strong>'a dokun. Bu telefonda <strong>Gönder</strong>'e, diğer telefonda <strong>Al</strong>'a dokun. Bu telefonda Tether Link Utility'yi işaretle ve gönder okuna dokun. Diğer telefonda <strong>Yükle</strong>'ye dokun. Olmadı mı? Diğer telefonu bir dakikalığına başka bir Wi-Fi'ye bağlayıp Play Store'dan kur.</li>
+        </ul>
+      <!--help:android:start-sharing--></li>
+      <li>Ekranda <strong>Bu kodu diğer telefonla tara</strong> yazar ve diğer telefon bağlanana kadar kendiliğinden bekler.<!--help:android:scan-qr--></li>
     </ol>
 
     <h2>İstemci telefondaki adımlar</h2>
     <ol>
-      <li>Tether Link Utility'yi açın, <strong>Başka bir telefonun internetini kullan</strong>'ı seçin, sonra <strong>QR kodu tara</strong>'ya dokunun.<!--help:android:scan-qr--></li>
-      <li>Kamerayı sunucu telefondaki QR koda tutun.<!--help:android:scan-qr--></li>
-      <li>Android 10 ve üstünde uygulama, sistemden sunucunun Wi-Fi ağına katılmasını ister. Android bağlantıyı onaylamanızı isteyen bir pencere gösterebilir; onaylayın.<!--help:android:join-wifi--></li>
-      <li>İlk seferde Android, VPN bağlantısına izin vermenizi ister. Bu, yukarıda anlatılan yerel VpnService arayüzüdür; onaylayın.<!--help:android:other--></li>
-      <li>Durum "bağlı" olarak göründüğünde istemci telefondaki uygulamalar sunucu telefonun mobil verisini kullanır.<!--help:android:no-internet--></li>
+      <li>Tether Link Utility'yi aç, <strong>Başka bir telefonun internetini kullan</strong>'a, sonra <strong>QR kodu tara</strong>'ya dokun.<!--help:android:scan-qr--></li>
+      <li>Kamerayı sunucu telefondaki QR koda tut.<!--help:android:scan-qr--></li>
+      <li>Telefon sunucunun Wi-Fi'sine kendiliğinden bağlanır. Sorarsa <strong>Bağlan</strong>'a dokun. Wi-Fi "İnternet yok" diyebilir; bu normal, bağlı kal.<!--help:android:join-wifi--></li>
+      <li>İlk seferde uygulama <strong>Bir izin gerekiyor</strong> der: <strong>İzin ver</strong>'e, sonra telefonun <strong>Bağlantı isteği</strong> penceresinde <strong>Tamam</strong>'a dokun. Bu, yukarıda anlatılan yerel VpnService bağlantısıdır. Tamam'a sadece sen dokunabilirsin; İptal'e dokunursan hiçbir şey başlamaz ve <strong>Tekrar izin ver</strong>'e dokunabilirsin.<!--help:android:other--></li>
+      <li>Durum "bağlı" olarak göründüğünde istemci telefondaki uygulamalar sunucu telefonun mobil verisini kullanır. Kontrol için bir web sitesi aç.<!--help:android:no-internet--></li>
     </ol>
 
     <h2>QR kodun içinde ne var?</h2>
     <p>QR kod, proxy adresini ve Wi-Fi bilgilerini içeren kısa bir metindir:</p>
     <p><strong>socks5://IP:PORT?ssid=AĞ_ADI&amp;pass=ŞİFRE#TetherLink</strong></p>
-    <p>Hotspot WPA3 kullanıyorsa sona <strong>&amp;sec=wpa3</strong> eklenir. Aynı metin QR kodun altında da yazılıdır; böylece kod okutamayan bir cihazda değerleri elle girebilirsiniz. QR kod Wi-Fi şifresini de içerdiği için onu yalnızca bağlantınızı paylaşmak istediğiniz kişilere gösterin.</p>
+    <p>Hotspot WPA3 kullanıyorsa sona <strong>&amp;sec=wpa3</strong> eklenir. Aynı metin QR kodun altında da yazılıdır; böylece kod okutamayan bir cihazda değerleri elle girebilirsin. QR kod Wi-Fi şifresini de içerdiği için onu yalnızca bağlantını paylaşmak istediğin kişilere göster.</p>
 
-    <h2>Telefonunuzun kendi hotspot'unu kullanmak</h2>
-    <p>Hotspot'u uygulamanın başlatması yerine telefonunuzun sistem hotspot'unu kendiniz açıyorsanız (Android'de Mobil Hotspot, iPhone'da Kişisel Erişim Noktası), uygulamada <strong>Hotspot Wi-Fi bilgilerini ekle</strong>'ye dokunup hotspot'un adını ve şifresini bir kez kaydedin. Bu bilgiler yalnızca cihazınızda saklanır ve uygulama hotspot'unuzu değiştirmez. Bilgiler QR koda eklenir, böylece diğer cihazlar kodu tarayarak ağa katılabilir. iPhone'da şifre <strong>Ayarlar &gt; Kişisel Erişim Noktası</strong> bölümündedir. Android uygulaması hotspot'u otomatik olarak kendisi başlattığında bu adımı atlayabilirsiniz.</p>
+    <h2>Telefonunun kendi hotspot'unu kullanmak</h2>
+    <p>Hotspot'u uygulamanın başlatması yerine telefonunun sistem hotspot'unu kendin açıyorsan (Android'de Mobil Hotspot, iPhone'da Kişisel Erişim Noktası), uygulamada <strong>Hotspot Wi-Fi bilgilerini ekle</strong>'ye dokunup hotspot'un adını ve şifresini bir kez kaydet. Bu bilgiler yalnızca cihazında saklanır ve uygulama hotspot'unu değiştirmez. Bilgiler QR koda eklenir, böylece diğer cihazlar kodu tarayarak ağa katılabilir. iPhone'da şifre <strong>Ayarlar &gt; Kişisel Erişim Noktası</strong> bölümündedir. Android uygulaması hotspot'u otomatik olarak kendisi başlattığında bu adımı atlayabilirsin.</p>
+
+    <h2>Hâlâ bağlanmadı mı?</h2>
+    <p>Sunucu telefonun bağlantı ekranında <strong>Hâlâ bağlanmadı mı?</strong>'ya dokun ve diğer telefonda ne gördüğünü seç:</p>
+    <ul>
+      <li><strong>Wi-Fi'ye bağlanamadı:</strong> diğer telefonda Wi-Fi ayarlarını aç, gösterilen ağ adına dokun ve gösterilen şifreyi yaz. Sonra kodu tekrar tara.</li>
+      <li><strong>Kamera kodu okumuyor:</strong> telefonları bir karış uzakta tut ve sunucu telefonun ekran parlaklığını artır.</li>
+      <li><strong>Wi-Fi "İnternet yok" diyor:</strong> bu normal. Bu Wi-Fi'de kal ve Tether Link Utility'ye geri dön.</li>
+      <li><strong>Bağlandı diyor ama siteler açılmıyor:</strong> sunucu telefonda mobil verinin açık olduğundan emin ol. Diğer telefonda başka bir VPN uygulaması varsa kapat.</li>
+      <li><strong>Diğer telefonda uygulamayı bulamıyorum:</strong> uygulama <strong>Diğer telefonda Tether Link Utility var mı?</strong> sorusuna geri döner ve nasıl kuracağını gösterir.</li>
+    </ul>
 
     <h2>Sorun giderme</h2>
     <ul>
-      <li><strong>Sunucu başlamıyor.</strong> Konum iznini (Android 13 ve üstünde yakındaki Wi-Fi cihazları iznini) kontrol edin. Telefonun normal Mobil Hotspot'u zaten açıksa uygulama kendi hotspot'unu başlatamaz ve sunucuyu bunun yerine normal hotspot üzerinden çalıştırır. Normal hotspot'u kapatıp uygulamanın kendi hotspot'unu oluşturmasına izin verebilir ya da açık bırakıp ağ adını ve şifresini <strong>Hotspot Wi-Fi bilgilerini ekle</strong> ile bir kez kaydedebilirsiniz; böylece bu bilgiler QR koda eklenir.</li>
-      <li><strong>İstemci Wi-Fi ağına katılmıyor.</strong> Ağı onaylamanızı isteyen bir sistem penceresi veya bildirimi arayın. Kapattıysanız QR kodu tekrar okutun.</li>
-      <li><strong>İstemci Android 9 veya daha eski.</strong> Otomatik katılma bu sürümlerde yok. QR metnindeki ağ adı ve şifreyle Wi-Fi ağına elle bağlanın, ardından kodu okutun ya da IP ve portu girin.</li>
-      <li><strong>Önce çalışıyordu, sonra durdu.</strong> Hotspot yeniden başladığında sunucu telefonun IP adresi değişebilir. Uygulama bu durumda bir uyarı gösterir. Yeni QR kodu açıp tekrar okutun.</li>
-      <li><strong>Bağlı ama yavaş.</strong> Hız; sunucu telefonun mobil sinyaline, tarifenize ve ağ koşullarına bağlıdır. Telefonları birbirine yakın tutmak Wi-Fi bağlantısına yardımcı olur.</li>
+      <li><strong>Sunucu başlamıyor.</strong> Konum iznini (Android 13 ve üstünde yakındaki Wi-Fi cihazları iznini) kontrol et. Telefonun normal Mobil Hotspot'u zaten açıksa uygulama kendi hotspot'unu başlatamaz ve sunucuyu bunun yerine normal hotspot üzerinden çalıştırır. Normal hotspot'u kapatıp uygulamanın kendi hotspot'unu oluşturmasına izin verebilir ya da açık bırakıp ağ adını ve şifresini <strong>Hotspot Wi-Fi bilgilerini ekle</strong> ile bir kez kaydedebilirsin; böylece bu bilgiler QR koda eklenir.</li>
+      <li><strong>İstemci Wi-Fi ağına katılmıyor.</strong> Ağı onaylamanı isteyen bir sistem penceresi veya bildirim ara. Kapattıysan QR kodu tekrar okut.</li>
+      <li><strong>İstemci Android 9 veya daha eski.</strong> Otomatik katılma bu sürümlerde yok. QR metnindeki ağ adı ve şifreyle Wi-Fi ağına elle bağlan, ardından kodu okut ya da IP ve portu gir.</li>
+      <li><strong>Önce çalışıyordu, sonra durdu.</strong> Hotspot yeniden başladığında sunucu telefonun IP adresi değişebilir. Uygulama bu durumda bir uyarı gösterir. Yeni QR kodu açıp tekrar okut.</li>
+      <li><strong>Bağlı ama yavaş.</strong> Hız; sunucu telefonun mobil sinyaline, tarifene ve ağ koşullarına bağlıdır. Telefonları birbirine yakın tutmak Wi-Fi bağlantısına yardımcı olur.</li>
     </ul>
 
-    <h2>Bilmeniz gereken sınırlar</h2>
+    <h2>Bilmen gereken sınırlar</h2>
     <ul>
       <li>Ücretsiz sürüm aynı anda 1 bağlı cihaza izin verir ve reklam gösterir. Pro sürüm en fazla 5 cihaza izin verir ve reklamları kaldırır.</li>
-      <li>Bağlı cihazların tüm trafiği sunucu telefonun mobil verisini kullanır ve tarifesinden düşer. Operatörler paylaşım ve hotspot kullanımı için kendi kurallarını belirler; tarifenizin koşullarını kontrol edin.</li>
-      <li>Sunucu telefonu şarjda tutun. Hotspot ve proxy çalıştırmak normal kullanıma göre daha fazla pil harcar.</li>
+      <li>Bağlı cihazların tüm trafiği sunucu telefonun mobil verisini kullanır ve tarifesinden düşer. Operatörler paylaşım ve hotspot kullanımı için kendi kurallarını belirler; tarifenin koşullarını kontrol et.</li>
+      <li>Sunucu telefonu şarjda tut. Hotspot ve proxy çalıştırmak normal kullanıma göre daha fazla pil harcar.</li>
     </ul>
 
-    <p>İkinci bir Android telefon yerine dizüstü bilgisayar veya iPhone bağlamak istiyorsanız <a href="/tr/blog/socks5-proxy-setup-windows-macos-ios.html">SOCKS5 Proxy Kurulumu: Windows, macOS ve iOS</a> rehberine bakın.</p>
+    <p>İkinci bir Android telefon yerine dizüstü bilgisayar veya iPhone bağlamak istiyorsan <a href="/tr/blog/socks5-proxy-setup-windows-macos-ios.html">SOCKS5 Proxy Kurulumu: Windows, macOS ve iOS</a> rehberine bak.</p>
 
     <!--help-end:android-->
 
     <div class="cta-box">
       <h3>Tether Link Utility</h3>
-      <p>Telefonunuzun mobil verisini yerel bir SOCKS5 proxy üzerinden diğer cihazlarınızla paylaşan bir Android uygulaması. Root yok, hesap yok, uzak sunucu yok.</p>
-      <a class="cta-button" href="/tr/">Nasıl çalıştığını görün</a>
+      <p>Telefonunun mobil verisini yerel bir SOCKS5 proxy üzerinden diğer cihazlarınla paylaşan bir Android uygulaması. Root yok, hesap yok, uzak sunucu yok.</p>
+      <a class="cta-button" href="/tr/">Nasıl çalıştığını gör</a>
     </div>
 
     <div class="related">

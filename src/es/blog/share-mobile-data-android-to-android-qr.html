@@ -2,10 +2,10 @@
 title: "Compartir datos de Android a Android con código QR"
 description: "Cómo compartir los datos móviles de tu celular con otro Android escaneando un código QR: qué contiene el QR, cómo funciona la conexión y los pasos a seguir."
 published: "2026-09-27"
-modified: "2026-09-27"
+modified: "2026-10-22"
 sitemap:
   order: 83
-  lastmod: "2026-10-17"
+  lastmod: "2026-10-22"
   changefreq: "monthly"
   priority: "0.7"
 index:
@@ -14,7 +14,7 @@ index:
 ---
     <div class="page-eyebrow">Blog</div>
     <h1>Compartir datos de Android a Android con código QR</h1>
-    <div class="post-meta">Publicado el 27 de septiembre de 2026</div>
+    <div class="post-meta">Publicado el 27 de septiembre de 2026 &middot; Actualizado el 22 de octubre de 2026</div>
 
     <p>Si tienes dos celulares Android y solo uno tiene datos móviles, puedes compartir esa conexión escaneando un código QR. Esta guía explica cómo funciona con Tether Link Utility: qué necesitas, qué contiene realmente el código QR, los pasos en cada celular y qué revisar si algo no se conecta.</p>
 
@@ -31,19 +31,26 @@ index:
 
     <h2>Pasos en el celular servidor</h2>
     <ol>
-      <li>Abre Tether Link Utility y toca <strong>START</strong>.<!--help:android:start-sharing--></li>
-      <li>Acepta los permisos que pide Android. Para iniciar un hotspot se necesita el permiso de ubicación en versiones anteriores de Android y el permiso de dispositivos Wi-Fi cercanos en Android 13 y posteriores.<!--help:android:start-sharing--></li>
-      <li>Espera a que la pantalla muestre la dirección IP y el puerto.<!--help:android:start-sharing--></li>
-      <li>Toca <strong>Show QR code</strong>.<!--help:android:start-sharing--></li>
+      <li>Abre Tether Link Utility y toca <strong>START SHARING</strong>.<!--help:android:start-sharing--></li>
+      <li>Acepta los permisos que pide Android. Para iniciar un hotspot se necesita el permiso de ubicación en versiones anteriores de Android y el permiso de dispositivos Wi-Fi cercanos en Android 13 y posteriores. La primera vez, la app también muestra <strong>One permission is needed</strong>: toca <strong>Allow</strong> y luego <strong>Aceptar</strong> (u <strong>OK</strong>) en la ventana <strong>Solicitud de conexión</strong> del celular.<!--help:android:start-sharing--></li>
+      <li>Cuando la app pregunte <strong>Which device will use this phone's internet?</strong>, toca <strong>Android phone or tablet</strong>.<!--help:android:start-sharing--></li>
+      <li>La app pregunta <strong>Is Tether Link Utility on the other phone?</strong> Todavía no conectes el otro celular al Wi-Fi de este.
+        <ul>
+          <li><strong>Yes, it's installed:</strong> sigue con el próximo paso.</li>
+          <li><strong>No, but it has internet:</strong> abre la cámara en el otro celular y apúntala al código que aparece. Toca el enlace y luego <strong>Instalar</strong>. Después toca <strong>It's installed</strong>.</li>
+          <li><strong>No, and it has no internet:</strong> este celular puede enviarle la app. Mantén los dos celulares cerca. En los dos, abre Play Store, toca tu foto de perfil arriba a la derecha y luego <strong>Administrar apps y dispositivos</strong>. Toca <strong>Compartir</strong>. Toca <strong>Enviar</strong> en este celular y <strong>Recibir</strong> en el otro. En este celular, marca Tether Link Utility y toca la flecha de envío. En el otro celular, toca <strong>Instalar</strong>. ¿No funcionó? Conecta el otro celular a cualquier otro Wi-Fi un minuto e instala desde Play Store.</li>
+        </ul>
+      <!--help:android:start-sharing--></li>
+      <li>La pantalla dice <strong>Scan this code with the other phone</strong> y espera sola hasta que el otro celular se conecta.<!--help:android:scan-qr--></li>
     </ol>
 
     <h2>Pasos en el celular cliente</h2>
     <ol>
-      <li>Abre Tether Link Utility, elige <strong>Use another phone's internet</strong> y luego toca <strong>Scan QR code</strong>.<!--help:android:scan-qr--></li>
+      <li>Abre Tether Link Utility, toca <strong>Use another phone's internet</strong> y luego <strong>Scan QR code</strong>.<!--help:android:scan-qr--></li>
       <li>Apunta la cámara al código QR del celular servidor.<!--help:android:scan-qr--></li>
-      <li>En Android 10 y posteriores, la app le pide al sistema que se una al Wi-Fi del servidor. Android puede mostrar un aviso para que confirmes la conexión. Acéptalo.<!--help:android:join-wifi--></li>
-      <li>La primera vez, Android te pide que permitas la conexión VPN. Es la interfaz local de VpnService descrita arriba. Acéptala.<!--help:android:other--></li>
-      <li>Cuando el estado indique que está conectado, las apps del celular cliente usan los datos móviles del celular servidor.<!--help:android:no-internet--></li>
+      <li>El celular se une solo al Wi-Fi del servidor. Si te lo pide, toca <strong>Conectar</strong>. El Wi-Fi puede decir "Sin internet"; es normal, quédate conectado.<!--help:android:join-wifi--></li>
+      <li>La primera vez, la app muestra <strong>One permission is needed</strong>: toca <strong>Allow</strong> y luego <strong>Aceptar</strong> (u <strong>OK</strong>) en la ventana <strong>Solicitud de conexión</strong> del celular. Es la conexión local de VpnService descrita arriba. Solo tú puedes aceptarla; si tocas Cancelar, no se inicia nada y puedes tocar <strong>Allow again</strong>.<!--help:android:other--></li>
+      <li>Cuando el estado indique que está conectado, las apps del celular cliente usan los datos móviles del celular servidor. Abre un sitio web para comprobarlo.<!--help:android:no-internet--></li>
     </ol>
 
     <h2>Qué contiene el código QR</h2>
@@ -53,6 +60,16 @@ index:
 
     <h2>Usar el hotspot de tu propio celular</h2>
     <p>Si prefieres encender tú mismo el hotspot del sistema (Hotspot móvil en Android, Compartir Internet en iPhone) en lugar de que lo inicie la app, toca <strong>Add hotspot Wi-Fi details</strong> en la app y guarda una sola vez el nombre y la contraseña del hotspot. Se guardan solo en tu dispositivo y la app no modifica tu hotspot. Esos datos se agregan al código QR, así otros dispositivos pueden unirse a la red escaneándolo. En iPhone, la contraseña está en <strong>Configuración &gt; Compartir Internet</strong>. Si la app de Android inicia su propio hotspot automáticamente, puedes saltarte este paso.</p>
+
+    <h2>¿Todavía no se conecta?</h2>
+    <p>En la pantalla de conexión del celular servidor, toca <strong>Still not connected?</strong> y elige lo que ves en el otro celular:</p>
+    <ul>
+      <li><strong>It couldn't join the Wi-Fi</strong> (no pudo unirse al Wi-Fi): en el otro celular, abre los ajustes de Wi-Fi, toca el nombre de red que aparece y escribe la contraseña que aparece. Luego vuelve a escanear el código.</li>
+      <li><strong>The camera doesn't read the code</strong> (la cámara no lee el código): pon los celulares a un palmo de distancia y sube el brillo de la pantalla del celular servidor.</li>
+      <li><strong>Wi-Fi says "No internet"</strong> (el Wi-Fi dice "Sin internet"): es normal. Quédate en ese Wi-Fi y vuelve a Tether Link Utility.</li>
+      <li><strong>It says connected, but websites don't open</strong> (dice conectado, pero los sitios no abren): revisa que los datos móviles estén activos en el celular servidor. Si el otro celular tiene otra app de VPN, apágala.</li>
+      <li><strong>I can't find the app on the other phone</strong> (no encuentro la app en el otro celular): la app vuelve a <strong>Is Tether Link Utility on the other phone?</strong> y te muestra cómo instalarla.</li>
+    </ul>
 
     <h2>Solución de problemas</h2>
     <ul>

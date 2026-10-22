@@ -2,16 +2,16 @@
 title: "Como configurar proxy SOCKS5 no Windows, macOS e iOS"
 description: "Passo a passo para configurar um proxy SOCKS5 no Firefox, no Chrome (FoxyProxy), nos ajustes de rede do macOS, no sing-box em modo TUN e em apps do iOS."
 published: "2026-09-27"
-modified: "2026-10-15"
+modified: "2026-10-22"
 h3Style: true
 sitemap:
   order: 71
-  lastmod: "2026-10-17"
+  lastmod: "2026-10-22"
   changefreq: "monthly"
   priority: "0.6"
 index:
   order: 4
-  excerpt: "Passo a passo para Firefox, FoxyProxy, ajustes de rede do macOS, sing-box em modo TUN para todos os apps e Shadowrocket ou Potatso Lite no iOS."
+  excerpt: "Passo a passo para Firefox, FoxyProxy, ajustes de rede do macOS, sing-box em modo TUN para todos os apps e Potatso ou Shadowrocket no iOS."
 extraJsonLd: |2
     <script type="application/ld+json">
     {
@@ -22,12 +22,12 @@ extraJsonLd: |2
         {
           "@type": "HowToStep",
           "name": "Instale primeiro, depois entre no Wi-Fi do celular",
-          "text": "Enquanto seu dispositivo ainda tem a internet normal, instale o que ele precisa (Shadowrocket no iPhone, Firefox ou FoxyProxy no computador, sing-box com nosso script no Mac). Depois abra o Tether Link Utility no celular que compartilha, toque em START, entre na rede Wi-Fi mostrada no app e anote o endereço IP e a porta. Esse Wi-Fi pode mostrar 'Sem internet'; é normal."
+          "text": "Enquanto seu dispositivo ainda tem a internet normal, instale o que ele precisa (Potatso no iPhone, Firefox ou FoxyProxy no computador, sing-box com nosso script no Mac). Depois abra o Tether Link Utility no celular que compartilha, toque em START SHARING, toque no dispositivo que você quer conectar e responda se ele já tem o app. Só então entre no Wi-Fi mostrado em Name com a senha mostrada em Password e digite os dois valores (SOCKS Host e Port). Esse Wi-Fi pode mostrar 'Sem internet'; é normal. A tela do app espera sozinha até o dispositivo conectar."
         },
         {
           "@type": "HowToStep",
           "name": "Windows: Firefox (nativo) ou FoxyProxy no Chrome/Edge",
-          "text": "No Firefox, vá em Configurações > Geral > Configurações de rede > Configuração manual de proxy, informe o servidor SOCKS e a porta, selecione SOCKS v5 e marque a opção de DNS pelo proxy ao usar SOCKS v5. No Chrome ou no Edge, instale a extensão FoxyProxy e cadastre o mesmo IP e porta como proxy SOCKS5."
+          "text": "No Firefox, abra Configurações, digite proxy na caixa de pesquisa, clique em Configurar proxy e escolha Configuração manual de proxy. Informe o Domínio SOCKS e a Porta, selecione SOCKS v5, marque Proxy DNS ao usar SOCKS v5 e clique em OK. No Chrome ou no Edge, instale a extensão FoxyProxy e cadastre o mesmo IP e porta como proxy SOCKS5."
         },
         {
           "@type": "HowToStep",
@@ -36,18 +36,18 @@ extraJsonLd: |2
         },
         {
           "@type": "HowToStep",
-          "name": "macOS: ajustes de rede nativos",
-          "text": "Vá em Ajustes do Sistema > Rede > Wi-Fi > Detalhes > Proxies, ative Proxy SOCKS e informe o endereço IP e a porta. Vale para os apps que usam o proxy do sistema, mas não para as consultas de DNS."
+          "name": "macOS: ajuste de proxy do sistema",
+          "text": "Abra Ajustes do Sistema > Wi-Fi, clique em Detalhes… ao lado do Wi-Fi do celular e depois em Proxies. Ative Proxy SOCKS, informe o endereço IP e a porta e clique em OK. Vale para os apps que usam o proxy do sistema, mas não para as consultas de DNS."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "iOS: Potatso (gratuito)",
+          "text": "Abra o Potatso, toque em +, adicione um servidor SOCKS5 com os dois valores do app (Server e Port) e salve. Ative o botão no Potatso. Se o iPhone pedir, toque em Permitir."
         },
         {
           "@type": "HowToStep",
           "name": "iOS: Shadowrocket (pago)",
           "text": "Abra o Shadowrocket, toque no botão +, escolha Socks5, informe o endereço e a porta e salve. Toque no botão de ativação para conectar."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "iOS: Potatso Lite (gratuito)",
-          "text": "Abra o Potatso Lite, adicione um novo perfil de proxy SOCKS5 com o IP e a porta do app, salve e ative o perfil de VPN quando o iOS pedir."
         }
       ]
     }
@@ -55,7 +55,7 @@ extraJsonLd: |2
 ---
     <div class="page-eyebrow">Blog</div>
     <h1>Como configurar um proxy SOCKS5 no Windows, macOS e iOS</h1>
-    <div class="post-meta">Publicado em 27 de setembro de 2026 &middot; Atualizado em 15 de outubro de 2026</div>
+    <div class="post-meta">Publicado em 27 de setembro de 2026 &middot; Atualizado em 22 de outubro de 2026</div>
 
     <p>O Tether Link Utility roda um proxy SOCKS5 local no seu celular Android. Qualquer dispositivo que aceite configurações de proxy SOCKS5 pode usá-lo pela rede Wi-Fi que o app cria: no Windows e no macOS você não precisa de nenhum app cliente separado, e no iOS basta um app leve. Veja abaixo como configurar cada plataforma.</p>
 
@@ -64,15 +64,18 @@ extraJsonLd: |2
     <ol>
       <li><strong>Primeiro instale o que você precisa</strong>, enquanto o dispositivo ainda tem a internet normal:
         <ul>
-          <li>iPhone ou iPad: Shadowrocket ou Potatso Lite na App Store.</li>
-          <li>Computador: Firefox, ou a extensão FoxyProxy no Chrome ou no Edge.</li>
-          <li>Mac, todos os apps: rode nosso script uma vez agora para ele instalar o sing-box (veja <a href="#macos">macOS</a>).</li>
+          <li>iPhone ou iPad: Potatso (gratuito) ou Shadowrocket (pago) na App Store.</li>
+          <li>Computador com Windows ou Linux: Firefox em firefox.com, ou a extensão FoxyProxy no Chrome ou no Edge.</li>
+          <li>Mac: nada para o ajuste do sistema. Para todos os apps, rode nosso script uma vez agora para ele instalar o sing-box (veja <a href="#macos">macOS</a>).</li>
           <li>Windows ou Linux, todos os apps: baixe o sing-box agora (veja <a href="#windows">Windows</a> ou <a href="#linux">Linux</a>).</li>
         </ul>
+        <p>O dispositivo está sem internet? Conecte-o a qualquer outro Wi-Fi por alguns minutos (casa, trabalho, café) e instale por lá. Um computador com Windows também pode receber o Firefox por cabo: no celular, baixe o Firefox para Windows, ligue o celular ao computador com um cabo USB, copie o arquivo para o computador e abra.</p>
       <!--help::install--></li>
-      <li>Abra o Tether Link Utility no celular e toque em <strong>START</strong>.<!--help::start-sharing--></li>
-      <li><strong>Depois</strong> conecte o outro dispositivo à rede Wi-Fi que o app mostra em <strong>Wi-Fi</strong>, usando a senha mostrada em <strong>Password</strong>. Esse Wi-Fi pode mostrar "Sem internet"; é normal.<!--help::join-wifi--></li>
-      <li>Anote o <strong>endereço IP</strong> e a <strong>porta</strong> que aparecem no app. Você vai digitar os dois nas configurações abaixo.<!--help::start-sharing--></li>
+      <li>No celular que compartilha, abra o Tether Link Utility e toque em <strong>START SHARING</strong>. Na primeira vez, o app mostra <strong>One permission is needed</strong>: toque em <strong>Allow</strong> e depois em <strong>OK</strong> na janela <strong>Solicitação de conexão</strong> do celular.<!--help::start-sharing--></li>
+      <li>O app pergunta qual dispositivo vai usar a internet do celular (<strong>Which device will use this phone's internet?</strong>). Toque no seu: <strong>Android phone or tablet</strong>, <strong>Windows computer</strong>, <strong>iPhone or iPad</strong>, <strong>Mac</strong>, <strong>Linux</strong> ou <strong>Other (TV, game console…)</strong>.<!--help::start-sharing--></li>
+      <li>Em seguida, ele pergunta se o dispositivo já tem o que precisa, por exemplo <strong>Is Firefox on the computer?</strong> Toque em <strong>Yes</strong>, <strong>No, but it has internet</strong> ou <strong>No, and it has no internet</strong>, e o app mostra como instalar. Não entre no Wi-Fi do celular ainda.<!--help::install--></li>
+      <li><strong>Depois</strong>, no seu dispositivo, entre no Wi-Fi que o app mostra em <strong>Name</strong>, com a senha mostrada em <strong>Password</strong>. Se aparecer "Sem internet", é normal.<!--help::join-wifi--></li>
+      <li>Digite os dois valores que o app mostra (<strong>SOCKS Host</strong> ou <strong>Server</strong>, e <strong>Port</strong>) como explicado abaixo para o seu dispositivo. A tela do app espera sozinha e avança quando o dispositivo conecta.<!--help::start-sharing--></li>
     </ol>
     <p><strong>Sobre a porta:</strong> o app salva a porta, então você só precisa digitá-la uma vez em cada dispositivo. Ela só muda se outro app do celular passar a usá-la, e nesse caso o app avisa você. Para escolher a sua, toque em <strong>Edit</strong> na linha Port e digite um número entre 1024 e 65535 (entre 1024 e 32767 o risco de conflito é menor). Se essa porta estiver livre, ela fica reservada para você até outro app começar a usá-la.</p>
 
@@ -82,10 +85,11 @@ extraJsonLd: |2
     <h2 id="windows">Windows</h2>
     <h3>Opção A: Firefox (sem extensão)</h3>
     <ol>
-      <li>Vá em <strong>Configurações → Geral → Configurações de rede → Configurar conexão</strong>.<!--help:windows:set-proxy--></li>
+      <li>No Firefox, abra <strong>Configurações</strong>, digite <strong>proxy</strong> na caixa de pesquisa no topo e clique em <strong>Configurar proxy</strong>.<!--help:windows:set-proxy--></li>
       <li>Escolha <strong>Configuração manual de proxy</strong>.<!--help:windows:set-proxy--></li>
-      <li>Digite o IP do celular em <strong>Servidor SOCKS</strong>, a porta em <strong>Porta</strong> e selecione <strong>SOCKS v5</strong>.<!--help:windows:set-proxy--></li>
-      <li>Marque a opção de usar DNS pelo proxy ao usar SOCKS v5 (<strong>Proxy DNS when using SOCKS v5</strong> no Firefox em inglês), para que as consultas de DNS também passem pelo proxy.<!--help:windows:set-proxy--></li>
+      <li>Digite o IP do celular em <strong>Domínio SOCKS</strong>, a porta em <strong>Porta</strong> e selecione <strong>SOCKS v5</strong>.<!--help:windows:set-proxy--></li>
+      <li>Marque <strong>Proxy DNS ao usar SOCKS v5</strong>, para que as consultas de DNS também passem pelo proxy, e clique em <strong>OK</strong>.<!--help:windows:set-proxy--></li>
+      <li>Abra qualquer site no Firefox. Só o Firefox usa a internet do celular; os outros apps do computador não.<!--help:windows:no-internet--></li>
     </ol>
     <h3>Opção B: Chrome ou Edge, com FoxyProxy</h3>
     <ol>
@@ -102,12 +106,12 @@ extraJsonLd: |2
     </ol>
 
     <h2 id="macos">macOS</h2>
-    <h3>Opção A: ajustes de rede nativos</h3>
+    <h3>Opção A: ajuste de proxy do sistema</h3>
     <ol>
-      <li>Abra <strong>Ajustes do Sistema → Rede</strong>.<!--help:mac:set-proxy--></li>
-      <li>Selecione a rede Wi-Fi em que você está conectado (a que o celular criou) e clique em <strong>Detalhes…</strong><!--help:mac:set-proxy--></li>
-      <li>Vá em <strong>Proxies</strong> e ative <strong>Proxy SOCKS</strong>.<!--help:mac:set-proxy--></li>
-      <li>Digite o endereço IP e a porta do celular e clique em <strong>OK</strong>.<!--help:mac:set-proxy--></li>
+      <li>Abra <strong>Ajustes do Sistema → Wi-Fi</strong>.<!--help:mac:set-proxy--></li>
+      <li>Clique em <strong>Detalhes…</strong> ao lado do Wi-Fi do celular e depois em <strong>Proxies</strong>.<!--help:mac:set-proxy--></li>
+      <li>Ative <strong>Proxy SOCKS</strong>, digite o endereço IP e a porta do celular e clique em <strong>OK</strong>.<!--help:mac:set-proxy--></li>
+      <li>Abra qualquer site no Safari.<!--help:mac:no-internet--></li>
     </ol>
     <p>Não é preciso nenhum app de terceiros. Mas atenção: esse ajuste do macOS não passa as consultas de DNS pelo proxy, e os apps que ignoram o proxy do sistema também ficam de fora. Para cobertura completa, incluindo o DNS, use o script da Opção B.</p>
 
@@ -167,9 +171,9 @@ extraJsonLd: |2
     <h2 id="linux">Linux</h2>
     <h3>Opção A: Firefox</h3>
     <ol>
-      <li>Vá em <strong>Configurações → Geral → Configurações de rede → Configurar conexão</strong> e escolha <strong>Configuração manual de proxy</strong>.<!--help:linux:set-proxy--></li>
-      <li>Digite o IP do celular em <strong>Servidor SOCKS</strong>, a porta em <strong>Porta</strong> e selecione <strong>SOCKS v5</strong>.<!--help:linux:set-proxy--></li>
-      <li>Marque a opção de DNS pelo proxy ao usar SOCKS v5 (<strong>Proxy DNS when using SOCKS v5</strong> no Firefox em inglês).<!--help:linux:set-proxy--></li>
+      <li>No Firefox, abra <strong>Configurações</strong>, digite <strong>proxy</strong> na caixa de pesquisa, clique em <strong>Configurar proxy</strong> e escolha <strong>Configuração manual de proxy</strong>.<!--help:linux:set-proxy--></li>
+      <li>Digite o IP do celular em <strong>Domínio SOCKS</strong>, a porta em <strong>Porta</strong> e selecione <strong>SOCKS v5</strong>.<!--help:linux:set-proxy--></li>
+      <li>Marque <strong>Proxy DNS ao usar SOCKS v5</strong> e clique em <strong>OK</strong>.<!--help:linux:set-proxy--></li>
     </ol>
     <h3>Opção B: todos os apps com sing-box</h3>
     <ol>
@@ -179,26 +183,45 @@ extraJsonLd: |2
     </ol>
 
     <h2>iOS</h2>
-    <h3>Opção A: Shadowrocket (pago, compra única)</h3>
+    <h3>Opção A: Potatso (gratuito)</h3>
+    <ol>
+      <li>Abra o Potatso e toque em <strong>+</strong>.<!--help:ios:ios-proxy-app--></li>
+      <li>Adicione um servidor <strong>SOCKS5</strong> com os dois valores do app (<strong>Server</strong> e <strong>Port</strong>) e salve.<!--help:ios:ios-proxy-app--></li>
+      <li>Ative o botão no Potatso. Se o iPhone pedir, toque em <strong>Permitir</strong>. É assim que o Potatso envia o tráfego para o proxy SOCKS5, já que o iOS não tem um ajuste SOCKS5 para o sistema inteiro como o macOS.<!--help:ios:ios-proxy-app--></li>
+    </ol>
+    <h3>Opção B: Shadowrocket (pago, compra única)</h3>
     <ol>
       <li>Abra o Shadowrocket e toque no botão <strong>+</strong> no canto superior direito.<!--help:ios:ios-proxy-app--></li>
       <li>Escolha o tipo <strong>Socks5</strong>.<!--help:ios:ios-proxy-app--></li>
       <li>Digite o IP do celular como endereço e a porta mostrada no app.<!--help:ios:ios-proxy-app--></li>
       <li>Salve e toque no botão de ativação no topo para conectar.<!--help:ios:ios-proxy-app--></li>
     </ol>
-    <h3>Opção B: Potatso Lite (gratuito)</h3>
-    <ol>
-      <li>Abra o Potatso Lite e adicione um novo perfil de proxy.<!--help:ios:ios-proxy-app--></li>
-      <li>Selecione <strong>SOCKS5</strong>, digite o IP e a porta e salve.<!--help:ios:ios-proxy-app--></li>
-      <li>Permita o perfil de VPN quando o iOS pedir. É assim que o Potatso envia o tráfego para o proxy SOCKS5, já que o iOS não tem um ajuste SOCKS5 para o sistema inteiro como o macOS.<!--help:ios:ios-proxy-app--></li>
-    </ol>
 
     <div class="callout">
-      <p><strong>Dica de DNS:</strong> deixe as consultas de DNS passarem pelo proxy também. No Firefox, marque a opção de DNS pelo proxy ao usar SOCKS v5 (<strong>Proxy DNS when using SOCKS v5</strong>); o Shadowrocket já faz isso por padrão. O proxy SOCKS dos Ajustes do Sistema no macOS não passa o DNS pelo proxy, então no Mac use <a href="#macos">nosso script</a> para cobertura completa. O modo TUN do sing-box cuida do DNS de todos os apps automaticamente.</p>
+      <p><strong>Dica de DNS:</strong> deixe as consultas de DNS passarem pelo proxy também. No Firefox, marque <strong>Proxy DNS ao usar SOCKS v5</strong>; o Shadowrocket já faz isso por padrão. O proxy SOCKS dos Ajustes do Sistema no macOS não passa o DNS pelo proxy, então no Mac use <a href="#macos">nosso script</a> para cobertura completa. O modo TUN do sing-box cuida do DNS de todos os apps automaticamente.</p>
     </div>
 
+    <h2 id="other">TVs e videogames</h2>
+    <p>A maioria das TVs e dos videogames não consegue usar a internet do celular desta forma. No app, toque em <strong>Other (TV, game console…)</strong>. Para tentar mesmo assim, toque em <strong>Try anyway</strong>, entre no Wi-Fi mostrado no dispositivo e, se as configurações de rede dele tiverem uma opção de proxy, digite os dois valores. Se não, toque em <strong>Choose another device</strong> e conecte um celular, tablet ou computador.</p>
+
+    <h2 id="still-not-connected">Ainda não conectou?</h2>
+    <p>Na tela de conexão do app, toque em <strong>Still not connected?</strong> e escolha o que você vê no outro dispositivo:</p>
+    <ul>
+      <li><strong>I can't see the Wi-Fi name</strong> (não aparece o nome do Wi-Fi): deixe a tela do celular ligada e perto do dispositivo e atualize a lista de Wi-Fi. Se ainda não aparecer, o dispositivo não enxerga esse tipo de Wi-Fi: use o roteador do próprio celular (veja acima).</li>
+      <li><strong>Wi-Fi says "No internet"</strong> (o Wi-Fi diz "Sem internet"): é normal. Continue nele e termine os passos.</li>
+      <li><strong>Firefox says the proxy server is refusing connections</strong> (o Firefox diz que o servidor proxy está recusando conexões): confira os dois valores (Domínio SOCKS e Porta) e veja se o compartilhamento ainda está ligado no celular.</li>
+      <li><strong>Firefox works, other apps don't</strong> (o Firefox funciona, os outros apps não): é o esperado. Só o Firefox usa a internet do celular. Para todos os apps, use o sing-box (veja acima).</li>
+      <li><strong>Websites don't open</strong> (os sites não abrem, no iPhone, no Mac ou em outros dispositivos): confira os dois valores, veja se os dados móveis e o compartilhamento estão ligados no celular e desligue qualquer outro app de VPN no dispositivo.</li>
+    </ul>
+
     <h2>De Android para Android é mais simples</h2>
-    <p>Se os dois aparelhos forem Android, abra o Tether Link Utility no outro celular, escolha <strong>Use another phone's internet</strong>, toque em <strong>Scan QR code</strong> e escaneie o QR Code mostrado no celular que compartilha. O QR Code contém os dados do Wi-Fi e o endereço do proxy, então o celular entra no Wi-Fi e passa o tráfego pelo proxy usando o VpnService do Android. No Android 10 ou mais recente, o sistema pode pedir que você confirme a conexão Wi-Fi. Veja o passo a passo em <a href="/pt/blog/share-mobile-data-android-to-android-qr.html">Compartilhar internet de Android para Android com QR Code</a>.</p>
+    <p>Se os dois aparelhos forem Android, toque em <strong>Android phone or tablet</strong> no celular que compartilha. O app pergunta se o Tether Link Utility está no outro celular (<strong>Is Tether Link Utility on the other phone?</strong>):</p>
+    <ul>
+      <li><strong>Yes, it's installed:</strong> o QR Code aparece na hora.</li>
+      <li><strong>No, but it has internet:</strong> abra a câmera no outro celular, aponte para o código mostrado, toque no link que aparecer e depois em <strong>Instalar</strong>.</li>
+      <li><strong>No, and it has no internet:</strong> o celular que compartilha pode enviar o app. Nos dois celulares, abra a Play Store, toque na sua foto de perfil no canto superior direito, depois em <strong>Gerenciar apps e dispositivo</strong> e em <strong>Compartilhar</strong>. Toque em <strong>Enviar</strong> no celular que compartilha e em <strong>Receber</strong> no outro, marque o Tether Link Utility, toque na seta de envio e depois em <strong>Instalar</strong> no outro celular.</li>
+    </ul>
+    <p>Depois, no outro celular, abra o Tether Link Utility, toque em <strong>Use another phone's internet</strong>, toque em <strong>Scan QR code</strong> e aponte a câmera para o código. Se ele pedir, toque em <strong>Conectar</strong>. Passo a passo em <a href="/pt/blog/share-mobile-data-android-to-android-qr.html">Compartilhar internet de Android para Android com QR Code</a>.</p>
     <p>Os dados usados pelos dispositivos conectados contam no plano de dados do celular servidor, então confira as regras de roteamento da sua operadora.</p>
 
     <!--help-end:-->
