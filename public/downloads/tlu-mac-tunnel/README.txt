@@ -1,40 +1,45 @@
-Tether Link Utility, Mac Full-Coverage Tunnel
-==============================================
+Tether Link Utility, Mac connection for every app
+==================================================
 
 What this does
 --------------
-A per-app or system SOCKS5 proxy setting on macOS only routes traffic from
-apps that check it. DNS lookups and background app traffic can still go
-over the plain hotspot connection instead of through the proxy.
-
-This script wraps sing-box (https://github.com/SagerNet/sing-box, an open
-source project) in TUN mode instead, so your whole Mac's traffic, DNS
-included, routes through your phone's SOCKS5 proxy.
+The SOCKS proxy setting in macOS only covers apps that use it, and DNS
+lookups don't go through it. This script runs sing-box
+(https://github.com/SagerNet/sing-box, open source) in TUN mode instead, so
+every app on your Mac, DNS included, uses your phone's internet.
 
 Requirements
 ------------
-- macOS
-- Homebrew (https://brew.sh). The script installs sing-box itself if it's
-  missing, but Homebrew has to already be there.
-- Run the script once BEFORE joining the phone's Wi-Fi, so it can install
-  sing-box over your normal internet. The phone's Wi-Fi may show
-  "No internet"; that's normal, but brew can't download anything there.
+- A Mac (Apple silicon or Intel).
+- Nothing else. Homebrew is not needed. The first time, the script downloads
+  sing-box 1.14.3 from its official GitHub page (about 30 MB) and checks it
+  with a SHA256 hash. If your Mac has no internet of its own, it downloads
+  it through the phone after you enter the IP and port.
 
 How to use
 ----------
-1. Open Terminal, cd into the folder you unzipped this into.
-2. Run: chmod +x tlu-mac-tunnel.sh
-3. Run: ./tlu-mac-tunnel.sh
-4. Enter the IP address and port shown in the Tether Link Utility app on your
-   phone (tap START first to see them).
-5. Enter your Mac's admin password once when asked (sudo), it's needed to
-   create the network tunnel and change routing, same as any VPN app.
-6. The Terminal window minimizes and the tunnel keeps running in the
-   background. Bring the window back and press Ctrl+C to stop it (this also
-   stops sing-box).
+1. On your phone, open Tether Link Utility and tap START SHARING. Join the
+   phone's Wi-Fi on your Mac (it may say "No internet", that's normal).
+2. Press Command + Space, type Terminal, press Return.
+3. Type this and press Return:
+     cd ~/Downloads/tlu-mac-tunnel
+4. Type this and press Return:
+     bash tlu-mac-tunnel.sh
+5. Type the IP address and port shown in the app.
+   Next time it asks "Connect to IP:port? (y/n)". Type y and press Return
+   to use the same ones, or n to type new ones.
+6. Type your Mac password when asked and press Return. Nothing appears while
+   you type it, that's normal.
+7. When you see "Connected.", the window minimizes and the connection keeps
+   running.
 
-Your settings are remembered in ~/Documents/sing-box.config for next time,
-you'll just be asked to confirm the same IP/port instead of retyping it.
+To stop: open the Terminal window again and press Control + C. Do this
+before you turn sharing off in the app.
 
-More detail and the full config format:
-https://tetherlinkutility.com/blog/socks5-proxy-setup-windows-macos-ios.html
+Where things are saved
+----------------------
+~/Library/Application Support/TLU (sing-box, config.json and the last IP
+and port). The script sends nothing anywhere and is safe to run again.
+
+More help:
+https://tetherlinkutility.com/blog/socks5-proxy-setup-windows-macos-ios.html#macos
