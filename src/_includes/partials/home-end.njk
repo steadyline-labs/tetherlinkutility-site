@@ -56,28 +56,8 @@
       bar.classList.toggle('is-visible', pastHero && !nearBottom);
     }, { passive: true });
   }());
-
-  (function () {
-    // Click-to-play YouTube facade: keeps the poster image as the LCP element and
-    // only loads the (heavy, third-party) iframe once the user actually asks for it.
-    document.querySelectorAll('.video-facade[data-yt-id]').forEach(function (el) {
-      function play() {
-        var id = el.getAttribute('data-yt-id');
-        var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&playsinline=1&rel=0';
-        iframe.setAttribute('title', '{{ t.homeNav.videoTitle }}');
-        iframe.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
-        iframe.setAttribute('allowfullscreen', '');
-        iframe.style.cssText = 'width:100%;height:100%;display:block;border:0;';
-        el.replaceChildren(iframe);
-      }
-      el.addEventListener('click', play);
-      el.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
-      });
-    });
-  }());
 </script>
+{% include "partials/video-facade-script.njk" %}
 
 </body>
 </html>

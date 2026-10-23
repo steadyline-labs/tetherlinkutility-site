@@ -172,9 +172,49 @@ export default function (eleventyConfig) {
       .replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-+|-+$/g, "");
   const stripTags = (s) => s.replace(/<[^>]+>/g, "").trim();
 
+  // Windows and Mac how-to videos (src/_data/guideVideos.json, the only place their IDs live).
+  // TR pages get the Turkish video, every other language the English one.
+  const guideVideos = JSON.parse(fs.readFileSync(new URL("./src/_data/guideVideos.json", import.meta.url), "utf8"));
+  const VIDEO_GUIDE_SLUG = "socks5-proxy-setup-windows-macos-ios";
+  const guideVideo = (lang, device) => {
+    const v = guideVideos[device];
+    return v && (v[lang] || v.en);
+  };
+  eleventyConfig.addFilter("guideVideo", guideVideo);
+  // "Watch the Windows video (1:22)", plus "en inglés" etc. where the page language has no video of its own.
+  const videoText = (labels, lang, device) => {
+    const v = guideVideo(lang, device);
+    return v && labels && labels[device] ? `${labels[device]} (${v.length}${labels.note ? `, ${labels.note}` : ""})` : "";
+  };
+  eleventyConfig.addFilter("videoText", videoText);
+  const attr = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+
   eleventyConfig.addFilter("enhancePost", (content, o) => {
     // Code blocks scroll sideways on small screens: make them keyboard-focusable so they can be scrolled.
     let html = content.replace(/<pre(?=[\s>])(?![^>]*\btabindex=)/g, '<pre tabindex="0"');
+    // How-to videos: <!--video:<device>--> becomes a click-to-load player (local poster, the
+    // youtube-nocookie iframe only after a click), <!--video-hint:<device>--> a short link to it
+    // in the setup guide. Labels come from i18n[lang].video.
+    if (o.video) {
+      html = html
+        .replace(/<!--video:([a-z]+)-->/g, (m, device) => {
+          const v = guideVideo(o.lang, device);
+          if (!v) return "";
+          return `<figure class="guide-video" id="${device}-video">
+      <div class="video-facade guide-video-frame" data-yt-id="${v.id}" data-yt-title="${attr(v.name)}" role="button" tabindex="0" aria-label="${attr(`${o.video.play}: ${v.name}`)}">
+        <img src="${v.cover}" alt="${attr(v.name)}" loading="lazy" decoding="async" width="960" height="540" />
+        <span class="video-facade-play" aria-hidden="true"><svg width="68" height="68" viewBox="0 0 60 60"><circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.6)"/><path d="M24 18l20 12-20 12V18z" fill="#fff"/></svg></span>
+      </div>
+      <figcaption>${videoText(o.video, o.lang, device)}</figcaption>
+    </figure>`;
+        })
+        .replace(/<!--video-hint:([a-z]+)-->/g, (m, device) => {
+          const v = guideVideo(o.lang, device);
+          if (!v || !o.video[device]) return "";
+          const page = o.slug === VIDEO_GUIDE_SLUG ? "" : `${o.prefix}blog/${VIDEO_GUIDE_SLUG}.html`;
+          return ` <a class="video-hint" href="${page}#${device}-video">&#9654;&#xFE0E; ${videoText(o.video, o.lang, device)}</a>`;
+        });
+    }
     // Setup guide help links: <!--help:<device>:<step>--> at the end of a step becomes a quiet
     // "Stuck on this step?" link, <!--help-end:<device>--> the "Still not connected?" card. Both
     // open this language's /help page with the device (and step) prefilled; device may be empty.
@@ -287,6 +327,28 @@ export default function (eleventyConfig) {
     }
     const referrer = `utm_source=tetherlinkutility.com&utm_medium=${medium}&utm_campaign=${campaign}&utm_content=${lang || "en"}`;
     return `${siteData.playUrl}&referrer=${encodeURIComponent(referrer)}`;
+  });
+
+  // VideoObject JSON-LD for each how-to video player in a rendered post (see enhancePost).
+  eleventyConfig.addFilter("videoJsonLd", (html, lang, siteUrl) => {
+    const devices = [...String(html).matchAll(/<figure class="guide-video" id="([a-z]+)-video">/g)].map((m) => m[1]);
+    return devices
+      .map((device) => {
+        const v = guideVideo(lang, device);
+        const ld = {
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          name: v.name,
+          description: v.description,
+          thumbnailUrl: [`${siteUrl}${v.cover}`, `https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`],
+          uploadDate: v.uploadDate,
+          duration: v.duration,
+          embedUrl: `https://www.youtube.com/embed/${v.id}`,
+          url: `https://www.youtube.com/watch?v=${v.id}`,
+        };
+        return `  <script type="application/ld+json">\n  ${JSON.stringify(ld, null, 2).replace(/\n/g, "\n  ")}\n  </script>\n`;
+      })
+      .join("");
   });
 
   return {

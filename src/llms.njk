@@ -34,6 +34,8 @@ eleventyExcludeFromCollections: true
 - Pricing (structured, machine-readable): https://tetherlinkutility.com/pricing.md
 - Google Play listing: https://play.google.com/store/apps/details?id=com.alparslan.tetherlinkutility
 - Demo video (30-second how-to, YouTube Short): English https://www.youtube.com/shorts/866HxsnLb2U , Turkish https://www.youtube.com/shorts/Xs4J50JHhZI
+- Windows setup video ({{ guideVideos.windows.en.length }}): English https://www.youtube.com/watch?v={{ guideVideos.windows.en.id }} , Turkish https://www.youtube.com/watch?v={{ guideVideos.windows.tr.id }}
+- Mac setup video ({{ guideVideos.mac.en.length }}): English https://www.youtube.com/watch?v={{ guideVideos.mac.en.id }} , Turkish https://www.youtube.com/watch?v={{ guideVideos.mac.tr.id }}
 
 ## Blog
 {% for post in collections.posts_en | sortByKey("llms", "order") %}- {{ site.url }}{{ post.url }} : {{ post.data.llms.text if post.data.llms else (post.data.title | plainText) }}

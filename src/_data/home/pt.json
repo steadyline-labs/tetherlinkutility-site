@@ -228,7 +228,7 @@
       },
       {
         "q": "Posso conectar um computador Windows ou Mac?",
-        "a": "Sim, aponte as configurações de proxy SOCKS5 do seu computador (integradas no macOS, ou pelo Firefox/FoxyProxy no Windows) para o IP e a porta mostrados no app. Isso cobre os apps que respeitam essa configuração; para cobertura completa em todo o sistema, incluindo DNS, use o sing-box no modo TUN."
+        "a": "Sim, aponte as configurações de proxy SOCKS5 do seu computador (integradas no macOS, ou pelo Firefox/FoxyProxy no Windows) para o IP e a porta mostrados no app. Isso cobre os apps que respeitam essa configuração; para cobertura completa em todo o sistema, incluindo DNS, use o sing-box no modo TUN. Vídeos passo a passo (em inglês): <a href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">Windows</a>, <a href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">Mac</a>."
       },
       {
         "q": "Uma configuração de proxy SOCKS5 protege todo o meu tráfego?",

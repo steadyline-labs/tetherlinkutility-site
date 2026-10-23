@@ -3,6 +3,11 @@
 {%- set navMode = "blog" -%}
 {%- set pageUrl = site.url + t.prefix + "blog/" + slug + ".html" -%}
 {%- set ogImageUrl = site.url + (lang | ogImage(slug)) -%}
+{%- set quickHtml = "" -%}{%- if quick -%}{%- set quickHtml -%}{% include "partials/quick-answer.njk" %}{%- endset -%}{%- endif -%}
+{%- set faqHtml = "" -%}{%- if faq -%}{%- set faqHtml -%}{% include "partials/faq.njk" %}{%- endset -%}{%- endif -%}
+{%- set crumbHtml = "" -%}{%- if region and carrier -%}{%- set crumbHtml -%}{% include "partials/breadcrumb.njk" %}{%- endset -%}{%- endif -%}
+{%- set postHtml = content | enhancePost({ quick: quickHtml, faq: faqHtml, breadcrumb: crumbHtml, region: region, slug: slug, posts: collections["posts_" + lang], labels: t.post, help: t.help, video: t.video, lang: lang, prefix: t.prefix }) -%}
+{%- set hasVideo = "video-facade" in postHtml -%}
 <!DOCTYPE html>
 <html lang="{{ t.hreflang or lang }}">
 <head>
@@ -56,7 +61,7 @@
   }
   </script>
 {% if extraJsonLd %}{{ extraJsonLd }}{% endif %}
-{% if region and carrier %}  <script type="application/ld+json">
+{% if hasVideo %}{{ postHtml | videoJsonLd(lang, site.url) | safe }}{% endif %}{% if region and carrier %}  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -84,14 +89,12 @@
 
 <main>
   <article>
-{%- set quickHtml = "" -%}{%- if quick -%}{%- set quickHtml -%}{% include "partials/quick-answer.njk" %}{%- endset -%}{%- endif -%}
-{%- set faqHtml = "" -%}{%- if faq -%}{%- set faqHtml -%}{% include "partials/faq.njk" %}{%- endset -%}{%- endif -%}
-{%- set crumbHtml = "" -%}{%- if region and carrier -%}{%- set crumbHtml -%}{% include "partials/breadcrumb.njk" %}{%- endset -%}{%- endif -%}
-{{ content | enhancePost({ quick: quickHtml, faq: faqHtml, breadcrumb: crumbHtml, region: region, slug: slug, posts: collections["posts_" + lang], labels: t.post, help: t.help, prefix: t.prefix }) }}  </article>
+{{ postHtml }}  </article>
 </main>
 
 {% include "partials/site-footer.njk" %}
 
 {% include "partials/site-nav-script.njk" %}
-</body>
+{% if hasVideo %}{% include "partials/video-facade-script.njk" %}
+{% endif %}</body>
 </html>

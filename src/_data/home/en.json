@@ -227,7 +227,7 @@
       },
       {
         "q": "Can I connect a Windows or Mac laptop?",
-        "a": "Yes, point your laptop's SOCKS5 proxy settings (built into macOS, or via Firefox/FoxyProxy on Windows) at the IP and port shown in the app. That covers apps which check that setting; for full system-wide coverage including DNS, use sing-box in TUN mode instead."
+        "a": "Yes, point your laptop's SOCKS5 proxy settings (built into macOS, or via Firefox/FoxyProxy on Windows) at the IP and port shown in the app. That covers apps which check that setting; for full system-wide coverage including DNS, use sing-box in TUN mode instead. Short how-to videos: <a href=\"/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">Windows</a>, <a href=\"/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">Mac</a>."
       },
       {
         "q": "Does a SOCKS5 proxy setting protect all my traffic?",

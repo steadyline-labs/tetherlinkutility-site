@@ -1,0 +1,43 @@
+{
+  "_comment": "The only place the Windows and Mac how-to video IDs live. Used by the setup guide (click-to-load player + VideoObject JSON-LD), the 'watch the video' hint links and the help page. TR pages use tr, every other language uses en. Covers are local copies of the YouTube thumbnails (no third-party request before a click).",
+  "windows": {
+    "en": {
+      "id": "Qn6gi9P8fSs",
+      "name": "How to use your phone's internet on a Windows PC | Tether Link Utility",
+      "description": "One setup file, a few clicks, and your Windows PC uses your Android phone's connection. Every app works.",
+      "uploadDate": "2026-10-23",
+      "duration": "PT1M21S",
+      "length": "1:21",
+      "cover": "/video-cover-windows-en-2026-10.jpg"
+    },
+    "tr": {
+      "id": "pCOQomgBb6U",
+      "name": "Telefonunun internetini Windows bilgisayarında kullan | Tether Link Utility",
+      "description": "Tek kurulum dosyası, birkaç tıklama: Windows bilgisayarın Android telefonunun bağlantısını kullanır. Bütün uygulamalar çalışır.",
+      "uploadDate": "2026-10-23",
+      "duration": "PT1M21S",
+      "length": "1:21",
+      "cover": "/video-cover-windows-tr-2026-10.jpg"
+    }
+  },
+  "mac": {
+    "en": {
+      "id": "wj4suAZMxSQ",
+      "name": "How to use your phone's internet on your Mac | Tether Link Utility",
+      "description": "Share your Android phone's connection with your Mac in a few steps. Every app works, not just the browser.",
+      "uploadDate": "2026-10-23",
+      "duration": "PT1M19S",
+      "length": "1:19",
+      "cover": "/video-cover-mac-en-2026-10.jpg"
+    },
+    "tr": {
+      "id": "zxjB3TjFJ9o",
+      "name": "Telefonunun internetini Mac'inde kullan | Tether Link Utility",
+      "description": "Android telefonunun bağlantısını birkaç adımda Mac'inle paylaş. Sadece tarayıcı değil, bütün uygulamalar çalışır.",
+      "uploadDate": "2026-10-23",
+      "duration": "PT1M19S",
+      "length": "1:19",
+      "cover": "/video-cover-mac-tr-2026-10.jpg"
+    }
+  }
+}

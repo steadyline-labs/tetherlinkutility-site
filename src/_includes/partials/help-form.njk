@@ -4,6 +4,7 @@
     helpEndpoint is the only place the Formspree URL lives (live form xjygjryg).
     One send per browser every 5 minutes is checked in the page.
     Set helpPage ("guide" or "support") before including; it is sent as "page".
+    Windows/Mac: a link to that how-to video (src/_data/guideVideos.json) shows once picked.
     Prefill: ?device=<platform>&step=<step> (hyphens or underscores) preselects matching options;
     unknown values are ignored. -#}
 {%- set helpEndpoint = "https://formspree.io/f/xjygjryg" -%}
@@ -26,6 +27,7 @@
 {% for key, label in hp.platforms %}            <label class="help-opt"><input type="radio" name="platform" value="{{ key }}"{% if loop.first %} required{% endif %}><span>{{ label }}</span></label>
 {% endfor %}          </div>
         </fieldset>
+        <p class="help-video" id="helpVideo" hidden>{% for d in ["windows", "mac"] %}<a data-device="{{ d }}" href="{{ t.prefix }}blog/socks5-proxy-setup-windows-macos-ios.html#{{ d }}-video" hidden>&#9654;&#xFE0E; {{ t.video | videoText(lang, d) }}</a>{% endfor %}</p>
         <fieldset class="help-group" id="helpSteps">
           <legend>{{ hp.q2 }}</legend>
           <div class="help-opts">
@@ -87,6 +89,7 @@
     }
 
     var stepsBox = document.getElementById('helpSteps');
+    var videoBox = document.getElementById('helpVideo');
     var msg = document.getElementById('helpMessage');
     var count = document.getElementById('helpCount');
     var email = document.getElementById('helpEmail');
@@ -130,6 +133,14 @@
 
     form.addEventListener('change', function (e) {
       if (e.target.name !== 'platform') return;
+      // Windows and Mac: point to the how-to video in the setup guide.
+      var anyVideo = false;
+      videoBox.querySelectorAll('a[data-device]').forEach(function (a) {
+        var match = a.getAttribute('data-device') === e.target.value;
+        a.hidden = !match;
+        if (match) anyVideo = true;
+      });
+      videoBox.hidden = !anyVideo;
       var list = STEPS[e.target.value];
       stepsBox.querySelectorAll('.help-opt').forEach(function (opt) {
         var show = !list || list.split(' ').indexOf(opt.getAttribute('data-step')) !== -1;

@@ -2,7 +2,7 @@
 title: "Android SOCKS5 Proxy: Set Up a Proxy Server on Your Phone (2026)"
 description: "How to set up a SOCKS5 proxy on Android: run a proxy server on your phone, connect Windows, macOS, iOS and Android over Wi-Fi, and what Android's own proxy setting supports."
 published: "2026-09-25"
-modified: "2026-10-22"
+modified: "2026-10-23"
 faq:
   - { q: "How do I set up a SOCKS5 proxy server on Android?", a: "Install an app that runs a SOCKS5 server on the phone, such as Tether Link Utility, and start it. The app shows the IP address and port. Other devices join the phone's Wi-Fi and enter that address as their SOCKS5 proxy, or scan the QR code if they are Android phones with the app." }
   - { q: "Can I enter a SOCKS5 proxy in Android's Wi-Fi settings?", a: "No. The proxy option in Android's Wi-Fi settings is for HTTP proxies. To send an Android phone's traffic through a SOCKS5 proxy, use an app that supports SOCKS5, usually one that routes traffic through Android's VpnService." }
@@ -10,7 +10,7 @@ faq:
   - { q: "Is a SOCKS5 proxy encrypted?", a: "SOCKS5 itself does not encrypt traffic. With Tether Link Utility, the Wi-Fi link to the phone is protected by the hotspot's WPA2 or WPA3 security, and HTTPS sites and apps keep their own encryption." }
 sitemap:
   order: 58
-  lastmod: "2026-10-22"
+  lastmod: "2026-10-23"
   changefreq: "monthly"
   priority: "0.7"
 index:
@@ -21,7 +21,7 @@ llms:
 ---
     <div class="page-eyebrow">Blog</div>
     <h1>Android SOCKS5 Proxy: Set Up a Proxy Server on Your Phone</h1>
-    <div class="post-meta">Published September 25, 2026 &middot; Updated October 22, 2026</div>
+    <div class="post-meta">Published September 25, 2026 &middot; Updated October 23, 2026</div>
 
     <p><strong>Short answer:</strong> to run a SOCKS5 proxy on Android, install an app that acts as a SOCKS5 server, start it, and connect your other devices to the phone's Wi-Fi using the IP address and port it shows. Android's own Wi-Fi proxy setting only supports HTTP proxies, so an Android phone that should use a SOCKS5 proxy needs an app as well.</p>
 
@@ -47,8 +47,8 @@ llms:
     <p>First, every client joins the phone's Wi-Fi network. Then it needs to be told to use the proxy:</p>
     <ul>
       <li><strong>Android:</strong> install Tether Link Utility on the other phone too and scan the QR code. On Android 10 and newer it joins the Wi-Fi automatically, then routes the phone's traffic through the proxy with Android's VpnService (a local VPN interface, no remote server). See <a href="/blog/share-mobile-data-android-to-android-qr.html">Share Mobile Data From Android to Android With a QR Code</a>.</li>
-      <li><strong>Windows:</strong> in Firefox, open Settings, type proxy in the search box, click Configure proxy and choose Manual proxy configuration. Or use a proxy extension such as FoxyProxy in Chrome or Edge. To route all apps and DNS through the proxy, not only the browser, run sing-box in TUN mode.</li>
-      <li><strong>macOS:</strong> enter the IP and port under System Settings, Network, Wi-Fi, Details, Proxies, SOCKS Proxy. For all apps and DNS, sing-box in TUN mode is the more complete option.</li>
+      <li><strong>Windows:</strong> in Firefox, open Settings, type proxy in the search box, click Configure proxy and choose Manual proxy configuration. Or use a proxy extension such as FoxyProxy in Chrome or Edge. To route all apps and DNS through the proxy, not only the browser, run sing-box in TUN mode.<!--video-hint:windows--></li>
+      <li><strong>macOS:</strong> enter the IP and port under System Settings, Network, Wi-Fi, Details, Proxies, SOCKS Proxy. For all apps and DNS, sing-box in TUN mode is the more complete option.<!--video-hint:mac--></li>
       <li><strong>Linux:</strong> use Firefox the same way as on Windows, or your desktop's network proxy settings; sing-box also runs on Linux.</li>
       <li><strong>iOS and iPadOS:</strong> iOS has no built-in SOCKS5 setting, so use an app that supports SOCKS5 proxies, such as Potatso (free) or Shadowrocket.</li>
     </ul>

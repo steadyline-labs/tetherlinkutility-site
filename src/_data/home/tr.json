@@ -229,7 +229,7 @@
       },
       {
         "q": "Windows veya Mac dizüstü bilgisayar bağlayabilir miyim?",
-        "a": "Evet, dizüstü bilgisayarının SOCKS5 proxy ayarlarını (macOS'ta yerleşik, Windows'ta Firefox/FoxyProxy ile) uygulamada gösterilen IP ve porta yönlendir. Bu, sadece o ayarı kontrol eden uygulamaları kapsar; DNS dahil tam sistem kapsaması için sing-box'ı TUN modunda kullan."
+        "a": "Evet, dizüstü bilgisayarının SOCKS5 proxy ayarlarını (macOS'ta yerleşik, Windows'ta Firefox/FoxyProxy ile) uygulamada gösterilen IP ve porta yönlendir. Bu, sadece o ayarı kontrol eden uygulamaları kapsar; DNS dahil tam sistem kapsaması için sing-box'ı TUN modunda kullan. Adım adım videolar: <a href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">Windows</a>, <a href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">Mac</a>."
       },
       {
         "q": "SOCKS5 proxy ayarı tüm trafiğimi korur mu?",

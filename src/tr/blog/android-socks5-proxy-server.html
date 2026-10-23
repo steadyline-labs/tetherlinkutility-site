@@ -2,10 +2,10 @@
 title: "Android SOCKS5 Proxy Sunucusu Nedir, Nasıl Kullanılır?"
 description: "Android telefonda çalışan bir SOCKS5 proxy sunucusu ne yapar, cihazlar ona Wi-Fi üzerinden nasıl bağlanır ve Windows, macOS, iOS ve Android istemcileri nasıl ayarlanır."
 published: "2026-09-25"
-modified: "2026-10-22"
+modified: "2026-10-23"
 sitemap:
   order: 60
-  lastmod: "2026-10-22"
+  lastmod: "2026-10-23"
   changefreq: "monthly"
   priority: "0.7"
 index:
@@ -13,7 +13,7 @@ index:
 ---
     <div class="page-eyebrow">Blog</div>
     <h1>Android SOCKS5 Proxy Sunucusu Nedir, Nasıl Kullanılır?</h1>
-    <div class="post-meta">25 Eylül 2026'da yayınlandı &middot; 22 Ekim 2026'da güncellendi</div>
+    <div class="post-meta">25 Eylül 2026'da yayınlandı &middot; 23 Ekim 2026'da güncellendi</div>
 
     <p>SOCKS5 proxy sunucusu genellikle bir bilgisayarda ya da veri merkezinde çalışır. Ancak bir Android telefonda da çalışabilir ve bu, telefonun mobil verisini aynı Wi-Fi ağındaki diğer cihazlarla paylaşmanın pratik bir yoludur. Bu rehberde SOCKS5'in ne olduğunu, neden bir telefonda çalıştırılabileceğini, Android'in yerel hotspot'uyla nasıl birlikte çalıştığını ve her cihaz türünün nasıl bağlanacağını anlatıyoruz.</p>
 
@@ -37,8 +37,8 @@ index:
     <p>Önce her istemci telefonun Wi-Fi ağına katılır. Ardından proxy'yi kullanması için ayarlanır:</p>
     <ul>
       <li><strong>Android:</strong> diğer telefona da Tether Link Utility'yi yükleyip QR kodu okut. Android 10 ve üstünde Wi-Fi ağına otomatik katılır, ardından Android'in VpnService özelliğiyle (uzak sunucu olmayan yerel bir VPN arayüzü) telefonun trafiğini proxy'ye yönlendirir. Ayrıntılar: <a href="/tr/blog/share-mobile-data-android-to-android-qr.html">QR Kod ile Android'den Android'e Mobil Veri Paylaşımı</a>.</li>
-      <li><strong>Windows:</strong> Firefox'ta Ayarlar'ı aç, arama kutusuna vekil yaz, Vekil sunucuyu yapılandır'a tıkla ve Vekil sunucuyu elle ayarla'yı seç. Ya da Chrome veya Edge'de FoxyProxy gibi bir proxy eklentisi kullan. Yalnızca tarayıcının değil tüm uygulamaların ve DNS'in proxy'den geçmesi için sing-box'ı TUN modunda çalıştır.</li>
-      <li><strong>macOS:</strong> IP ve portu Sistem Ayarları › Wi-Fi, Ayrıntılar…, Proxy'ler, SOCKS proxy bölümüne gir. Tüm uygulamalar ve DNS için sing-box TUN modu daha kapsamlı bir seçenektir.</li>
+      <li><strong>Windows:</strong> Firefox'ta Ayarlar'ı aç, arama kutusuna vekil yaz, Vekil sunucuyu yapılandır'a tıkla ve Vekil sunucuyu elle ayarla'yı seç. Ya da Chrome veya Edge'de FoxyProxy gibi bir proxy eklentisi kullan. Yalnızca tarayıcının değil tüm uygulamaların ve DNS'in proxy'den geçmesi için sing-box'ı TUN modunda çalıştır.<!--video-hint:windows--></li>
+      <li><strong>macOS:</strong> IP ve portu Sistem Ayarları › Wi-Fi, Ayrıntılar…, Proxy'ler, SOCKS proxy bölümüne gir. Tüm uygulamalar ve DNS için sing-box TUN modu daha kapsamlı bir seçenektir.<!--video-hint:mac--></li>
       <li><strong>Linux:</strong> Firefox'u Windows'taki gibi ayarla ya da masaüstü ortamının ağ proxy ayarlarını kullan; sing-box Linux'ta da çalışır.</li>
       <li><strong>iOS ve iPadOS:</strong> iOS'ta yerleşik bir SOCKS5 ayarı yoktur; Potatso (ücretsiz) veya Shadowrocket gibi SOCKS5 destekleyen bir uygulama kullan.</li>
     </ul>

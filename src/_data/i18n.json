@@ -90,6 +90,11 @@
         "other": "Something else"
       },
       "privacyHref": "/privacy.html#help-requests"
+    },
+    "video": {
+      "play": "Play video",
+      "windows": "Watch the Windows video",
+      "mac": "Watch the Mac video"
     }
   },
   "tr": {
@@ -184,6 +189,11 @@
         "other": "Başka bir şey"
       },
       "privacyHref": "/privacy.html#tr-help-requests"
+    },
+    "video": {
+      "play": "Videoyu oynat",
+      "windows": "Windows videosunu izle",
+      "mac": "Mac videosunu izle"
     }
   },
   "hi": {
@@ -277,6 +287,12 @@
         "other": "कुछ और"
       },
       "privacyHref": "/privacy.html#hi-help-requests"
+    },
+    "video": {
+      "play": "वीडियो चलाएं",
+      "windows": "Windows वाला वीडियो देखें",
+      "mac": "Mac वाला वीडियो देखें",
+      "note": "अंग्रेज़ी में"
     }
   },
   "es": {
@@ -374,6 +390,12 @@
         "other": "Otra cosa"
       },
       "privacyHref": "/privacy.html#es-help-requests"
+    },
+    "video": {
+      "play": "Reproducir video",
+      "windows": "Ver el video para Windows",
+      "mac": "Ver el video para Mac",
+      "note": "en inglés"
     }
   },
   "pt": {
@@ -470,6 +492,12 @@
         "other": "Outra coisa"
       },
       "privacyHref": "/privacy.html#pt-help-requests"
+    },
+    "video": {
+      "play": "Reproduzir vídeo",
+      "windows": "Assista ao vídeo para Windows",
+      "mac": "Assista ao vídeo para Mac",
+      "note": "em inglês"
     }
   }
 }

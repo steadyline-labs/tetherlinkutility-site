@@ -2,10 +2,10 @@
 title: "Servidor proxy SOCKS5 en Android: qué es y cómo usarlo"
 description: "Qué hace un servidor proxy SOCKS5 en un celular Android, cómo se conectan otros dispositivos por Wi-Fi y cómo configurar Windows, macOS, iOS y Android."
 published: "2026-09-27"
-modified: "2026-10-22"
+modified: "2026-10-23"
 sitemap:
   order: 82
-  lastmod: "2026-10-22"
+  lastmod: "2026-10-23"
   changefreq: "monthly"
   priority: "0.7"
 index:
@@ -14,7 +14,7 @@ index:
 ---
     <div class="page-eyebrow">Blog</div>
     <h1>Servidor proxy SOCKS5 en Android: qué es y cómo usarlo</h1>
-    <div class="post-meta">Publicado el 27 de septiembre de 2026 &middot; Actualizado el 22 de octubre de 2026</div>
+    <div class="post-meta">Publicado el 27 de septiembre de 2026 &middot; Actualizado el 23 de octubre de 2026</div>
 
     <p>Un servidor proxy SOCKS5 normalmente corre en una computadora o en un centro de datos. También puede correr en un celular Android, y resulta ser una forma práctica de compartir los datos móviles del celular con otros dispositivos en la misma red Wi-Fi. Esta guía explica qué es SOCKS5, por qué tiene sentido usarlo en un celular, cómo funciona junto con el hotspot local de Android y cómo conectar cada tipo de dispositivo.</p>
 
@@ -38,8 +38,8 @@ index:
     <p>Primero, cada cliente se une a la red Wi-Fi del celular. Después hay que indicarle que use el proxy:</p>
     <ul>
       <li><strong>Android:</strong> instala Tether Link Utility también en el otro celular y escanea el código QR. En Android 10 y posteriores se une al Wi-Fi automáticamente y luego envía el tráfico del celular por el proxy con VpnService de Android (una interfaz VPN local, sin servidor remoto). Mira <a href="/es/blog/share-mobile-data-android-to-android-qr.html">Compartir datos de Android a Android con código QR</a>.</li>
-      <li><strong>Windows:</strong> en Firefox, abre Ajustes, escribe proxy en el cuadro de búsqueda, haz clic en Configurar proxy (o Configuración de proxy) y elige Configuración manual de proxy. O usa una extensión de proxy como FoxyProxy en Chrome o Edge. Para que todas las apps y el DNS usen el proxy, y no solo el navegador, ejecuta sing-box en modo TUN.</li>
-      <li><strong>macOS:</strong> escribe la IP y el puerto en Ajustes del Sistema, Red, Wi-Fi, Detalles, Proxies, Proxy SOCKS. Para todas las apps y el DNS, sing-box en modo TUN es la opción más completa.</li>
+      <li><strong>Windows:</strong> en Firefox, abre Ajustes, escribe proxy en el cuadro de búsqueda, haz clic en Configurar proxy (o Configuración de proxy) y elige Configuración manual de proxy. O usa una extensión de proxy como FoxyProxy en Chrome o Edge. Para que todas las apps y el DNS usen el proxy, y no solo el navegador, ejecuta sing-box en modo TUN.<!--video-hint:windows--></li>
+      <li><strong>macOS:</strong> escribe la IP y el puerto en Ajustes del Sistema, Red, Wi-Fi, Detalles, Proxies, Proxy SOCKS. Para todas las apps y el DNS, sing-box en modo TUN es la opción más completa.<!--video-hint:mac--></li>
       <li><strong>Linux:</strong> usa Firefox igual que en Windows, o los ajustes de proxy de red de tu escritorio; sing-box también funciona en Linux.</li>
       <li><strong>iOS y iPadOS:</strong> iOS no tiene un ajuste SOCKS5 integrado, así que usa una app que admita proxies SOCKS5, como Potatso (gratis) o Shadowrocket.</li>
     </ul>
