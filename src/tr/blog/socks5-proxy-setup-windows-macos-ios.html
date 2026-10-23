@@ -2,11 +2,11 @@
 title: "SOCKS5 Proxy Kurulumu: Windows, macOS ve iOS"
 description: "Firefox, Chrome (FoxyProxy), macOS ağ ayarları, sing-box TUN modu ve iOS uygulamaları için adım adım SOCKS5 proxy kurulumu."
 published: "2026-09-18"
-modified: "2026-10-22"
+modified: "2026-10-23"
 h3Style: true
 sitemap:
   order: 28
-  lastmod: "2026-10-22"
+  lastmod: "2026-10-23"
   changefreq: "monthly"
   priority: "0.6"
 index:
@@ -32,7 +32,7 @@ extraJsonLd: |2
         {
           "@type": "HowToStep",
           "name": "Windows ve macOS: sing-box ile tüm uygulamalar",
-          "text": "Firefox/FoxyProxy ve macOS'un yerleşik SOCKS ayarı sadece bu ayarı kullanan uygulamaların trafiğini yönlendirir; macOS ayarı DNS sorgularını proxy'den geçirmez. Tüm uygulamalar ve DNS için sing-box'ı telefonun Wi-Fi'ına bağlanmadan önce kur (macOS'ta script'imiz veya brew install sing-box, ya da Windows sürümünü indir), telefonun IP/portuna giden bir SOCKS çıkışıyla bir TUN girişi yapılandır ve yönetici yetkisiyle çalıştır."
+          "text": "Firefox/FoxyProxy ve macOS'un yerleşik SOCKS ayarı sadece bu ayarı kullanan uygulamaların trafiğini yönlendirir; macOS ayarı DNS sorgularını proxy'den geçirmez. Tüm uygulamalar ve DNS için sing-box'ı telefonun Wi-Fi'ına bağlanmadan önce kur (macOS'ta script'imiz veya brew install sing-box, ya da Windows sürümünü indir), telefonun IP/portuna giden bir SOCKS çıkışıyla bir TUN girişi yapılandır ve yönetici yetkisiyle çalıştır. Windows'ta: github.com/SagerNet/sing-box/releases adresinden adı windows-amd64.zip ile biten dosyayı indir (Snapdragon veya Surface Pro X'te windows-arm64.zip) ve ayıkla. Not Defteri'nde yapılandırmayı yapıştır, PHONE_IP ve PHONE_PORT'u değiştir, Kayıt türü Tüm dosyalar olacak şekilde sing-box klasörüne config.json adıyla kaydet. Terminal (Yönetici)'yi aç, cd yazıp bir boşluk bırak, sing-box klasörünü pencereye sürükleyip Enter'a bas, sonra .\\sing-box.exe run --config config.json yazıp Enter'a bas. sing-box started yazısını bekle ve pencereyi açık bırak. Windows Ayarlar > Proxy'yi kullanma; bu uygulamayla çalışmaz. macOS'ta: script'imiz ya da brew install sing-box ve sudo sing-box run --config ~/config.json."
         },
         {
           "@type": "HowToStep",
@@ -55,7 +55,7 @@ extraJsonLd: |2
 ---
     <div class="page-eyebrow">Blog</div>
     <h1>SOCKS5 Proxy Kurulumu: Windows, macOS ve iOS</h1>
-    <div class="post-meta">18 Eylül 2026'da yayınlandı &middot; 22 Ekim 2026'da güncellendi</div>
+    <div class="post-meta">18 Eylül 2026'da yayınlandı &middot; 23 Ekim 2026'da güncellendi</div>
 
     <p>SOCKS5, bir cihazın internet trafiğini başka bir cihazdaki proxy sunucusu üzerinden iletmesini sağlayan yaygın bir protokol. Bu rehberde Windows, macOS ve iOS'ta SOCKS5 proxy kurulumunu adım adım anlatıyoruz: tarayıcı ayarları, FoxyProxy eklentisi, macOS ağ ayarları, tüm uygulamaları kapsayan sing-box TUN modu ve iOS uygulamaları.</p>
     <p>Örnekler, Android telefonda yerel bir SOCKS5 proxy çalıştıran Tether Link Utility'ye göre yazıldı, ama adımlar IP adresi ve portu bilinen herhangi bir SOCKS5 sunucusu için aynıdır.</p>
@@ -84,6 +84,9 @@ extraJsonLd: |2
     <p>Hotspot'u uygulamanın başlatması yerine telefonunun sistem hotspot'unu kendin açıyorsan (Android'de Mobil Hotspot, iPhone'da Kişisel Erişim Noktası), uygulamada <strong>Hotspot Wi-Fi bilgilerini ekle</strong>'ye dokunup hotspot'un adını ve şifresini bir kez kaydet. Bu bilgiler yalnızca cihazında saklanır ve uygulama hotspot'unu değiştirmez. Bilgiler QR koda eklenir, böylece diğer cihazlar kodu tarayarak ağa katılabilir. iPhone'da şifre <strong>Ayarlar &gt; Kişisel Erişim Noktası</strong> bölümündedir. Android uygulaması hotspot'u otomatik olarak kendisi başlattığında bu adımı atlayabilirsin.</p>
 
     <h2 id="windows">Windows</h2>
+    <div class="callout">
+      <p><strong>Windows Ayarlar &gt; Proxy'yi kullanma.</strong> Bu uygulamayla çalışmaz. Aşağıdaki seçeneklerden birini kullan.</p>
+    </div>
     <h3>Seçenek A: Firefox (eklenti gerekmez)</h3>
     <ol>
       <li>Firefox'ta <strong>Ayarlar</strong>'ı aç, üstteki arama kutusuna <strong>vekil</strong> yaz ve <strong>Vekil sunucuyu yapılandır</strong>'a tıkla.<!--help:windows:set-proxy--></li>
@@ -101,9 +104,12 @@ extraJsonLd: |2
     <h3>Seçenek C (önerilen): sing-box ile tüm uygulamalar</h3>
     <p>Firefox ve FoxyProxy yalnızca o tarayıcının trafiğini proxy'ye gönderir. Diğer uygulamalar ve DNS sorguları doğrudan Wi-Fi bağlantısını kullanmaya devam eder ve telefonun proxy'si olmadan internete çıkamayabilir. Windows'ta tüm uygulamaların ve DNS'in proxy üzerinden gitmesi için TUN modunda <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> kullan (açık kaynak, aktif olarak geliştiriliyor):</p>
     <ol>
-      <li><a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a> adresinden en son Windows sürümünü, telefonun Wi-Fi'ına bağlanmadan önce indir.<!--help:windows:install--></li>
-      <li>Aşağıdaki yapılandırmayı <code>config.json</code> olarak kaydet, IP ve portu uygulamada gösterilenlerle değiştir.<!--help:windows:set-proxy--></li>
-      <li>Yönetici olarak açılmış bir terminalde çalıştır: <code>sing-box run --config config.json</code><!--help:windows:set-proxy--></li>
+      <li>Bilgisayarında hâlâ internet varken <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a> adresini aç. Adı <strong>windows-amd64.zip</strong> ile biten dosyayı indir (Snapdragon veya Surface Pro X ise <strong>windows-arm64.zip</strong>). Dosyaya sağ tıkla, <strong>Tümünü Ayıkla</strong>'yı seç, sonra <strong>Ayıkla</strong>'ya tıkla.<!--help:windows:install--></li>
+      <li>Not Defteri'ni aç ve aşağıdaki <a href="#singbox-config">sing-box yapılandırması</a> kutusundaki metni yapıştır. <code>PHONE_IP</code> (iki yerde geçer) ve <code>PHONE_PORT</code> yerine uygulamada gösterilen sayıları yaz. <strong>Dosya</strong>, <strong>Farklı kaydet</strong>'e tıkla. sing-box klasörünü aç (içinde sing-box.exe olan), <strong>Kayıt türü</strong>'nü <strong>Tüm dosyalar</strong> yap, adını <code>config.json</code> koy ve <strong>Kaydet</strong>'e tıkla.<!--help:windows:set-proxy--></li>
+      <li>Başlat düğmesine sağ tıkla ve <strong>Terminal (Yönetici)</strong>'yi seç. <strong>Evet</strong>'e tıkla.<!--help:windows:set-proxy--></li>
+      <li>Pencereye <code>cd</code> yaz ve bir boşluk bırak. sing-box klasörünü Dosya Gezgini'nden pencereye sürükle, sonra Enter'a bas. Sürükleyince bir şey çıkmazsa: sing-box klasörüne sağ tıkla, <strong>Yol olarak kopyala</strong>'yı seç, pencereye tıkla, Ctrl+V'ye bas, sonra Enter'a bas.<!--help:windows:set-proxy--></li>
+      <li><code>.\sing-box.exe run --config config.json</code> yaz ve Enter'a bas. Bu pencereyi açık bırak.<!--help:windows:set-proxy--></li>
+      <li><code>sing-box started</code> yazısını görene kadar bekle. Satırlar akmaya devam eder; bu normal.<!--help:windows:no-internet--></li>
     </ol>
 
     <h2 id="macos">macOS</h2>
@@ -141,7 +147,7 @@ extraJsonLd: |2
       <li>Seçenek A'daki yerleşik SOCKS Proxy ayarı açıksa kapat, sing-box'ın TUN modu onun yerini alır.<!--help:mac:set-proxy--></li>
     </ol>
 
-    <div class="callout">
+    <div class="callout" id="singbox-config">
       <p><strong>sing-box yapılandırması</strong> (Windows, macOS ve Linux için aynı, yalnızca IP ve portu değiştir). <code>interface_name</code> alanını boş bırak, uygun arayüz otomatik seçilsin:</p>
       <pre style="background:var(--ground); border:1px solid var(--border); border-radius:10px; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; color:var(--muted);">{
   "dns": {

@@ -2,12 +2,12 @@
 title: "How to Set Up a SOCKS5 Proxy on Windows, macOS &amp; iOS"
 description: "Step-by-step SOCKS5 proxy setup for Firefox, Chrome (FoxyProxy), macOS network settings, sing-box TUN mode and iOS apps."
 published: "2026-09-18"
-modified: "2026-10-22"
+modified: "2026-10-23"
 ldHeadline: "How to Set Up a SOCKS5 Proxy on Windows, macOS & iOS"
 h3Style: true
 sitemap:
   order: 7
-  lastmod: "2026-10-22"
+  lastmod: "2026-10-23"
   changefreq: "monthly"
   priority: "0.6"
 index:
@@ -37,7 +37,7 @@ extraJsonLd: |2
         {
           "@type": "HowToStep",
           "name": "Windows and macOS: all apps with sing-box",
-          "text": "Firefox/FoxyProxy and macOS's native SOCKS setting only route traffic from apps that use them, and the macOS setting does not proxy DNS lookups. To route all apps and DNS through the proxy, install sing-box before joining the phone's Wi-Fi (our script or brew install sing-box on macOS, or download the Windows release), configure a TUN inbound with a SOCKS outbound pointed at the phone's IP/port, and run it with elevated privileges."
+          "text": "Firefox/FoxyProxy and macOS's native SOCKS setting only route traffic from apps that use them, and the macOS setting does not proxy DNS lookups. To route all apps and DNS through the proxy, install sing-box before joining the phone's Wi-Fi (our script or brew install sing-box on macOS, or download the Windows release), configure a TUN inbound with a SOCKS outbound pointed at the phone's IP/port, and run it with elevated privileges. On Windows: open github.com/SagerNet/sing-box/releases, download the file ending in windows-amd64.zip (windows-arm64.zip on Snapdragon or Surface Pro X) and extract it. In Notepad, paste the config, replace PHONE_IP and PHONE_PORT, and save it as config.json in the sing-box folder with Save as type set to All files. Open Terminal (Admin), type cd and a space, drag the sing-box folder into the window and press Enter, then type .\\sing-box.exe run --config config.json and press Enter. Wait for sing-box started and leave the window open. Don't use Windows Settings > Proxy; it won't work with this app. On macOS: our script, or brew install sing-box and sudo sing-box run --config ~/config.json."
         },
         {
           "@type": "HowToStep",
@@ -60,7 +60,7 @@ extraJsonLd: |2
 ---
     <div class="page-eyebrow">Blog</div>
     <h1>How to Set Up a SOCKS5 Proxy on Windows, macOS &amp; iOS</h1>
-    <div class="post-meta">Published September 18, 2026 &middot; Updated October 22, 2026</div>
+    <div class="post-meta">Published September 18, 2026 &middot; Updated October 23, 2026</div>
 
     <p>Tether Link Utility runs a local SOCKS5 proxy on your Android phone. Any device that supports SOCKS5 proxy settings can use it over the Wi-Fi network the app creates: no separate client app is needed on Windows or macOS, and a lightweight one is needed on iOS. Here is how to set up each platform.</p>
 
@@ -88,6 +88,9 @@ extraJsonLd: |2
     <p>If you turn on your phone's system hotspot yourself (Mobile Hotspot on Android, Personal Hotspot on iPhone) instead of letting the app start one, tap <strong>Add hotspot Wi-Fi details</strong> in the app and save the hotspot's name and password once. They are stored only on your device and the app doesn't change your hotspot. The details are added to the QR code, so other devices can join the network by scanning it. On iPhone, the password is in <strong>Settings &gt; Personal Hotspot</strong>. When the Android app starts its own hotspot automatically, you can skip this.</p>
 
     <h2 id="windows">Windows</h2>
+    <div class="callout">
+      <p><strong>Don't use Windows Settings &gt; Proxy.</strong> It won't work with this app. Use one of the options below.</p>
+    </div>
     <h3>Option A: Firefox (no extension needed)</h3>
     <ol>
       <li>In Firefox, open <strong>Settings</strong>, type <strong>proxy</strong> in the search box at the top and click <strong>Configure proxy</strong>.<!--help:windows:set-proxy--></li>
@@ -105,9 +108,12 @@ extraJsonLd: |2
     <h3>Option C (recommended): all apps with sing-box</h3>
     <p>Firefox and FoxyProxy only send that one browser's traffic through the proxy. To route every app on Windows through it, DNS included, use <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> (open source, actively maintained) in TUN mode:</p>
     <ol>
-      <li>Before joining the phone's Wi-Fi, download the latest Windows release from <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a>.<!--help:windows:install--></li>
-      <li>Save the config below as <code>config.json</code>, replacing the IP and port with the values shown in the app.<!--help:windows:set-proxy--></li>
-      <li>Run it from an elevated (Administrator) terminal: <code>sing-box run --config config.json</code><!--help:windows:set-proxy--></li>
+      <li>Open <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a> while your PC still has internet. Download the file that ends in <strong>windows-amd64.zip</strong> (Snapdragon or Surface Pro X: <strong>windows-arm64.zip</strong>). Right-click it, choose <strong>Extract All</strong>, then <strong>Extract</strong>.<!--help:windows:install--></li>
+      <li>Open Notepad and paste the config text from the <a href="#singbox-config">sing-box config</a> box below. Replace <code>PHONE_IP</code> (it appears twice) and <code>PHONE_PORT</code> with the numbers shown in the app. Click <strong>File</strong>, <strong>Save as</strong>. Open the sing-box folder (the one with sing-box.exe inside), set <strong>Save as type</strong> to <strong>All files</strong>, name it <code>config.json</code>, click <strong>Save</strong>.<!--help:windows:set-proxy--></li>
+      <li>Right-click the Start button and choose <strong>Terminal (Admin)</strong>. Click <strong>Yes</strong>.<!--help:windows:set-proxy--></li>
+      <li>In the window, type <code>cd</code> and a space. Drag the sing-box folder from File Explorer into the window, then press Enter. If nothing appears when you drag: right-click the sing-box folder, choose <strong>Copy as path</strong>, click in the window, press Ctrl+V, then Enter.<!--help:windows:set-proxy--></li>
+      <li>Type <code>.\sing-box.exe run --config config.json</code> and press Enter. Leave this window open.<!--help:windows:set-proxy--></li>
+      <li>Wait until you see <code>sing-box started</code>. Lines will keep scrolling; that's normal.<!--help:windows:no-internet--></li>
     </ol>
 
     <h2 id="macos">macOS</h2>
@@ -145,7 +151,7 @@ extraJsonLd: |2
       <li>Turn off the native SOCKS Proxy setting from Option A if you had it on; sing-box's TUN mode replaces it.<!--help:mac:set-proxy--></li>
     </ol>
 
-    <div class="callout">
+    <div class="callout" id="singbox-config">
       <p><strong>sing-box config</strong> (works on Windows, macOS and Linux, just swap the IP and port). Leave <code>interface_name</code> unset so it picks an available interface automatically:</p>
       <pre style="background:var(--ground); border:1px solid var(--border); border-radius:10px; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; color:var(--muted);">{
   "dns": {

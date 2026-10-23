@@ -2,13 +2,13 @@
 title: "Windows, macOS और iOS पर SOCKS5 प्रॉक्सी कैसे सेट करें"
 description: "Firefox, Chrome (FoxyProxy), macOS नेटवर्क सेटिंग्स, sing-box TUN मोड और iOS ऐप्स के लिए स्टेप-बाय-स्टेप SOCKS5 प्रॉक्सी सेटअप।"
 published: "2026-09-18"
-modified: "2026-10-22"
+modified: "2026-10-23"
 ldDescription: "Step-by-step SOCKS5 proxy setup for Firefox, Chrome (FoxyProxy), macOS network settings, sing-box TUN mode and iOS apps."
 carrierTable: true
 h3Style: true
 sitemap:
   order: 39
-  lastmod: "2026-10-22"
+  lastmod: "2026-10-23"
   changefreq: "monthly"
   priority: "0.6"
 index:
@@ -34,7 +34,7 @@ extraJsonLd: |2-
         {
           "@type": "HowToStep",
           "name": "Windows and macOS: all apps and DNS with sing-box",
-          "text": "Firefox/FoxyProxy and macOS's native SOCKS setting only route traffic from apps that use them, and the macOS setting does not proxy DNS lookups. To route every app and DNS through the proxy, install sing-box before joining the phone's Wi-Fi (our script or brew install sing-box on macOS, or download the Windows release), configure a TUN inbound with a SOCKS outbound pointed at the phone's IP/port, and run it with elevated privileges."
+          "text": "Firefox/FoxyProxy and macOS's native SOCKS setting only route traffic from apps that use them, and the macOS setting does not proxy DNS lookups. To route every app and DNS through the proxy, install sing-box before joining the phone's Wi-Fi (our script or brew install sing-box on macOS, or download the Windows release), configure a TUN inbound with a SOCKS outbound pointed at the phone's IP/port, and run it with elevated privileges. On Windows: open github.com/SagerNet/sing-box/releases, download the file ending in windows-amd64.zip (windows-arm64.zip on Snapdragon or Surface Pro X) and extract it. In Notepad, paste the config, replace PHONE_IP and PHONE_PORT, and save it as config.json in the sing-box folder with Save as type set to All files. Open Terminal (Admin), type cd and a space, drag the sing-box folder into the window and press Enter, then type .\\sing-box.exe run --config config.json and press Enter. Wait for sing-box started and leave the window open. Don't use Windows Settings > Proxy; it won't work with this app. On macOS: our script, or brew install sing-box and sudo sing-box run --config ~/config.json."
         },
         {
           "@type": "HowToStep",
@@ -57,7 +57,7 @@ extraJsonLd: |2-
 ---
     <div class="page-eyebrow">ब्लॉग</div>
     <h1>Windows, macOS और iOS पर SOCKS5 प्रॉक्सी कैसे सेट करें</h1>
-    <div class="post-meta">प्रकाशित 18 सितंबर, 2026 &middot; अपडेट 22 अक्टूबर, 2026</div>
+    <div class="post-meta">प्रकाशित 18 सितंबर, 2026 &middot; अपडेट 23 अक्टूबर, 2026</div>
 
     <p>Tether Link Utility आपके Android फ़ोन पर एक लोकल SOCKS5 प्रॉक्सी चलाता है। SOCKS5 प्रॉक्सी सेटिंग सपोर्ट करने वाला कोई भी डिवाइस फ़ोन के Wi-Fi (Android का LocalOnlyHotspot) से जुड़कर इस प्रॉक्सी से कनेक्ट हो सकता है, Windows या macOS पर किसी अलग क्लाइंट ऐप की ज़रूरत नहीं, और iOS पर एक हल्का सा। यहां हर प्लेटफ़ॉर्म को इससे जोड़ने का तरीका बताया गया है।</p>
 
@@ -85,6 +85,9 @@ extraJsonLd: |2-
     <p>अगर ऐप के बजाय आप फ़ोन का सिस्टम हॉटस्पॉट खुद ऑन करते हैं (Android पर Mobile Hotspot, iPhone पर Personal Hotspot), तो ऐप में <strong>Add hotspot Wi-Fi details</strong> पर टैप करें और हॉटस्पॉट का नाम और पासवर्ड एक बार सेव करें। ये सिर्फ़ आपके डिवाइस पर स्टोर होते हैं और ऐप आपका हॉटस्पॉट नहीं बदलता। ये डिटेल्स QR कोड में जोड़ दी जाती हैं, ताकि दूसरे डिवाइस उसे स्कैन करके नेटवर्क से जुड़ सकें। iPhone पर पासवर्ड <strong>Settings &gt; Personal Hotspot</strong> में मिलता है। जब Android ऐप अपने आप अपना हॉटस्पॉट शुरू करता है, तब आप यह स्टेप छोड़ सकते हैं।</p>
 
     <h2 id="windows">Windows</h2>
+    <div class="callout">
+      <p><strong>Windows Settings &gt; Proxy इस्तेमाल न करें।</strong> यह इस ऐप के साथ काम नहीं करता। नीचे दिए विकल्पों में से कोई एक इस्तेमाल करें।</p>
+    </div>
     <h3>विकल्प A: Firefox (किसी एक्सटेंशन की ज़रूरत नहीं)</h3>
     <ol>
       <li>Firefox में <strong>Settings</strong> खोलें, ऊपर के सर्च बॉक्स में <strong>proxy</strong> लिखें और <strong>Configure proxy</strong> पर क्लिक करें।<!--help:windows:set-proxy--></li>
@@ -100,11 +103,14 @@ extraJsonLd: |2-
       <li>टूलबार आइकन से FoxyProxy को उस प्रॉक्सी पर स्विच करें।<!--help:windows:set-proxy--></li>
     </ol>
     <h3>विकल्प C (सुझाया गया): sing-box से सभी ऐप्स के लिए</h3>
-    <p>Firefox और FoxyProxy सिर्फ उस एक ब्राउज़र का ट्रैफ़िक प्रॉक्सी से भेजते हैं, बाकी ऐप्स और DNS लुकअप नहीं। Windows पर हर ऐप और DNS को प्रॉक्सी से भेजने के लिए इसके बजाय <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> (ओपन सोर्स, MIT-जैसा लाइसेंस, सक्रिय रूप से मेंटेन्ड) को TUN मोड में इस्तेमाल करें:</p>
+    <p>Firefox और FoxyProxy सिर्फ उस एक ब्राउज़र का ट्रैफ़िक प्रॉक्सी से भेजते हैं, बाकी ऐप्स और DNS लुकअप नहीं। Windows पर हर ऐप और DNS को प्रॉक्सी से भेजने के लिए इसके बजाय <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> (ओपन सोर्स, सक्रिय रूप से मेंटेन्ड) को TUN मोड में इस्तेमाल करें:</p>
     <ol>
-      <li><a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a> से लेटेस्ट Windows रिलीज़ डाउनलोड करें, फ़ोन के Wi-Fi से जुड़ने से पहले।<!--help:windows:install--></li>
-      <li>नीचे दिया कॉन्फ़िग <code>config.json</code> के तौर पर सेव करें, IP/पोर्ट को ऐप में दिखाए गए से बदल दें।<!--help:windows:set-proxy--></li>
-      <li>एक एलिवेटेड (Administrator) टर्मिनल से चलाएं: <code>sing-box run --config config.json</code><!--help:windows:set-proxy--></li>
+      <li>जब तक PC में इंटरनेट है, <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a> खोलें। वह फ़ाइल डाउनलोड करें जिसका नाम <strong>windows-amd64.zip</strong> पर खत्म होता है (Snapdragon या Surface Pro X: <strong>windows-arm64.zip</strong>)। उस पर राइट-क्लिक करें, <strong>Extract All</strong> चुनें, फिर <strong>Extract</strong> पर क्लिक करें।<!--help:windows:install--></li>
+      <li>Notepad खोलें और नीचे दिए <a href="#singbox-config">sing-box कॉन्फ़िग</a> बॉक्स का टेक्स्ट पेस्ट करें। <code>PHONE_IP</code> (यह दो जगह है) और <code>PHONE_PORT</code> की जगह ऐप में दिखे नंबर लिखें। <strong>File</strong>, फिर <strong>Save as</strong> पर क्लिक करें। sing-box फ़ोल्डर खोलें (जिसमें sing-box.exe है), <strong>Save as type</strong> में <strong>All files</strong> चुनें, नाम <code>config.json</code> रखें और <strong>Save</strong> पर क्लिक करें।<!--help:windows:set-proxy--></li>
+      <li>Start बटन पर राइट-क्लिक करें और <strong>Terminal (Admin)</strong> चुनें। <strong>Yes</strong> पर क्लिक करें।<!--help:windows:set-proxy--></li>
+      <li>विंडो में <code>cd</code> लिखें और एक स्पेस दें। File Explorer से sing-box फ़ोल्डर को खींचकर विंडो में छोड़ें, फिर Enter दबाएं। अगर खींचने पर कुछ न दिखे: sing-box फ़ोल्डर पर राइट-क्लिक करें, <strong>Copy as path</strong> चुनें, विंडो में क्लिक करें, Ctrl+V दबाएं, फिर Enter।<!--help:windows:set-proxy--></li>
+      <li><code>.\sing-box.exe run --config config.json</code> लिखें और Enter दबाएं। यह विंडो खुली रहने दें।<!--help:windows:set-proxy--></li>
+      <li><code>sing-box started</code> दिखने तक इंतज़ार करें। लाइनें चलती रहेंगी; यह सामान्य है।<!--help:windows:no-internet--></li>
     </ol>
 
     <h2 id="macos">macOS</h2>
@@ -142,7 +148,7 @@ extraJsonLd: |2-
       <li>अगर विकल्प A वाली native SOCKS Proxy सेटिंग ऑन थी तो उसे बंद कर दें, sing-box का TUN मोड इसे पूरी तरह बदल देता है।<!--help:mac:set-proxy--></li>
     </ol>
 
-    <div class="callout">
+    <div class="callout" id="singbox-config">
       <p><strong>sing-box कॉन्फ़िग</strong> (Windows, macOS और Linux के लिए काम करता है, बस IP/पोर्ट बदलें)। <code>interface_name</code> खाली छोड़ दें ताकि यह अपने आप एक उपलब्ध इंटरफ़ेस चुन ले:</p>
       <pre style="background:var(--ground); border:1px solid var(--border); border-radius:10px; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; color:var(--muted);">{
   "dns": {
