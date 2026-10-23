@@ -156,6 +156,7 @@ if (-not (Test-Path $exe)) {
 # the phone's SOCKS5 port; the connection to the phone itself goes direct.
 $config = @'
 {
+  "log": { "level": "info", "timestamp": true, "output": "sing-box.log" },
   "dns": {
     "servers": [
       { "type": "udp", "tag": "remote", "server": "8.8.8.8", "detour": "phone-socks5" },
@@ -195,15 +196,19 @@ try {
   $lnk.Save()
 } catch { Say 'Could not create the desktop shortcut (not needed to connect).' 'Yellow' }
 
+# sing-box writes its log to sing-box.log (set in config.json, info level, fresh
+# each run); errors from before the log starts go to sing-box-errors.log.
 $log = Join-Path $AppDir 'sing-box.log'
 $err = Join-Path $AppDir 'sing-box-errors.log'
+Remove-Item $log -Force -ErrorAction SilentlyContinue
 Say 'Starting ...'
 $p = Start-Process -FilePath $exe -ArgumentList @('run', '-c', "`"$cfgPath`"") -WorkingDirectory $AppDir `
-     -NoNewWindow -PassThru -RedirectStandardOutput $log -RedirectStandardError $err
+     -NoNewWindow -PassThru -RedirectStandardError $err
 Start-Sleep -Seconds 4
 if ($p.HasExited) {
-  Say ((Get-Content $err -Tail 5 -ErrorAction SilentlyContinue) -join "`n") 'DarkGray'
-  Fail "sing-box stopped right away. Details are in $err"
+  $tail = @(Get-Content $err -Tail 5 -ErrorAction SilentlyContinue) + @(Get-Content $log -Tail 5 -ErrorAction SilentlyContinue)
+  Say ($tail -join "`n") 'DarkGray'
+  Fail "sing-box stopped right away. Details are in $log and $err"
 }
 
 Say ''
