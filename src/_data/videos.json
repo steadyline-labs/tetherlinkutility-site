@@ -3,12 +3,14 @@
     "name": "Share your phone's internet with your laptop in 30 seconds",
     "description": "How to share your Android phone's mobile data with a laptop using Tether Link Utility: start sharing, join the Wi-Fi, enter the SOCKS5 address, and browse.",
     "uploadDate": "2026-09-29T11:55:13-07:00",
-    "duration": "PT32S"
+    "duration": "PT32S",
+    "length": "0:32"
   },
   "Xs4J50JHhZI": {
     "name": "Telefonunun internetini 30 saniyede bilgisayara paylaş",
     "description": "Tether Link Utility ile Android telefonun mobil verisini bilgisayarla paylaşma: paylaşımı başlat, Wi-Fi'a bağlan, SOCKS5 adresini gir ve kullanmaya başla.",
     "uploadDate": "2026-09-29T11:58:20-07:00",
-    "duration": "PT32S"
+    "duration": "PT32S",
+    "length": "0:32"
   }
 }

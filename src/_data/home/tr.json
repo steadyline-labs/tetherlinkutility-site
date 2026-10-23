@@ -145,11 +145,19 @@
     "notes": "<strong>Telefonunun kendi hotspot'unu mu kullanıyorsun?</strong> Mobil Hotspot'u (Android) veya Kişisel Erişim Noktası'nı (iPhone) kendin açıyorsan, ağ adını ve şifresini uygulamadaki <strong>Hotspot Wi-Fi bilgilerini ekle</strong> ile bir kez kaydet. Bilgiler yalnızca cihazında saklanır, hotspot ayarların değiştirilmez ve QR koda eklenir; böylece diğer cihazlar tarayarak ağa katılır. Android uygulaması hotspot'u kendisi başlattığında buna gerek yoktur. Bağlı cihazların kullandığı veri mobil paketinden düşer. Tethering için operatörünün koşullarını kontrol et."
   },
   "demo": {
-    "title": "Uygulamayı iş başında gör",
+    "title": "Nasıl çalıştığını gör",
     "videoId": "Xs4J50JHhZI",
     "cover": "/demo-cover-tr-2026-10.jpg",
     "playLabel": "Tanıtım videosunu oynat",
-    "previewAlt": "Tanıtım videosu önizlemesi"
+    "previewAlt": "Tanıtım videosu önizlemesi",
+    "subtitle": "Bilgisayarı bağlarken mi takıldın? Seninkini seç, adım adım takip et.",
+    "howLabel": "Adım adım",
+    "demoLabel": "Tanıtım",
+    "windowsTitle": "Windows bilgisayarı bağla",
+    "macTitle": "Mac'i bağla",
+    "shortTitle": "30 saniyede Tether Link Utility",
+    "windowsLink": "Windows için yazılı adımlar",
+    "macLink": "Mac için yazılı adımlar"
   },
   "platforms": {
     "label": "Platformlar",

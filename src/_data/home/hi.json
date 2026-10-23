@@ -147,7 +147,15 @@
     "videoId": "866HxsnLb2U",
     "cover": "/demo-cover-en-2026-10.jpg",
     "playLabel": "डेमो वीडियो चलाएं",
-    "previewAlt": "डेमो वीडियो प्रीव्यू"
+    "previewAlt": "डेमो वीडियो प्रीव्यू",
+    "subtitle": "कंप्यूटर कनेक्ट करने में अटक गए? अपना कंप्यूटर चुनें और कदम-दर-कदम साथ चलें।",
+    "howLabel": "कदम-दर-कदम",
+    "demoLabel": "डेमो",
+    "windowsTitle": "Windows PC कनेक्ट करें",
+    "macTitle": "Mac कनेक्ट करें",
+    "shortTitle": "30 सेकंड में Tether Link Utility",
+    "windowsLink": "Windows के लिखित स्टेप्स",
+    "macLink": "Mac के लिखित स्टेप्स"
   },
   "platforms": {
     "label": "प्लेटफ़ॉर्म",

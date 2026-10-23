@@ -329,27 +329,28 @@ export default function (eleventyConfig) {
     return `${siteData.playUrl}&referrer=${encodeURIComponent(referrer)}`;
   });
 
-  // VideoObject JSON-LD for each how-to video player in a rendered post (see enhancePost).
-  eleventyConfig.addFilter("videoJsonLd", (html, lang, siteUrl) => {
-    const devices = [...String(html).matchAll(/<figure class="guide-video" id="([a-z]+)-video">/g)].map((m) => m[1]);
-    return devices
-      .map((device) => {
-        const v = guideVideo(lang, device);
-        const ld = {
-          "@context": "https://schema.org",
-          "@type": "VideoObject",
-          name: v.name,
-          description: v.description,
-          thumbnailUrl: [`${siteUrl}${v.cover}`, `https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`],
-          uploadDate: v.uploadDate,
-          duration: v.duration,
-          embedUrl: `https://www.youtube.com/embed/${v.id}`,
-          url: `https://www.youtube.com/watch?v=${v.id}`,
-        };
-        return `  <script type="application/ld+json">\n  ${JSON.stringify(ld, null, 2).replace(/\n/g, "\n  ")}\n  </script>\n`;
-      })
-      .join("");
-  });
+  // VideoObject JSON-LD for one how-to video (setup guide players and the home page video cards).
+  const guideVideoLd = (lang, device, siteUrl) => {
+    const v = guideVideo(lang, device);
+    const ld = {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name: v.name,
+      description: v.description,
+      thumbnailUrl: [`${siteUrl}${v.cover}`, `https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`],
+      uploadDate: v.uploadDate,
+      duration: v.duration,
+      embedUrl: `https://www.youtube.com/embed/${v.id}`,
+      url: `https://www.youtube.com/watch?v=${v.id}`,
+    };
+    return `  <script type="application/ld+json">\n  ${JSON.stringify(ld, null, 2).replace(/\n/g, "\n  ")}\n  </script>\n`;
+  };
+  eleventyConfig.addFilter("guideVideoLd", guideVideoLd);
+  // One per how-to video player in a rendered post (see enhancePost).
+  eleventyConfig.addFilter("videoJsonLd", (html, lang, siteUrl) =>
+    [...String(html).matchAll(/<figure class="guide-video" id="([a-z]+)-video">/g)]
+      .map((m) => guideVideoLd(lang, m[1], siteUrl))
+      .join(""));
 
   return {
     dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },

@@ -180,14 +180,23 @@ test("no built file mentions the old demo videos or old cover file names", () =>
 });
 
 for (const lang of LANGS) {
-  test(`home ${prefix(lang)}: VideoObject matches the demo video on the page`, () => {
+  test(`home ${prefix(lang)}: one VideoObject per video on the page (demo Short + Windows and Mac how-tos)`, () => {
     const html = read(prefix(lang));
-    const id = (html.match(/data-yt-id="([^"]+)"/) || [])[1];
-    assert.ok(id, "demo video id");
+    const ids = [...html.matchAll(/data-yt-id="([^"]+)"/g)].map((m) => m[1]);
+    assert.equal(ids.length, 3, "three videos in #demo");
     const v = ldFind(jsonLd(html), "VideoObject");
-    assert.equal(v.length, 1, "one VideoObject");
-    assert.equal(v[0].embedUrl, `https://www.youtube.com/embed/${id}`);
+    assert.deepEqual(v.map((b) => b.embedUrl).sort(), ids.map((id) => `https://www.youtube.com/embed/${id}`).sort());
     const cover = (html.match(/<img src="(\/demo-cover-[^"]+)"/) || [])[1];
-    assert.ok(cover && [].concat(v[0].thumbnailUrl).includes(`${SITE_URL}${cover}`), `thumbnailUrl has ${cover}`);
+    const demo = v.find((b) => [].concat(b.thumbnailUrl).includes(`${SITE_URL}${cover}`));
+    assert.ok(cover && demo, `a VideoObject thumbnailUrl has ${cover}`);
+  });
+
+  test(`home ${prefix(lang)}: Windows and Mac video cards link to their setup guide sections`, () => {
+    const html = read(prefix(lang));
+    for (const anchor of ["windows", "macos"]) {
+      const m = html.match(new RegExp(`class="video-guide-link" href="([^"#]+)#${anchor}"`));
+      assert.ok(m, `${anchor} guide link`);
+      assert.ok(read(m[1]).includes(`id="${anchor}"`), `${m[1]}#${anchor} exists`);
+    }
   });
 }

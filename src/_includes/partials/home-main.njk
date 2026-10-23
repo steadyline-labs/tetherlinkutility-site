@@ -105,14 +105,38 @@
 
   <section class="section wrap video-showcase band-peach" id="demo">
     <h2>{{ h.demo.title }}</h2>
-    <div class="video-frame video-facade" data-yt-id="{{ h.demo.videoId }}" data-yt-title="{{ t.homeNav.videoTitle }}" role="button" tabindex="0" aria-label="{{ h.demo.playLabel }}">
-      <img src="{{ h.demo.cover }}" alt="{{ h.demo.previewAlt }}" loading="lazy" decoding="async" width="720" height="1280" />
-      <span class="video-facade-play" aria-hidden="true">
-        <svg width="72" height="72" viewBox="0 0 60 60">
-          <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.55)"/>
-          <path d="M24 18l20 12-20 12V18z" fill="#fff"/>
-        </svg>
-      </span>
+    <p class="video-sub">{{ h.demo.subtitle }}</p>
+{%- set guideUrl %}{% if collections | hasPost(lang, "socks5-proxy-setup-windows-macos-ios") %}{{ t.prefix }}{% else %}/{% endif %}blog/socks5-proxy-setup-windows-macos-ios.html{% endset %}
+{%- set playIcon %}<span class="video-facade-play" aria-hidden="true"><svg width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.6)"/><path d="M24 18l20 12-20 12V18z" fill="#fff"/></svg></span>{% endset %}
+    <div class="video-grid">
+{%- for d in [{ key: "windows", anchor: "windows", title: h.demo.windowsTitle, link: h.demo.windowsLink }, { key: "mac", anchor: "macos", title: h.demo.macTitle, link: h.demo.macLink }] %}{% set v = lang | guideVideo(d.key) %}
+      <article class="video-card" aria-labelledby="demo-{{ d.key }}-title">
+        <div class="video-facade video-card-cover" data-yt-id="{{ v.id }}" data-yt-title="{{ v.name }}" role="button" tabindex="0" aria-label="{{ t.video.play }}: {{ d.title }}, {{ v.length }}{% if t.video.note %}, {{ t.video.note }}{% endif %}">
+          <img src="{{ v.cover }}" alt="" loading="lazy" decoding="async" width="960" height="540" />
+          {{ playIcon | safe }}
+          <span class="video-badge" aria-hidden="true">{{ v.length }}</span>{% if t.video.note %}
+          <span class="video-pill" aria-hidden="true">{{ t.video.note }}</span>{% endif %}
+        </div>
+        <div class="video-card-body">
+          <span class="video-label">{{ h.demo.howLabel }}</span>
+          <h3 id="demo-{{ d.key }}-title">{{ d.title }}</h3>
+{%- if t.video.note %}
+          <p class="video-meta">{{ v.length }} · {{ t.video.note }}</p>{% endif %}
+          <a class="video-guide-link" href="{{ guideUrl }}#{{ d.anchor }}">{{ d.link }} <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+{%- endfor %}
+      <article class="video-card video-card-short" aria-labelledby="demo-short-title">
+        <div class="video-facade video-card-cover" data-yt-id="{{ h.demo.videoId }}" data-yt-title="{{ t.homeNav.videoTitle }}" role="button" tabindex="0" aria-label="{{ h.demo.playLabel }}: {{ h.demo.shortTitle }}, {{ videos[h.demo.videoId].length }}{% if t.video.note %}, {{ t.video.note }}{% endif %}">
+          <img src="{{ h.demo.cover }}" alt="{{ h.demo.previewAlt }}" loading="lazy" decoding="async" width="720" height="1280" />
+          {{ playIcon | safe }}
+          <span class="video-badge" aria-hidden="true">{{ videos[h.demo.videoId].length }}</span>
+        </div>
+        <div class="video-card-body">
+          <span class="video-label">{{ h.demo.demoLabel }}</span>
+          <h3 id="demo-short-title">{{ h.demo.shortTitle }}</h3>
+        </div>
+      </article>
     </div>
   </section>
 

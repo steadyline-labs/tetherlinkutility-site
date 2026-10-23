@@ -4,7 +4,8 @@
     use the site root (Google reads the site name from the domain's home page); `ldUrl` overrides
     the page URL used in the SoftwareApplication block.
     `inLanguage` (optional) adds inLanguage to every block except Organization and VideoObject (es/hi/pt show the
-    English video). VideoObject text comes from src/_data/videos.json, keyed by demo.videoId.
+    English video). VideoObject text comes from src/_data/videos.json, keyed by demo.videoId; the Windows
+    and Mac how-to videos in the #demo section add one VideoObject each (src/_data/guideVideos.json).
     FAQPage answers are the FAQ answers with HTML tags removed. -#}
 {%- set h = home[lang] -%}
 {%- set ldUrl = h.ldUrl or (site.url + t.prefix) -%}
@@ -86,4 +87,5 @@
       }{% if not loop.last %},{% endif %}
 {% endfor %}    ]
 {% endif %}  }
-  </script>{% endfor -%}
+  </script>{% endfor %}
+{{ lang | guideVideoLd("windows", site.url) | safe }}{{ lang | guideVideoLd("mac", site.url) | safe }}

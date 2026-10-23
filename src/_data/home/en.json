@@ -147,7 +147,15 @@
     "videoId": "866HxsnLb2U",
     "cover": "/demo-cover-en-2026-10.jpg",
     "playLabel": "Play demo video",
-    "previewAlt": "Demo video preview"
+    "previewAlt": "Demo video preview",
+    "subtitle": "Stuck connecting a computer? Pick yours and follow along, step by step.",
+    "howLabel": "Step by step",
+    "demoLabel": "Demo",
+    "windowsTitle": "Connect a Windows PC",
+    "macTitle": "Connect a Mac",
+    "shortTitle": "Tether Link Utility in 30 seconds",
+    "windowsLink": "Written steps for Windows",
+    "macLink": "Written steps for Mac"
   },
   "platforms": {
     "label": "Platforms",
