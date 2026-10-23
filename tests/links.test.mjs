@@ -34,11 +34,13 @@ function references(html) {
   for (const s of html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)) {
     for (const m of s[1].matchAll(/url\(\s*['"]?([^'")]+)/g)) out.push({ url: m[1], where: "<style> url()" });
   }
-  // JSON-LD: every string value on the site URL is a link too.
+  // JSON-LD: every string value on the site URL is a link too, except "@id" (a node identifier such as
+  // https://tetherlinkutility.com/#app, shared with steadylinelabs.com, not a page anchor).
   for (const s of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     const walk = (v) => {
       if (typeof v === "string") { if (v.startsWith(SITE_URL)) out.push({ url: v, where: "JSON-LD" }); }
-      else if (v && typeof v === "object") Object.values(v).forEach(walk);
+      else if (Array.isArray(v)) v.forEach(walk);
+      else if (v && typeof v === "object") Object.entries(v).forEach(([k, x]) => { if (k !== "@id") walk(x); });
     };
     walk(JSON.parse(s[1]));
   }

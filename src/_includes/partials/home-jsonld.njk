@@ -40,8 +40,10 @@
       }{% if not loop.last %},{% endif %}
 {% endfor %}    ]
 {% elif b.type == "app" %}    "@type": "SoftwareApplication",
+    "@id": "{{ site.url }}/#app",
     "name": "{{ site.name }}",
-    "publisher": { "@type": "Organization", "name": "Steadyline Labs", "url": "{{ site.publisherUrl }}" },
+    "author": { "@type": "Organization", "@id": "{{ site.publisherUrl }}/#organization", "name": "Steadyline Labs", "url": "{{ site.publisherUrl }}" },
+    "publisher": { "@type": "Organization", "@id": "{{ site.publisherUrl }}/#organization", "name": "Steadyline Labs", "url": "{{ site.publisherUrl }}" },
     "sameAs": ["{{ site.playUrl }}"],
     "installUrl": "{{ site.playUrl }}",
     "downloadUrl": "{{ site.playUrl }}",

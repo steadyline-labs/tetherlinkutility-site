@@ -41,7 +41,7 @@
     "@type": "Blog",
     "name": "Tether Link Utility Blog",
     "url": "{{ pageUrl }}",
-    "publisher": { "@type": "Organization", "name": "Tether Link Utility" },
+    "publisher": { "@type": "Organization", "@id": "{{ site.publisherUrl }}/#organization", "name": "Steadyline Labs", "url": "{{ site.publisherUrl }}" },
     "blogPost": [
 {% for post in collections["posts_" + lang] | byPublished %}      {
         "@type": "BlogPosting",
