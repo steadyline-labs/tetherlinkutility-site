@@ -35,11 +35,11 @@
       },
       {
         "name": "Diğer cihazı seç",
-        "text": "Telefonun internetini kullanacak cihaza dokun: Android, Windows, iPhone, Mac, Linux veya Diğer (TV, oyun konsolu). Uygulama, herhangi bir Wi-Fi bilgisini göstermeden önce cihazda uygulamanın (veya Firefox'un) olup olmadığını sorar ve internet olmasa bile nasıl kuracağını gösterir."
+        "text": "Telefonun internetini kullanacak cihaza dokun: Android, Windows, iPhone, Mac, Linux veya Diğer (TV, oyun konsolu). Windows bilgisayar ya da Mac için uygulama önce indireceğin tek dosyayı gösterir: sing-box'ı senin için kurup çalıştırır, böylece tüm uygulamalar çalışır. Telefon için uygulamanın kurulu olup olmadığını sorar ve internet olmasa bile nasıl kuracağını gösterir."
       },
       {
         "name": "Cihazını bağla",
-        "text": "Android: diğer telefonda Başka bir telefonun internetini kullan'a, sonra QR kodu tara'ya dokun. Windows, Mac, Linux, iPhone: gösterilen Wi-Fi'ye bağlan (\"İnternet yok\" diyebilir; bu normal) ve iki değeri Firefox'a, Mac'in proxy ayarlarına veya Potatso'ya gir. Uygulamanın ekranı, cihaz bağlanana kadar kendiliğinden bekler."
+        "text": "Android: diğer telefonda Başka bir telefonun internetini kullan'a, sonra QR kodu tara'ya dokun. Windows bilgisayar veya Mac: gösterilen Wi-Fi'ye bağlan (\"İnternet yok\" diyebilir; bu normal), kurulum dosyasını (Windows) ya da betiği (Mac) aç ve iki değeri yaz. iPhone veya Linux: iki değeri Potatso'ya ya da Firefox'a gir. Uygulamanın ekranı, cihaz bağlanana kadar kendiliğinden bekler."
       },
       {
         "name": "Gezinmeye başla",
@@ -58,7 +58,7 @@
       "Windows, macOS, Linux ve iOS istemcileri için SOCKS5 proxy desteği"
     ],
     "freeName": "Ücretsiz",
-    "proDescription": "Aylık 109,99 TL, yıllık 609,99 TL. Kesin fiyat Google Play veya App Store'da gösterilir, platforma göre değişebilir."
+    "proDescription": "Aylık 109,99 TL, yıllık 609,99 TL. Kesin fiyat Google Play'de gösterilir, platforma göre değişebilir."
   },
   "hero": {
     "iosPill": "çok yakında",
@@ -104,7 +104,8 @@
           "title": "Diğer cihazların",
           "lines": [
             "<b>Android telefon:</b> uygulama yok mu? Paylaşan telefon, internet olmasa bile nasıl kuracağını gösterir. Sonra <span class=\"app-ui\">Başka bir telefonun internetini kullan</span>'a ve <span class=\"app-ui\">QR kodu tara</span>'ya dokun.",
-            "<b>Windows, Mac, Linux veya iPhone:</b> önce Firefox'u kur (iPhone'da Potatso; Mac'te bir şey gerekmez), sonra paylaşan telefonda gösterilen Wi-Fi'ye bağlan ve iki değeri gir."
+            "<b>Windows bilgisayar veya Mac:</b> cihazda internet hâlâ varken <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows kurulum dosyasını</a> ya da <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac betiğini</a> indir. sing-box'ı senin için kurup çalıştırır, böylece tüm uygulamalar telefonun internetini kullanır. Sonra paylaşan telefonda gösterilen Wi-Fi'ye bağlan ve iki değeri yaz. <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Windows videosunu izle (1:21)</a> <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Mac videosunu izle (1:19)</a>",
+            "<b>iPhone veya Linux:</b> önce Potatso'yu (iPhone) ya da Firefox'u (Linux) kur, sonra gösterilen Wi-Fi'ye bağlan ve iki değeri gir."
           ]
         }
       ],
@@ -162,20 +163,20 @@
   "platforms": {
     "label": "Platformlar",
     "title": "Zaten kullandığın cihazlarla çalışır",
-    "text": "Dizüstü bilgisayarlar ve iPhone'lar standart SOCKS5 proxy ayarlarıyla ya da Potatso gibi uygulamalarla bağlanır. Windows veya macOS'ta DNS dahil tam sistem kapsaması için <strong>sing-box</strong>'ı TUN modunda çalıştır.",
+    "text": "Windows bilgisayarlar ve Mac'ler: tek bir dosya <strong>sing-box</strong>'ı senin için kurup çalıştırır; bilgisayardaki tüm uygulamalar, DNS dahil, telefonun internetini kullanır. iPhone'lar ücretsiz Potatso uygulamasıyla bağlanır.",
     "guideLink": "Tam kurulum rehberi &rarr;",
     "items": [
       {
         "mono": "WIN",
         "name": "Windows",
-        "text": "Firefox: Ayarlar, vekil ara, Vekil sunucuyu yapılandır. Chrome ve Edge: FoxyProxy.",
-        "chip": "SOCKS5"
+        "text": "Önerilen: <a href=\"/downloads/TLU-Windows-Setup.cmd\">kurulum dosyası</a>. Çift tıkla, iki değeri yaz, tüm uygulamalar çalışır. <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Windows videosunu izle (1:21)</a>",
+        "chip": "tüm uygulamalar"
       },
       {
         "mono": "MAC",
         "name": "macOS",
-        "text": "Sistem Ayarları &rarr; Wi-Fi &rarr; Ayrıntılar&hellip; &rarr; Proxy'ler &rarr; SOCKS proxy ya da sing-box.",
-        "chip": "yerleşik"
+        "text": "Önerilen: <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac betiği</a>. Terminal'de çalıştır, iki değeri yaz, tüm uygulamalar çalışır. <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Mac videosunu izle (1:19)</a>",
+        "chip": "tüm uygulamalar"
       },
       {
         "mono": "AND",
@@ -217,7 +218,7 @@
         ]
       }
     ],
-    "note": "Yıllık plan 609,99 TL. Kesin fiyat Google Play veya App Store'da gösterilir."
+    "note": "Yıllık plan 609,99 TL. Kesin fiyat Google Play'de gösterilir."
   },
   "faq": {
     "title": "Sıkça sorulan sorular",
@@ -237,11 +238,11 @@
       },
       {
         "q": "Windows veya Mac dizüstü bilgisayar bağlayabilir miyim?",
-        "a": "Evet, dizüstü bilgisayarının SOCKS5 proxy ayarlarını (macOS'ta yerleşik, Windows'ta Firefox/FoxyProxy ile) uygulamada gösterilen IP ve porta yönlendir. Bu, sadece o ayarı kontrol eden uygulamaları kapsar; DNS dahil tam sistem kapsaması için sing-box'ı TUN modunda kullan. Adım adım videolar: <a href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">Windows</a>, <a href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">Mac</a>."
+        "a": "Evet. Windows'ta <a href=\"/downloads/TLU-Windows-Setup.cmd\">kurulum dosyasını</a>, Mac'te <a href=\"/downloads/tlu-mac-tunnel.zip\">betiği</a> indir. İkisi de sing-box'ı senin için kurup çalıştırır; bilgisayardaki tüm uygulamalar, DNS dahil, telefonun internetini kullanır. Sonra uygulamada gösterilen IP'yi ve portu yaz. Daha az uygulamayı kapsayan yollar da var (Firefox, FoxyProxy, Mac'in proxy ayarı). <a href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#windows\">Yazılı adımlar</a>. <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Windows videosunu izle (1:21)</a> <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Mac videosunu izle (1:19)</a>"
       },
       {
         "q": "SOCKS5 proxy ayarı tüm trafiğimi korur mu?",
-        "a": "Tam olarak değil. Bir tarayıcı ya da sistem SOCKS5 ayarı sadece bu ayarı kontrol eden uygulamaların trafiğini yönlendirir; DNS sorguları ve diğer arka plan trafiği proxy yerine düz hotspot bağlantısından gidebilir. Windows veya macOS'ta tam kapsama için <a href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html\">sing-box'ı TUN modunda</a> çalıştır, tüm sistem trafiğini, DNS dahil, tünelden geçirir."
+        "a": "Tam olarak değil. Bir tarayıcı ya da sistem SOCKS5 ayarı sadece bu ayarı kontrol eden uygulamaların trafiğini yönlendirir; DNS sorguları ve diğer arka plan trafiği düz hotspot bağlantısından gidebilir. Tam kapsama için <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows kurulum dosyasını</a> ya da <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac betiğini</a> kullan: sing-box'ı TUN modunda çalıştırırlar ve bilgisayarın tüm trafiğini, DNS dahil, telefondan geçirirler. <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Windows videosunu izle (1:21)</a> <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Mac videosunu izle (1:19)</a>"
       },
       {
         "q": "iPhone ile çalışıyor mu?",
@@ -249,7 +250,7 @@
       },
       {
         "q": "Aynı anda kaç cihaz bağlanabilir?",
-        "a": "Ücretsiz katman aynı anda 1 cihaz bağlar; Pro bunu 5 cihaza çıkarır. Pro aylık 109,99 TL veya yıllık 609,99 TL'dir. Kesin fiyat Google Play veya App Store'da gösterilir."
+        "a": "Ücretsiz katman aynı anda 1 cihaz bağlar; Pro bunu 5 cihaza çıkarır. Pro aylık 109,99 TL veya yıllık 609,99 TL'dir. Kesin fiyat Google Play'de gösterilir."
       },
       {
         "q": "5G ve 4G/LTE ile çalışıyor mu?",

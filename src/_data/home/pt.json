@@ -34,11 +34,11 @@
       },
       {
         "name": "Escolha o outro dispositivo",
-        "text": "Toque no dispositivo que vai usar a internet do celular: Android, Windows, iPhone, Mac, Linux ou outro (TV, videogame). Antes de mostrar qualquer dado do Wi-Fi, o app pergunta se ele já tem o app (ou o Firefox) e mostra como instalar, mesmo sem internet."
+        "text": "Toque no dispositivo que vai usar a internet do celular: Android, Windows, iPhone, Mac, Linux ou outro (TV, videogame). Para um PC com Windows ou um Mac, o app começa pelo único arquivo a baixar: ele instala e roda o sing-box para você, então todos os apps funcionam. Para um celular, pergunta se ele já tem o app e mostra como instalar, mesmo sem internet."
       },
       {
         "name": "Conecte seu dispositivo",
-        "text": "Android: no outro celular, toque em Use another phone's internet e depois em Scan QR code. Windows, Mac, Linux, iPhone: entre no Wi-Fi mostrado (ele pode dizer \"Sem internet\"; é normal) e digite os dois valores no Firefox, nos ajustes de proxy do Mac ou no Potatso. A tela do app espera sozinha até o dispositivo conectar."
+        "text": "Android: no outro celular, toque em Use another phone's internet e depois em Scan QR code. PC com Windows ou Mac: entre no Wi-Fi mostrado (ele pode dizer \"Sem internet\"; é normal), abra o arquivo de instalação (Windows) ou o script (Mac) e digite os dois valores. iPhone ou Linux: digite os dois valores no Potatso ou no Firefox. A tela do app espera sozinha até o dispositivo conectar."
       },
       {
         "name": "Comece a navegar",
@@ -57,7 +57,7 @@
       "Suporte a proxy SOCKS5 para clientes Windows, macOS e iOS"
     ],
     "freeName": "Grátis",
-    "proDescription": "A partir de $3.99 por mês. O preço exato, na moeda local e com o plano anual, aparece no Google Play ou na App Store e varia conforme o país e a plataforma."
+    "proDescription": "A partir de $3.99 por mês. O preço exato, na moeda local e com o plano anual, aparece no Google Play e varia conforme o país e a plataforma."
   },
   "hero": {
     "iosPill": "em breve",
@@ -103,7 +103,8 @@
           "title": "Seus outros dispositivos",
           "lines": [
             "<b>Celular Android:</b> ainda sem o app? O celular que compartilha mostra como instalar, mesmo sem internet. Depois toque em <span class=\"app-ui\">Use another phone's internet</span> e em <span class=\"app-ui\">Scan QR code</span>.",
-            "<b>Windows, Mac, Linux ou iPhone:</b> primeiro instale o Firefox (o Potatso no iPhone; nada no Mac), depois entre no Wi-Fi mostrado no celular que compartilha e digite os dois valores."
+            "<b>PC com Windows ou Mac:</b> enquanto ainda tiver internet, baixe o <a href=\"/downloads/TLU-Windows-Setup.cmd\">arquivo de instalação para Windows</a> ou o <a href=\"/downloads/tlu-mac-tunnel.zip\">script para Mac</a>. Ele instala e roda o sing-box para você, então todos os apps usam a internet do celular. Depois entre no Wi-Fi mostrado no celular que compartilha e digite os dois valores. <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Assista ao vídeo para Windows (1:21, em inglês)</a> <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Assista ao vídeo para Mac (1:19, em inglês)</a>",
+            "<b>iPhone ou Linux:</b> primeiro instale o Potatso (iPhone) ou o Firefox (Linux), depois entre no Wi-Fi mostrado e digite os dois valores."
           ]
         }
       ],
@@ -161,20 +162,20 @@
   "platforms": {
     "label": "Plataformas",
     "title": "Funciona com o que você já tem",
-    "text": "Computadores e iPhones se conectam pelas configurações padrão de proxy SOCKS5 ou por apps como o Potatso. Para cobertura completa em todo o sistema, DNS incluído, rode o <strong>sing-box</strong> no modo TUN no Windows ou no macOS.",
+    "text": "PCs com Windows e Macs: um único arquivo instala e roda o <strong>sing-box</strong> para você, então todos os apps do computador usam a internet do celular, DNS incluído. iPhones se conectam pelo app gratuito Potatso.",
     "guideLink": "Guia completo de configuração &rarr;",
     "items": [
       {
         "mono": "WIN",
         "name": "Windows",
-        "text": "Firefox: Configurações, pesquise proxy, Configurar proxy. Chrome e Edge: FoxyProxy.",
-        "chip": "SOCKS5"
+        "text": "Recomendado: o <a href=\"/downloads/TLU-Windows-Setup.cmd\">arquivo de instalação</a>. Clique duas vezes, digite os dois valores e todos os apps funcionam. <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Assista ao vídeo para Windows (1:21, em inglês)</a>",
+        "chip": "todos os apps"
       },
       {
         "mono": "MAC",
         "name": "macOS",
-        "text": "Ajustes do Sistema &rarr; Wi-Fi &rarr; Detalhes&hellip; &rarr; Proxies &rarr; Proxy SOCKS, ou sing-box.",
-        "chip": "nativo"
+        "text": "Recomendado: o <a href=\"/downloads/tlu-mac-tunnel.zip\">script para Mac</a>. Rode no Terminal, digite os dois valores e todos os apps funcionam. <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Assista ao vídeo para Mac (1:19, em inglês)</a>",
+        "chip": "todos os apps"
       },
       {
         "mono": "AND",
@@ -216,7 +217,7 @@
         ]
       }
     ],
-    "note": "O preço exato, na moeda local e com o plano anual, aparece no Google Play ou na App Store."
+    "note": "O preço exato, na moeda local e com o plano anual, aparece no Google Play."
   },
   "faq": {
     "title": "Perguntas frequentes",
@@ -236,11 +237,11 @@
       },
       {
         "q": "Posso conectar um computador Windows ou Mac?",
-        "a": "Sim, aponte as configurações de proxy SOCKS5 do seu computador (integradas no macOS, ou pelo Firefox/FoxyProxy no Windows) para o IP e a porta mostrados no app. Isso cobre os apps que respeitam essa configuração; para cobertura completa em todo o sistema, incluindo DNS, use o sing-box no modo TUN. Vídeos passo a passo (em inglês): <a href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">Windows</a>, <a href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">Mac</a>."
+        "a": "Sim. No Windows, baixe o <a href=\"/downloads/TLU-Windows-Setup.cmd\">arquivo de instalação</a>; no Mac, o <a href=\"/downloads/tlu-mac-tunnel.zip\">script</a>. Os dois instalam e rodam o sing-box para você, então todos os apps do computador, DNS incluído, usam a internet do celular. Depois digite o IP e a porta mostrados no app. Também existem opções que cobrem menos apps (Firefox, FoxyProxy, o ajuste de proxy do Mac). <a href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#windows\">Passos por escrito</a>. <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Assista ao vídeo para Windows (1:21, em inglês)</a> <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Assista ao vídeo para Mac (1:19, em inglês)</a>"
       },
       {
         "q": "Uma configuração de proxy SOCKS5 protege todo o meu tráfego?",
-        "a": "Não totalmente. Uma configuração SOCKS5 do navegador ou do sistema só redireciona o tráfego dos apps que a respeitam; consultas DNS e outro tráfego em segundo plano ainda podem sair pela conexão comum do ponto de acesso em vez de passar pelo proxy. Para cobertura completa no Windows ou no macOS, rode o <a href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html\">sing-box no modo TUN</a>, que envia todo o tráfego do sistema, DNS incluído, pelo túnel."
+        "a": "Não totalmente. Uma configuração SOCKS5 do navegador ou do sistema só redireciona o tráfego dos apps que a respeitam; consultas DNS e outro tráfego em segundo plano ainda podem sair pela conexão comum do ponto de acesso. Para cobertura completa, use o <a href=\"/downloads/TLU-Windows-Setup.cmd\">arquivo de instalação para Windows</a> ou o <a href=\"/downloads/tlu-mac-tunnel.zip\">script para Mac</a>: eles rodam o sing-box no modo TUN e enviam todo o tráfego do computador, DNS incluído, pelo celular. <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Assista ao vídeo para Windows (1:21, em inglês)</a> <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Assista ao vídeo para Mac (1:19, em inglês)</a>"
       },
       {
         "q": "Funciona com iPhone?",
@@ -248,7 +249,7 @@
       },
       {
         "q": "Quantos dispositivos podem se conectar ao mesmo tempo?",
-        "a": "O plano gratuito conecta 1 dispositivo por vez; o Pro aumenta para 5. O Pro custa a partir de $3.99 por mês. O preço exato, na moeda local e com o plano anual, aparece no Google Play ou na App Store."
+        "a": "O plano gratuito conecta 1 dispositivo por vez; o Pro aumenta para 5. O Pro custa a partir de $3.99 por mês. O preço exato, na moeda local e com o plano anual, aparece no Google Play."
       },
       {
         "q": "Funciona com 5G e 4G/LTE?",

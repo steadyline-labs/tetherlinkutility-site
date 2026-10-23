@@ -1,6 +1,6 @@
 ---
 title: "Como configurar proxy SOCKS5 no Windows, macOS e iOS"
-description: "Passo a passo para configurar um proxy SOCKS5 no Firefox, no Chrome (FoxyProxy), nos ajustes de rede do macOS, no sing-box em modo TUN e em apps do iOS."
+description: "Passo a passo para todos os apps no Windows e no Mac (um arquivo de instalação e um script que rodam o sing-box para você), mais opções só para o navegador e apps do iOS."
 published: "2026-09-27"
 modified: "2026-10-23"
 h3Style: true
@@ -11,7 +11,7 @@ sitemap:
   priority: "0.6"
 index:
   order: 4
-  excerpt: "Passo a passo para Firefox, FoxyProxy, ajustes de rede do macOS, sing-box em modo TUN para todos os apps e Potatso ou Shadowrocket no iOS."
+  excerpt: "O arquivo de instalação para Windows e o script para Mac (os dois rodam o sing-box para você e todos os apps funcionam), opções só para o navegador e Potatso ou Shadowrocket no iOS."
 extraJsonLd: |2
     <script type="application/ld+json">
     {
@@ -22,21 +22,31 @@ extraJsonLd: |2
         {
           "@type": "HowToStep",
           "name": "Instale primeiro, depois entre no Wi-Fi do celular",
-          "text": "Enquanto seu dispositivo ainda tem a internet normal, instale o que ele precisa (Potatso no iPhone, Firefox ou FoxyProxy no computador, sing-box com nosso script no Mac). Depois abra o Tether Link Utility no celular que compartilha, toque em START SHARING, toque no dispositivo que você quer conectar e responda se ele já tem o app. Só então entre no Wi-Fi mostrado em Name com a senha mostrada em Password e digite os dois valores (SOCKS Host e Port). Esse Wi-Fi pode mostrar 'Sem internet'; é normal. A tela do app espera sozinha até o dispositivo conectar."
+          "text": "Enquanto o dispositivo ainda tem a internet normal, baixe o que ele precisa: o arquivo de instalação num PC com Windows, nosso script no Mac, o Potatso no iPhone. Depois abra o Tether Link Utility no celular que compartilha, toque em START SHARING, toque no dispositivo que você quer conectar e responda se ele já tem o app. Só então entre no Wi-Fi mostrado em Name com a senha mostrada em Password e digite os dois valores (SOCKS Host e Port). Esse Wi-Fi pode mostrar 'Sem internet'; é normal. A tela do app espera sozinha até o dispositivo conectar."
         },
         {
           "@type": "HowToStep",
-          "name": "Windows: Firefox (nativo) ou FoxyProxy no Chrome/Edge",
-          "text": "No Firefox, abra Configurações, digite proxy na caixa de pesquisa, clique em Configurar proxy e escolha Configuração manual de proxy. Informe o Domínio SOCKS e a Porta, selecione SOCKS v5, marque Proxy DNS ao usar SOCKS v5 e clique em OK. No Chrome ou no Edge, instale a extensão FoxyProxy e cadastre o mesmo IP e porta como proxy SOCKS5."
+          "name": "Windows (recomendado): o arquivo de instalação",
+          "text": "Enquanto o PC ainda tem internet, baixe o TLU-Windows-Setup.cmd em tetherlinkutility.com/downloads/TLU-Windows-Setup.cmd. Ele instala e roda o sing-box para você, então todos os apps do PC, DNS incluído, usam a internet do celular. Entre no Wi-Fi do celular, clique duas vezes no arquivo, clique em Executar e depois em Sim, aperte Enter para usar o IP sugerido, digite a porta e espere aparecer 'Connected. Keep this window open.' Não use Configurações do Windows > Proxy; não funciona com este app."
         },
         {
           "@type": "HowToStep",
-          "name": "Windows e macOS: todos os apps com sing-box",
-          "text": "Firefox/FoxyProxy e o ajuste SOCKS nativo do macOS só encaminham o tráfego dos apps que usam esses ajustes, e o ajuste do macOS não passa as consultas de DNS pelo proxy. Para passar todos os apps e o DNS pelo proxy, instale o sing-box antes de entrar no Wi-Fi do celular (nosso script no macOS, ou baixe a versão para Windows), configure uma entrada TUN com uma saída SOCKS apontando para o IP e a porta do celular e execute com privilégios de administrador. No Windows: abra github.com/SagerNet/sing-box/releases, baixe o arquivo que termina em windows-amd64.zip (windows-arm64.zip no Snapdragon ou Surface Pro X) e extraia. No Bloco de Notas, cole a configuração, troque PHONE_IP e PHONE_PORT e salve como config.json na pasta do sing-box com Tipo: Todos os arquivos. Abra o Terminal (Administrador), digite cd e um espaço, arraste a pasta do sing-box para a janela e aperte Enter; depois digite .\\sing-box.exe run --config config.json e aperte Enter. Espere aparecer sing-box started e deixe a janela aberta. Não use Configurações do Windows > Proxy; não funciona com este app. No macOS: rode nosso script (bash tlu-mac-tunnel.sh no Terminal); ele baixa o sing-box sozinho, o Homebrew não é necessário."
+          "name": "macOS (recomendado): nosso script",
+          "text": "Enquanto o Mac ainda tem internet, baixe o tlu-mac-tunnel.zip em tetherlinkutility.com/downloads/tlu-mac-tunnel.zip. Ele instala e roda o sing-box para você, então todos os apps, DNS incluído, usam a internet do celular. Entre no Wi-Fi do celular, abra o Terminal, digite cd ~/Downloads/tlu-mac-tunnel e depois bash tlu-mac-tunnel.sh. Digite o IP, a porta e a senha do Mac, e espere aparecer 'Connected.'"
         },
         {
           "@type": "HowToStep",
-          "name": "macOS: ajuste de proxy do sistema",
+          "name": "Windows, macOS e Linux: sing-box manualmente",
+          "text": "Para passar todos os apps e o DNS pelo proxy, instale o sing-box antes de entrar no Wi-Fi do celular (nosso script no macOS, ou baixe a versão para Windows), configure uma entrada TUN com uma saída SOCKS apontando para o IP e a porta do celular e execute com privilégios de administrador. No Windows: abra github.com/SagerNet/sing-box/releases, baixe o arquivo que termina em windows-amd64.zip (windows-arm64.zip no Snapdragon ou Surface Pro X) e extraia. No Bloco de Notas, cole a configuração, troque PHONE_IP e PHONE_PORT e salve como config.json na pasta do sing-box com Tipo: Todos os arquivos. Abra o Terminal (Administrador), digite cd e um espaço, arraste a pasta do sing-box para a janela e aperte Enter; depois digite .\\sing-box.exe run --config config.json e aperte Enter. Espere aparecer sing-box started e deixe a janela aberta. Não use Configurações do Windows > Proxy; não funciona com este app. No macOS: rode nosso script (bash tlu-mac-tunnel.sh no Terminal); ele baixa o sing-box sozinho, o Homebrew não é necessário."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Windows, só o navegador: Firefox ou FoxyProxy",
+          "text": "Isso cobre só esse navegador. No Firefox, abra Configurações, digite proxy na caixa de pesquisa, clique em Configurar proxy e escolha Configuração manual de proxy. Informe o Domínio SOCKS e a Porta, selecione SOCKS v5, marque Proxy DNS ao usar SOCKS v5 e clique em OK. No Chrome ou no Edge, instale a extensão FoxyProxy e cadastre o mesmo IP e porta como proxy SOCKS5."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "macOS, outra opção: ajuste de proxy do sistema",
           "text": "Abra Ajustes do Sistema > Wi-Fi, clique em Detalhes… ao lado do Wi-Fi do celular e depois em Proxies. Ative Proxy SOCKS, informe o endereço IP e a porta e clique em OK. Vale para os apps que usam o proxy do sistema, mas não para as consultas de DNS."
         },
         {
@@ -57,7 +67,7 @@ extraJsonLd: |2
     <h1>Como configurar um proxy SOCKS5 no Windows, macOS e iOS</h1>
     <div class="post-meta">Publicado em 27 de setembro de 2026 &middot; Atualizado em 23 de outubro de 2026</div>
 
-    <p>O Tether Link Utility roda um proxy SOCKS5 local no seu celular Android. Qualquer dispositivo que aceite configurações de proxy SOCKS5 pode usá-lo pela rede Wi-Fi que o app cria: no Windows e no macOS você não precisa de nenhum app cliente separado, e no iOS basta um app leve. Veja abaixo como configurar cada plataforma.</p>
+    <p>O Tether Link Utility roda um proxy SOCKS5 local no seu celular Android. Os outros dispositivos o usam pela rede Wi-Fi que o app cria. Num PC com Windows ou num Mac, um único arquivo configura tudo para você: ele instala e roda o sing-box, então o computador inteiro usa a internet do celular. No iOS basta um app leve. Veja abaixo como configurar cada plataforma.</p>
 
     <h2>Antes de começar</h2>
     <p>Faça nesta ordem. O Wi-Fi do celular pode não ter internet própria (ele só leva ao proxy no celular), então instale tudo antes.</p>
@@ -65,15 +75,15 @@ extraJsonLd: |2
       <li><strong>Primeiro instale o que você precisa</strong>, enquanto o dispositivo ainda tem a internet normal:
         <ul>
           <li>iPhone ou iPad: Potatso (gratuito) ou Shadowrocket (pago) na App Store.</li>
-          <li>Computador com Windows ou Linux: Firefox em firefox.com, ou a extensão FoxyProxy no Chrome ou no Edge.</li>
-          <li>Mac: nada para o ajuste do sistema. Para todos os apps, baixe nosso script agora (veja <a href="#macos">macOS</a>). Ele busca o sing-box sozinho, inclusive pelo celular se precisar.</li>
-          <li>Windows ou Linux, todos os apps: baixe o sing-box agora (veja <a href="#windows">Windows</a> ou <a href="#linux">Linux</a>).</li>
+          <li>Computador com Windows: o arquivo de instalação (veja <a href="#windows">Windows</a>). Ele instala e roda o sing-box para você, então todos os apps funcionam.</li>
+          <li>Computador com Linux: sing-box para todos os apps (veja <a href="#linux">Linux</a>), ou o Firefox em firefox.com só para esse navegador.</li>
+          <li>Mac: nosso script (veja <a href="#macos">macOS</a>). Ele instala e roda o sing-box para você, pelo celular também se precisar.</li>
         </ul>
-        <p>O dispositivo está sem internet? Conecte-o a qualquer outro Wi-Fi por alguns minutos (casa, trabalho, café) e instale por lá. Um computador com Windows também pode receber o Firefox por cabo: no celular, baixe o Firefox para Windows, ligue o celular ao computador com um cabo USB, copie o arquivo para o computador e abra.</p>
+        <p>O dispositivo está sem internet? Conecte-o a qualquer outro Wi-Fi por alguns minutos (casa, trabalho, café) e baixe por lá. Um PC com Windows também pode receber o arquivo de instalação pelo celular: baixe no celular e envie para o PC por Bluetooth ou cabo USB.</p>
       <!--help::install--></li>
       <li>No celular que compartilha, abra o Tether Link Utility e toque em <strong>START SHARING</strong>. Na primeira vez, o app mostra <strong>One permission is needed</strong>: toque em <strong>Allow</strong> e depois em <strong>OK</strong> na janela <strong>Solicitação de conexão</strong> do celular.<!--help::start-sharing--></li>
       <li>O app pergunta qual dispositivo vai usar a internet do celular (<strong>Which device will use this phone's internet?</strong>). Toque no seu: <strong>Android phone or tablet</strong>, <strong>Windows computer</strong>, <strong>iPhone or iPad</strong>, <strong>Mac</strong>, <strong>Linux</strong> ou <strong>Other (TV, game console…)</strong>.<!--help::start-sharing--></li>
-      <li>Em seguida, ele pergunta se o dispositivo já tem o que precisa, por exemplo <strong>Is Firefox on the computer?</strong> Toque em <strong>Yes</strong>, <strong>No, but it has internet</strong> ou <strong>No, and it has no internet</strong>, e o app mostra como instalar. Não entre no Wi-Fi do celular ainda.<!--help::install--></li>
+      <li>Para um PC com Windows ou um Mac, o app mostra primeiro o arquivo a baixar. Para um celular ou outros dispositivos, ele pergunta se o dispositivo já tem o que precisa, por exemplo <strong>Is Tether Link Utility on the other phone?</strong> Toque em <strong>Yes, it's installed</strong>, <strong>No, but it has internet</strong> ou <strong>No, and it has no internet</strong>, e o app mostra como instalar. Não entre no Wi-Fi do celular ainda.<!--help::install--></li>
       <li><strong>Depois</strong>, no seu dispositivo, entre no Wi-Fi que o app mostra em <strong>Name</strong>, com a senha mostrada em <strong>Password</strong>. Se aparecer "Sem internet", é normal.<!--help::join-wifi--></li>
       <li>Digite os dois valores que o app mostra (<strong>SOCKS Host</strong> ou <strong>Server</strong>, e <strong>Port</strong>) como explicado abaixo para o seu dispositivo. A tela do app espera sozinha e avança quando o dispositivo conecta.<!--help::start-sharing--></li>
     </ol>
@@ -85,7 +95,7 @@ extraJsonLd: |2
     <h2 id="windows">Windows</h2>
     <!--video:windows-->
     <div class="callout" id="windows-setup-file">
-      <p><strong>Jeito fácil: baixe o arquivo de instalação</strong></p>
+      <p><strong>Recomendado: o arquivo de instalação (todos os apps)</strong></p>
       <p>Um único arquivo pequeno faz toda a configuração para todos os apps do PC, DNS incluído. Ele pede o IP e a porta mostrados no app, verifica se o celular responde, baixa o sing-box uma vez da página oficial no GitHub (verificado com um hash SHA256) e conecta.</p>
       <p style="margin-top: 16px;"><a href="/downloads/TLU-Windows-Setup.cmd" class="cta-button" style="display:inline-block;" download>Baixar TLU-Windows-Setup.cmd</a></p>
       <ol style="margin-top: 12px;">
@@ -100,22 +110,8 @@ extraJsonLd: |2
     <div class="callout">
       <p><strong>Não use Configurações do Windows &gt; Proxy.</strong> Não funciona com este app. Use uma das opções abaixo.</p>
     </div>
-    <h3>Opção A: Firefox (sem extensão)</h3>
-    <ol>
-      <li>No Firefox, abra <strong>Configurações</strong>, digite <strong>proxy</strong> na caixa de pesquisa no topo e clique em <strong>Configurar proxy</strong>.<!--help:windows:set-proxy--></li>
-      <li>Escolha <strong>Configuração manual de proxy</strong>.<!--help:windows:set-proxy--></li>
-      <li>Digite o IP do celular em <strong>Domínio SOCKS</strong>, a porta em <strong>Porta</strong> e selecione <strong>SOCKS v5</strong>.<!--help:windows:set-proxy--></li>
-      <li>Marque <strong>Proxy DNS ao usar SOCKS v5</strong>, para que as consultas de DNS também passem pelo proxy, e clique em <strong>OK</strong>.<!--help:windows:set-proxy--></li>
-      <li>Abra qualquer site no Firefox. Só o Firefox usa a internet do celular; os outros apps do computador não.<!--help:windows:no-internet--></li>
-    </ol>
-    <h3>Opção B: Chrome ou Edge, com FoxyProxy</h3>
-    <ol>
-      <li>Instale a extensão FoxyProxy pela Chrome Web Store.<!--help:windows:install--></li>
-      <li>Adicione um novo proxy: tipo <strong>SOCKS5</strong>, host = IP do celular, porta = a porta mostrada no app.<!--help:windows:set-proxy--></li>
-      <li>Ative esse proxy pelo ícone do FoxyProxy na barra de ferramentas.<!--help:windows:set-proxy--></li>
-    </ol>
-    <h3>Opção C (recomendada): todos os apps com sing-box</h3>
-    <p>O Firefox e o FoxyProxy só mandam pelo proxy o tráfego daquele navegador. Para passar todos os apps do Windows pelo proxy, incluindo o DNS, use o <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> (código aberto e mantido ativamente) em modo TUN:</p>
+    <h3>Manualmente: todos os apps com sing-box</h3>
+    <p>O arquivo de instalação acima faz esses passos para você. Para fazer manualmente, use o <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> (código aberto e mantido ativamente) em modo TUN:</p>
     <ol>
       <li>Abra <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a> enquanto o PC ainda tem internet. Baixe o arquivo que termina em <strong>windows-amd64.zip</strong> (Snapdragon ou Surface Pro X: <strong>windows-arm64.zip</strong>). Clique nele com o botão direito, escolha <strong>Extrair Tudo</strong> e depois <strong>Extrair</strong>.<!--help:windows:install--></li>
       <li>Abra o Bloco de Notas e cole o texto do quadro <a href="#singbox-config">Configuração do sing-box</a> abaixo. Troque <code>PHONE_IP</code> (aparece duas vezes) e <code>PHONE_PORT</code> pelos números que aparecem no app. Clique em <strong>Arquivo</strong>, <strong>Salvar como</strong>. Abra a pasta do sing-box (a que tem o sing-box.exe), em <strong>Tipo</strong> escolha <strong>Todos os arquivos</strong>, dê o nome <code>config.json</code> e clique em <strong>Salvar</strong>.<!--help:windows:set-proxy--></li>
@@ -124,20 +120,26 @@ extraJsonLd: |2
       <li>Digite <code>.\sing-box.exe run --config config.json</code> e aperte Enter. Deixe essa janela aberta.<!--help:windows:set-proxy--></li>
       <li>Espere até aparecer <code>sing-box started</code>. As linhas vão continuar rolando; é normal.<!--help:windows:no-internet--></li>
     </ol>
+    <h3>Só o navegador: Firefox (sem extensão)</h3>
+    <ol>
+      <li>No Firefox, abra <strong>Configurações</strong>, digite <strong>proxy</strong> na caixa de pesquisa no topo e clique em <strong>Configurar proxy</strong>.<!--help:windows:set-proxy--></li>
+      <li>Escolha <strong>Configuração manual de proxy</strong>.<!--help:windows:set-proxy--></li>
+      <li>Digite o IP do celular em <strong>Domínio SOCKS</strong>, a porta em <strong>Porta</strong> e selecione <strong>SOCKS v5</strong>.<!--help:windows:set-proxy--></li>
+      <li>Marque <strong>Proxy DNS ao usar SOCKS v5</strong>, para que as consultas de DNS também passem pelo proxy, e clique em <strong>OK</strong>.<!--help:windows:set-proxy--></li>
+      <li>Abra qualquer site no Firefox. Só o Firefox usa a internet do celular; os outros apps do computador não.<!--help:windows:no-internet--></li>
+    </ol>
+    <h3>Só o navegador: Chrome ou Edge, com FoxyProxy</h3>
+    <ol>
+      <li>Instale a extensão FoxyProxy pela Chrome Web Store.<!--help:windows:install--></li>
+      <li>Adicione um novo proxy: tipo <strong>SOCKS5</strong>, host = IP do celular, porta = a porta mostrada no app.<!--help:windows:set-proxy--></li>
+      <li>Ative esse proxy pelo ícone do FoxyProxy na barra de ferramentas.<!--help:windows:set-proxy--></li>
+    </ol>
 
     <h2 id="macos">macOS</h2>
     <!--video:mac-->
-    <h3>Opção A: ajuste de proxy do sistema</h3>
-    <ol>
-      <li>Abra <strong>Ajustes do Sistema → Wi-Fi</strong>.<!--help:mac:set-proxy--></li>
-      <li>Clique em <strong>Detalhes…</strong> ao lado do Wi-Fi do celular e depois em <strong>Proxies</strong>.<!--help:mac:set-proxy--></li>
-      <li>Ative <strong>Proxy SOCKS</strong>, digite o endereço IP e a porta do celular e clique em <strong>OK</strong>.<!--help:mac:set-proxy--></li>
-      <li>Abra qualquer site no Safari.<!--help:mac:no-internet--></li>
-    </ol>
-    <p>Não é preciso nenhum app de terceiros. Mas atenção: esse ajuste do macOS não passa as consultas de DNS pelo proxy, e os apps que ignoram o proxy do sistema também ficam de fora. Para cobertura completa, incluindo o DNS, use o script da Opção B.</p>
 
-    <h3>Opção B (recomendada): todos os apps com sing-box</h3>
-    <p>Para passar todos os apps pelo proxy, incluindo o DNS, rode o <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> em modo TUN em vez do ajuste nativo acima.</p>
+    <h3>Recomendado: todos os apps com nosso script (sing-box)</h3>
+    <p>Nosso script instala e roda o <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> para você em modo TUN, então todos os apps, DNS incluído, usam a internet do celular.</p>
 
     <div class="callout" id="mac-script">
       <p><strong>Jeito mais fácil: baixe nosso script</strong></p>
@@ -171,8 +173,17 @@ extraJsonLd: |2
       <li>Aperte <strong>Command + Espaço</strong>, digite <strong>Terminal</strong> e aperte <strong>Return</strong>. Digite <code>cd</code> e um espaço, arraste a pasta do sing-box para a janela e aperte Return.<!--help:mac:set-proxy--></li>
       <li>Digite <code>xattr -c sing-box</code> e aperte Return (assim o macOS deixa abrir o arquivo que você baixou). Depois digite <code>sudo ./sing-box run --config config.json</code> e aperte Return (com Homebrew: <code>sudo sing-box run --config config.json</code>). Digite a senha do seu Mac e aperte Return; nada aparece enquanto você digita.<!--help:mac:set-proxy--></li>
       <li>Espere aparecer <code>sing-box started</code> e deixe a janela aberta. Para parar, aperte <strong>Control + C</strong> nesta janela, antes de desativar o compartilhamento no app.<!--help:mac:no-internet--></li>
-      <li>Desative o Proxy SOCKS nativo da Opção A se ele estiver ligado; o modo TUN do sing-box substitui esse ajuste.<!--help:mac:set-proxy--></li>
+      <li>Desative o Proxy SOCKS do sistema (veja abaixo) se ele estiver ligado; o modo TUN do sing-box substitui esse ajuste.<!--help:mac:set-proxy--></li>
     </ol>
+
+    <h3>Outra opção: ajuste de proxy do sistema (menos apps)</h3>
+    <ol>
+      <li>Abra <strong>Ajustes do Sistema → Wi-Fi</strong>.<!--help:mac:set-proxy--></li>
+      <li>Clique em <strong>Detalhes…</strong> ao lado do Wi-Fi do celular e depois em <strong>Proxies</strong>.<!--help:mac:set-proxy--></li>
+      <li>Ative <strong>Proxy SOCKS</strong>, digite o endereço IP e a porta do celular e clique em <strong>OK</strong>.<!--help:mac:set-proxy--></li>
+      <li>Abra qualquer site no Safari.<!--help:mac:no-internet--></li>
+    </ol>
+    <p>Não é preciso nenhum app de terceiros. Mas atenção: esse ajuste do macOS não passa as consultas de DNS pelo proxy, e os apps que ignoram o proxy do sistema também ficam de fora. Para cobertura completa, incluindo o DNS, use o script acima.</p>
 
     <div class="callout" id="singbox-config">
       <p><strong>Configuração do sing-box</strong> (funciona no Windows, no macOS e no Linux, é só trocar o IP e a porta). Deixe <code>interface_name</code> sem valor para que ele escolha uma interface disponível automaticamente:</p>
@@ -243,6 +254,7 @@ extraJsonLd: |2
     <ul>
       <li><strong>I can't see the Wi-Fi name</strong> (não aparece o nome do Wi-Fi): deixe a tela do celular ligada e perto do dispositivo e atualize a lista de Wi-Fi. Se ainda não aparecer, o dispositivo não enxerga esse tipo de Wi-Fi: use o roteador do próprio celular (veja acima).</li>
       <li><strong>Wi-Fi says "No internet"</strong> (o Wi-Fi diz "Sem internet"): é normal. Continue nele e termine os passos.</li>
+      <li><strong>The setup file doesn't connect</strong> (o arquivo de instalação não conecta, Windows): confira se a janela mostra o IP e a porta que aparecem no app, deixe o compartilhamento e os dados móveis ligados no celular, feche a janela e clique duas vezes em <strong>TLU connect</strong> na área de trabalho.</li>
       <li><strong>Firefox says the proxy server is refusing connections</strong> (o Firefox diz que o servidor proxy está recusando conexões): confira os dois valores (Domínio SOCKS e Porta) e veja se o compartilhamento ainda está ligado no celular.</li>
       <li><strong>Firefox works, other apps don't</strong> (o Firefox funciona, os outros apps não): é o esperado. Só o Firefox usa a internet do celular. Para todos os apps, use o sing-box (veja acima).</li>
       <li><strong>Websites don't open</strong> (os sites não abrem, no iPhone, no Mac ou em outros dispositivos): confira os dois valores, veja se os dados móveis e o compartilhamento estão ligados no celular e desligue qualquer outro app de VPN no dispositivo.</li>

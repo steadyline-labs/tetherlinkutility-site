@@ -28,7 +28,7 @@ llms:
       <tr><td>Wi-Fi hotspot</td><td>None, built into the phone</td><td>Quick setup, several devices</td><td>Uses more battery; counted as hotspot data on most plans</td></tr>
       <tr><td>USB tethering</td><td>A USB cable</td><td>A stable connection that also charges the phone</td><td>Works well on Windows; macOS support depends on the phone</td></tr>
       <tr><td>Bluetooth tethering</td><td>None</td><td>Light browsing, low battery use</td><td>Much slower than Wi-Fi or USB</td></tr>
-      <tr><td>SOCKS5 proxy app</td><td>An app on the phone (for example Tether Link Utility)</td><td>Android-to-Android sharing via QR code, plus Windows, macOS and iOS clients</td><td>Clients need proxy settings or a client app</td></tr>
+      <tr><td>SOCKS5 proxy app</td><td>An app on the phone (for example Tether Link Utility)</td><td>Android-to-Android sharing via QR code, plus Windows, macOS and iOS clients</td><td>Computers need a small setup file or script; iPhones need a client app</td></tr>
       <tr><td>Dedicated hotspot device or plan add-on</td><td>A mobile hotspot device or a carrier add-on</td><td>Heavy, regular use</td><td>An extra line or monthly cost</td></tr>
     </table>
 
@@ -42,10 +42,10 @@ llms:
     <p>Pair the phone and laptop, then turn on Bluetooth tethering on the phone and join its network from the laptop's Bluetooth settings. It uses little battery, but speeds are much lower than Wi-Fi or USB, so it suits email and light browsing more than video calls or large downloads.</p>
 
     <h2>4. A SOCKS5 proxy app on the phone</h2>
-    <p>A proxy app such as <a href="/">Tether Link Utility</a> takes a different approach. When you tap <strong>START</strong>, it starts a local Wi-Fi network on the phone (an Android LocalOnlyHotspot) and a SOCKS5 proxy server that runs entirely on the phone. Connected devices send their traffic to that proxy, and the phone forwards it over its mobile data. Nothing goes through a remote server and no account is needed.</p>
+    <p>A proxy app such as <a href="/">Tether Link Utility</a> takes a different approach. When you tap <strong>START SHARING</strong>, it starts a local Wi-Fi network on the phone (an Android LocalOnlyHotspot) and a SOCKS5 proxy server that runs entirely on the phone. Connected devices send their traffic to that proxy, and the phone forwards it over its mobile data. Nothing goes through a remote server and no account is needed.</p>
     <ul>
       <li><strong>Android to Android:</strong> the server phone shows a QR code that contains the Wi-Fi details and the proxy address. The other phone scans it, joins the Wi-Fi and routes its traffic through the proxy using Android's VpnService.</li>
-      <li><strong>Windows and macOS:</strong> join the phone's Wi-Fi, then enter the IP and port in Firefox (on Windows) or in the Mac's proxy settings, or run sing-box in TUN mode so all apps use the proxy. See the <a href="/blog/socks5-proxy-setup-windows-macos-ios.html">SOCKS5 setup guide</a>.<!--video-hint:windows--><!--video-hint:mac--></li>
+      <li><strong>Windows and macOS:</strong> join the phone's Wi-Fi and run the <a href="/downloads/TLU-Windows-Setup.cmd">Windows setup file</a> or the <a href="/downloads/tlu-mac-tunnel.zip">Mac script</a>. Each one installs and runs sing-box for you, so every app on the computer uses the phone's internet. See the <a href="/blog/socks5-proxy-setup-windows-macos-ios.html#windows">setup guide</a>.<!--video-hint:windows--><!--video-hint:mac--></li>
       <li><strong>iPhone and iPad:</strong> use a SOCKS5-capable app such as Potatso (free) or Shadowrocket.</li>
     </ul>
     <p>The free version supports 1 connected device at a time with ads; Pro supports up to 5 devices without ads. Data used by connected devices counts toward your mobile plan like any other sharing method.</p>

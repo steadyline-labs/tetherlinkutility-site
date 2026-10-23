@@ -1,6 +1,6 @@
 ---
 title: "SOCKS5 Proxy Kurulumu: Windows, macOS ve iOS"
-description: "Firefox, Chrome (FoxyProxy), macOS ağ ayarları, sing-box TUN modu ve iOS uygulamaları için adım adım SOCKS5 proxy kurulumu."
+description: "Windows ve Mac'te tüm uygulamalar için adım adım kurulum (sing-box'ı senin için çalıştıran kurulum dosyası ve betik), sadece tarayıcı seçenekleri ve iOS uygulamaları."
 published: "2026-09-18"
 modified: "2026-10-23"
 h3Style: true
@@ -11,7 +11,7 @@ sitemap:
   priority: "0.6"
 index:
   order: 4
-  excerpt: "Firefox, FoxyProxy, macOS ağ ayarları, tüm uygulamalar için sing-box TUN modu ve iOS'ta Potatso veya Shadowrocket ile adım adım kurulum."
+  excerpt: "Windows kurulum dosyası ve Mac betiği (ikisi de sing-box'ı senin için çalıştırır, tüm uygulamalar çalışır), sadece tarayıcı seçenekleri ve iOS'ta Potatso veya Shadowrocket."
 extraJsonLd: |2
     <script type="application/ld+json">
     {
@@ -22,21 +22,31 @@ extraJsonLd: |2
         {
           "@type": "HowToStep",
           "name": "Önce kur, sonra telefonun Wi-Fi'ına bağlan",
-          "text": "Cihaz henüz kendi internetine bağlıyken gerekenleri kur (iPhone'da Potatso, bilgisayarda Firefox veya FoxyProxy, Mac'te betiğimizle sing-box). Sonra paylaşan telefonda Tether Link Utility'yi aç, PAYLAŞIMI BAŞLAT'a dokun, bağlanacak cihaza dokun ve cihazda uygulamanın olup olmadığını cevapla. Ancak bundan sonra Ad altında gösterilen Wi-Fi'ye, Şifre altındaki şifreyle bağlan ve iki değeri (SOCKS sunucusu ve Port) gir. Bu Wi-Fi 'İnternet yok' diyebilir; bu normal. Uygulamanın ekranı, cihaz bağlanana kadar kendiliğinden bekler."
+          "text": "Cihazında normal internet hâlâ varken gerekeni indir: Windows bilgisayarda kurulum dosyası, Mac'te betiğimiz, iPhone'da Potatso. Sonra paylaşan telefonda Tether Link Utility'yi aç, PAYLAŞIMI BAŞLAT'a dokun, bağlanacak cihaza dokun ve cihazda uygulamanın olup olmadığını cevapla. Ancak bundan sonra Ad altında gösterilen Wi-Fi'ye, Şifre altındaki şifreyle bağlan ve iki değeri (SOCKS sunucusu ve Port) gir. Bu Wi-Fi 'İnternet yok' diyebilir; bu normal. Uygulamanın ekranı, cihaz bağlanana kadar kendiliğinden bekler."
         },
         {
           "@type": "HowToStep",
-          "name": "Windows: Firefox (yerleşik) veya Chrome/Edge için FoxyProxy",
-          "text": "Firefox'ta Ayarlar'ı aç, arama kutusuna vekil yaz, Vekil sunucuyu yapılandır'a tıkla ve Vekil sunucuyu elle ayarla'yı seç. SOCKS sunucusu ve Port'u gir, SOCKS v5'i seç, SOCKS v5 kullanırken vekil sunucu DNS'ini kullan'ı işaretle ve Tamam'a tıkla. Chrome veya Edge'de FoxyProxy eklentisini kur ve aynı IP/portu SOCKS5 proxy olarak gir."
+          "name": "Windows (önerilen): kurulum dosyası",
+          "text": "Bilgisayarında internet hâlâ varken tetherlinkutility.com/downloads/TLU-Windows-Setup.cmd adresinden TLU-Windows-Setup.cmd dosyasını indir. sing-box'ı senin için kurup çalıştırır; bilgisayardaki tüm uygulamalar, DNS dahil, telefonun internetini kullanır. Telefonun Wi-Fi'ına bağlan, dosyaya çift tıkla, Çalıştır'a, sonra Evet'e tıkla, önerilen IP için Enter'a bas, portu yaz ve 'Connected. Keep this window open.' yazısını bekle. Windows Ayarlar > Proxy'yi kullanma; bu uygulamayla çalışmaz."
         },
         {
           "@type": "HowToStep",
-          "name": "Windows ve macOS: sing-box ile tüm uygulamalar",
-          "text": "Firefox/FoxyProxy ve macOS'un yerleşik SOCKS ayarı sadece bu ayarı kullanan uygulamaların trafiğini yönlendirir; macOS ayarı DNS sorgularını proxy'den geçirmez. Tüm uygulamalar ve DNS için sing-box'ı telefonun Wi-Fi'ına bağlanmadan önce kur (macOS'ta betiğimiz, ya da Windows sürümünü indir), telefonun IP/portuna giden bir SOCKS çıkışıyla bir TUN girişi yapılandır ve yönetici yetkisiyle çalıştır. Windows'ta: github.com/SagerNet/sing-box/releases adresinden adı windows-amd64.zip ile biten dosyayı indir (Snapdragon veya Surface Pro X'te windows-arm64.zip) ve ayıkla. Not Defteri'nde yapılandırmayı yapıştır, PHONE_IP ve PHONE_PORT'u değiştir, Kayıt türü Tüm dosyalar olacak şekilde sing-box klasörüne config.json adıyla kaydet. Terminal (Yönetici)'yi aç, cd yazıp bir boşluk bırak, sing-box klasörünü pencereye sürükleyip Enter'a bas, sonra .\\sing-box.exe run --config config.json yazıp Enter'a bas. sing-box started yazısını bekle ve pencereyi açık bırak. Windows Ayarlar > Proxy'yi kullanma; bu uygulamayla çalışmaz. macOS'ta: betiğimizi çalıştır (Terminal'de bash tlu-mac-tunnel.sh); sing-box'ı kendisi indirir, Homebrew gerekmez."
+          "name": "macOS (önerilen): betiğimiz",
+          "text": "Mac'inde internet hâlâ varken tetherlinkutility.com/downloads/tlu-mac-tunnel.zip adresinden tlu-mac-tunnel.zip dosyasını indir. sing-box'ı senin için kurup çalıştırır; tüm uygulamalar, DNS dahil, telefonun internetini kullanır. Telefonun Wi-Fi'ına bağlan, Terminal'i aç, cd ~/Downloads/tlu-mac-tunnel yaz, sonra bash tlu-mac-tunnel.sh yaz. IP'yi, portu ve Mac şifreni yaz ve 'Connected.' yazısını bekle."
         },
         {
           "@type": "HowToStep",
-          "name": "macOS: yerleşik proxy ayarı",
+          "name": "Windows, macOS ve Linux: sing-box ile elle kurulum",
+          "text": "Tüm uygulamalar ve DNS için sing-box'ı telefonun Wi-Fi'ına bağlanmadan önce kur (macOS'ta betiğimiz, ya da Windows sürümünü indir), telefonun IP/portuna giden bir SOCKS çıkışıyla bir TUN girişi yapılandır ve yönetici yetkisiyle çalıştır. Windows'ta: github.com/SagerNet/sing-box/releases adresinden adı windows-amd64.zip ile biten dosyayı indir (Snapdragon veya Surface Pro X'te windows-arm64.zip) ve ayıkla. Not Defteri'nde yapılandırmayı yapıştır, PHONE_IP ve PHONE_PORT'u değiştir, Kayıt türü Tüm dosyalar olacak şekilde sing-box klasörüne config.json adıyla kaydet. Terminal (Yönetici)'yi aç, cd yazıp bir boşluk bırak, sing-box klasörünü pencereye sürükleyip Enter'a bas, sonra .\\sing-box.exe run --config config.json yazıp Enter'a bas. sing-box started yazısını bekle ve pencereyi açık bırak. Windows Ayarlar > Proxy'yi kullanma; bu uygulamayla çalışmaz. macOS'ta: betiğimizi çalıştır (Terminal'de bash tlu-mac-tunnel.sh); sing-box'ı kendisi indirir, Homebrew gerekmez."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Windows, sadece tarayıcı: Firefox veya FoxyProxy",
+          "text": "Bu yalnızca o tarayıcıyı kapsar. Firefox'ta Ayarlar'ı aç, arama kutusuna vekil yaz, Vekil sunucuyu yapılandır'a tıkla ve Vekil sunucuyu elle ayarla'yı seç. SOCKS sunucusu ve Port'u gir, SOCKS v5'i seç, SOCKS v5 kullanırken vekil sunucu DNS'ini kullan'ı işaretle ve Tamam'a tıkla. Chrome veya Edge'de FoxyProxy eklentisini kur ve aynı IP/portu SOCKS5 proxy olarak gir."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "macOS, diğer yol: yerleşik proxy ayarı",
           "text": "Sistem Ayarları › Wi-Fi'yi aç, telefonun Wi-Fi'ının yanındaki Ayrıntılar…'a, sonra Proxy'ler'e tıkla. SOCKS proxy'yi aç, IP adresini ve portu gir, Tamam'a tıkla. Sistem proxy ayarını kullanan uygulamaları kapsar, DNS'i kapsamaz."
         },
         {
@@ -57,7 +67,7 @@ extraJsonLd: |2
     <h1>SOCKS5 Proxy Kurulumu: Windows, macOS ve iOS</h1>
     <div class="post-meta">18 Eylül 2026'da yayınlandı &middot; 23 Ekim 2026'da güncellendi</div>
 
-    <p>SOCKS5, bir cihazın internet trafiğini başka bir cihazdaki proxy sunucusu üzerinden iletmesini sağlayan yaygın bir protokol. Bu rehberde Windows, macOS ve iOS'ta SOCKS5 proxy kurulumunu adım adım anlatıyoruz: tarayıcı ayarları, FoxyProxy eklentisi, macOS ağ ayarları, tüm uygulamaları kapsayan sing-box TUN modu ve iOS uygulamaları.</p>
+    <p>SOCKS5, bir cihazın internet trafiğini başka bir cihazdaki proxy sunucusu üzerinden iletmesini sağlayan yaygın bir protokol. Tether Link Utility bu proxy'yi Android telefonunda çalıştırır. Windows bilgisayarda ya da Mac'te tek bir dosya her şeyi senin için kurar: sing-box'ı kurup çalıştırır, böylece bilgisayardaki tüm uygulamalar telefonun internetini kullanır. Bu rehberde bunu, sadece tarayıcıyı kapsayan diğer yolları ve iOS uygulamalarını adım adım anlatıyoruz.</p>
     <p>Örnekler, Android telefonda yerel bir SOCKS5 proxy çalıştıran Tether Link Utility'ye göre yazıldı, ama adımlar IP adresi ve portu bilinen herhangi bir SOCKS5 sunucusu için aynıdır.</p>
 
     <h2>Başlamadan önce</h2>
@@ -66,15 +76,15 @@ extraJsonLd: |2
       <li><strong>Önce gerekenleri kur</strong>, cihaz henüz kendi internetine bağlıyken:
         <ul>
           <li>iPhone veya iPad: App Store'dan Potatso (ücretsiz) veya Shadowrocket (ücretli).</li>
-          <li>Windows veya Linux bilgisayar: firefox.com'dan Firefox ya da Chrome veya Edge için FoxyProxy eklentisi.</li>
-          <li>Mac: yerleşik ayar için hiçbir şey gerekmez. Tüm uygulamalar için betiğimizi şimdi indir (bkz. <a href="#macos">macOS</a>). sing-box'ı kendisi getirir, gerekirse telefon üzerinden de.</li>
-          <li>Windows veya Linux, tüm uygulamalar: sing-box'ı şimdi indir (bkz. <a href="#windows">Windows</a> veya <a href="#linux">Linux</a>).</li>
+          <li>Windows bilgisayar: kurulum dosyası (bkz. <a href="#windows">Windows</a>). sing-box'ı senin için kurup çalıştırır, tüm uygulamalar çalışır.</li>
+          <li>Linux bilgisayar: tüm uygulamalar için sing-box (bkz. <a href="#linux">Linux</a>) ya da sadece o tarayıcı için firefox.com'dan Firefox.</li>
+          <li>Mac: betiğimiz (bkz. <a href="#macos">macOS</a>). sing-box'ı senin için kurup çalıştırır, gerekirse telefon üzerinden de indirir.</li>
         </ul>
-        <p>Cihazın interneti yok mu? Birkaç dakikalığına başka bir Wi-Fi'ye bağla (ev, iş, kafe) ve oradan kur. Windows bilgisayara Firefox kabloyla da gelir: telefona Windows için Firefox'u indir, telefonu USB kabloyla bilgisayara bağla, dosyayı bilgisayara kopyalayıp aç.</p>
+        <p>Cihazın interneti yok mu? Birkaç dakikalığına başka bir Wi-Fi'ye bağla (ev, iş, kafe) ve oradan indir. Windows bilgisayar kurulum dosyasını telefondan da alabilir: dosyayı telefona indir ve Bluetooth ya da USB kabloyla bilgisayara gönder.</p>
       <!--help::install--></li>
       <li>Paylaşan telefonda Tether Link Utility'yi aç ve <strong>PAYLAŞIMI BAŞLAT</strong>'a dokun. İlk seferde uygulama <strong>Bir izin gerekiyor</strong> der: <strong>İzin ver</strong>'e, sonra telefonun <strong>Bağlantı isteği</strong> penceresinde <strong>Tamam</strong>'a dokun.<!--help::start-sharing--></li>
       <li>Uygulama <strong>Bu telefonun internetini hangi cihaz kullanacak?</strong> diye sorar. Cihazına dokun: <strong>Android telefon veya tablet</strong>, <strong>Windows bilgisayar</strong>, <strong>iPhone veya iPad</strong>, <strong>Mac</strong>, <strong>Linux</strong> ya da <strong>Diğer (TV, oyun konsolu…)</strong>.<!--help::start-sharing--></li>
-      <li>Sonra cihazda gerekenin olup olmadığını sorar, örneğin <strong>Bilgisayarda Firefox var mı?</strong> <strong>Evet</strong>, <strong>Hayır, ama interneti var</strong> ya da <strong>Hayır, interneti de yok</strong>'a dokun; uygulama nasıl kuracağını gösterir. Telefonun Wi-Fi'ına henüz bağlanma.<!--help::install--></li>
+      <li>Windows bilgisayar ya da Mac için uygulama önce indireceğin dosyayı gösterir. Telefon ve diğer cihazlar için cihazda gerekenin olup olmadığını sorar, örneğin <strong>Diğer telefonda Tether Link Utility var mı?</strong> <strong>Evet, yüklü</strong>, <strong>Hayır, ama interneti var</strong> ya da <strong>Hayır, interneti de yok</strong>'a dokun; uygulama nasıl kuracağını gösterir. Telefonun Wi-Fi'ına henüz bağlanma.<!--help::install--></li>
       <li><strong>Sonra</strong> cihazda, uygulamanın <strong>Ad</strong> altında gösterdiği Wi-Fi'ye, <strong>Şifre</strong> altındaki şifreyle bağlan. "İnternet yok" derse bu normal.<!--help::join-wifi--></li>
       <li>Uygulamanın gösterdiği iki değeri (<strong>SOCKS sunucusu</strong> veya <strong>Sunucu</strong>, ve <strong>Port</strong>) aşağıda cihazın için anlatıldığı gibi gir. Uygulamanın ekranı kendiliğinden bekler ve cihaz bağlanınca ilerler.<!--help::start-sharing--></li>
     </ol>
@@ -86,7 +96,7 @@ extraJsonLd: |2
     <h2 id="windows">Windows</h2>
     <!--video:windows-->
     <div class="callout" id="windows-setup-file">
-      <p><strong>Kolay yol: kurulum dosyasını indir</strong></p>
+      <p><strong>Önerilen: kurulum dosyası (tüm uygulamalar)</strong></p>
       <p>Tek küçük bir dosya, PC'deki tüm uygulamalar için kurulumu baştan sona yapar, DNS dahil. Uygulamada görünen IP ve portu sorar, telefonun cevap verdiğini kontrol eder, sing-box'ı resmi GitHub sayfasından bir kez indirir (SHA256 ile doğrulanır) ve bağlanır.</p>
       <p style="margin-top: 16px;"><a href="/downloads/TLU-Windows-Setup.cmd" class="cta-button" style="display:inline-block;" download>TLU-Windows-Setup.cmd indir</a></p>
       <ol style="margin-top: 12px;">
@@ -101,22 +111,8 @@ extraJsonLd: |2
     <div class="callout">
       <p><strong>Windows Ayarlar &gt; Proxy'yi kullanma.</strong> Bu uygulamayla çalışmaz. Aşağıdaki seçeneklerden birini kullan.</p>
     </div>
-    <h3>Seçenek A: Firefox (eklenti gerekmez)</h3>
-    <ol>
-      <li>Firefox'ta <strong>Ayarlar</strong>'ı aç, üstteki arama kutusuna <strong>vekil</strong> yaz ve <strong>Vekil sunucuyu yapılandır</strong>'a tıkla.<!--help:windows:set-proxy--></li>
-      <li><strong>Vekil sunucuyu elle ayarla</strong>'yı seç.<!--help:windows:set-proxy--></li>
-      <li>Telefonun IP'sini <strong>SOCKS sunucusu</strong> alanına, portu <strong>Port</strong> alanına gir ve <strong>SOCKS v5</strong>'i seç.<!--help:windows:set-proxy--></li>
-      <li>DNS sorgularının da proxy üzerinden gitmesi için <strong>SOCKS v5 kullanırken vekil sunucu DNS'ini kullan</strong>'ı işaretle, sonra <strong>Tamam</strong>'a tıkla.<!--help:windows:set-proxy--></li>
-      <li>Firefox'ta herhangi bir site aç. Telefonun internetini yalnızca Firefox kullanır; bilgisayardaki diğer uygulamalar kullanmaz.<!--help:windows:no-internet--></li>
-    </ol>
-    <h3>Seçenek B: Chrome veya Edge, FoxyProxy ile</h3>
-    <ol>
-      <li>Chrome Web Mağazası'ndan FoxyProxy eklentisini kur.<!--help:windows:install--></li>
-      <li>Yeni bir proxy ekle: tür <strong>SOCKS5</strong>, host = telefonun IP'si, port = uygulamada gösterilen port.<!--help:windows:set-proxy--></li>
-      <li>Araç çubuğundaki FoxyProxy simgesinden bu proxy'yi seç.<!--help:windows:set-proxy--></li>
-    </ol>
-    <h3>Seçenek C (önerilen): sing-box ile tüm uygulamalar</h3>
-    <p>Firefox ve FoxyProxy yalnızca o tarayıcının trafiğini proxy'ye gönderir. Diğer uygulamalar ve DNS sorguları doğrudan Wi-Fi bağlantısını kullanmaya devam eder ve telefonun proxy'si olmadan internete çıkamayabilir. Windows'ta tüm uygulamaların ve DNS'in proxy üzerinden gitmesi için TUN modunda <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> kullan (açık kaynak, aktif olarak geliştiriliyor):</p>
+    <h3>Elle kurulum: sing-box ile tüm uygulamalar</h3>
+    <p>Yukarıdaki kurulum dosyası bu adımları senin yerine yapar. Elle yapmak istersen TUN modunda <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> kullan (açık kaynak, aktif olarak geliştiriliyor):</p>
     <ol>
       <li>Bilgisayarında hâlâ internet varken <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a> adresini aç. Adı <strong>windows-amd64.zip</strong> ile biten dosyayı indir (Snapdragon veya Surface Pro X ise <strong>windows-arm64.zip</strong>). Dosyaya sağ tıkla, <strong>Tümünü Ayıkla</strong>'yı seç, sonra <strong>Ayıkla</strong>'ya tıkla.<!--help:windows:install--></li>
       <li>Not Defteri'ni aç ve aşağıdaki <a href="#singbox-config">sing-box yapılandırması</a> kutusundaki metni yapıştır. <code>PHONE_IP</code> (iki yerde geçer) ve <code>PHONE_PORT</code> yerine uygulamada gösterilen sayıları yaz. <strong>Dosya</strong>, <strong>Farklı kaydet</strong>'e tıkla. sing-box klasörünü aç (içinde sing-box.exe olan), <strong>Kayıt türü</strong>'nü <strong>Tüm dosyalar</strong> yap, adını <code>config.json</code> koy ve <strong>Kaydet</strong>'e tıkla.<!--help:windows:set-proxy--></li>
@@ -125,20 +121,26 @@ extraJsonLd: |2
       <li><code>.\sing-box.exe run --config config.json</code> yaz ve Enter'a bas. Bu pencereyi açık bırak.<!--help:windows:set-proxy--></li>
       <li><code>sing-box started</code> yazısını görene kadar bekle. Satırlar akmaya devam eder; bu normal.<!--help:windows:no-internet--></li>
     </ol>
+    <h3>Sadece tarayıcı: Firefox (eklenti gerekmez)</h3>
+    <ol>
+      <li>Firefox'ta <strong>Ayarlar</strong>'ı aç, üstteki arama kutusuna <strong>vekil</strong> yaz ve <strong>Vekil sunucuyu yapılandır</strong>'a tıkla.<!--help:windows:set-proxy--></li>
+      <li><strong>Vekil sunucuyu elle ayarla</strong>'yı seç.<!--help:windows:set-proxy--></li>
+      <li>Telefonun IP'sini <strong>SOCKS sunucusu</strong> alanına, portu <strong>Port</strong> alanına gir ve <strong>SOCKS v5</strong>'i seç.<!--help:windows:set-proxy--></li>
+      <li>DNS sorgularının da proxy üzerinden gitmesi için <strong>SOCKS v5 kullanırken vekil sunucu DNS'ini kullan</strong>'ı işaretle, sonra <strong>Tamam</strong>'a tıkla.<!--help:windows:set-proxy--></li>
+      <li>Firefox'ta herhangi bir site aç. Telefonun internetini yalnızca Firefox kullanır; bilgisayardaki diğer uygulamalar kullanmaz.<!--help:windows:no-internet--></li>
+    </ol>
+    <h3>Sadece tarayıcı: Chrome veya Edge, FoxyProxy ile</h3>
+    <ol>
+      <li>Chrome Web Mağazası'ndan FoxyProxy eklentisini kur.<!--help:windows:install--></li>
+      <li>Yeni bir proxy ekle: tür <strong>SOCKS5</strong>, host = telefonun IP'si, port = uygulamada gösterilen port.<!--help:windows:set-proxy--></li>
+      <li>Araç çubuğundaki FoxyProxy simgesinden bu proxy'yi seç.<!--help:windows:set-proxy--></li>
+    </ol>
 
     <h2 id="macos">macOS</h2>
     <!--video:mac-->
-    <h3>Seçenek A: yerleşik proxy ayarı</h3>
-    <ol>
-      <li><strong>Sistem Ayarları › Wi-Fi</strong>'yi aç.<!--help:mac:set-proxy--></li>
-      <li>Telefonun Wi-Fi'ının yanındaki <strong>Ayrıntılar…</strong>'a, sonra <strong>Proxy'ler</strong>'e tıkla.<!--help:mac:set-proxy--></li>
-      <li><strong>SOCKS proxy</strong>'yi aç, telefonun IP adresini ve portunu gir, sonra <strong>Tamam</strong>'a tıkla.<!--help:mac:set-proxy--></li>
-      <li>Safari'de herhangi bir site aç.<!--help:mac:no-internet--></li>
-    </ol>
-    <p>Ek bir uygulama gerekmez. Ancak macOS'un yerleşik SOCKS ayarını her uygulama kullanmaz ve DNS sorguları bu ayarla proxy üzerinden gitmez. DNS dahil tam kapsama için Seçenek B'deki betiği kullan.</p>
 
-    <h3>Seçenek B (önerilen): sing-box ile tüm uygulamalar</h3>
-    <p>Tüm uygulamaların ve DNS'in proxy üzerinden gitmesi için yerleşik ayar yerine <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a>'ı TUN modunda çalıştır.</p>
+    <h3>Önerilen: betiğimizle tüm uygulamalar (sing-box)</h3>
+    <p>Betiğimiz <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a>'ı senin için TUN modunda kurup çalıştırır; tüm uygulamalar, DNS dahil, telefonun internetini kullanır.</p>
 
     <div class="callout" id="mac-script">
       <p><strong>En kolay yol: betiğimizi indir</strong></p>
@@ -172,8 +174,17 @@ extraJsonLd: |2
       <li><strong>Command + Boşluk</strong>'a bas, <strong>Terminal</strong> yaz, <strong>Return</strong>'e bas. <code>cd</code> yazıp bir boşluk bırak, sing-box klasörünü pencereye sürükle, sonra Return'e bas.<!--help:mac:set-proxy--></li>
       <li><code>xattr -c sing-box</code> yazıp Return'e bas (macOS'un indirdiğin dosyayı açmasına izin verir). Sonra <code>sudo ./sing-box run --config config.json</code> yazıp Return'e bas (Homebrew ile: <code>sudo sing-box run --config config.json</code>). Mac şifreni yazıp Return'e bas; yazarken hiçbir şey görünmez.<!--help:mac:set-proxy--></li>
       <li><code>sing-box started</code> yazısını bekle ve pencereyi açık bırak. Durdurmak için bu pencerede <strong>Control + C</strong>'ye bas; bunu uygulamada paylaşımı kapatmadan önce yap.<!--help:mac:no-internet--></li>
-      <li>Seçenek A'daki yerleşik SOCKS Proxy ayarı açıksa kapat, sing-box'ın TUN modu onun yerini alır.<!--help:mac:set-proxy--></li>
+      <li>Aşağıdaki yerleşik SOCKS proxy ayarı açıksa kapat, sing-box'ın TUN modu onun yerini alır.<!--help:mac:set-proxy--></li>
     </ol>
+
+    <h3>Diğer yol: yerleşik proxy ayarı (daha az uygulama)</h3>
+    <ol>
+      <li><strong>Sistem Ayarları › Wi-Fi</strong>'yi aç.<!--help:mac:set-proxy--></li>
+      <li>Telefonun Wi-Fi'ının yanındaki <strong>Ayrıntılar…</strong>'a, sonra <strong>Proxy'ler</strong>'e tıkla.<!--help:mac:set-proxy--></li>
+      <li><strong>SOCKS proxy</strong>'yi aç, telefonun IP adresini ve portunu gir, sonra <strong>Tamam</strong>'a tıkla.<!--help:mac:set-proxy--></li>
+      <li>Safari'de herhangi bir site aç.<!--help:mac:no-internet--></li>
+    </ol>
+    <p>Ek bir uygulama gerekmez. Ancak macOS'un yerleşik SOCKS ayarını her uygulama kullanmaz ve DNS sorguları bu ayarla proxy üzerinden gitmez. DNS dahil tam kapsama için yukarıdaki betiği kullan.</p>
 
     <div class="callout" id="singbox-config">
       <p><strong>sing-box yapılandırması</strong> (Windows, macOS ve Linux için aynı, yalnızca IP ve portu değiştir). <code>interface_name</code> alanını boş bırak, uygun arayüz otomatik seçilsin:</p>
@@ -245,6 +256,7 @@ extraJsonLd: |2
     <ul>
       <li><strong>Wi-Fi adını göremiyorum:</strong> telefonun ekranını açık tutup cihaza yaklaştır, sonra Wi-Fi listesini yenile. Hâlâ yoksa cihaz bu tür Wi-Fi'yi göremiyor: bunun yerine telefonunun kendi hotspot'unu kullan (yukarıya bak).</li>
       <li><strong>Wi-Fi "İnternet yok" diyor:</strong> bu normal. Bağlı kal ve adımları bitir.</li>
+      <li><strong>Kurulum dosyası bağlanmıyor</strong> (Windows): pencerede uygulamada gösterilen IP ve portun yazdığından emin ol, telefonda paylaşımı ve mobil veriyi açık tut, sonra pencereyi kapatıp masaüstündeki <strong>TLU connect</strong>'e çift tıkla.</li>
       <li><strong>Firefox, vekil sunucunun bağlantıları reddettiğini söylüyor:</strong> iki değeri (SOCKS sunucusu ve Port) kontrol et ve telefonda paylaşımın hâlâ açık olduğundan emin ol.</li>
       <li><strong>Firefox çalışıyor, diğer uygulamalar çalışmıyor:</strong> bu beklenen bir durum. Telefonun internetini yalnızca Firefox kullanır. Tüm uygulamalar için sing-box kullan (yukarıya bak).</li>
       <li><strong>Siteler açılmıyor</strong> (iPhone, Mac, diğer cihazlar): iki değeri kontrol et, telefonda mobil verinin ve paylaşımın açık olduğundan emin ol, cihazdaki başka VPN uygulamalarını kapat.</li>
