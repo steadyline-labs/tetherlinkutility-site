@@ -85,6 +85,20 @@ extraJsonLd: |2-
     <p>अगर ऐप के बजाय आप फ़ोन का सिस्टम हॉटस्पॉट खुद ऑन करते हैं (Android पर Mobile Hotspot, iPhone पर Personal Hotspot), तो ऐप में <strong>Add hotspot Wi-Fi details</strong> पर टैप करें और हॉटस्पॉट का नाम और पासवर्ड एक बार सेव करें। ये सिर्फ़ आपके डिवाइस पर स्टोर होते हैं और ऐप आपका हॉटस्पॉट नहीं बदलता। ये डिटेल्स QR कोड में जोड़ दी जाती हैं, ताकि दूसरे डिवाइस उसे स्कैन करके नेटवर्क से जुड़ सकें। iPhone पर पासवर्ड <strong>Settings &gt; Personal Hotspot</strong> में मिलता है। जब Android ऐप अपने आप अपना हॉटस्पॉट शुरू करता है, तब आप यह स्टेप छोड़ सकते हैं।</p>
 
     <h2 id="windows">Windows</h2>
+    <div class="callout" id="windows-setup-file">
+      <p><strong>आसान तरीका: सेटअप फ़ाइल डाउनलोड करें</strong></p>
+      <p>एक छोटी फ़ाइल PC के सभी ऐप्स के लिए पूरा सेटअप कर देती है, DNS समेत। यह ऐप में दिखे IP और पोर्ट पूछती है, जांचती है कि फ़ोन जवाब दे रहा है, sing-box को उसके आधिकारिक GitHub पेज से एक बार डाउनलोड करती है (SHA256 हैश से जांचा हुआ) और कनेक्ट कर देती है।</p>
+      <p style="margin-top: 16px;"><a href="/downloads/TLU-Windows-Setup.cmd" class="cta-button" style="display:inline-block;" download>TLU-Windows-Setup.cmd डाउनलोड करें</a></p>
+      <ol style="margin-top: 12px;">
+        <li>फ़ोन के Wi-Fi से जुड़ें और ऐप में शेयरिंग चालू करें।</li>
+        <li>फ़ाइल पर डबल-क्लिक करें। अगर Windows <strong>Windows protected your PC</strong> दिखाए, तो <strong>More info</strong> और फिर <strong>Run anyway</strong> पर क्लिक करें। अगर Edge कहे कि यह फ़ाइल आमतौर पर डाउनलोड नहीं की जाती, तो उसके पास <strong>...</strong> पर और फिर <strong>Keep</strong> पर क्लिक करें।</li>
+        <li>जब Windows बदलाव की अनुमति मांगे, तो <strong>Yes</strong> पर क्लिक करें।</li>
+        <li>सुझाया गया IP इस्तेमाल करने के लिए Enter दबाएं (या ऐप वाला IP लिखें), फिर पोर्ट लिखें।</li>
+        <li>जब <strong>Connected. Keep this window open.</strong> दिखे, तो काम हो गया। रोकने के लिए विंडो बंद करें। अगली बार डेस्कटॉप पर <strong>TLU connect</strong> पर डबल-क्लिक करें।</li>
+      </ol>
+      <p style="margin-top: 12px;">PC पर डाउनलोड के लिए इंटरनेट नहीं है? फ़ाइल फ़ोन पर डाउनलोड करें और Bluetooth या USB केबल से PC पर भेजें।</p>
+      <p style="margin-top: 8px; font-size: 14px;">यह फ़ाइल सादा टेक्स्ट है: आप इसे Notepad में खोलकर हर कदम पढ़ सकते हैं। यह कहीं कुछ नहीं भेजती। हाथ से करना चाहते हैं? नीचे दिए कदम देखें।</p>
+    </div>
     <div class="callout">
       <p><strong>Windows Settings &gt; Proxy इस्तेमाल न करें।</strong> यह इस ऐप के साथ काम नहीं करता। नीचे दिए विकल्पों में से कोई एक इस्तेमाल करें।</p>
     </div>

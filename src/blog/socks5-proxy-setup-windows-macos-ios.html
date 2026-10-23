@@ -88,6 +88,20 @@ extraJsonLd: |2
     <p>If you turn on your phone's system hotspot yourself (Mobile Hotspot on Android, Personal Hotspot on iPhone) instead of letting the app start one, tap <strong>Add hotspot Wi-Fi details</strong> in the app and save the hotspot's name and password once. They are stored only on your device and the app doesn't change your hotspot. The details are added to the QR code, so other devices can join the network by scanning it. On iPhone, the password is in <strong>Settings &gt; Personal Hotspot</strong>. When the Android app starts its own hotspot automatically, you can skip this.</p>
 
     <h2 id="windows">Windows</h2>
+    <div class="callout" id="windows-setup-file">
+      <p><strong>Easy way: download the setup file</strong></p>
+      <p>One small file does the whole setup for every app on the PC, DNS included. It asks for the IP and port shown in the app, checks that the phone answers, downloads sing-box once from its official GitHub page (checked with a SHA256 hash) and connects.</p>
+      <p style="margin-top: 16px;"><a href="/downloads/TLU-Windows-Setup.cmd" class="cta-button" style="display:inline-block;" download>Download TLU-Windows-Setup.cmd</a></p>
+      <ol style="margin-top: 12px;">
+        <li>Join the phone's Wi-Fi and turn sharing on in the app.</li>
+        <li>Double-click the file. If Windows shows <strong>Windows protected your PC</strong>, click <strong>More info</strong>, then <strong>Run anyway</strong>. If Edge says the file isn't commonly downloaded, click <strong>...</strong> next to it, then <strong>Keep</strong>.</li>
+        <li>Click <strong>Yes</strong> when Windows asks to allow changes.</li>
+        <li>Press Enter to use the suggested IP (or type the one in the app), then type the port.</li>
+        <li>When you see <strong>Connected. Keep this window open.</strong>, you're done. Close the window to stop. Next time, double-click <strong>TLU connect</strong> on the desktop.</li>
+      </ol>
+      <p style="margin-top: 12px;">No internet on the PC to download it? Download the file on the phone and send it to the PC by Bluetooth or USB cable.</p>
+      <p style="margin-top: 8px; font-size: 14px;">The file is plain text: you can open it in Notepad and read every step. It sends nothing anywhere. Prefer to do it by hand? Follow the steps below.</p>
+    </div>
     <div class="callout">
       <p><strong>Don't use Windows Settings &gt; Proxy.</strong> It won't work with this app. Use one of the options below.</p>
     </div>

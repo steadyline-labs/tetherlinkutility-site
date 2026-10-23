@@ -84,6 +84,20 @@ extraJsonLd: |2
     <p>Hotspot'u uygulamanın başlatması yerine telefonunun sistem hotspot'unu kendin açıyorsan (Android'de Mobil Hotspot, iPhone'da Kişisel Erişim Noktası), uygulamada <strong>Hotspot Wi-Fi bilgilerini ekle</strong>'ye dokunup hotspot'un adını ve şifresini bir kez kaydet. Bu bilgiler yalnızca cihazında saklanır ve uygulama hotspot'unu değiştirmez. Bilgiler QR koda eklenir, böylece diğer cihazlar kodu tarayarak ağa katılabilir. iPhone'da şifre <strong>Ayarlar &gt; Kişisel Erişim Noktası</strong> bölümündedir. Android uygulaması hotspot'u otomatik olarak kendisi başlattığında bu adımı atlayabilirsin.</p>
 
     <h2 id="windows">Windows</h2>
+    <div class="callout" id="windows-setup-file">
+      <p><strong>Kolay yol: kurulum dosyasını indir</strong></p>
+      <p>Tek küçük bir dosya, PC'deki tüm uygulamalar için kurulumu baştan sona yapar, DNS dahil. Uygulamada görünen IP ve portu sorar, telefonun cevap verdiğini kontrol eder, sing-box'ı resmi GitHub sayfasından bir kez indirir (SHA256 ile doğrulanır) ve bağlanır.</p>
+      <p style="margin-top: 16px;"><a href="/downloads/TLU-Windows-Setup.cmd" class="cta-button" style="display:inline-block;" download>TLU-Windows-Setup.cmd indir</a></p>
+      <ol style="margin-top: 12px;">
+        <li>Telefonun Wi-Fi ağına bağlan ve uygulamada paylaşımı aç.</li>
+        <li>Dosyaya çift tıkla. Windows <strong>Windows kişisel bilgisayarınızı korudu</strong> derse <strong>Ek bilgi</strong>'ye, sonra <strong>Yine de çalıştır</strong>'a tıkla. Edge dosyanın sık indirilmediğini söylerse yanındaki <strong>...</strong> simgesine, sonra <strong>Sakla</strong>'ya tıkla.</li>
+        <li>Windows değişiklik izni isterse <strong>Evet</strong>'e tıkla.</li>
+        <li>Önerilen IP'yi kullanmak için Enter'a bas (ya da uygulamadakini yaz), sonra portu yaz.</li>
+        <li><strong>Connected. Keep this window open.</strong> yazısını görünce tamam. Durdurmak için pencereyi kapat. Bir dahaki sefere masaüstündeki <strong>TLU connect</strong>'e çift tıkla.</li>
+      </ol>
+      <p style="margin-top: 12px;">PC'de indirmek için internet yok mu? Dosyayı telefona indir, Bluetooth ya da USB kabloyla PC'ye gönder.</p>
+      <p style="margin-top: 8px; font-size: 14px;">Dosya düz metindir: Not Defteri'nde açıp her adımı okuyabilirsin. Hiçbir yere bir şey göndermez. Elle yapmak mı istiyorsun? Aşağıdaki adımları izle.</p>
+    </div>
     <div class="callout">
       <p><strong>Windows Ayarlar &gt; Proxy'yi kullanma.</strong> Bu uygulamayla çalışmaz. Aşağıdaki seçeneklerden birini kullan.</p>
     </div>

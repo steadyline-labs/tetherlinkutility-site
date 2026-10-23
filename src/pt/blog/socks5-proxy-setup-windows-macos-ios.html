@@ -83,6 +83,20 @@ extraJsonLd: |2
     <p>Se você mesmo liga o roteador do sistema do celular (Roteador Wi-Fi no Android, Acesso Pessoal no iPhone) em vez de deixar o app criar um, toque em <strong>Add hotspot Wi-Fi details</strong> no app e salve uma vez o nome e a senha dessa rede. Eles ficam guardados só no seu aparelho e o app não altera o seu roteador. Os dados entram no QR Code, então outros dispositivos podem entrar na rede escaneando o código. No iPhone, a senha fica em <strong>Ajustes &gt; Acesso Pessoal</strong>. Quando o app Android cria o próprio roteador automaticamente, você pode pular esta etapa.</p>
 
     <h2 id="windows">Windows</h2>
+    <div class="callout" id="windows-setup-file">
+      <p><strong>Jeito fácil: baixe o arquivo de instalação</strong></p>
+      <p>Um único arquivo pequeno faz toda a configuração para todos os apps do PC, DNS incluído. Ele pede o IP e a porta mostrados no app, verifica se o celular responde, baixa o sing-box uma vez da página oficial no GitHub (verificado com um hash SHA256) e conecta.</p>
+      <p style="margin-top: 16px;"><a href="/downloads/TLU-Windows-Setup.cmd" class="cta-button" style="display:inline-block;" download>Baixar TLU-Windows-Setup.cmd</a></p>
+      <ol style="margin-top: 12px;">
+        <li>Conecte-se ao Wi-Fi do celular e ative o compartilhamento no app.</li>
+        <li>Clique duas vezes no arquivo. Se o Windows mostrar <strong>O Windows protegeu o computador</strong>, clique em <strong>Mais informações</strong> e depois em <strong>Executar assim mesmo</strong>. Se o Edge disser que o arquivo não é baixado com frequência, clique em <strong>...</strong> ao lado dele e depois em <strong>Manter</strong>.</li>
+        <li>Clique em <strong>Sim</strong> quando o Windows pedir permissão para fazer alterações.</li>
+        <li>Pressione Enter para usar o IP sugerido (ou digite o do app) e depois digite a porta.</li>
+        <li>Quando aparecer <strong>Connected. Keep this window open.</strong>, pronto. Feche a janela para parar. Da próxima vez, clique duas vezes em <strong>TLU connect</strong> na área de trabalho.</li>
+      </ol>
+      <p style="margin-top: 12px;">O PC está sem internet para baixar? Baixe o arquivo no celular e envie para o PC por Bluetooth ou cabo USB.</p>
+      <p style="margin-top: 8px; font-size: 14px;">O arquivo é texto simples: você pode abri-lo no Bloco de Notas e ler cada passo. Ele não envia nada para lugar nenhum. Prefere fazer à mão? Siga os passos abaixo.</p>
+    </div>
     <div class="callout">
       <p><strong>Não use Configurações do Windows &gt; Proxy.</strong> Não funciona com este app. Use uma das opções abaixo.</p>
     </div>
