@@ -37,7 +37,7 @@ extraJsonLd: |2
         {
           "@type": "HowToStep",
           "name": "Windows and macOS: all apps with sing-box",
-          "text": "Firefox/FoxyProxy and macOS's native SOCKS setting only route traffic from apps that use them, and the macOS setting does not proxy DNS lookups. To route all apps and DNS through the proxy, install sing-box before joining the phone's Wi-Fi (our script or brew install sing-box on macOS, or download the Windows release), configure a TUN inbound with a SOCKS outbound pointed at the phone's IP/port, and run it with elevated privileges. On Windows: open github.com/SagerNet/sing-box/releases, download the file ending in windows-amd64.zip (windows-arm64.zip on Snapdragon or Surface Pro X) and extract it. In Notepad, paste the config, replace PHONE_IP and PHONE_PORT, and save it as config.json in the sing-box folder with Save as type set to All files. Open Terminal (Admin), type cd and a space, drag the sing-box folder into the window and press Enter, then type .\\sing-box.exe run --config config.json and press Enter. Wait for sing-box started and leave the window open. Don't use Windows Settings > Proxy; it won't work with this app. On macOS: our script, or brew install sing-box and sudo sing-box run --config ~/config.json."
+          "text": "Firefox/FoxyProxy and macOS's native SOCKS setting only route traffic from apps that use them, and the macOS setting does not proxy DNS lookups. To route all apps and DNS through the proxy, install sing-box before joining the phone's Wi-Fi (our script on macOS, or download the Windows release), configure a TUN inbound with a SOCKS outbound pointed at the phone's IP/port, and run it with elevated privileges. On Windows: open github.com/SagerNet/sing-box/releases, download the file ending in windows-amd64.zip (windows-arm64.zip on Snapdragon or Surface Pro X) and extract it. In Notepad, paste the config, replace PHONE_IP and PHONE_PORT, and save it as config.json in the sing-box folder with Save as type set to All files. Open Terminal (Admin), type cd and a space, drag the sing-box folder into the window and press Enter, then type .\\sing-box.exe run --config config.json and press Enter. Wait for sing-box started and leave the window open. Don't use Windows Settings > Proxy; it won't work with this app. On macOS: run our script (bash tlu-mac-tunnel.sh in Terminal); it downloads sing-box itself, Homebrew is not needed."
         },
         {
           "@type": "HowToStep",
@@ -71,7 +71,7 @@ extraJsonLd: |2
         <ul>
           <li>iPhone or iPad: Potatso (free) or Shadowrocket (paid) from the App Store.</li>
           <li>Windows or Linux computer: Firefox from firefox.com, or the FoxyProxy extension for Chrome or Edge.</li>
-          <li>Mac: nothing for the built-in setting. For all apps, run our script once now so it installs sing-box (see <a href="#macos">macOS</a>).</li>
+          <li>Mac: nothing for the built-in setting. For all apps, download our script now (see <a href="#macos">macOS</a>). It gets sing-box by itself, through the phone too if needed.</li>
           <li>Windows or Linux, all apps: download sing-box now (see <a href="#windows">Windows</a> or <a href="#linux">Linux</a>).</li>
         </ul>
         <p>No internet on that device? Connect it to any other Wi-Fi for a few minutes (home, work, café) and install from there. A Windows computer can also get Firefox by cable: on the phone, download Firefox for Windows, connect the phone to the computer with a USB cable, copy the file to the computer and open it.</p>
@@ -144,12 +144,23 @@ extraJsonLd: |2
     <h3>Option B (recommended): all apps with sing-box</h3>
     <p>To route every app through the proxy, DNS included, run <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> in TUN mode instead of the native setting above.</p>
 
-    <div class="callout">
-      <p><strong>Easiest way:</strong> download our wrapper script and run it once <strong>before</strong> joining the phone's Wi-Fi, so it can install sing-box over your normal internet. It checks for Homebrew, installs sing-box if needed (and stops with a clear message if there is no internet), asks for your phone's IP and port, and runs everything in the background (the Terminal window minimizes and comes back only if something goes wrong).</p>
+    <div class="callout" id="mac-script">
+      <p><strong>Easiest way: download our script</strong></p>
+      <p>Nothing else to install: Homebrew is not needed. The first time, the script downloads sing-box from its official GitHub page (checked with a SHA256 hash), through the phone if the Mac has no internet of its own. It asks for the IP and port shown in the app and keeps running in the background (the Terminal window minimizes and comes back only if something goes wrong).</p>
       <p style="margin-top: 16px;"><img src="/mac-tunnel-script-demo.png" alt="Terminal running tlu-mac-tunnel.sh, asking for the phone's IP and port, then confirming the connection is up" style="width:100%; border-radius: 8px; display: block;" /></p>
       <p style="margin-top: 16px;"><a href="/downloads/tlu-mac-tunnel.zip" class="cta-button" style="display:inline-block;">Download tlu-mac-tunnel.zip</a></p>
-      <p style="margin-top: 12px; font-size: 14px;">Unzip it, then in Terminal: <code>chmod +x tlu-mac-tunnel.sh && ./tlu-mac-tunnel.sh</code></p>
-      <p style="margin-top: 8px; font-size: 14px;">This script is a <a href="https://sing-box.sagernet.org" target="_blank" rel="noopener">sing-box</a> setup tuned for TLU. If you know sing-box, you can use it directly.</p>
+      <ol style="margin-top: 12px;">
+        <li>Safari opens the zip for you. If you see a .zip, double-click it. The <strong>tlu-mac-tunnel</strong> folder appears in Downloads.<!--help:mac:install--></li>
+        <li>Join the phone's Wi-Fi and turn sharing on in the app.<!--help:mac:join-wifi--></li>
+        <li>Press <strong>Command + Space</strong>, type <strong>Terminal</strong>, press <strong>Return</strong>.<!--help:mac:set-proxy--></li>
+        <li>Type <code>cd ~/Downloads/tlu-mac-tunnel</code> and press Return.<!--help:mac:set-proxy--></li>
+        <li>Type <code>bash tlu-mac-tunnel.sh</code> and press Return.<!--help:mac:set-proxy--></li>
+        <li>Type the IP and the port shown in the app, pressing Return after each. Next time it asks <strong>Connect to IP:port? (y/n)</strong>: type <code>y</code> and press Return to use the same ones, or <code>n</code> to type new ones.<!--help:mac:set-proxy--></li>
+        <li>Type your Mac password and press Return. Nothing appears while you type it; that's normal.<!--help:mac:set-proxy--></li>
+        <li>When you see <strong>Connected.</strong>, you're done. The window minimizes and the connection keeps running.<!--help:mac:no-internet--></li>
+      </ol>
+      <p style="margin-top: 12px;"><strong>To stop:</strong> click Terminal in the Dock, then press <strong>Control + C</strong> in its window. Stop it here first, before you turn sharing off in the app; otherwise the Mac has no internet until you stop it.</p>
+      <p style="margin-top: 8px; font-size: 14px;">The script is plain text: you can open it in TextEdit and read every step. It sends nothing anywhere. It is a <a href="https://sing-box.sagernet.org" target="_blank" rel="noopener">sing-box</a> setup tuned for TLU; if you know sing-box, you can use it directly.</p>
     </div>
 
     <h3>See it in action</h3>
@@ -160,9 +171,11 @@ extraJsonLd: |2
 
     <p>Or set it up by hand:</p>
     <ol>
-      <li>Before joining the phone's Wi-Fi, install via Homebrew: <code>brew install sing-box</code><!--help:mac:install--></li>
-      <li>Save the config below as <code>~/config.json</code>, replacing the IP and port with the values shown in the app.<!--help:mac:set-proxy--></li>
-      <li>Run it (it needs <code>sudo</code> because it creates a virtual network interface and changes routing): <code>sudo sing-box run --config ~/config.json</code><!--help:mac:set-proxy--></li>
+      <li>While the Mac still has internet, open <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a> and download the file that ends in <strong>darwin-arm64.tar.gz</strong> (Mac with an Apple chip, M1 or newer) or <strong>darwin-amd64.tar.gz</strong> (Intel Mac). Double-click it in Downloads to unpack it. (Already use Homebrew? <code>brew install sing-box</code> works too.)<!--help:mac:install--></li>
+      <li>Open TextEdit and first click <strong>Format › Make Plain Text</strong> (otherwise the file won't work). Paste the text from the <a href="#singbox-config">sing-box config</a> box below and replace <code>PHONE_IP</code> (it appears twice) and <code>PHONE_PORT</code> with the numbers shown in the app. Click <strong>File › Save</strong>, name it <code>config.json</code>, choose the sing-box folder (the one with sing-box inside) and click <strong>Save</strong>. If TextEdit asks, click <strong>Use .json</strong>.<!--help:mac:set-proxy--></li>
+      <li>Press <strong>Command + Space</strong>, type <strong>Terminal</strong>, press <strong>Return</strong>. Type <code>cd</code> and a space, drag the sing-box folder into the window, then press Return.<!--help:mac:set-proxy--></li>
+      <li>Type <code>xattr -c sing-box</code> and press Return (this lets macOS run the file you downloaded). Then type <code>sudo ./sing-box run --config config.json</code> and press Return (with Homebrew: <code>sudo sing-box run --config config.json</code>). Type your Mac password and press Return; nothing appears while you type it.<!--help:mac:set-proxy--></li>
+      <li>Wait until you see <code>sing-box started</code> and leave the window open. To stop, press <strong>Control + C</strong> in this window, before you turn sharing off in the app.<!--help:mac:no-internet--></li>
       <li>Turn off the native SOCKS Proxy setting from Option A if you had it on; sing-box's TUN mode replaces it.<!--help:mac:set-proxy--></li>
     </ol>
 

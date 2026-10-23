@@ -22,7 +22,7 @@ extraJsonLd: |2
         {
           "@type": "HowToStep",
           "name": "Önce kur, sonra telefonun Wi-Fi'ına bağlan",
-          "text": "Cihaz henüz kendi internetine bağlıyken gerekenleri kur (iPhone'da Potatso, bilgisayarda Firefox veya FoxyProxy, Mac'te script'imizle sing-box). Sonra paylaşan telefonda Tether Link Utility'yi aç, PAYLAŞIMI BAŞLAT'a dokun, bağlanacak cihaza dokun ve cihazda uygulamanın olup olmadığını cevapla. Ancak bundan sonra Ad altında gösterilen Wi-Fi'ye, Şifre altındaki şifreyle bağlan ve iki değeri (SOCKS sunucusu ve Port) gir. Bu Wi-Fi 'İnternet yok' diyebilir; bu normal. Uygulamanın ekranı, cihaz bağlanana kadar kendiliğinden bekler."
+          "text": "Cihaz henüz kendi internetine bağlıyken gerekenleri kur (iPhone'da Potatso, bilgisayarda Firefox veya FoxyProxy, Mac'te betiğimizle sing-box). Sonra paylaşan telefonda Tether Link Utility'yi aç, PAYLAŞIMI BAŞLAT'a dokun, bağlanacak cihaza dokun ve cihazda uygulamanın olup olmadığını cevapla. Ancak bundan sonra Ad altında gösterilen Wi-Fi'ye, Şifre altındaki şifreyle bağlan ve iki değeri (SOCKS sunucusu ve Port) gir. Bu Wi-Fi 'İnternet yok' diyebilir; bu normal. Uygulamanın ekranı, cihaz bağlanana kadar kendiliğinden bekler."
         },
         {
           "@type": "HowToStep",
@@ -32,7 +32,7 @@ extraJsonLd: |2
         {
           "@type": "HowToStep",
           "name": "Windows ve macOS: sing-box ile tüm uygulamalar",
-          "text": "Firefox/FoxyProxy ve macOS'un yerleşik SOCKS ayarı sadece bu ayarı kullanan uygulamaların trafiğini yönlendirir; macOS ayarı DNS sorgularını proxy'den geçirmez. Tüm uygulamalar ve DNS için sing-box'ı telefonun Wi-Fi'ına bağlanmadan önce kur (macOS'ta script'imiz veya brew install sing-box, ya da Windows sürümünü indir), telefonun IP/portuna giden bir SOCKS çıkışıyla bir TUN girişi yapılandır ve yönetici yetkisiyle çalıştır. Windows'ta: github.com/SagerNet/sing-box/releases adresinden adı windows-amd64.zip ile biten dosyayı indir (Snapdragon veya Surface Pro X'te windows-arm64.zip) ve ayıkla. Not Defteri'nde yapılandırmayı yapıştır, PHONE_IP ve PHONE_PORT'u değiştir, Kayıt türü Tüm dosyalar olacak şekilde sing-box klasörüne config.json adıyla kaydet. Terminal (Yönetici)'yi aç, cd yazıp bir boşluk bırak, sing-box klasörünü pencereye sürükleyip Enter'a bas, sonra .\\sing-box.exe run --config config.json yazıp Enter'a bas. sing-box started yazısını bekle ve pencereyi açık bırak. Windows Ayarlar > Proxy'yi kullanma; bu uygulamayla çalışmaz. macOS'ta: script'imiz ya da brew install sing-box ve sudo sing-box run --config ~/config.json."
+          "text": "Firefox/FoxyProxy ve macOS'un yerleşik SOCKS ayarı sadece bu ayarı kullanan uygulamaların trafiğini yönlendirir; macOS ayarı DNS sorgularını proxy'den geçirmez. Tüm uygulamalar ve DNS için sing-box'ı telefonun Wi-Fi'ına bağlanmadan önce kur (macOS'ta betiğimiz, ya da Windows sürümünü indir), telefonun IP/portuna giden bir SOCKS çıkışıyla bir TUN girişi yapılandır ve yönetici yetkisiyle çalıştır. Windows'ta: github.com/SagerNet/sing-box/releases adresinden adı windows-amd64.zip ile biten dosyayı indir (Snapdragon veya Surface Pro X'te windows-arm64.zip) ve ayıkla. Not Defteri'nde yapılandırmayı yapıştır, PHONE_IP ve PHONE_PORT'u değiştir, Kayıt türü Tüm dosyalar olacak şekilde sing-box klasörüne config.json adıyla kaydet. Terminal (Yönetici)'yi aç, cd yazıp bir boşluk bırak, sing-box klasörünü pencereye sürükleyip Enter'a bas, sonra .\\sing-box.exe run --config config.json yazıp Enter'a bas. sing-box started yazısını bekle ve pencereyi açık bırak. Windows Ayarlar > Proxy'yi kullanma; bu uygulamayla çalışmaz. macOS'ta: betiğimizi çalıştır (Terminal'de bash tlu-mac-tunnel.sh); sing-box'ı kendisi indirir, Homebrew gerekmez."
         },
         {
           "@type": "HowToStep",
@@ -67,7 +67,7 @@ extraJsonLd: |2
         <ul>
           <li>iPhone veya iPad: App Store'dan Potatso (ücretsiz) veya Shadowrocket (ücretli).</li>
           <li>Windows veya Linux bilgisayar: firefox.com'dan Firefox ya da Chrome veya Edge için FoxyProxy eklentisi.</li>
-          <li>Mac: yerleşik ayar için hiçbir şey gerekmez. Tüm uygulamalar için sing-box'ı kurması adına script'imizi şimdi bir kez çalıştır (bkz. <a href="#macos">macOS</a>).</li>
+          <li>Mac: yerleşik ayar için hiçbir şey gerekmez. Tüm uygulamalar için betiğimizi şimdi indir (bkz. <a href="#macos">macOS</a>). sing-box'ı kendisi getirir, gerekirse telefon üzerinden de.</li>
           <li>Windows veya Linux, tüm uygulamalar: sing-box'ı şimdi indir (bkz. <a href="#windows">Windows</a> veya <a href="#linux">Linux</a>).</li>
         </ul>
         <p>Cihazın interneti yok mu? Birkaç dakikalığına başka bir Wi-Fi'ye bağla (ev, iş, kafe) ve oradan kur. Windows bilgisayara Firefox kabloyla da gelir: telefona Windows için Firefox'u indir, telefonu USB kabloyla bilgisayara bağla, dosyayı bilgisayara kopyalayıp aç.</p>
@@ -135,30 +135,43 @@ extraJsonLd: |2
       <li><strong>SOCKS proxy</strong>'yi aç, telefonun IP adresini ve portunu gir, sonra <strong>Tamam</strong>'a tıkla.<!--help:mac:set-proxy--></li>
       <li>Safari'de herhangi bir site aç.<!--help:mac:no-internet--></li>
     </ol>
-    <p>Ek bir uygulama gerekmez. Ancak macOS'un yerleşik SOCKS ayarını her uygulama kullanmaz ve DNS sorguları bu ayarla proxy üzerinden gitmez. DNS dahil tam kapsama için Seçenek B'deki script'i kullan.</p>
+    <p>Ek bir uygulama gerekmez. Ancak macOS'un yerleşik SOCKS ayarını her uygulama kullanmaz ve DNS sorguları bu ayarla proxy üzerinden gitmez. DNS dahil tam kapsama için Seçenek B'deki betiği kullan.</p>
 
     <h3>Seçenek B (önerilen): sing-box ile tüm uygulamalar</h3>
     <p>Tüm uygulamaların ve DNS'in proxy üzerinden gitmesi için yerleşik ayar yerine <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a>'ı TUN modunda çalıştır.</p>
 
-    <div class="callout">
-      <p><strong>En kolay yol:</strong> hazır script'imizi indir ve telefonun Wi-Fi'ına bağlanmadan <strong>önce</strong> bir kez çalıştır; böylece sing-box'ı normal internetin üzerinden kurabilir. Homebrew'u kontrol eder, gerekirse sing-box'ı kurar (internet yoksa açık bir mesajla durur), telefonunun IP ve portunu sorar ve her şeyi arka planda çalıştırır (Terminal penceresi küçülür, yalnızca bir sorun olursa geri gelir).</p>
+    <div class="callout" id="mac-script">
+      <p><strong>En kolay yol: betiğimizi indir</strong></p>
+      <p>Başka bir şey kurman gerekmez, Homebrew da gerekmez. Betik ilk seferde sing-box'ı resmi GitHub sayfasından indirir (SHA256 hash ile kontrol edilir); Mac'in kendi interneti yoksa telefon üzerinden indirir. Uygulamada gösterilen IP'yi ve portu sorar, sonra arka planda çalışır (Terminal penceresi küçülür, yalnızca bir sorun olursa geri gelir).</p>
       <p style="margin-top: 16px;"><img src="/mac-tunnel-script-demo.png" alt="tlu-mac-tunnel.sh çalıştıran, telefonun IP'sini ve portunu isteyen, sonra bağlantının kurulduğunu doğrulayan Terminal" style="width:100%; border-radius: 8px; display: block;" /></p>
       <p style="margin-top: 16px;"><a href="/downloads/tlu-mac-tunnel.zip" class="cta-button" style="display:inline-block;">tlu-mac-tunnel.zip indir</a></p>
-      <p style="margin-top: 12px; font-size: 14px;">Arşivi aç, sonra Terminal'de: <code>chmod +x tlu-mac-tunnel.sh && ./tlu-mac-tunnel.sh</code></p>
-      <p style="margin-top: 8px; font-size: 14px;">Bu script, TLU için ayarladığımız bir <a href="https://sing-box.sagernet.org" target="_blank" rel="noopener">sing-box</a> kurulumu. sing-box biliyorsan doğrudan onu da kullanabilirsin.</p>
+      <ol style="margin-top: 12px;">
+        <li>Safari zip'i senin için açar. .zip dosyası görürsen üzerine çift tıkla. İndirilenler'de <strong>tlu-mac-tunnel</strong> klasörü belirir.<!--help:mac:install--></li>
+        <li>Telefonun Wi-Fi'ına bağlan ve uygulamada paylaşımı aç.<!--help:mac:join-wifi--></li>
+        <li><strong>Command + Boşluk</strong>'a bas, <strong>Terminal</strong> yaz, <strong>Return</strong>'e bas.<!--help:mac:set-proxy--></li>
+        <li><code>cd ~/Downloads/tlu-mac-tunnel</code> yaz ve Return'e bas.<!--help:mac:set-proxy--></li>
+        <li><code>bash tlu-mac-tunnel.sh</code> yaz ve Return'e bas.<!--help:mac:set-proxy--></li>
+        <li>Uygulamada gösterilen IP'yi ve portu yaz, her birinden sonra Return'e bas. Sonraki seferde <strong>Connect to IP:port? (y/n)</strong> diye sorar: aynılarını kullanmak için <code>y</code> yazıp Return'e bas, yenilerini yazmak için <code>n</code>.<!--help:mac:set-proxy--></li>
+        <li>Mac şifreni yaz ve Return'e bas. Yazarken ekranda hiçbir şey görünmez, bu normal.<!--help:mac:set-proxy--></li>
+        <li><strong>Connected.</strong> yazısını görünce tamamdır. Pencere küçülür, bağlantı çalışmaya devam eder.<!--help:mac:no-internet--></li>
+      </ol>
+      <p style="margin-top: 12px;"><strong>Durdurmak için:</strong> Dock'ta Terminal'e tıkla, penceresinde <strong>Control + C</strong>'ye bas. Uygulamada paylaşımı kapatmadan önce burada durdur; yoksa sen durdurana kadar Mac internetsiz kalır.</p>
+      <p style="margin-top: 8px; font-size: 14px;">Betik düz metindir: TextEdit'te açıp her adımı okuyabilirsin. Hiçbir yere bir şey göndermez. TLU için ayarladığımız bir <a href="https://sing-box.sagernet.org" target="_blank" rel="noopener">sing-box</a> kurulumudur; sing-box biliyorsan doğrudan onu da kullanabilirsin.</p>
     </div>
 
     <h3>Nasıl çalıştığını izleyin</h3>
-    <p>Script'in Mac'te çalışırken görüntüsü: telefon mobil verisini paylaşırken bağlantı üzerinden 1GB'lık bir test dosyası indiriliyor, uygulamanın sayacı da telefon üzerinden geçen trafiği gösteriyor.</p>
+    <p>Betiğin Mac'te çalışırken görüntüsü: telefon mobil verisini paylaşırken bağlantı üzerinden 1GB'lık bir test dosyası indiriliyor, uygulamanın sayacı da telefon üzerinden geçen trafiği gösteriyor.</p>
     <video controls playsinline preload="metadata" style="width:100%; border-radius: 8px; display: block; margin-top: 12px;" poster="/mac-tunnel-script-demo.png">
       <source src="/sing-box-mac-how-to.mp4" type="video/mp4">
     </video>
 
     <p>Ya da elle kur:</p>
     <ol>
-      <li>Telefonun Wi-Fi'ına bağlanmadan önce Homebrew ile kur: <code>brew install sing-box</code><!--help:mac:install--></li>
-      <li>Aşağıdaki yapılandırmayı <code>~/config.json</code> olarak kaydet, IP ve portu uygulamada gösterilenlerle değiştir.<!--help:mac:set-proxy--></li>
-      <li>Çalıştır (<code>sudo</code> gerekir, çünkü sanal bir ağ arayüzü oluşturur ve yönlendirmeyi değiştirir): <code>sudo sing-box run --config ~/config.json</code><!--help:mac:set-proxy--></li>
+      <li>Mac'in hâlâ interneti varken <a href="https://github.com/SagerNet/sing-box/releases" target="_blank" rel="noopener">github.com/SagerNet/sing-box/releases</a> adresini aç ve adı <strong>darwin-arm64.tar.gz</strong> ile biten dosyayı (Apple çipli Mac, M1 ve sonrası) ya da <strong>darwin-amd64.tar.gz</strong> ile biteni (Intel Mac) indir. İndirilenler'de üzerine çift tıklayıp aç. (Homebrew kullanıyorsan <code>brew install sing-box</code> da olur.)<!--help:mac:install--></li>
+      <li>TextEdit'i aç ve önce <strong>Biçim › Düz Metin Yap</strong>'a tıkla (yoksa dosya çalışmaz). Aşağıdaki <a href="#singbox-config">sing-box yapılandırması</a> kutusundaki metni yapıştır, <code>PHONE_IP</code> (iki yerde geçer) ve <code>PHONE_PORT</code> yerine uygulamada gösterilen sayıları yaz. <strong>Dosya › Kaydet</strong>'e tıkla, adını <code>config.json</code> koy, sing-box klasörünü seç (içinde sing-box olan) ve <strong>Kaydet</strong>'e tıkla. TextEdit sorarsa <strong>.json Kullan</strong>'a tıkla.<!--help:mac:set-proxy--></li>
+      <li><strong>Command + Boşluk</strong>'a bas, <strong>Terminal</strong> yaz, <strong>Return</strong>'e bas. <code>cd</code> yazıp bir boşluk bırak, sing-box klasörünü pencereye sürükle, sonra Return'e bas.<!--help:mac:set-proxy--></li>
+      <li><code>xattr -c sing-box</code> yazıp Return'e bas (macOS'un indirdiğin dosyayı açmasına izin verir). Sonra <code>sudo ./sing-box run --config config.json</code> yazıp Return'e bas (Homebrew ile: <code>sudo sing-box run --config config.json</code>). Mac şifreni yazıp Return'e bas; yazarken hiçbir şey görünmez.<!--help:mac:set-proxy--></li>
+      <li><code>sing-box started</code> yazısını bekle ve pencereyi açık bırak. Durdurmak için bu pencerede <strong>Control + C</strong>'ye bas; bunu uygulamada paylaşımı kapatmadan önce yap.<!--help:mac:no-internet--></li>
       <li>Seçenek A'daki yerleşik SOCKS Proxy ayarı açıksa kapat, sing-box'ın TUN modu onun yerini alır.<!--help:mac:set-proxy--></li>
     </ol>
 
@@ -221,7 +234,7 @@ extraJsonLd: |2
     </ol>
 
     <div class="callout">
-      <p><strong>DNS ipucu:</strong> DNS sorgularının da proxy üzerinden gitmesini sağla. Firefox'ta <strong>SOCKS v5 kullanırken vekil sunucu DNS'ini kullan</strong>'ı işaretle; Shadowrocket bunu varsayılan olarak yapar. macOS'un Sistem Ayarları'ndaki SOCKS ayarı DNS'i proxy'den geçirmez, bu yüzden Mac'te tam kapsama için <a href="#macos">script'imizi</a> kullan. Böylece alan adı çözümlemesi de aynı bağlantıyı kullanır ve bazı sitelerin açılmaması gibi sorunlar önlenir. sing-box TUN modu DNS'i diğer trafikle birlikte zaten yakalar.</p>
+      <p><strong>DNS ipucu:</strong> DNS sorgularının da proxy üzerinden gitmesini sağla. Firefox'ta <strong>SOCKS v5 kullanırken vekil sunucu DNS'ini kullan</strong>'ı işaretle; Shadowrocket bunu varsayılan olarak yapar. macOS'un Sistem Ayarları'ndaki SOCKS ayarı DNS'i proxy'den geçirmez, bu yüzden Mac'te tam kapsama için <a href="#macos">betiğimizi</a> kullan. Böylece alan adı çözümlemesi de aynı bağlantıyı kullanır ve bazı sitelerin açılmaması gibi sorunlar önlenir. sing-box TUN modu DNS'i diğer trafikle birlikte zaten yakalar.</p>
     </div>
 
     <h2 id="other">TV ve oyun konsolları</h2>
