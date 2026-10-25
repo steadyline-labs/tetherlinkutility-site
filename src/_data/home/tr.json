@@ -267,9 +267,13 @@
       {
         "q": "Diğer cihazlar QR kodu tarayarak kendi hotspot'uma katılabilir mi?",
         "a": "Evet. Telefonunun sistem hotspot'unu kendin açıyorsan (Android'de Mobil Hotspot, iPhone'da Kişisel Erişim Noktası), ağ adını ve şifresini uygulamadaki Hotspot Wi-Fi bilgilerini ekle ile bir kez kaydet. Bu bilgiler yalnızca cihazında saklanır, uygulama hotspot ayarlarını değiştirmez ve bilgiler QR koda eklenir; böylece diğer cihazlar kodu tarayarak ağa otomatik olarak katılır. iPhone'da şifre Ayarlar &gt; Kişisel Erişim Noktası bölümünde görünür. Android uygulaması hotspot'u otomatik olarak kendisi başlattığında bu adıma gerek yoktur."
+      },
+      {
+        "q": "Diğer cihazda Wi-Fi ağı görünmüyor. Ne yapmalıyım?",
+        "a": "Diğer cihaz bir Android telefonsa Wi-Fi listesine gerek yok: orada Tether Link Utility'yi aç, <strong>Başka bir telefonun internetini kullan</strong>'a, sonra <strong>QR kodu tara</strong>'ya dokun ve kamerayı paylaşan telefondaki koda tut. Wi-Fi'ye kendisi bağlanır. iPhone veya bilgisayarda paylaşan telefonun ekranını açık tut, cihaza yaklaştır ve Wi-Fi listesini yenile ya da uygulamada gösterilen ad ve şifreyle ağı elle ekle. Hâlâ görünmüyor mu? O cihaz bu tür Wi-Fi'yi göremiyor. Paylaşan telefonda <strong>DURDUR</strong>'a dokun, telefonun ayarlarından kendi hotspot'unu aç, sonra uygulamada <strong>Hotspot Wi-Fi bilgilerini ekle</strong>'ye dokun, o hotspot'un adını ve şifresini yaz ve paylaşımı yeniden başlat."
       }
     ],
-    "more": "11 sorunun tümü &rarr;",
+    "more": "12 sorunun tümü &rarr;",
     "less": "Daha az soru göster"
   },
   "closing": {

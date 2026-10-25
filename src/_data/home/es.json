@@ -266,9 +266,13 @@
       {
         "q": "¿Otros dispositivos pueden unirse a mi propio punto de acceso escaneando el código QR?",
         "a": "Sí. Si activas tú mismo el punto de acceso del sistema de tu teléfono (Hotspot móvil en Android, Compartir Internet en iPhone), guarda su nombre de red y contraseña una vez con Add hotspot Wi-Fi details dentro de la app. Se guardan solo en tu dispositivo, la app no cambia la configuración de tu punto de acceso y los datos se añaden al código QR para que otros dispositivos se unan a la red automáticamente al escanearlo. En iPhone, la contraseña aparece en Ajustes &gt; Compartir Internet. Cuando la app de Android inicia su propio punto de acceso automáticamente, este paso no es necesario."
+      },
+      {
+        "q": "El otro dispositivo no ve la red Wi-Fi. ¿Qué hago?",
+        "a": "En otro celular Android no hace falta la lista de Wi-Fi: abre Tether Link Utility allí, toca <strong>Use another phone's internet</strong>, luego <strong>Scan QR code</strong>, y apunta la cámara al código del celular que comparte. Se une al Wi-Fi solo. En un iPhone o una computadora, mantén encendida la pantalla del celular que comparte y acércalo, luego actualiza la lista de Wi-Fi, o agrega la red a mano con el nombre y la contraseña que muestra la app. ¿Sigue sin aparecer? Ese dispositivo no puede ver este tipo de Wi-Fi. En el celular que comparte, toca <strong>STOP</strong>, enciende el hotspot propio del celular en sus ajustes, luego toca <strong>Add hotspot Wi-Fi details</strong> en la app, escribe el nombre y la contraseña de ese hotspot y vuelve a compartir."
       }
     ],
-    "more": "Las 11 preguntas &rarr;",
+    "more": "Las 12 preguntas &rarr;",
     "less": "Mostrar menos preguntas"
   },
   "closing": {

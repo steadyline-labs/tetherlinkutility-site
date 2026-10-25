@@ -265,9 +265,13 @@
       {
         "q": "Can other devices join my own hotspot by scanning the QR code?",
         "a": "Yes. If you turn on your phone's system hotspot yourself (Mobile Hotspot on Android, Personal Hotspot on iPhone), save its network name and password once with Add hotspot Wi-Fi details in the app. They are stored only on your device, the app doesn't change your hotspot settings, and the details are added to the QR code so other devices join the network automatically by scanning. On iPhone, the password is shown in Settings &gt; Personal Hotspot. When the Android app starts its own hotspot automatically, this step isn't needed."
+      },
+      {
+        "q": "The other device can't see the Wi-Fi network. What can I do?",
+        "a": "On another Android phone you don't need the Wi-Fi list: open Tether Link Utility there, tap <strong>Use another phone's internet</strong>, then <strong>Scan QR code</strong>, and point the camera at the code on the sharing phone. It joins the Wi-Fi by itself. On an iPhone or a computer, keep the sharing phone's screen on and close by, then refresh the Wi-Fi list, or add the network by hand with the name and password shown in the app. Still not there? That device can't see this kind of Wi-Fi. On the sharing phone, tap <strong>STOP</strong>, turn on the phone's own hotspot in its settings, then tap <strong>Add hotspot Wi-Fi details</strong> in the app, type that hotspot's name and password and start sharing again."
       }
     ],
-    "more": "All 11 questions &rarr;",
+    "more": "All 12 questions &rarr;",
     "less": "Show fewer questions"
   },
   "closing": {
