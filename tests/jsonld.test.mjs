@@ -203,6 +203,24 @@ test("dates are real ISO dates, datePublished <= dateModified <= today", () => {
   assert.deepEqual(bad, []);
 });
 
+// Google's video rich results want a full date-time with a timezone; a bare date is flagged in
+// Search Console ("datetime is missing a timezone", "invalid datetime value").
+test("VideoObject: uploadDate is a full ISO 8601 date-time with a timezone", () => {
+  const bad = [];
+  let n = 0;
+  for (const { p, ld } of withLd) {
+    for (const { node } of nodes(ld)) {
+      if (node["@type"] !== "VideoObject") continue;
+      n++;
+      if (typeof node.uploadDate !== "string" || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})$/.test(node.uploadDate) || !isIsoDate(node.uploadDate)) {
+        bad.push(`${p}: uploadDate "${node.uploadDate}"`);
+      }
+    }
+  }
+  assert.ok(n > 10, `${n} VideoObjects`);
+  assert.deepEqual(bad, []);
+});
+
 test("FAQPage: every question and answer is visible on the page, no duplicates", () => {
   const bad = [];
   let n = 0;

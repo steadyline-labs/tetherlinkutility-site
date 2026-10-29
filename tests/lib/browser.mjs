@@ -49,12 +49,26 @@ export async function launch({ args = [] } = {}) {
     "--remote-debugging-port=0", `--user-data-dir=${profile}`, ...args, "about:blank",
   ], { stdio: "ignore" });
 
+  // If Chrome does not come up, stop it and the file server before throwing: a leftover child
+  // process or listening server keeps Node alive and the CI job hangs until GitHub cancels it.
+  const abort = (why) => {
+    chrome.kill();
+    server.close();
+    fs.rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
+    throw new Error(why);
+  };
   const portFile = path.join(profile, "DevToolsActivePort");
-  for (let i = 0; i < 100 && !fs.existsSync(portFile) && chrome.exitCode === null; i++) await sleep(100);
-  if (!fs.existsSync(portFile)) throw new Error(`Chrome did not start (${CHROME}, exit ${chrome.exitCode})`);
+  // Wait until Chrome has written both lines (port and path), not just created the file.
+  const ready = () => fs.existsSync(portFile) && fs.readFileSync(portFile, "utf8").trim().split("\n").length === 2;
+  for (let i = 0; i < 300 && !ready() && chrome.exitCode === null; i++) await sleep(100);
+  if (!ready()) abort(`Chrome did not start (${CHROME}, exit ${chrome.exitCode})`);
   const [port, wsPath] = fs.readFileSync(portFile, "utf8").trim().split("\n");
   const ws = new WebSocket(`ws://127.0.0.1:${port}${wsPath}`);
-  await new Promise((resolve, reject) => { ws.onopen = resolve; ws.onerror = reject; });
+  const opened = await Promise.race([
+    new Promise((resolve) => { ws.onopen = () => resolve(true); ws.onerror = () => resolve(false); }),
+    sleep(10000).then(() => false),
+  ]);
+  if (!opened) { ws.close(); abort("Could not connect to Chrome's DevTools socket"); }
 
   let nextId = 1;
   const pending = new Map();
@@ -84,6 +98,12 @@ export async function launch({ args = [] } = {}) {
       blocked: [],       // other outside requests that were blocked
     };
     let loaded = null;
+    // A paused request can go away before we answer it (the page navigated or was closed, e.g.
+    // the #help redirect). Chrome then rejects the answer with "Invalid InterceptionId"; that is
+    // not a page failure, so only that case is ignored. Anything else still fails the run.
+    const answer = (method, params) => send(method, params, sessionId).catch((e) => {
+      if (!/Invalid InterceptionId|Session with given id not found|No target with given id/.test(e.message)) throw e;
+    });
     const onEvent = async (msg) => {
       if (msg.sessionId !== sessionId) return;
       if (msg.method === "Page.loadEventFired" && loaded) loaded();
@@ -96,19 +116,19 @@ export async function launch({ args = [] } = {}) {
         { name: "Access-Control-Allow-Methods", value: "POST, OPTIONS" },
         { name: "Content-Type", value: "application/json" },
       ];
-      if (request.url.startsWith(origin)) return send("Fetch.continueRequest", { requestId }, sessionId);
+      if (request.url.startsWith(origin)) return answer("Fetch.continueRequest", { requestId });
       if (request.url.startsWith("https://formspree.io/")) {
-        if (request.method === "OPTIONS") return send("Fetch.fulfillRequest", { requestId, responseCode: 204, responseHeaders: cors }, sessionId);
+        if (request.method === "OPTIONS") return answer("Fetch.fulfillRequest", { requestId, responseCode: 204, responseHeaders: cors });
         page.requests.push({ method: request.method, url: request.url, headers: request.headers, body: request.postData });
         const reply = page.replies.length > 1 ? page.replies.shift() : page.replies[0] ?? 200;
-        if (reply === "network") return send("Fetch.failRequest", { requestId, errorReason: "Failed" }, sessionId);
-        return send("Fetch.fulfillRequest", {
+        if (reply === "network") return answer("Fetch.failRequest", { requestId, errorReason: "Failed" });
+        return answer("Fetch.fulfillRequest", {
           requestId, responseCode: reply, responseHeaders: cors,
           body: Buffer.from(JSON.stringify(reply < 300 ? { ok: true } : { error: "mock" })).toString("base64"),
-        }, sessionId);
+        });
       }
       page.blocked.push(request.url);
-      return send("Fetch.failRequest", { requestId, errorReason: "BlockedByClient" }, sessionId);
+      return answer("Fetch.failRequest", { requestId, errorReason: "BlockedByClient" });
     };
     listeners.add(onEvent);
     await send("Page.enable", {}, sessionId);

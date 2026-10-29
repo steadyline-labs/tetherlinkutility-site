@@ -32,6 +32,8 @@ jobs:
   build:
     # Pinned, not ubuntu-latest: the visual baselines depend on the runner's fonts and Chrome build.
     runs-on: ubuntu-24.04
+    # A normal run takes about a minute; a hung browser test must not hold the pages queue for 6 hours.
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
         with:
