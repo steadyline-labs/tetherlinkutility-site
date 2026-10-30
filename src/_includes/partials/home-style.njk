@@ -82,17 +82,12 @@
     }
     .play-badge:hover { transform: translateY(-2px); color: #fff; text-decoration: none; }
     .play-badge svg { flex-shrink: 0; }
-    .play-badge .pb-text, .ios-soon-badge .pb-text { display: flex; flex-direction: column; line-height: 1.15; }
+    .play-badge .pb-text { display: flex; flex-direction: column; line-height: 1.15; }
     .play-badge .pb-eyebrow { font-size: 12px; color: #d0d0d0; letter-spacing: 0.02em; }
-    .play-badge .pb-word, .ios-soon-badge .pb-word { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
-    .ios-soon-badge {
-      display: inline-flex; align-items: center; gap: 12px;
-      background: var(--surface); color: var(--text);
-      border: 1px dashed #CDB9A5;
-      padding: 11px 22px; border-radius: 12px;
-      cursor: default; user-select: none;
-    }
-    .ios-soon-badge .pb-eyebrow { font-size: 12px; color: var(--accent-text); font-weight: 700; letter-spacing: 0.04em; }
+    .play-badge .pb-word { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+    .appstore-badge { display: inline-flex; flex-shrink: 0; line-height: 0; border-radius: 12px; transition: transform 0.15s; }
+    .appstore-badge:hover { transform: translateY(-2px); }
+    .appstore-badge img { display: block; height: 54px; width: auto; }
 
     /* ── Hero visual: phone -> other devices ── */
     .hero-visual { position: relative; display: flex; justify-content: center; }
@@ -477,5 +472,6 @@
       .platform .code-chip { margin-left: 56px; }
       .hero-actions { display: grid; grid-auto-flow: row; grid-template-columns: 1fr; }
       .closing-card .play-badge { width: 100%; justify-content: center; }
+      .closing-card .appstore-badge { width: 100%; justify-content: center; }
     }
   </style>

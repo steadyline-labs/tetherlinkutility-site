@@ -1,7 +1,7 @@
 {
   "title": "Tether Link Utility: compartir internet del celular con otro dispositivo",
   "ogTitle": "Tether Link Utility: comparte internet del celular con otro dispositivo",
-  "description": "Comparte los datos móviles de tu celular Android con otro dispositivo por el punto de acceso Wi-Fi y un proxy SOCKS5 local. Conecta con QR, sin root ni cuenta.",
+  "description": "Comparte los datos móviles de tu iPhone o celular Android con otro dispositivo por el punto de acceso Wi-Fi y un proxy SOCKS5 local. Conecta con QR, sin root ni cuenta.",
   "inLanguage": "es-419",
   "jsonld": [
     {
@@ -38,7 +38,7 @@
       },
       {
         "name": "Conecta tu dispositivo",
-        "text": "Android: en el otro teléfono, toca Use another phone's internet y luego Scan QR code. PC con Windows o Mac: únete al Wi-Fi que aparece (puede decir \"Sin internet\"; es normal), abre el archivo de instalación (Windows) o el script (Mac) y escribe los dos valores. iPhone o Linux: escribe los dos valores en Potatso o en Firefox. La pantalla de la app espera sola hasta que el dispositivo se conecta."
+        "text": "Android: en el otro teléfono, toca Use another phone's internet y luego Scan QR code. PC con Windows o Mac: únete al Wi-Fi que aparece (puede decir \"Sin internet\"; es normal), abre el archivo de instalación (Windows) o el script (Mac) y escribe los dos valores. iPhone: escanea el código QR en Tether Link Utility. Linux: escribe los dos valores en Firefox. La pantalla de la app espera sola hasta que el dispositivo se conecta."
       },
       {
         "name": "Empieza a navegar",
@@ -47,7 +47,7 @@
     ]
   },
   "app": {
-    "description": "Comparte los datos móviles de tu teléfono Android con tus otros dispositivos por Wi-Fi mediante un proxy SOCKS5 local. Sin root, sin cuenta, sin servidor remoto.",
+    "description": "Comparte los datos móviles de tu iPhone o teléfono Android con tus otros dispositivos por Wi-Fi mediante un proxy SOCKS5 local. Sin root, sin cuenta, sin servidor remoto.",
     "featureList": [
       "Comparte datos móviles con computadoras, tablets y teléfonos por Wi-Fi",
       "La versión gratuita comparte tu conexión con 1 dispositivo a la vez, sin necesidad de root",
@@ -57,18 +57,16 @@
       "Compatibilidad con proxy SOCKS5 para clientes Windows, macOS e iOS"
     ],
     "freeName": "Gratis",
-    "proDescription": "Desde $3.99 al mes. El precio exacto, en moneda local y con el plan anual, aparece en Google Play y varía según el país y la plataforma."
+    "proDescription": "Desde $3.99 al mes. El precio exacto, en moneda local y con el plan anual, aparece en Google Play y en el App Store y varía según el país y la plataforma."
   },
   "hero": {
-    "iosPill": "muy pronto",
     "h1": "Comparte el internet de tu celular con ",
     "h1Accent": "todos tus dispositivos.",
-    "body": "Tether Link Utility ejecuta un proxy SOCKS5 local en tu teléfono Android y lo comparte por punto de acceso Wi-Fi, para que tu computadora, tu tablet u otro teléfono puedan usar tus datos móviles. Todo funciona en tu dispositivo.",
+    "body": "Tether Link Utility ejecuta un proxy SOCKS5 local en tu teléfono y lo comparte por punto de acceso Wi-Fi, para que otro dispositivo pueda usar tus datos móviles. Combina como quieras iPhone, Android y computadoras, o cualquier dispositivo con SOCKS5. Todo funciona en tu dispositivo.",
     "playLabel": "Disponible en Google Play",
     "playEyebrow": "DISPONIBLE EN",
     "playWord": "Google Play",
-    "iosLabel": "La versión para iOS llegará muy pronto",
-    "iosEyebrow": "MUY PRONTO",
+    "iosLabel": "Descargar en el App Store",
     "trustNoRoot": "Sin root",
     "trust": [
       "Instalación gratuita",
@@ -104,7 +102,7 @@
           "lines": [
             "<b>Teléfono Android:</b> ¿todavía no tiene la app? El teléfono que comparte te muestra cómo instalarla, incluso sin internet. Luego toca <span class=\"app-ui\">Use another phone's internet</span> y <span class=\"app-ui\">Scan QR code</span>.",
             "<b>PC con Windows o Mac:</b> mientras todavía tenga internet, descarga el <a href=\"/downloads/TLU-Windows-Setup.cmd\">archivo de instalación para Windows</a> o el <a href=\"/downloads/tlu-mac-tunnel.zip\">script para Mac</a>. Instala y ejecuta sing-box por ti, así todas las apps usan el internet del teléfono. Luego únete al Wi-Fi que muestra el teléfono que comparte y escribe los dos valores. <a class=\"video-hint\" href=\"/es/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Ver el video para Windows (1:21, en inglés)</a> <a class=\"video-hint\" href=\"/es/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Ver el video para Mac (1:19, en inglés)</a>",
-            "<b>iPhone o Linux:</b> primero instala Potatso (iPhone) o Firefox (Linux), luego únete al Wi-Fi que aparece y escribe los dos valores."
+            "<b>iPhone:</b> abre Tether Link Utility, toca Use another phone's internet y escanea el código QR. <b>Linux:</b> primero instala Firefox, luego únete al Wi-Fi que aparece y escribe los dos valores."
           ]
         }
       ],
@@ -121,7 +119,7 @@
       },
       {
         "title": "Conecta tu dispositivo",
-        "text": "Android escanea el código QR. Las computadoras y los iPhone se unen al Wi-Fi y escriben los dos valores."
+        "text": "Android y iPhone escanean el código QR. Las computadoras se unen al Wi-Fi y escriben los dos valores."
       },
       {
         "title": "Empieza a navegar",
@@ -162,7 +160,7 @@
   "platforms": {
     "label": "Plataformas",
     "title": "Funciona con lo que ya tienes",
-    "text": "PC con Windows y Mac: un solo archivo instala y ejecuta <strong>sing-box</strong> por ti, así todas las apps de la computadora usan el internet del teléfono, DNS incluido. Los iPhone se conectan con la app gratuita Potatso.",
+    "text": "PC con Windows y Mac: un solo archivo instala y ejecuta <strong>sing-box</strong> por ti, así todas las apps de la computadora usan el internet del teléfono, DNS incluido. Los iPhone usan la app Tether Link Utility, y cualquier app SOCKS5 como Potatso también sirve.",
     "guideLink": "Guía de configuración completa &rarr;",
     "items": [
       {
@@ -186,7 +184,7 @@
       {
         "mono": "iOS",
         "name": "iOS",
-        "text": "Potatso (gratis) o Shadowrocket (de pago), solo para el tráfico de esa app.",
+        "text": "Escanea el código QR en Tether Link Utility para iPhone. Cualquier app SOCKS5, como Potatso, también sirve.",
         "chip": "SOCKS5"
       }
     ]
@@ -217,7 +215,7 @@
         ]
       }
     ],
-    "note": "El precio exacto, en moneda local y con el plan anual, aparece en Google Play."
+    "note": "El precio exacto, en moneda local y con el plan anual, aparece en Google Play y en el App Store."
   },
   "faq": {
     "title": "Preguntas frecuentes",
@@ -245,11 +243,11 @@
       },
       {
         "q": "¿Funciona con iPhone?",
-        "a": "iOS no tiene una configuración SOCKS5 nativa, pero apps como Potatso o Shadowrocket pueden conectarse al proxy de la misma forma, solo para el tráfico de esa app y no para todo el dispositivo. Por ahora no hay una opción verificada para todo el dispositivo en iOS. Una app nativa para iOS está en desarrollo y llegará muy pronto."
+        "a": "Sí. Instala Tether Link Utility desde el App Store, ábrela en el iPhone y escanea el código QR del teléfono que comparte. Cualquier app SOCKS5, como Potatso o Shadowrocket, también se conecta al proxy, pero solo para el tráfico de esa app."
       },
       {
         "q": "¿Cuántos dispositivos pueden conectarse a la vez?",
-        "a": "La versión gratuita conecta 1 dispositivo a la vez; Pro amplía el límite a 5. Pro cuesta desde $3.99 al mes. El precio exacto, en moneda local y con el plan anual, aparece en Google Play."
+        "a": "La versión gratuita conecta 1 dispositivo a la vez; Pro amplía el límite a 5. Pro cuesta desde $3.99 al mes. El precio exacto, en moneda local y con el plan anual, aparece en Google Play y en el App Store."
       },
       {
         "q": "¿Funciona con 5G y 4G/LTE?",
@@ -276,6 +274,6 @@
     "less": "Mostrar menos preguntas"
   },
   "closing": {
-    "title": "Instálala gratis desde Google Play"
+    "title": "Instálala gratis en iPhone y Android"
   }
 }

@@ -1,7 +1,7 @@
 {
   "title": "Tether Link Utility: Telefonunun Mobil Verisini SOCKS5 ile Paylaş",
   "ogTitle": "Tether Link Utility: Telefonunun Mobil Verisini SOCKS5 ile Paylaş",
-  "description": "Android telefonunun mobil verisini dizüstü bilgisayarın, tabletin veya başka bir telefonla yerel bir SOCKS5 proxy üzerinden paylaş. Root yok, hesap yok, uzak sunucu yok.",
+  "description": "iPhone veya Android telefonunun mobil verisini başka bir cihazla yerel bir SOCKS5 proxy üzerinden paylaş. Root yok, hesap yok, uzak sunucu yok.",
   "jsonld": [
     {
       "type": "website"
@@ -39,7 +39,7 @@
       },
       {
         "name": "Cihazını bağla",
-        "text": "Android: diğer telefonda Başka bir telefonun internetini kullan'a, sonra QR kodu tara'ya dokun. Windows bilgisayar veya Mac: gösterilen Wi-Fi'ye bağlan (\"İnternet yok\" diyebilir; bu normal), kurulum dosyasını (Windows) ya da betiği (Mac) aç ve iki değeri yaz. iPhone veya Linux: iki değeri Potatso'ya ya da Firefox'a gir. Uygulamanın ekranı, cihaz bağlanana kadar kendiliğinden bekler."
+        "text": "Android: diğer telefonda Başka bir telefonun internetini kullan'a, sonra QR kodu tara'ya dokun. Windows bilgisayar veya Mac: gösterilen Wi-Fi'ye bağlan (\"İnternet yok\" diyebilir; bu normal), kurulum dosyasını (Windows) ya da betiği (Mac) aç ve iki değeri yaz. iPhone: Tether Link Utility'de QR kodu tara. Linux: iki değeri Firefox'a gir. Uygulamanın ekranı, cihaz bağlanana kadar kendiliğinden bekler."
       },
       {
         "name": "Gezinmeye başla",
@@ -48,28 +48,26 @@
     ]
   },
   "app": {
-    "description": "Android telefonunun mobil verisini yerel bir SOCKS5 proxy ile Wi-Fi üzerinden diğer cihazlarınla paylaştırır. Root yok, hesap yok, uzak sunucu yok.",
+    "description": "iPhone veya Android telefonunun mobil verisini yerel bir SOCKS5 proxy ile Wi-Fi üzerinden diğer cihazlarınla paylaştırır. Root yok, hesap yok, uzak sunucu yok.",
     "featureList": [
       "Mobil veriyi dizüstü bilgisayar, tablet ve telefonlarla Wi-Fi üzerinden paylaşma",
       "Ücretsiz katman root gerektirmeden bağlantıyı 1 cihazla paylaşır",
       "Uzak sunucu yok, tüm proxy trafiği cihaz üzerinde yerel olarak yönlendirilir",
       "Android cihazlar arasında tek dokunuşla otomatik hotspot ve Wi-Fi bağlantısı",
       "Anında bağlantı için QR kod kurulumu",
-      "Windows, macOS, Linux ve iOS istemcileri için SOCKS5 proxy desteği"
+      "iPhone, Android ve bilgisayarların her karışımıyla ve SOCKS5 destekleyen her cihazla çalışır"
     ],
     "freeName": "Ücretsiz",
-    "proDescription": "Aylık 109,99 TL, yıllık 609,99 TL. Kesin fiyat Google Play'de gösterilir, platforma göre değişebilir."
+    "proDescription": "Aylık 109,99 TL, yıllık 609,99 TL. Kesin fiyat Google Play'de ve App Store'da gösterilir, platforma göre değişebilir."
   },
   "hero": {
-    "iosPill": "çok yakında",
     "h1": "Telefonunun mobil verisi, ",
     "h1Accent": "tüm cihazlarında.",
-    "body": "Tether Link Utility, Android telefonunda yerel bir SOCKS5 proxy çalıştırır ve bunu Wi-Fi hotspot üzerinden paylaşır; böylece dizüstü bilgisayarın, tabletin veya başka bir telefon mobil verini kullanabilir. Her şey cihazında çalışır.",
+    "body": "Tether Link Utility, telefonunda yerel bir SOCKS5 proxy çalıştırır ve bunu Wi-Fi hotspot üzerinden paylaşır; böylece başka bir cihaz mobil verini kullanabilir. iPhone, Android ve bilgisayarları istediğin gibi karıştır, SOCKS5 destekleyen her cihaz çalışır. Her şey cihazında çalışır.",
     "playLabel": "Google Play'den Hemen İndir",
     "playEyebrow": "GOOGLE PLAY'DE",
     "playWord": "Hemen İndir",
-    "iosLabel": "iOS sürümü çok yakında",
-    "iosEyebrow": "ÇOK YAKINDA",
+    "iosLabel": "App Store'dan indir",
     "trustNoRoot": "Root yok",
     "trust": [
       "Kurulumu ücretsiz",
@@ -105,7 +103,7 @@
           "lines": [
             "<b>Android telefon:</b> uygulama yok mu? Paylaşan telefon, internet olmasa bile nasıl kuracağını gösterir. Sonra <span class=\"app-ui\">Başka bir telefonun internetini kullan</span>'a ve <span class=\"app-ui\">QR kodu tara</span>'ya dokun.",
             "<b>Windows bilgisayar veya Mac:</b> cihazda internet hâlâ varken <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows kurulum dosyasını</a> ya da <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac betiğini</a> indir. sing-box'ı senin için kurup çalıştırır, böylece tüm uygulamalar telefonun internetini kullanır. Sonra paylaşan telefonda gösterilen Wi-Fi'ye bağlan ve iki değeri yaz. <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Windows videosunu izle (1:21)</a> <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Mac videosunu izle (1:19)</a>",
-            "<b>iPhone veya Linux:</b> önce Potatso'yu (iPhone) ya da Firefox'u (Linux) kur, sonra gösterilen Wi-Fi'ye bağlan ve iki değeri gir."
+            "<b>iPhone:</b> Tether Link Utility'yi aç, Başka bir telefonun internetini kullan'a dokun ve QR kodu tara. <b>Linux:</b> önce Firefox'u kur, sonra gösterilen Wi-Fi'ye bağlan ve iki değeri gir."
           ]
         }
       ],
@@ -122,7 +120,7 @@
       },
       {
         "title": "Cihazını bağla",
-        "text": "Android QR kodu tarar. Bilgisayarlar ve iPhone'lar Wi-Fi'ye bağlanıp iki değeri girer."
+        "text": "Android ve iPhone QR kodu tarar. Bilgisayarlar Wi-Fi'ye bağlanıp iki değeri girer."
       },
       {
         "title": "Gezinmeye başla",
@@ -163,7 +161,7 @@
   "platforms": {
     "label": "Platformlar",
     "title": "Zaten kullandığın cihazlarla çalışır",
-    "text": "Windows bilgisayarlar ve Mac'ler: tek bir dosya <strong>sing-box</strong>'ı senin için kurup çalıştırır; bilgisayardaki tüm uygulamalar, DNS dahil, telefonun internetini kullanır. iPhone'lar ücretsiz Potatso uygulamasıyla bağlanır.",
+    "text": "Windows bilgisayarlar ve Mac'ler: tek bir dosya <strong>sing-box</strong>'ı senin için kurup çalıştırır; bilgisayardaki tüm uygulamalar, DNS dahil, telefonun internetini kullanır. iPhone'lar Tether Link Utility uygulamasıyla bağlanır; Potatso gibi her SOCKS5 uygulaması da çalışır.",
     "guideLink": "Tam kurulum rehberi &rarr;",
     "items": [
       {
@@ -187,7 +185,7 @@
       {
         "mono": "iOS",
         "name": "iOS",
-        "text": "Potatso (ücretsiz) veya Shadowrocket (ücretli), yalnızca o uygulamanın kendi trafiği için.",
+        "text": "iPhone için Tether Link Utility'de QR kodu tara. Potatso gibi her SOCKS5 uygulaması da çalışır.",
         "chip": "SOCKS5"
       }
     ]
@@ -218,7 +216,7 @@
         ]
       }
     ],
-    "note": "Yıllık plan 609,99 TL. Kesin fiyat Google Play'de gösterilir."
+    "note": "Yıllık plan 609,99 TL. Kesin fiyat Google Play'de ve App Store'da gösterilir."
   },
   "faq": {
     "title": "Sıkça sorulan sorular",
@@ -246,11 +244,11 @@
       },
       {
         "q": "iPhone ile çalışıyor mu?",
-        "a": "iOS'ta yerleşik bir SOCKS5 ayarı yok, ancak Potatso veya Shadowrocket gibi uygulamalar aynı şekilde proxy'ye bağlanabilir, sadece o uygulamanın kendi trafiği için, tüm cihaz için değil. iOS'ta doğrulanmış, tam cihaz kapsayan bir seçenek şu an mevcut değil. Yerel bir iOS uygulaması geliştiriliyor, çok yakında yayında."
+        "a": "Evet. Tether Link Utility'yi App Store'dan kur, iPhone'da aç ve paylaşan telefondaki QR kodu tara. Potatso veya Shadowrocket gibi her SOCKS5 uygulaması da proxy'ye bağlanabilir, ancak yalnızca o uygulamanın kendi trafiği için."
       },
       {
         "q": "Aynı anda kaç cihaz bağlanabilir?",
-        "a": "Ücretsiz katman aynı anda 1 cihaz bağlar; Pro bunu 5 cihaza çıkarır. Pro aylık 109,99 TL veya yıllık 609,99 TL'dir. Kesin fiyat Google Play'de gösterilir."
+        "a": "Ücretsiz katman aynı anda 1 cihaz bağlar; Pro bunu 5 cihaza çıkarır. Pro aylık 109,99 TL veya yıllık 609,99 TL'dir. Kesin fiyat Google Play'de ve App Store'da gösterilir."
       },
       {
         "q": "5G ve 4G/LTE ile çalışıyor mu?",
@@ -277,6 +275,6 @@
     "less": "Daha az soru göster"
   },
   "closing": {
-    "title": "Google Play'den ücretsiz indir"
+    "title": "iPhone ve Android'e ücretsiz indir"
   }
 }

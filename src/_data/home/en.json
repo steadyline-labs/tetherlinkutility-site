@@ -1,7 +1,7 @@
 {
   "title": "Tether Link Utility: Share Your Phone's Mobile Data via SOCKS5",
   "ogTitle": "Tether Link Utility: Share Your Phone&#x27;s Mobile Data via SOCKS5",
-  "description": "Share your Android phone&#x27;s mobile data with your laptop, tablet or another phone through a local SOCKS5 proxy. No root, no account, no remote server.",
+  "description": "Share your iPhone or Android phone&#x27;s mobile data with another device through a local SOCKS5 proxy. No root, no account, no remote server.",
   "jsonld": [
     {
       "type": "website"
@@ -37,7 +37,7 @@
       },
       {
         "name": "Connect your device",
-        "text": "Android: on the other phone, tap Use another phone's internet, then Scan QR code. Windows PC or Mac: join the Wi-Fi shown (it may say \"No internet\"; that's normal), open the setup file (Windows) or the script (Mac) and type the two values. iPhone or Linux: enter the two values in Potatso or Firefox. The app's screen waits by itself until the device connects."
+        "text": "Android: on the other phone, tap Use another phone's internet, then Scan QR code. Windows PC or Mac: join the Wi-Fi shown (it may say \"No internet\"; that's normal), open the setup file (Windows) or the script (Mac) and type the two values. iPhone: scan the QR code in Tether Link Utility. Linux: enter the two values in Firefox. The app's screen waits by itself until the device connects."
       },
       {
         "name": "Start browsing",
@@ -46,28 +46,26 @@
     ]
   },
   "app": {
-    "description": "Shares your Android phone's mobile data with your other devices over Wi-Fi through a local SOCKS5 proxy. No root, no account, no remote server.",
+    "description": "Shares your iPhone or Android phone's mobile data with your other devices over Wi-Fi through a local SOCKS5 proxy. No root, no account, no remote server.",
     "featureList": [
       "Share mobile data with laptops, tablets and phones over Wi-Fi",
       "Free tier shares your connection with 1 device at a time, no root required",
       "No remote server, all proxy traffic is routed locally on the device",
       "One-tap automatic hotspot and Wi-Fi connection between Android devices",
       "QR code setup for instant connection",
-      "SOCKS5 proxy support for Windows, macOS, and iOS clients"
+      "Works with any mix of iPhone, Android and computers, and with any SOCKS5 device"
     ],
     "freeName": "Free",
-    "proDescription": "From $3.99/month. Exact price, including local currency and yearly plan, is shown in Google Play and varies by country and platform."
+    "proDescription": "From $3.99/month. Exact price, including local currency and yearly plan, is shown in Google Play and the App Store and varies by country and platform."
   },
   "hero": {
-    "iosPill": "coming soon",
     "h1": "Your phone's mobile data, on ",
     "h1Accent": "every device.",
-    "body": "Tether Link Utility runs a local SOCKS5 proxy on your Android phone and shares it over Wi-Fi hotspot, so your laptop, tablet or another phone can use your mobile data. Everything runs on your device.",
+    "body": "Tether Link Utility runs a local SOCKS5 proxy on your phone and shares it over Wi-Fi hotspot, so another device can use your mobile data. Use any mix of iPhone, Android and computers, or any device that supports SOCKS5. Everything runs on your device.",
     "playLabel": "Get it on Google Play",
     "playEyebrow": "GET IT ON",
     "playWord": "Google Play",
-    "iosLabel": "iOS version coming soon",
-    "iosEyebrow": "COMING SOON",
+    "iosLabel": "Download on the App Store",
     "trustNoRoot": "No root",
     "trust": [
       "Free to install",
@@ -103,7 +101,7 @@
           "lines": [
             "<b>Android phone:</b> no app yet? The sharing phone shows how to install it, even without internet. Then tap <span class=\"app-ui\">Use another phone's internet</span> and <span class=\"app-ui\">Scan QR code</span>.",
             "<b>Windows PC or Mac:</b> while it still has internet, download the <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows setup file</a> or the <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac script</a>. It installs and runs sing-box for you, so every app uses the phone's internet. Then join the Wi-Fi shown on the sharing phone and type the two values. <a class=\"video-hint\" href=\"/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Watch the Windows video (1:21)</a> <a class=\"video-hint\" href=\"/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Watch the Mac video (1:19)</a>",
-            "<b>iPhone or Linux:</b> install Potatso (iPhone) or Firefox (Linux) first, then join the Wi-Fi shown and enter the two values."
+            "<b>iPhone:</b> open Tether Link Utility, tap Use another phone's internet and scan the QR code. <b>Linux:</b> install Firefox first, then join the Wi-Fi shown and enter the two values."
           ]
         }
       ],
@@ -120,7 +118,7 @@
       },
       {
         "title": "Connect your device",
-        "text": "Android scans the QR code. Computers and iPhones join the Wi-Fi and enter the two values."
+        "text": "Android and iPhone scan the QR code. Computers join the Wi-Fi and enter the two values."
       },
       {
         "title": "Start browsing",
@@ -161,7 +159,7 @@
   "platforms": {
     "label": "Platforms",
     "title": "Works with what you already have",
-    "text": "Windows PCs and Macs: one file installs and runs <strong>sing-box</strong> for you, so every app on the computer uses the phone's internet, DNS included. iPhones connect with the free Potatso app.",
+    "text": "Windows PCs and Macs: one file installs and runs <strong>sing-box</strong> for you, so every app on the computer uses the phone's internet, DNS included. iPhones use the Tether Link Utility app, and any SOCKS5 app such as Potatso works too.",
     "guideLink": "Full setup guide &rarr;",
     "items": [
       {
@@ -185,7 +183,7 @@
       {
         "mono": "iOS",
         "name": "iOS",
-        "text": "Potatso (free) or Shadowrocket (paid), for that app's own traffic only.",
+        "text": "Scan the QR code in Tether Link Utility for iPhone. Any SOCKS5 app, like Potatso, works too.",
         "chip": "SOCKS5"
       }
     ]
@@ -216,7 +214,7 @@
         ]
       }
     ],
-    "note": "Exact price, including local currency and yearly plan, is shown in Google Play."
+    "note": "Exact price, including local currency and yearly plan, is shown in Google Play and the App Store."
   },
   "faq": {
     "title": "Frequently asked questions",
@@ -244,11 +242,11 @@
       },
       {
         "q": "Does it work with iPhone?",
-        "a": "iOS has no native SOCKS5 setting, but apps like Potatso or Shadowrocket can connect to the proxy the same way, for that app's own traffic only, not the whole device. A verified full-device option isn't currently available on iOS. A native iOS app is in development and coming soon."
+        "a": "Yes. Install Tether Link Utility from the App Store, open it on the iPhone and scan the QR code on the sharing phone. Any SOCKS5 app, like Potatso or Shadowrocket, also connects to the proxy, but only for that app's own traffic."
       },
       {
         "q": "How many devices can connect at once?",
-        "a": "The free tier connects 1 device at a time; Pro raises that to 5. Pro starts from $3.99/month. The exact price, including local currency and yearly plan, is shown in Google Play."
+        "a": "The free tier connects 1 device at a time; Pro raises that to 5. Pro starts from $3.99/month. The exact price, including local currency and yearly plan, is shown in Google Play and the App Store."
       },
       {
         "q": "Does it work with 5G and 4G/LTE?",
@@ -275,6 +273,6 @@
     "less": "Show fewer questions"
   },
   "closing": {
-    "title": "Install free on Google Play"
+    "title": "Install free on iPhone and Android"
   }
 }

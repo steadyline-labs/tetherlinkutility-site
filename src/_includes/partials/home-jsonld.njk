@@ -44,11 +44,11 @@
     "name": "{{ site.name }}",
     "author": { "@type": "Organization", "@id": "{{ site.publisherUrl }}/#organization", "name": "Steadyline Labs", "url": "{{ site.publisherUrl }}" },
     "publisher": { "@type": "Organization", "@id": "{{ site.publisherUrl }}/#organization", "name": "Steadyline Labs", "url": "{{ site.publisherUrl }}" },
-    "sameAs": ["{{ site.playUrl }}"],
+    "sameAs": ["{{ site.playUrl }}", "{{ site.appStoreUrl }}"],
     "installUrl": "{{ site.playUrl }}",
     "downloadUrl": "{{ site.playUrl }}",
     "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Android",
+    "operatingSystem": "Android, iOS",
     "url": "{{ ldUrl }}",
     "description": {{ h.app.description | dump }},
     "featureList": [
