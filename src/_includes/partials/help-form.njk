@@ -50,6 +50,7 @@
         <button type="submit" class="btn-primary help-send" id="helpSend" data-sending="{{ hp.sending }}">{{ hp.button }}</button>
         <p class="help-status" id="helpStatus" role="status" aria-live="polite"></p>
         <p class="help-note">{{ hp.note }} <a href="{{ hp.privacyHref }}">{{ hp.privacyLink }}</a></p>
+        <p class="help-note"><a href="{{ site.whatsapp }}" target="_blank" rel="noopener">{{ hp.whatsapp }}</a></p>
       </form>
       <div class="help-done" id="helpDone" hidden tabindex="-1">
         <p>{{ hp.success }}</p>
