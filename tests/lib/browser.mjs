@@ -1,6 +1,6 @@
 // Minimal headless Chrome driver over the DevTools protocol (no extra packages; uses the
 // built-in WebSocket of Node 22+). Serves _site/ on 127.0.0.1 and blocks every request that
-// leaves it. Formspree requests are answered by the test, so nothing is ever really sent.
+// leaves it.
 import { spawn } from "node:child_process";
 import fs from "node:fs";
 import http from "node:http";
@@ -92,10 +92,8 @@ export async function launch({ args = [] } = {}) {
     const { targetId } = await send("Target.createTarget", { url: "about:blank" });
     const { sessionId } = await send("Target.attachToTarget", { targetId, flatten: true });
     const page = {
-      requests: [],      // Formspree requests: { method, url, body }
-      replies: [],       // planned answers for Formspree POSTs: a status code or "network"
       errors: [],        // uncaught page exceptions
-      blocked: [],       // other outside requests that were blocked
+      blocked: [],       // outside requests that were blocked
     };
     let loaded = null;
     // A paused request can go away before we answer it (the page navigated or was closed, e.g.
@@ -110,23 +108,7 @@ export async function launch({ args = [] } = {}) {
       if (msg.method === "Runtime.exceptionThrown") page.errors.push(msg.params.exceptionDetails);
       if (msg.method !== "Fetch.requestPaused") return;
       const { requestId, request } = msg.params;
-      const cors = [
-        { name: "Access-Control-Allow-Origin", value: "*" },
-        { name: "Access-Control-Allow-Headers", value: "Accept, Content-Type" },
-        { name: "Access-Control-Allow-Methods", value: "POST, OPTIONS" },
-        { name: "Content-Type", value: "application/json" },
-      ];
       if (request.url.startsWith(origin)) return answer("Fetch.continueRequest", { requestId });
-      if (request.url.startsWith("https://formspree.io/")) {
-        if (request.method === "OPTIONS") return answer("Fetch.fulfillRequest", { requestId, responseCode: 204, responseHeaders: cors });
-        page.requests.push({ method: request.method, url: request.url, headers: request.headers, body: request.postData });
-        const reply = page.replies.length > 1 ? page.replies.shift() : page.replies[0] ?? 200;
-        if (reply === "network") return answer("Fetch.failRequest", { requestId, errorReason: "Failed" });
-        return answer("Fetch.fulfillRequest", {
-          requestId, responseCode: reply, responseHeaders: cors,
-          body: Buffer.from(JSON.stringify(reply < 300 ? { ok: true } : { error: "mock" })).toString("base64"),
-        });
-      }
       page.blocked.push(request.url);
       return answer("Fetch.failRequest", { requestId, errorReason: "BlockedByClient" });
     };

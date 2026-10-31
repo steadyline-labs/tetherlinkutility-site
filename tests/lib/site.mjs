@@ -7,7 +7,6 @@ import path from "node:path";
 export const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../..");
 export const siteDir = path.join(root, "_site");
 export const SITE_URL = "https://tetherlinkutility.com";
-export const FORMSPREE = "https://formspree.io/f/xjygjryg";
 
 if (!fs.existsSync(path.join(siteDir, "index.html"))) {
   throw new Error("_site/ is missing: run `npm run build` first (npm test does this).");

@@ -1,51 +1,42 @@
-// help_form.feature (static part, also the no-JavaScript path), help_seo.feature and
-// help_redirect.feature (static part). Browser behaviour is in help-form.browser.test.mjs.
+// help_contact.feature (WhatsApp button and email, no form), help_seo.feature and
+// help_redirect.feature (static part).
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { LANGS, SITE_URL, FORMSPREE, i18n, prefix, hreflang, read, textOf, title, canonicals, robots, hreflangs, links } from "./lib/site.mjs";
+import { LANGS, SITE_URL, site, i18n, prefix, hreflang, read, textOf, title, canonicals, robots, hreflangs, links } from "./lib/site.mjs";
 
-const PLATFORMS = ["android", "ios", "windows", "mac", "linux", "other"];
-const STEPS = ["start_sharing", "install", "scan_qr", "join_wifi", "set_proxy", "ios_proxy_app", "no_internet", "other"];
-const formOf = (html) => html.match(/<form class="help-form"[\s\S]*?<\/form>/)[0];
-const hidden = (form) =>
-  Object.fromEntries([...form.matchAll(/<input type="hidden" name="([^"]+)" value="([^"]*)">/g)].map((m) => [m[1], m[2]]));
-const radios = (form, name) =>
-  [...form.matchAll(new RegExp(`<input type="radio" name="${name}" value="([a-z_]+)"( required)?>`, "g"))].map((m) => ({
-    value: m[1],
-    required: Boolean(m[2]),
-  }));
+const WHATSAPP = "https://wa.me/905512507661?text=Hi%2C%20I%20need%20help%20with%20Tether%20Link%20Utility.";
+const EMAIL = "support@tetherlinkutility.com";
+
+test("site.whatsapp is the wa.me link with the English greeting", () => {
+  assert.equal(site.whatsapp, WHATSAPP);
+  assert.equal(new URL(WHATSAPP).searchParams.get("text"), "Hi, I need help with Tether Link Utility.");
+  assert.equal(site.email, EMAIL);
+});
 
 for (const lang of LANGS) {
   const url = `${prefix(lang)}help.html`;
 
-  test(`${url}: form posts to Formspree with the right hidden fields and choices`, () => {
+  test(`${url}: WhatsApp button and email fallback, no form and no Formspree`, () => {
     const html = read(url);
-    const form = formOf(html);
-    assert.match(form, new RegExp(`action="${FORMSPREE}" method="POST"`));
-    assert.deepEqual(hidden(form), { source: "site", lang, page: "guide", _subject: "TLU help (site)" });
-    assert.deepEqual(radios(form, "platform").map((r) => r.value), PLATFORMS);
-    assert.deepEqual(radios(form, "step").map((r) => r.value), STEPS);
-    // Without JavaScript the browser checks the first radio of each group (required) and shows every step.
-    assert.deepEqual(radios(form, "platform").map((r) => r.required), PLATFORMS.map((_, i) => i === 0));
-    assert.deepEqual(radios(form, "step").map((r) => r.required), STEPS.map((_, i) => i === 0));
-    assert.ok(!/<fieldset[^>]*id="helpSteps"[^>]*hidden/.test(form), "steps hidden in HTML");
-    assert.match(form, /<textarea id="helpMessage" name="message"[^>]*maxlength="500"/);
-    assert.match(form, /<input id="helpEmail" name="email" type="email" maxlength="120"/);
-    assert.match(form, /<input id="helpGotcha" name="_gotcha" type="text" tabindex="-1"/);
-    assert.match(form, /<div class="help-hp" aria-hidden="true">/);
-    // The JS sender uses the same endpoint as the plain form.
-    assert.ok(html.includes(`const HELP_ENDPOINT = "${FORMSPREE}";`));
-    assert.equal((html.match(/formspree\.io\/f\//g) || []).length, 2, "Formspree id appears once in the form and once in the script");
+    const hp = i18n[lang].help;
+    const main = html.slice(html.indexOf("<main>"), html.indexOf("</main>"));
+    const wa = links(main).filter((a) => a.cls === "help-wa");
+    assert.equal(wa.length, 1, "one WhatsApp button");
+    assert.equal(wa[0].href, WHATSAPP);
+    assert.equal(wa[0].text, hp.whatsapp);
+    assert.match(main, /<a class="help-wa" href="[^"]+" target="_blank" rel="noopener">/);
+    assert.ok(links(main).some((a) => a.href === `mailto:${EMAIL}` && a.text === EMAIL), "email link");
+    assert.ok(textOf(main).includes(`${textOf(hp.emailFallback)} ${EMAIL}`), "email fallback text");
+    assert.ok(!/<form|<textarea|<input/.test(main), "no form");
+    assert.ok(!/formspree/i.test(html), "no Formspree");
+    assert.ok(!/551 ?250|5512507661/.test(textOf(html)), "no visible phone number");
   });
 
-  test(`${url}: labels come from i18n and the note links to the local privacy part`, () => {
+  test(`${url}: texts come from i18n and the note links to the local privacy part`, () => {
     const html = read(url);
     const hp = i18n[lang].help;
     const text = textOf(html);
-    for (const label of Object.values(hp.platforms).concat(Object.values(hp.steps), [hp.q1, hp.q2, hp.button])) {
-      assert.ok(text.includes(textOf(label)), `${lang}: "${label}"`);
-    }
-    assert.ok(textOf(html.match(/<div class="help-done"[\s\S]*?<\/div>/)[0]).includes(textOf(hp.success)), "thank-you text");
+    for (const label of [hp.title, hp.intro, hp.whatsapp, hp.note]) assert.ok(text.includes(textOf(label)), `${lang}: "${label}"`);
     assert.ok(links(html).some((a) => a.href === hp.privacyHref), hp.privacyHref);
     assert.equal(hp.privacyHref, lang === "en" ? "/privacy.html#help-requests" : `/privacy.html#${lang}-help-requests`);
   });

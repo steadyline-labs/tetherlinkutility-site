@@ -3,11 +3,6 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { LANGS, i18n, prefix, read, fileFor, links, GUIDES } from "./lib/site.mjs";
 
-// Steps the help form shows per device (src/_includes/partials/help-form.njk, stepsFor).
-const formHtml = read("/help.html");
-const STEPS = JSON.parse(formHtml.match(/var STEPS = (\{[^\n]*\});/)[1]);
-const PLATFORMS = [...formHtml.matchAll(/name="platform" value="([a-z_]+)"/g)].map((m) => m[1]);
-
 const stepLinks = (html) => links(html).filter((a) => a.cls === "step-help");
 const endLinks = (html) => links(html).filter((a) => a.cls === "help-end-btn");
 const query = (href) => new URL(href, "https://x").searchParams;
@@ -34,24 +29,6 @@ for (const lang of LANGS) {
     });
   }
 }
-
-test("every prefilled device and step is offered by the form for that device", () => {
-  for (const lang of LANGS) {
-    for (const g of GUIDES) {
-      for (const a of stepLinks(read(`${prefix(lang)}blog/${g}`))) {
-        const q = query(a.href);
-        const device = q.get("device");
-        const step = q.get("step").replace(/-/g, "_");
-        const allSteps = Object.keys(i18n[lang].help.steps);
-        assert.ok(allSteps.includes(step), `${lang} ${a.href}: step ${step}`);
-        if (device) {
-          assert.ok(PLATFORMS.includes(device), `${a.href}: device`);
-          assert.ok(STEPS[device].split(" ").includes(step), `${lang} ${a.href}: ${step} not shown for ${device}`);
-        }
-      }
-    }
-  }
-});
 
 test("Android guide prefills android on every step and the end card", () => {
   for (const lang of LANGS) {

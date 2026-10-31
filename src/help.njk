@@ -1,5 +1,5 @@
 ---
-# Help request page, one per language: /help.html, /tr/help.html, ... (the form is partials/help-form.njk).
+# Help request page, one per language: /help.html, /tr/help.html, ... (WhatsApp button and email, partials/help-contact.njk).
 # Thin utility page: noindex, follow and not in sitemap.xml (no `sitemap` front matter).
 pagination:
   data: site.languages
@@ -38,7 +38,7 @@ permalink: "{{ i18n[lang].prefix }}help.html"
   <style>
 {% include "partials/site-chrome-style.njk" %}
 {% include "partials/read-base-style.njk" %}
-{% include "partials/help-form-style.njk" %}
+{% include "partials/help-style.njk" %}
   </style>
 </head>
 <body>
@@ -48,7 +48,7 @@ permalink: "{{ i18n[lang].prefix }}help.html"
 <main>
   <h1>{{ hp.title }}</h1>
   <p class="help-intro">{{ hp.intro }}</p>
-{% set helpPage = "guide" %}{% include "partials/help-form.njk" %}
+{% include "partials/help-contact.njk" %}
 </main>
 
 {% include "partials/site-footer.njk" %}

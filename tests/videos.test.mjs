@@ -1,5 +1,5 @@
 // How-to videos (src/_data/guideVideos.json): click-to-load players in the setup guide, VideoObject
-// JSON-LD, "watch the video" links and the help page hint. TR uses the Turkish videos, others English.
+// JSON-LD and "watch the video" links. TR uses the Turkish videos, others English.
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -30,11 +30,6 @@ for (const lang of LANGS) {
     assert.ok(html.indexOf('id="mac-video"') > html.indexOf('id="macos"'), "Mac video inside the macOS section");
     assert.doesNotMatch(html, /<iframe|<img[^>]+ytimg\.com/);
     assert.match(html, /youtube-nocookie\.com\/embed\//);
-  });
-
-  test(`${prefix(lang)}help.html: Windows and Mac video links point to the guide players`, () => {
-    const html = read(`${prefix(lang)}help.html`);
-    for (const d of DEVICES) assert.match(html, new RegExp(`data-device="${d}" href="${prefix(lang)}${GUIDE.replace(/\./g, "\\.")}#${d}-video"`));
   });
 }
 

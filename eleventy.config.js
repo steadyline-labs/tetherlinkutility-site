@@ -217,7 +217,7 @@ export default function (eleventyConfig) {
     }
     // Setup guide help links: <!--help:<device>:<step>--> at the end of a step becomes a quiet
     // "Stuck on this step?" link, <!--help-end:<device>--> the "Still not connected?" card. Both
-    // open this language's /help page with the device (and step) prefilled; device may be empty.
+    // open this language's /help page (WhatsApp or email); device and step stay in the URL but are not used.
     if (o.help) {
       const helpUrl = (device, step) => {
         const q = [device && `device=${device}`, step && `step=${step}`].filter(Boolean).join("&amp;");

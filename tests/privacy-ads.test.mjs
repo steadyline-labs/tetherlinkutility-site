@@ -34,7 +34,6 @@ function helpPart(lang) {
 }
 
 const CONSENT = { en: "consent message", tr: "onay mesajı", es: "mensaje de consentimiento", pt: "mensagem de consentimento", hi: "सहमति संदेश" };
-const SCREENS = { en: "app screens", tr: "uygulama ekranları", es: "pantallas de la app", pt: "telas do app", hi: "स्क्रीन" };
 
 for (const lang of LANGS) {
   test(`privacy ${lang}: names Analytics, Crashlytics, Remote Config, AdMob and the consent message`, () => {
@@ -43,28 +42,23 @@ for (const lang of LANGS) {
     assert.ok(s.includes(CONSENT[lang]), `${lang}: consent message`);
   });
 
-  test(`privacy ${lang}: help requests part has Formspree, Firestore, recent screens and 90 days`, () => {
+  test(`privacy ${lang}: help requests part names WhatsApp (Meta) and email, no Formspree or Firestore`, () => {
     const s = helpPart(lang);
-    for (const k of ["Formspree", "Firestore", "90", SCREENS[lang]]) assert.ok(s.includes(k), `${lang}: ${k}`);
+    for (const k of ["WhatsApp", "WhatsApp LLC / Meta", "support@tetherlinkutility.com", "Pro"]) assert.ok(s.includes(k), `${lang}: ${k}`);
+    assert.ok(!/Formspree|Firestore/i.test(SECTIONS[lang]), `${lang}: no Formspree or Firestore`);
     assert.ok(links(html).some((a) => a.href === `${prefix(lang)}help.html`), `link to ${prefix(lang)}help.html`);
   });
 }
 
-// privacy.feature: the help requests part names the form like the site's help links.
+// privacy.feature: the help requests part names the help page like the site's help links.
 for (const lang of LANGS) {
-  test(`privacy ${lang}: help form is called "${i18n[lang].help.link}" in the text and in its link`, () => {
+  test(`privacy ${lang}: help page is called "${i18n[lang].help.link}" in the text and in its link`, () => {
     const label = i18n[lang].help.link;
-    assert.ok(helpPart(lang).includes(`"${label}"`), `${lang}: form name in text`);
+    assert.ok(helpPart(lang).includes(`"${label}"`), `${lang}: help page name in text`);
     const help = links(html).filter((a) => a.href === `${prefix(lang)}help.html`);
     assert.ok(help.length > 0 && help.every((a) => a.text === label), `${lang}: link text ${help.map((a) => a.text)}`);
   });
 }
-
-// privacy.feature: comma between the guide step and the connection test result (ES, PT).
-test("privacy es/pt: guide step and connection test result are separated by a comma", () => {
-  assert.ok(helpPart("es").includes("en qué paso de la guía estabas, el resultado"), "es");
-  assert.ok(helpPart("pt").includes("em qual passo do guia você estava, o resultado"), "pt");
-});
 
 test("privacy page is indexable with its canonical", () => {
   assert.equal(robots(html), "index, follow");

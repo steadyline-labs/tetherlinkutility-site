@@ -1,0 +1,9 @@
+{#- Help contact block on the /help page (src/help.njk). Text comes from i18n[lang].help.
+    Nothing is sent from the site: the button opens WhatsApp with a prefilled English greeting
+    (site.whatsapp), and the email address is the fallback. -#}
+{%- set hp = t.help -%}
+      <div class="help-contact">
+        <a class="help-wa" href="{{ site.whatsapp }}" target="_blank" rel="noopener">{{ hp.whatsapp }}</a>
+        <p class="help-email">{{ hp.emailFallback }} <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        <p class="help-note">{{ hp.note }} <a href="{{ hp.privacyHref }}">{{ hp.privacyLink }}</a></p>
+      </div>
