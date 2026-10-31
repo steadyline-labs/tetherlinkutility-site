@@ -51,7 +51,7 @@ describe("help form in a browser", { skip: skipBrowser() }, () => {
     assert.equal(s.platform, "ios");
     assert.equal(s.step, "join_wifi");
     assert.equal(s.stepsHidden, false);
-    assert.deepEqual(s.hiddenSteps.sort(), ["scan_qr", "set_proxy"]);
+    assert.deepEqual(s.hiddenSteps.sort(), ["set_proxy"]);
     assert.deepEqual(page.errors, []);
     await page.close();
   });
@@ -247,7 +247,7 @@ describe("help form in a browser", { skip: skipBrowser() }, () => {
   });
 
   test("a validation error (422) is not retried and shows the error", async () => {
-    const page = await open("/tr/help.html?device=ios&step=ios-proxy-app");
+    const page = await open("/tr/help.html?device=ios&step=scan-qr");
     page.replies.push(422);
     await send(page);
     await finished(page);

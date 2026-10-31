@@ -69,7 +69,7 @@ test("SOCKS5 guide: device sections prefill their device, shared steps carry onl
       "/help.html?device=windows&step=set-proxy",
       "/help.html?device=mac&step=install",
       "/help.html?device=linux&step=set-proxy",
-      "/help.html?device=ios&step=ios-proxy-app",
+      "/help.html?device=ios&step=scan-qr",
       "/help.html?step=install",
       "/help.html?step=start-sharing",
       "/help.html?step=join-wifi",

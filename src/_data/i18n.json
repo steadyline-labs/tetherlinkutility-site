@@ -85,7 +85,6 @@
         "scan_qr": "Scanning the QR code",
         "join_wifi": "Joining the phone's Wi-Fi",
         "set_proxy": "Entering the proxy details",
-        "ios_proxy_app": "Setting up Potatso or Shadowrocket",
         "no_internet": "It connects, but nothing loads",
         "other": "Something else"
       },
@@ -184,7 +183,6 @@
         "scan_qr": "QR kodu okutmak",
         "join_wifi": "Telefonun Wi-Fi ağına bağlanmak",
         "set_proxy": "Proxy bilgilerini girmek",
-        "ios_proxy_app": "Potatso'yu veya Shadowrocket'ı ayarlamak",
         "no_internet": "Bağlanıyor ama hiçbir şey açılmıyor",
         "other": "Başka bir şey"
       },
@@ -282,7 +280,6 @@
         "scan_qr": "QR कोड स्कैन करना",
         "join_wifi": "फ़ोन के Wi-Fi से जुड़ना",
         "set_proxy": "प्रॉक्सी की डिटेल डालना",
-        "ios_proxy_app": "Potatso या Shadowrocket सेट करना",
         "no_internet": "कनेक्ट हो जाता है, पर कुछ नहीं खुलता",
         "other": "कुछ और"
       },
@@ -385,7 +382,6 @@
         "scan_qr": "Escanear el código QR",
         "join_wifi": "Conectarme al Wi-Fi del teléfono",
         "set_proxy": "Ingresar los datos del proxy",
-        "ios_proxy_app": "Configurar Potatso o Shadowrocket",
         "no_internet": "Se conecta, pero nada carga",
         "other": "Otra cosa"
       },
@@ -487,7 +483,6 @@
         "scan_qr": "Ler o QR code",
         "join_wifi": "Entrar no Wi-Fi do celular",
         "set_proxy": "Digitar os dados do proxy",
-        "ios_proxy_app": "Configurar o Potatso ou o Shadowrocket",
         "no_internet": "Conecta, mas nada carrega",
         "other": "Outra coisa"
       },

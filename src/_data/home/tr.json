@@ -161,7 +161,7 @@
   "platforms": {
     "label": "Platformlar",
     "title": "Zaten kullandığın cihazlarla çalışır",
-    "text": "Windows bilgisayarlar ve Mac'ler: tek bir dosya <strong>sing-box</strong>'ı senin için kurup çalıştırır; bilgisayardaki tüm uygulamalar, DNS dahil, telefonun internetini kullanır. iPhone'lar Tether Link Utility uygulamasıyla bağlanır; Potatso gibi her SOCKS5 uygulaması da çalışır.",
+    "text": "Windows bilgisayarlar ve Mac'ler: tek bir dosya <strong>sing-box</strong>'ı senin için kurup çalıştırır; bilgisayardaki tüm uygulamalar, DNS dahil, telefonun internetini kullanır. Telefon ve tabletler, iPhone ve iPad dahil, Tether Link Utility uygulamasıyla ve QR kodla bağlanır.",
     "guideLink": "Tam kurulum rehberi &rarr;",
     "items": [
       {
@@ -185,8 +185,8 @@
       {
         "mono": "iOS",
         "name": "iOS",
-        "text": "iPhone için Tether Link Utility'de QR kodu tara. Potatso gibi her SOCKS5 uygulaması da çalışır.",
-        "chip": "SOCKS5"
+        "text": "Tether Link Utility'yi App Store'dan kur ve QR kodu tara. Elle ayar yok.",
+        "chip": "yerleşik"
       }
     ]
   },
@@ -244,7 +244,7 @@
       },
       {
         "q": "iPhone ile çalışıyor mu?",
-        "a": "Evet. Tether Link Utility'yi App Store'dan kur, iPhone'da aç ve paylaşan telefondaki QR kodu tara. Potatso veya Shadowrocket gibi her SOCKS5 uygulaması da proxy'ye bağlanabilir, ancak yalnızca o uygulamanın kendi trafiği için."
+        "a": "Evet. Tether Link Utility'yi App Store'dan kur, iPhone'da aç ve paylaşan telefondaki QR kodu tara. Wi-Fi'ye kendisi bağlanır, bir şey yazman gerekmez. Telefon ve tabletler hep bu yolla bağlanır; değerleri elle girmek yalnızca bilgisayar, TV ve diğer cihazlar içindir."
       },
       {
         "q": "Aynı anda kaç cihaz bağlanabilir?",
@@ -268,7 +268,7 @@
       },
       {
         "q": "Diğer cihazda Wi-Fi ağı görünmüyor. Ne yapmalıyım?",
-        "a": "Diğer cihaz bir Android telefonsa Wi-Fi listesine gerek yok: orada Tether Link Utility'yi aç, <strong>Başka bir telefonun internetini kullan</strong>'a, sonra <strong>QR kodu tara</strong>'ya dokun ve kamerayı paylaşan telefondaki koda tut. Wi-Fi'ye kendisi bağlanır. iPhone veya bilgisayarda paylaşan telefonun ekranını açık tut, cihaza yaklaştır ve Wi-Fi listesini yenile ya da uygulamada gösterilen ad ve şifreyle ağı elle ekle. Hâlâ görünmüyor mu? O cihaz bu tür Wi-Fi'yi göremiyor. Paylaşan telefonda <strong>DURDUR</strong>'a dokun, telefonun ayarlarından kendi hotspot'unu aç, sonra uygulamada <strong>Hotspot Wi-Fi bilgilerini ekle</strong>'ye dokun, o hotspot'un adını ve şifresini yaz ve paylaşımı yeniden başlat."
+        "a": "Diğer cihaz bir telefon veya tabletse (Android, iPhone, iPad) Wi-Fi listesine gerek yok: orada Tether Link Utility'yi aç, <strong>Başka bir telefonun internetini kullan</strong>'a, sonra <strong>QR kodu tara</strong>'ya dokun ve kamerayı paylaşan telefondaki koda tut. Wi-Fi'ye kendisi bağlanır. Bilgisayarda veya başka bir cihazda paylaşan telefonun ekranını açık tut, cihaza yaklaştır ve Wi-Fi listesini yenile ya da uygulamada gösterilen ad ve şifreyle ağı elle ekle. Hâlâ görünmüyor mu? O cihaz bu tür Wi-Fi'yi göremiyor. Paylaşan telefonda <strong>DURDUR</strong>'a dokun, telefonun ayarlarından kendi hotspot'unu aç, sonra uygulamada <strong>Hotspot Wi-Fi bilgilerini ekle</strong>'ye dokun, o hotspot'un adını ve şifresini yaz ve paylaşımı yeniden başlat."
       }
     ],
     "more": "12 sorunun tümü &rarr;",

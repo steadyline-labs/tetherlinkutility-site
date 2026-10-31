@@ -1,9 +1,9 @@
 ---
 title: "Windows, macOS और iOS पर SOCKS5 प्रॉक्सी कैसे सेट करें"
-description: "Windows और Mac पर सभी ऐप्स के लिए स्टेप-बाय-स्टेप सेटअप (सेटअप फ़ाइल और स्क्रिप्ट जो आपके लिए sing-box चलाती हैं), साथ में सिर्फ़-ब्राउज़र विकल्प और iOS ऐप्स।"
+description: "Windows और Mac पर सभी ऐप्स के लिए स्टेप-बाय-स्टेप सेटअप (सेटअप फ़ाइल और स्क्रिप्ट जो आपके लिए sing-box चलाती हैं), साथ में सिर्फ़-ब्राउज़र विकल्प। फ़ोन और टैबलेट ऐप और उसका QR कोड इस्तेमाल करते हैं।"
 published: "2026-09-18"
 modified: "2026-10-31"
-ldDescription: "Step-by-step setup for every app on Windows and Mac (a setup file and a script that run sing-box for you), plus browser-only options and iPhone apps."
+ldDescription: "Step-by-step setup for every app on Windows and Mac (a setup file and a script that run sing-box for you), plus browser-only options. Phones and tablets use the app and its QR code."
 carrierTable: true
 h3Style: true
 sitemap:
@@ -13,7 +13,7 @@ sitemap:
   priority: "0.6"
 index:
   order: 4
-  excerpt: "Windows सेटअप फ़ाइल और Mac स्क्रिप्ट (दोनों आपके लिए sing-box चलाती हैं, सभी ऐप्स काम करते हैं), सिर्फ़-ब्राउज़र विकल्प, और iOS पर Potatso/Shadowrocket।"
+  excerpt: "Windows सेटअप फ़ाइल और Mac स्क्रिप्ट (दोनों आपके लिए sing-box चलाती हैं, सभी ऐप्स काम करते हैं), सिर्फ़-ब्राउज़र विकल्प, और iPhone व iPad पर ऐप और उसका QR कोड।"
 extraJsonLd: |2-
     <script type="application/ld+json">
     {
@@ -24,7 +24,7 @@ extraJsonLd: |2-
         {
           "@type": "HowToStep",
           "name": "Install first, then join the phone's Wi-Fi",
-          "text": "While your device still has its normal internet, download what it needs: the setup file on a Windows PC, our script on a Mac, Potatso on an iPhone. Then open Tether Link Utility on the sharing phone, tap START SHARING, tap the device you want to connect and answer whether it already has the app. Only then join the Wi-Fi shown under Name with the Password shown, and enter the two values (SOCKS Host and Port). That Wi-Fi may show 'No internet'; that's normal. The app's screen waits by itself until the device connects."
+          "text": "While your device still has its normal internet, download what it needs: the setup file on a Windows PC, our script on a Mac, Tether Link Utility on a phone or tablet. Then open Tether Link Utility on the sharing phone, tap START SHARING, tap the device you want to connect and answer whether it already has the app. Only then join the Wi-Fi shown under Name with the Password shown, and enter the two values (SOCKS Host and Port). That Wi-Fi may show 'No internet'; that's normal. The app's screen waits by itself until the device connects."
         },
         {
           "@type": "HowToStep",
@@ -53,13 +53,8 @@ extraJsonLd: |2-
         },
         {
           "@type": "HowToStep",
-          "name": "iOS: Potatso (free)",
-          "text": "Open Potatso, tap +, add a SOCKS5 server with the two values from the app (Server and Port) and save. Turn on the switch in Potatso. If the iPhone asks, tap Allow."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "iOS: Shadowrocket (paid)",
-          "text": "Open Shadowrocket, tap the + button, choose Socks5, enter the address and port, and save. Tap the toggle to connect."
+          "name": "iPhone, iPad and Android phones: the app and its QR code",
+          "text": "Install Tether Link Utility from the App Store (iPhone, iPad) or Google Play (Android). Open it, tap Use another phone's internet, then Scan QR code, and point the camera at the code on the sharing phone. If it asks, tap Join or Connect. It joins the Wi-Fi by itself; there is nothing to set up by hand."
         }
       ]
     }
@@ -69,14 +64,14 @@ extraJsonLd: |2-
     <h1>Windows, macOS और iOS पर SOCKS5 प्रॉक्सी कैसे सेट करें</h1>
     <div class="post-meta">प्रकाशित 18 सितंबर, 2026 &middot; अपडेट 25 अक्टूबर, 2026</div>
 
-    <p>Tether Link Utility आपके Android फ़ोन पर एक लोकल SOCKS5 प्रॉक्सी चलाता है। दूसरे डिवाइस ऐप के बनाए Wi-Fi से जुड़कर इसे इस्तेमाल करते हैं। Windows PC या Mac पर एक छोटी फ़ाइल आपके लिए सब सेट कर देती है: यह sing-box इंस्टॉल करके चलाती है, ताकि पूरा कंप्यूटर फ़ोन का इंटरनेट इस्तेमाल करे। iOS पर एक हल्का ऐप चाहिए। यहां हर प्लेटफ़ॉर्म को जोड़ने का तरीका बताया गया है।</p>
+    <p>Tether Link Utility आपके Android फ़ोन पर एक लोकल SOCKS5 प्रॉक्सी चलाता है। दूसरे डिवाइस ऐप के बनाए Wi-Fi से जुड़कर इसे इस्तेमाल करते हैं। Windows PC या Mac पर एक छोटी फ़ाइल आपके लिए सब सेट कर देती है: यह sing-box इंस्टॉल करके चलाती है, ताकि पूरा कंप्यूटर फ़ोन का इंटरनेट इस्तेमाल करे। फ़ोन या टैबलेट (Android, iPhone या iPad) पर Tether Link Utility इंस्टॉल करके QR कोड स्कैन करना काफ़ी है, हाथ से कुछ सेट नहीं करना पड़ता। यहां हर प्लेटफ़ॉर्म को जोड़ने का तरीका बताया गया है।</p>
 
     <h2>शुरू करने से पहले</h2>
     <p>इसी क्रम में करें। हो सकता है फ़ोन के Wi-Fi पर अपना इंटरनेट न हो (वह सिर्फ़ फ़ोन के प्रॉक्सी तक पहुंचाता है), इसलिए पहले सब कुछ इंस्टॉल कर लें।</p>
     <ol>
       <li><strong>पहले ज़रूरी चीज़ें इंस्टॉल करें</strong>, जब तक आपके डिवाइस पर उसका सामान्य इंटरनेट चल रहा है:
         <ul>
-          <li>iPhone या iPad: App Store से Tether Link Utility (या Potatso या Shadowrocket, SOCKS5 वाला कोई भी ऐप चलेगा)।</li>
+          <li>Android फ़ोन या टैबलेट, iPhone या iPad: Google Play या App Store से Tether Link Utility। फ़ोन या टैबलेट को बस इतना ही चाहिए।</li>
           <li>Windows कंप्यूटर: सेटअप फ़ाइल (देखें <a href="#windows">Windows</a>)। यह आपके लिए sing-box इंस्टॉल करके चलाती है, ताकि सभी ऐप्स काम करें।</li>
           <li>Linux कंप्यूटर: सभी ऐप्स के लिए sing-box (देखें <a href="#linux">Linux</a>), या सिर्फ़ उस ब्राउज़र के लिए firefox.com से Firefox।</li>
           <li>Mac: हमारी स्क्रिप्ट (देखें <a href="#macos">macOS</a>)। यह आपके लिए sing-box इंस्टॉल करके चलाती है, ज़रूरत हो तो फ़ोन के ज़रिए भी।</li>
@@ -89,6 +84,7 @@ extraJsonLd: |2-
       <li><strong>इसके बाद</strong> अपने डिवाइस पर ऐप में <strong>Name</strong> के नीचे दिखे Wi-Fi से, <strong>Password</strong> के नीचे दिखे पासवर्ड के साथ जुड़ें। अगर "No internet" दिखे, तो यह सामान्य है।<!--help::join-wifi--></li>
       <li>ऐप में दिखी दो वैल्यू (<strong>SOCKS Host</strong> या <strong>Server</strong>, और <strong>Port</strong>) नीचे अपने डिवाइस के सेटअप में डालें। ऐप की स्क्रीन अपने आप इंतज़ार करती है और डिवाइस जुड़ते ही आगे बढ़ जाती है।<!--help::start-sharing--></li>
     </ol>
+    <p><strong>फ़ोन या टैबलेट?</strong> उस पर Tether Link Utility इंस्टॉल करें (Google Play या App Store), खोलें, <strong>Use another phone's internet</strong> और फिर <strong>Scan QR code</strong> पर टैप करें। यह Wi-Fi से अपने आप जुड़ जाता है, कोई वैल्यू टाइप नहीं करनी पड़ती। ज़्यादा जानकारी: <a href="#iphone">iPhone और iPad</a>।</p>
     <p><strong>पोर्ट के बारे में:</strong> ऐप पोर्ट को सेव रखता है, इसलिए हर डिवाइस पर इसे सिर्फ़ एक बार डालना होता है। पोर्ट तभी बदलता है जब फ़ोन का कोई दूसरा ऐप उसे इस्तेमाल करने लगे, और ऐसा होने पर ऐप आपको बताता है। अपना पोर्ट चुनने के लिए Port वाली लाइन पर <strong>Edit</strong> दबाएं और 1024 से 65535 के बीच कोई नंबर डालें (1024 से 32767 के बीच टकराव की संभावना कम होती है)। चुना गया पोर्ट खाली हो तो वह आपके लिए तब तक रिज़र्व रहता है जब तक कोई दूसरा ऐप उसे इस्तेमाल न करने लगे।</p>
 
     <h2>फ़ोन का अपना हॉटस्पॉट इस्तेमाल करना</h2>
@@ -229,24 +225,18 @@ extraJsonLd: |2-
       <li>root के तौर पर चलाएं: <code>sudo sing-box run --config config.json</code><!--help:linux:set-proxy--></li>
     </ol>
 
-    <h2>iOS</h2>
-    <p>Tether Link Utility App Store पर है: iPhone पर इंस्टॉल करें, Use another phone's internet पर टैप करें और QR कोड स्कैन करें। नीचे के विकल्प SOCKS5 वाले किसी भी ऐप के साथ चलते हैं।</p>
-    <h3>विकल्प A: Potatso (फ्री)</h3>
+    <h2 id="iphone">iPhone और iPad</h2>
+    <p>फ़ोन और टैबलेट पर कोई सेटिंग नहीं डालनी पड़ती। iPhone या iPad पर Tether Link Utility इंस्टॉल करें और QR कोड स्कैन करें, बिल्कुल Android की तरह।</p>
     <ol>
-      <li>Potatso खोलें और <strong>+</strong> दबाएं।<!--help:ios:ios-proxy-app--></li>
-      <li>ऐप में दिखी दो वैल्यू (<strong>Server</strong> और <strong>Port</strong>) के साथ एक <strong>SOCKS5</strong> सर्वर जोड़ें और सेव करें।<!--help:ios:ios-proxy-app--></li>
-      <li>Potatso में स्विच ऑन करें। iPhone पूछे तो <strong>Allow</strong> दबाएं। इसी तरह Potatso ट्रैफ़िक को SOCKS5 प्रॉक्सी तक भेजता है, क्योंकि iOS में macOS जैसी सिस्टम-वाइड SOCKS5 सेटिंग नहीं होती।<!--help:ios:ios-proxy-app--></li>
+      <li>जब तक iPhone पर उसका सामान्य इंटरनेट चल रहा है, <a href="https://apps.apple.com/app/id6821497184" target="_blank" rel="noopener">App Store से Tether Link Utility</a> इंस्टॉल करें।<!--help:ios:install--></li>
+      <li>शेयर करने वाले फ़ोन पर <strong>iPhone or iPad</strong> पर टैप करें। ऐप पूछता है <strong>Is Tether Link Utility on the iPhone?</strong> अगर अभी नहीं है, तो ऐप एक कोड दिखाता है: iPhone का कैमरा खोलें, कोड की तरफ़ करें, दिखने वाले लिंक पर टैप करें, फिर <strong>Get</strong> पर टैप करें।<!--help:ios:install--></li>
+      <li>iPhone पर Tether Link Utility खोलें और <strong>Use another phone's internet</strong> पर टैप करें।<!--help:ios:scan-qr--></li>
+      <li><strong>Scan QR code</strong> पर टैप करें और कैमरा शेयर करने वाले फ़ोन के कोड की तरफ़ करें। पूछे तो <strong>Join</strong> या <strong>Connect</strong> पर टैप करें। यह Wi-Fi से अपने आप जुड़ जाता है।<!--help:ios:scan-qr--></li>
     </ol>
-    <h3>विकल्प B: Shadowrocket (पेड, एक बार की खरीद)</h3>
-    <ol>
-      <li>Shadowrocket खोलें और ऊपर दाईं तरफ़ <strong>+</strong> बटन दबाएं।<!--help:ios:ios-proxy-app--></li>
-      <li>टाइप <strong>Socks5</strong> चुनें।<!--help:ios:ios-proxy-app--></li>
-      <li>फ़ोन का IP एड्रेस के तौर पर और ऐप में दिखाया गया पोर्ट डालें।<!--help:ios:ios-proxy-app--></li>
-      <li>सेव करें, फिर कनेक्ट करने के लिए ऊपर टॉगल दबाएं।<!--help:ios:ios-proxy-app--></li>
-    </ol>
+    <p>दोनों वैल्यू iPhone की Wi-Fi सेटिंग वाले प्रॉक्सी विकल्प में न डालें: वह विकल्प इस ऐप के साथ काम नहीं करता। इसकी जगह ऐप इस्तेमाल करें।</p>
 
     <div class="callout">
-      <p><strong>DNS टिप:</strong> पक्का करें कि DNS क्वेरी भी प्रॉक्सी से जाएं। Firefox में <strong>SOCKS v5 उपयोग करने पर स्थानापन्न डीएनएस</strong> (Proxy DNS when using SOCKS v5) चेक करें; Shadowrocket यह डिफ़ॉल्ट रूप से करता है। macOS की System Settings वाली SOCKS सेटिंग DNS को प्रॉक्सी से नहीं भेजती, इसलिए Mac पर पूरी कवरेज के लिए <a href="#macos">हमारी स्क्रिप्ट</a> इस्तेमाल करें। ऊपर बताया गया sing-box का TUN मोड यह अपने आप संभालता है, क्योंकि यह हर ऐप की सेटिंग पर निर्भर रहने के बजाय बाकी ट्रैफ़िक के साथ DNS भी प्रॉक्सी से भेजता है।</p>
+      <p><strong>DNS टिप:</strong> पक्का करें कि DNS क्वेरी भी प्रॉक्सी से जाएं। Firefox में <strong>SOCKS v5 उपयोग करने पर स्थानापन्न डीएनएस</strong> (Proxy DNS when using SOCKS v5) चेक करें। macOS की System Settings वाली SOCKS सेटिंग DNS को प्रॉक्सी से नहीं भेजती, इसलिए Mac पर पूरी कवरेज के लिए <a href="#macos">हमारी स्क्रिप्ट</a> इस्तेमाल करें। ऊपर बताया गया sing-box का TUN मोड यह अपने आप संभालता है, क्योंकि यह हर ऐप की सेटिंग पर निर्भर रहने के बजाय बाकी ट्रैफ़िक के साथ DNS भी प्रॉक्सी से भेजता है।</p>
     </div>
 
     <h2 id="other">TV और गेम कंसोल</h2>
@@ -255,12 +245,13 @@ extraJsonLd: |2-
     <h2 id="still-not-connected">अब भी कनेक्ट नहीं हुआ?</h2>
     <p>ऐप की कनेक्ट स्क्रीन पर <strong>Still not connected?</strong> दबाएं और चुनें कि दूसरे डिवाइस पर क्या दिख रहा है:</p>
     <ul>
+      <li><strong>फ़ोन या टैबलेट जुड़ जाता है, पर कुछ नहीं खुलता:</strong> उस पर Tether Link Utility इंस्टॉल करें और QR कोड स्कैन करें। फ़ोन की Wi-Fi सेटिंग वाला प्रॉक्सी विकल्प इस ऐप के साथ काम नहीं करता।</li>
       <li><strong>I can't see the Wi-Fi name</strong> (Wi-Fi का नाम नहीं दिख रहा): फ़ोन की स्क्रीन ऑन रखें और उसे डिवाइस के पास लाएं, फिर Wi-Fi लिस्ट रिफ़्रेश करें, या ऐप में दिखाए गए नाम और पासवर्ड से नेटवर्क खुद जोड़ें। तब भी न दिखे तो डिवाइस इस तरह का Wi-Fi नहीं देख पाता: इसकी जगह फ़ोन का अपना हॉटस्पॉट इस्तेमाल करें (ऊपर देखें)।</li>
       <li><strong>Wi-Fi says "No internet"</strong> (Wi-Fi "No internet" दिखा रहा है): यह सामान्य है। उसी से जुड़े रहें और स्टेप पूरे करें।</li>
       <li><strong>The setup file doesn't connect</strong> (सेटअप फ़ाइल कनेक्ट नहीं होती, Windows): पक्का करें कि विंडो में ऐप में दिखे IP और पोर्ट हैं, फ़ोन पर शेयरिंग और मोबाइल डेटा चालू रखें, फिर विंडो बंद करें और डेस्कटॉप पर <strong>TLU connect</strong> पर डबल-क्लिक करें।</li>
       <li><strong>Firefox says the proxy server is refusing connections</strong> (Firefox कहता है प्रॉक्सी सर्वर कनेक्शन मना कर रहा है): दोनों वैल्यू (SOCKS Host और Port) जांचें और पक्का करें कि फ़ोन पर शेयरिंग अब भी चालू है।</li>
       <li><strong>Firefox works, other apps don't</strong> (Firefox चलता है, बाकी ऐप्स नहीं): ऐसा ही होना है। फ़ोन का इंटरनेट सिर्फ़ Firefox इस्तेमाल करता है। सभी ऐप्स के लिए sing-box इस्तेमाल करें (ऊपर देखें)।</li>
-      <li><strong>Websites don't open</strong> (वेबसाइटें नहीं खुलतीं; iPhone, Mac, दूसरे डिवाइस): दोनों वैल्यू जांचें, पक्का करें कि फ़ोन पर मोबाइल डेटा और शेयरिंग चालू हैं, और डिवाइस पर कोई दूसरा VPN ऐप हो तो बंद करें।</li>
+      <li><strong>Websites don't open</strong> (वेबसाइटें नहीं खुलतीं; Mac, दूसरे डिवाइस): दोनों वैल्यू जांचें, पक्का करें कि फ़ोन पर मोबाइल डेटा और शेयरिंग चालू हैं, और डिवाइस पर कोई दूसरा VPN ऐप हो तो बंद करें।</li>
     </ul>
 
     <h2>Android-to-Android आसान है</h2>

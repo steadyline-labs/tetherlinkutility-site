@@ -1,6 +1,6 @@
 ---
 title: "SOCKS5 Proxy Kurulumu: Windows, macOS ve iOS"
-description: "Windows ve Mac'te tüm uygulamalar için adım adım kurulum (sing-box'ı senin için çalıştıran kurulum dosyası ve betik), sadece tarayıcı seçenekleri ve iOS uygulamaları."
+description: "Windows ve Mac'te tüm uygulamalar için adım adım kurulum (sing-box'ı senin için çalıştıran kurulum dosyası ve betik), sadece tarayıcı seçenekleri. Telefon ve tabletler uygulamayı ve QR kodu kullanır."
 published: "2026-09-18"
 modified: "2026-10-31"
 h3Style: true
@@ -11,7 +11,7 @@ sitemap:
   priority: "0.6"
 index:
   order: 4
-  excerpt: "Windows kurulum dosyası ve Mac betiği (ikisi de sing-box'ı senin için çalıştırır, tüm uygulamalar çalışır), sadece tarayıcı seçenekleri ve iOS'ta Potatso veya Shadowrocket."
+  excerpt: "Windows kurulum dosyası ve Mac betiği (ikisi de sing-box'ı senin için çalıştırır, tüm uygulamalar çalışır), sadece tarayıcı seçenekleri ve iPhone ile iPad'de uygulama ve QR kod."
 extraJsonLd: |2
     <script type="application/ld+json">
     {
@@ -22,7 +22,7 @@ extraJsonLd: |2
         {
           "@type": "HowToStep",
           "name": "Önce kur, sonra telefonun Wi-Fi'ına bağlan",
-          "text": "Cihazında normal internet hâlâ varken gerekeni indir: Windows bilgisayarda kurulum dosyası, Mac'te betiğimiz, iPhone'da Potatso. Sonra paylaşan telefonda Tether Link Utility'yi aç, PAYLAŞIMI BAŞLAT'a dokun, bağlanacak cihaza dokun ve cihazda uygulamanın olup olmadığını cevapla. Ancak bundan sonra Ad altında gösterilen Wi-Fi'ye, Şifre altındaki şifreyle bağlan ve iki değeri (SOCKS sunucusu ve Port) gir. Bu Wi-Fi 'İnternet yok' diyebilir; bu normal. Uygulamanın ekranı, cihaz bağlanana kadar kendiliğinden bekler."
+          "text": "Cihazında normal internet hâlâ varken gerekeni indir: Windows bilgisayarda kurulum dosyası, Mac'te betiğimiz, telefon veya tablette Tether Link Utility. Sonra paylaşan telefonda Tether Link Utility'yi aç, PAYLAŞIMI BAŞLAT'a dokun, bağlanacak cihaza dokun ve cihazda uygulamanın olup olmadığını cevapla. Ancak bundan sonra Ad altında gösterilen Wi-Fi'ye, Şifre altındaki şifreyle bağlan ve iki değeri (SOCKS sunucusu ve Port) gir. Bu Wi-Fi 'İnternet yok' diyebilir; bu normal. Uygulamanın ekranı, cihaz bağlanana kadar kendiliğinden bekler."
         },
         {
           "@type": "HowToStep",
@@ -51,13 +51,8 @@ extraJsonLd: |2
         },
         {
           "@type": "HowToStep",
-          "name": "iOS: Potatso (ücretsiz)",
-          "text": "Potatso'yu aç, +'ya dokun, uygulamadaki iki değerle (Sunucu ve Port) bir SOCKS5 sunucusu ekleyip kaydet. Potatso'daki anahtarı aç. iPhone sorarsa İzin Ver'e dokun."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "iOS: Shadowrocket (ücretli)",
-          "text": "Shadowrocket'ı aç, + düğmesine dokun, Socks5'i seç, adresi ve portu gir, kaydet. Bağlanmak için anahtara dokun."
+          "name": "iPhone, iPad ve Android telefonlar: uygulama ve QR kod",
+          "text": "Tether Link Utility'yi App Store'dan (iPhone, iPad) veya Google Play'den (Android) kur. Aç, Başka bir telefonun internetini kullan'a, ardından QR kodu tara'ya dokun ve kamerayı paylaşan telefondaki koda tut. Sorarsa Katıl'a veya Bağlan'a dokun. Wi-Fi'ye kendisi bağlanır; elle ayarlanacak bir şey yok."
         }
       ]
     }
@@ -67,7 +62,7 @@ extraJsonLd: |2
     <h1>SOCKS5 Proxy Kurulumu: Windows, macOS ve iOS</h1>
     <div class="post-meta">18 Eylül 2026'da yayınlandı &middot; 25 Ekim 2026'da güncellendi</div>
 
-    <p>SOCKS5, bir cihazın internet trafiğini başka bir cihazdaki proxy sunucusu üzerinden iletmesini sağlayan yaygın bir protokol. Tether Link Utility bu proxy'yi Android telefonunda çalıştırır. Windows bilgisayarda ya da Mac'te tek bir dosya her şeyi senin için kurar: sing-box'ı kurup çalıştırır, böylece bilgisayardaki tüm uygulamalar telefonun internetini kullanır. Bu rehberde bunu, sadece tarayıcıyı kapsayan diğer yolları ve iOS uygulamalarını adım adım anlatıyoruz.</p>
+    <p>SOCKS5, bir cihazın internet trafiğini başka bir cihazdaki proxy sunucusu üzerinden iletmesini sağlayan yaygın bir protokol. Tether Link Utility bu proxy'yi Android telefonunda çalıştırır. Windows bilgisayarda ya da Mac'te tek bir dosya her şeyi senin için kurar: sing-box'ı kurup çalıştırır, böylece bilgisayardaki tüm uygulamalar telefonun internetini kullanır. Telefon ve tabletlerde (Android, iPhone, iPad) Tether Link Utility'yi kurup QR kodu taraman yeter, elle ayar yok. Bu rehberde hepsini ve sadece tarayıcıyı kapsayan diğer yolları adım adım anlatıyoruz.</p>
     <p>Örnekler, Android telefonda yerel bir SOCKS5 proxy çalıştıran Tether Link Utility'ye göre yazıldı, ama adımlar IP adresi ve portu bilinen herhangi bir SOCKS5 sunucusu için aynıdır.</p>
 
     <h2>Başlamadan önce</h2>
@@ -75,7 +70,7 @@ extraJsonLd: |2
     <ol>
       <li><strong>Önce gerekenleri kur</strong>, cihaz henüz kendi internetine bağlıyken:
         <ul>
-          <li>iPhone veya iPad: App Store'dan Tether Link Utility (ya da Potatso veya Shadowrocket, SOCKS5 destekleyen her uygulama olur).</li>
+          <li>Android telefon veya tablet, iPhone veya iPad: Google Play'den ya da App Store'dan Tether Link Utility. Telefon ve tablete gereken bu kadar.</li>
           <li>Windows bilgisayar: kurulum dosyası (bkz. <a href="#windows">Windows</a>). sing-box'ı senin için kurup çalıştırır, tüm uygulamalar çalışır.</li>
           <li>Linux bilgisayar: tüm uygulamalar için sing-box (bkz. <a href="#linux">Linux</a>) ya da sadece o tarayıcı için firefox.com'dan Firefox.</li>
           <li>Mac: betiğimiz (bkz. <a href="#macos">macOS</a>). sing-box'ı senin için kurup çalıştırır, gerekirse telefon üzerinden de indirir.</li>
@@ -88,6 +83,7 @@ extraJsonLd: |2
       <li><strong>Sonra</strong> cihazda, uygulamanın <strong>Ad</strong> altında gösterdiği Wi-Fi'ye, <strong>Şifre</strong> altındaki şifreyle bağlan. "İnternet yok" derse bu normal.<!--help::join-wifi--></li>
       <li>Uygulamanın gösterdiği iki değeri (<strong>SOCKS sunucusu</strong> veya <strong>Sunucu</strong>, ve <strong>Port</strong>) aşağıda cihazın için anlatıldığı gibi gir. Uygulamanın ekranı kendiliğinden bekler ve cihaz bağlanınca ilerler.<!--help::start-sharing--></li>
     </ol>
+    <p><strong>Telefon veya tablet mi?</strong> Tether Link Utility'yi ona kur (Google Play veya App Store), aç, <strong>Başka bir telefonun internetini kullan</strong>'a, sonra <strong>QR kodu tara</strong>'ya dokun. Wi-Fi'ye kendisi bağlanır, yazacak değer yok. Ayrıntılar: <a href="#iphone">iPhone ve iPad</a>.</p>
     <p><strong>Port hakkında:</strong> Uygulama portu kaydeder, yani her cihazda bir kere girmen yeterli. Port sadece telefondaki başka bir uygulama onu kullanmaya başlarsa değişir, bu durumda uygulama seni uyarır. Kendi portunu seçmek için Port satırındaki <strong>Düzenle</strong>'ye dokunup 1024 ile 65535 arasında bir sayı gir (1024 ile 32767 arası çakışmaya daha az açıktır). Seçtiğin port boştaysa, başka bir uygulama kullanmaya başlayana kadar sana ayrılır.</p>
 
     <h2>Telefonunun kendi hotspot'unu kullanmak</h2>
@@ -228,25 +224,18 @@ extraJsonLd: |2
       <li>root olarak çalıştır: <code>sudo sing-box run --config config.json</code><!--help:linux:set-proxy--></li>
     </ol>
 
-    <h2>iOS</h2>
-    <p>Tether Link Utility App Store'da: iPhone'a kur, Başka bir telefonun internetini kullan'a dokun ve QR kodu tara. Aşağıdaki seçenekler SOCKS5 destekleyen her uygulamayla çalışır.</p>
-    <p>iOS'ta macOS'taki gibi yerleşik bir SOCKS5 ayarı yok, bu yüzden SOCKS5 destekleyen bir uygulama gerekir.</p>
-    <h3>Seçenek A: Potatso (ücretsiz)</h3>
+    <h2 id="iphone">iPhone ve iPad</h2>
+    <p>Telefon ve tabletlerde hiçbir ayar girmen gerekmez. Tether Link Utility'yi iPhone'a veya iPad'e kur ve QR kodu tara, tıpkı Android'deki gibi.</p>
     <ol>
-      <li>Potatso'yu aç ve <strong>+</strong>'ya dokun.<!--help:ios:ios-proxy-app--></li>
-      <li>Uygulamadaki iki değerle (<strong>Sunucu</strong> ve <strong>Port</strong>) bir <strong>SOCKS5</strong> sunucusu ekleyip kaydet.<!--help:ios:ios-proxy-app--></li>
-      <li>Potatso'daki anahtarı aç. iPhone sorarsa <strong>İzin Ver</strong>'e dokun. Potatso, trafiği SOCKS5 proxy'ye bu şekilde gönderir, çünkü iOS'ta macOS'taki gibi sistem genelinde bir SOCKS5 ayarı yok.<!--help:ios:ios-proxy-app--></li>
+      <li>iPhone'da normal internet hâlâ varken <a href="https://apps.apple.com/app/id6821497184" target="_blank" rel="noopener">App Store'dan Tether Link Utility'yi</a> kur.<!--help:ios:install--></li>
+      <li>Paylaşan telefonda <strong>iPhone veya iPad</strong>'e dokun. Uygulama <strong>iPhone'da Tether Link Utility var mı?</strong> diye sorar. Henüz yoksa bir kod gösterir: iPhone'da kamerayı aç, koda tut, çıkan bağlantıya dokun, sonra <strong>Al</strong>'a dokun.<!--help:ios:install--></li>
+      <li>iPhone'da Tether Link Utility'yi aç ve <strong>Başka bir telefonun internetini kullan</strong>'a dokun.<!--help:ios:scan-qr--></li>
+      <li><strong>QR kodu tara</strong>'ya dokun ve kamerayı paylaşan telefondaki koda tut. Sorarsa <strong>Katıl</strong>'a veya <strong>Bağlan</strong>'a dokun. Wi-Fi'ye kendisi bağlanır.<!--help:ios:scan-qr--></li>
     </ol>
-    <h3>Seçenek B: Shadowrocket (ücretli, tek seferlik satın alma)</h3>
-    <ol>
-      <li>Shadowrocket'ı aç ve sağ üstteki <strong>+</strong> düğmesine dokun.<!--help:ios:ios-proxy-app--></li>
-      <li>Tür olarak <strong>Socks5</strong>'i seç.<!--help:ios:ios-proxy-app--></li>
-      <li>Adres olarak telefonun IP'sini, port olarak uygulamada gösterilen portu gir.<!--help:ios:ios-proxy-app--></li>
-      <li>Kaydet, sonra bağlanmak için üstteki anahtara dokun.<!--help:ios:ios-proxy-app--></li>
-    </ol>
+    <p>İki değeri iPhone'un Wi-Fi ayarlarındaki proxy seçeneğine yazma: o seçenek bu uygulamayla çalışmaz. Onun yerine uygulamayı kullan.</p>
 
     <div class="callout">
-      <p><strong>DNS ipucu:</strong> DNS sorgularının da proxy üzerinden gitmesini sağla. Firefox'ta <strong>SOCKS v5 kullanırken vekil sunucu DNS'ini kullan</strong>'ı işaretle; Shadowrocket bunu varsayılan olarak yapar. macOS'un Sistem Ayarları'ndaki SOCKS ayarı DNS'i proxy'den geçirmez, bu yüzden Mac'te tam kapsama için <a href="#macos">betiğimizi</a> kullan. Böylece alan adı çözümlemesi de aynı bağlantıyı kullanır ve bazı sitelerin açılmaması gibi sorunlar önlenir. sing-box TUN modu DNS'i diğer trafikle birlikte zaten yakalar.</p>
+      <p><strong>DNS ipucu:</strong> DNS sorgularının da proxy üzerinden gitmesini sağla. Firefox'ta <strong>SOCKS v5 kullanırken vekil sunucu DNS'ini kullan</strong>'ı işaretle. macOS'un Sistem Ayarları'ndaki SOCKS ayarı DNS'i proxy'den geçirmez, bu yüzden Mac'te tam kapsama için <a href="#macos">betiğimizi</a> kullan. Böylece alan adı çözümlemesi de aynı bağlantıyı kullanır ve bazı sitelerin açılmaması gibi sorunlar önlenir. sing-box TUN modu DNS'i diğer trafikle birlikte zaten yakalar.</p>
     </div>
 
     <h2 id="other">TV ve oyun konsolları</h2>
@@ -255,12 +244,13 @@ extraJsonLd: |2
     <h2 id="still-not-connected">Hâlâ bağlanmadı mı?</h2>
     <p>Uygulamanın bağlantı ekranında <strong>Hâlâ bağlanmadı mı?</strong>'ya dokun ve diğer cihazda ne gördüğünü seç:</p>
     <ul>
+      <li><strong>Telefon ya da tablet bağlanıyor ama hiçbir şey açılmıyor:</strong> Tether Link Utility'yi ona kur ve QR kodu tara. Telefonun Wi-Fi ayarlarındaki proxy seçeneği bu uygulamayla çalışmaz.</li>
       <li><strong>Wi-Fi adını göremiyorum:</strong> telefonun ekranını açık tutup cihaza yaklaştır, sonra Wi-Fi listesini yenile ya da uygulamada gösterilen ad ve şifreyle ağı elle ekle. Hâlâ yoksa cihaz bu tür Wi-Fi'yi göremiyor: bunun yerine telefonunun kendi hotspot'unu kullan (yukarıya bak).</li>
       <li><strong>Wi-Fi "İnternet yok" diyor:</strong> bu normal. Bağlı kal ve adımları bitir.</li>
       <li><strong>Kurulum dosyası bağlanmıyor</strong> (Windows): pencerede uygulamada gösterilen IP ve portun yazdığından emin ol, telefonda paylaşımı ve mobil veriyi açık tut, sonra pencereyi kapatıp masaüstündeki <strong>TLU connect</strong>'e çift tıkla.</li>
       <li><strong>Firefox, vekil sunucunun bağlantıları reddettiğini söylüyor:</strong> iki değeri (SOCKS sunucusu ve Port) kontrol et ve telefonda paylaşımın hâlâ açık olduğundan emin ol.</li>
       <li><strong>Firefox çalışıyor, diğer uygulamalar çalışmıyor:</strong> bu beklenen bir durum. Telefonun internetini yalnızca Firefox kullanır. Tüm uygulamalar için sing-box kullan (yukarıya bak).</li>
-      <li><strong>Siteler açılmıyor</strong> (iPhone, Mac, diğer cihazlar): iki değeri kontrol et, telefonda mobil verinin ve paylaşımın açık olduğundan emin ol, cihazdaki başka VPN uygulamalarını kapat.</li>
+      <li><strong>Siteler açılmıyor</strong> (Mac, diğer cihazlar): iki değeri kontrol et, telefonda mobil verinin ve paylaşımın açık olduğundan emin ol, cihazdaki başka VPN uygulamalarını kapat.</li>
     </ul>
 
     <h2>Android'den Android'e daha kolay</h2>

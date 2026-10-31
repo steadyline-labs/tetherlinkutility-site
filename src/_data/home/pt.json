@@ -160,7 +160,7 @@
   "platforms": {
     "label": "Plataformas",
     "title": "Funciona com o que você já tem",
-    "text": "PCs com Windows e Macs: um único arquivo instala e roda o <strong>sing-box</strong> para você, então todos os apps do computador usam a internet do celular, DNS incluído. iPhones usam o app Tether Link Utility, e qualquer app SOCKS5 como o Potatso também funciona.",
+    "text": "PCs com Windows e Macs: um único arquivo instala e roda o <strong>sing-box</strong> para você, então todos os apps do computador usam a internet do celular, DNS incluído. Celulares e tablets, incluindo iPhone e iPad, usam o app Tether Link Utility e o QR code.",
     "guideLink": "Guia completo de configuração &rarr;",
     "items": [
       {
@@ -184,8 +184,8 @@
       {
         "mono": "iOS",
         "name": "iOS",
-        "text": "Escaneie o QR code no Tether Link Utility para iPhone. Qualquer app SOCKS5, como o Potatso, também funciona.",
-        "chip": "SOCKS5"
+        "text": "Instale o Tether Link Utility pela App Store e escaneie o QR code. Sem ajustes de proxy.",
+        "chip": "integrado"
       }
     ]
   },
@@ -243,7 +243,7 @@
       },
       {
         "q": "Funciona com iPhone?",
-        "a": "Sim. Instale o Tether Link Utility pela App Store, abra no iPhone e escaneie o QR code no celular que está compartilhando. Qualquer app SOCKS5, como o Potatso ou o Shadowrocket, também se conecta ao proxy, mas só para o tráfego do próprio app."
+        "a": "Sim. Instale o Tether Link Utility pela App Store, abra no iPhone e escaneie o QR code no celular que está compartilhando. Ele entra no Wi-Fi sozinho, sem digitar nada. Celulares e tablets sempre se conectam assim; digitar os valores num ajuste de proxy é só para computadores, TVs e outros dispositivos."
       },
       {
         "q": "Quantos dispositivos podem se conectar ao mesmo tempo?",
@@ -267,7 +267,7 @@
       },
       {
         "q": "O outro dispositivo não vê a rede Wi-Fi. O que eu faço?",
-        "a": "Em outro celular Android você não precisa da lista de Wi-Fi: abra o Tether Link Utility nele, toque em <strong>Use another phone's internet</strong>, depois em <strong>Scan QR code</strong>, e aponte a câmera para o código no celular que compartilha. Ele entra no Wi-Fi sozinho. Em um iPhone ou computador, deixe a tela do celular que compartilha ligada e perto, depois atualize a lista de Wi-Fi, ou adicione a rede manualmente com o nome e a senha mostrados no app. Ainda não aparece? Esse dispositivo não enxerga esse tipo de Wi-Fi. No celular que compartilha, toque em <strong>STOP</strong>, ligue o roteador do próprio celular nas configurações, depois toque em <strong>Add hotspot Wi-Fi details</strong> no app, digite o nome e a senha desse roteador e comece a compartilhar de novo."
+        "a": "Em outro celular ou tablet (Android, iPhone ou iPad) você não precisa da lista de Wi-Fi: abra o Tether Link Utility nele, toque em <strong>Use another phone's internet</strong>, depois em <strong>Scan QR code</strong>, e aponte a câmera para o código no celular que compartilha. Ele entra no Wi-Fi sozinho. Em um computador ou outro dispositivo, deixe a tela do celular que compartilha ligada e perto, depois atualize a lista de Wi-Fi, ou adicione a rede manualmente com o nome e a senha mostrados no app. Ainda não aparece? Esse dispositivo não enxerga esse tipo de Wi-Fi. No celular que compartilha, toque em <strong>STOP</strong>, ligue o roteador do próprio celular nas configurações, depois toque em <strong>Add hotspot Wi-Fi details</strong> no app, digite o nome e a senha desse roteador e comece a compartilhar de novo."
       }
     ],
     "more": "Todas as 12 perguntas &rarr;",

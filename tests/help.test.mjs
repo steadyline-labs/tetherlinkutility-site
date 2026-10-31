@@ -5,7 +5,7 @@ import assert from "node:assert/strict";
 import { LANGS, SITE_URL, FORMSPREE, i18n, prefix, hreflang, read, textOf, title, canonicals, robots, hreflangs, links } from "./lib/site.mjs";
 
 const PLATFORMS = ["android", "ios", "windows", "mac", "linux", "other"];
-const STEPS = ["start_sharing", "install", "scan_qr", "join_wifi", "set_proxy", "ios_proxy_app", "no_internet", "other"];
+const STEPS = ["start_sharing", "install", "scan_qr", "join_wifi", "set_proxy", "no_internet", "other"];
 const formOf = (html) => html.match(/<form class="help-form"[\s\S]*?<\/form>/)[0];
 const hidden = (form) =>
   Object.fromEntries([...form.matchAll(/<input type="hidden" name="([^"]+)" value="([^"]*)">/g)].map((m) => [m[1], m[2]]));
