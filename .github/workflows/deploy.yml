@@ -51,7 +51,7 @@ jobs:
         env:
           UPDATE_SNAPSHOTS: ${{ inputs.update_snapshots && '1' || '' }}
       # New baselines (update run) or the actual and diff images of a failed visual comparison.
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: visual-snapshots
