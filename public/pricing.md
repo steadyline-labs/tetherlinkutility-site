@@ -2,7 +2,7 @@
 
 ## Free
 - Price: $0
-- Limits: 1 connected device at a time, banner and interstitial ads shown
+- Limits: 1 connected device at a time, banner and interstitial ads shown, plus an optional rewarded ad
 - Features: Local SOCKS5 proxy for sharing mobile data, no root, no remote server, no account required, works with Windows/macOS/Android/iOS clients
 
 ## Pro
