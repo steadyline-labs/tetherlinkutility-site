@@ -269,7 +269,7 @@
       },
       {
         "q": "O outro dispositivo não vê a rede Wi-Fi. O que eu faço?",
-        "a": "Em outro celular Android você não precisa da lista de Wi-Fi: abra o Tether Link Utility nele, toque em <strong>Use another phone's internet</strong>, depois em <strong>Scan QR code</strong>, e aponte a câmera para o código no celular que compartilha. Ele entra no Wi-Fi sozinho. Em um iPhone ou computador, deixe a tela do celular que compartilha ligada e perto, depois atualize a lista de Wi-Fi, ou adicione a rede manualmente com o nome e a senha mostrados no app. Ainda não aparece? Esse dispositivo não enxerga esse tipo de Wi-Fi. No celular que compartilha, toque em <strong>STOP</strong>, ligue o roteador do próprio celular nas configurações, depois toque em <strong>Add hotspot Wi-Fi details</strong> no app, digite o nome e a senha desse roteador e comece a compartilhar de novo."
+        "a": "Em outro celular ou tablet Android você não precisa da lista de Wi-Fi: abra o Tether Link Utility nele, toque em <strong>Use another phone's internet</strong>, depois em <strong>Scan QR code</strong>, e aponte a câmera para o código no celular que compartilha. Ele entra no Wi-Fi sozinho. Em um iPhone ou computador, deixe a tela do celular que compartilha ligada e perto, depois atualize a lista de Wi-Fi, ou adicione a rede manualmente com o nome e a senha mostrados no app. Ainda não aparece? Esse dispositivo não enxerga esse tipo de Wi-Fi. No celular que compartilha, toque em <strong>STOP</strong>, ligue o roteador do próprio celular nas configurações, depois toque em <strong>Add hotspot Wi-Fi details</strong> no app, digite o nome e a senha desse roteador e comece a compartilhar de novo."
       }
     ],
     "more": "Todas as 12 perguntas &rarr;",

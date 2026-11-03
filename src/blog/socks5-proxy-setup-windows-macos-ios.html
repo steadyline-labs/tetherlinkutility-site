@@ -2,12 +2,12 @@
 title: "How to Set Up a SOCKS5 Proxy on Windows, macOS &amp; iOS"
 description: "Step-by-step setup for every app on Windows and Mac (a setup file and a script that run sing-box for you), plus browser-only options and iPhone apps."
 published: "2026-09-18"
-modified: "2026-10-25"
+modified: "2026-11-03"
 ldHeadline: "How to Set Up a SOCKS5 Proxy on Windows, macOS & iOS"
 h3Style: true
 sitemap:
   order: 7
-  lastmod: "2026-10-25"
+  lastmod: "2026-11-03"
   changefreq: "monthly"
   priority: "0.6"
 index:
@@ -70,7 +70,7 @@ extraJsonLd: |2
 ---
     <div class="page-eyebrow">Blog</div>
     <h1>How to Set Up a SOCKS5 Proxy on Windows, macOS &amp; iOS</h1>
-    <div class="post-meta">Published September 18, 2026 &middot; Updated October 25, 2026</div>
+    <div class="post-meta">Published September 18, 2026 &middot; Updated November 3, 2026</div>
 
     <p>Tether Link Utility runs a local SOCKS5 proxy on your Android phone. Other devices use it over the Wi-Fi network the app creates. On a Windows PC or a Mac, one small file sets up every app for you: it installs and runs sing-box, so the whole computer uses the phone's internet. On an iPhone, a lightweight app is needed. Here is how to set up each platform.</p>
 
@@ -79,6 +79,7 @@ extraJsonLd: |2
     <ol>
       <li><strong>Install what you need first</strong>, while your device still has its normal internet:
         <ul>
+          <li>Android phone or tablet: Tether Link Utility from Google Play. That's all it needs.</li>
           <li>iPhone or iPad: Potatso (free) or Shadowrocket (paid) from the App Store.</li>
           <li>Windows computer: the setup file (see <a href="#windows">Windows</a>). It installs and runs sing-box for you, so every app works.</li>
           <li>Linux computer: sing-box for every app (see <a href="#linux">Linux</a>), or Firefox from firefox.com for that browser only.</li>
@@ -257,6 +258,7 @@ extraJsonLd: |2
     <h2 id="still-not-connected">Still not connected?</h2>
     <p>On the app's connect screen, tap <strong>Still not connected?</strong> and pick what you see on the other device:</p>
     <ul>
+      <li><strong>An Android phone or tablet connects, but nothing loads:</strong> open Tether Link Utility on it and scan the QR code. The proxy option in the Wi-Fi settings won't work with this app.</li>
       <li><strong>I can't see the Wi-Fi name:</strong> keep the phone's screen on and close to the device, then refresh the Wi-Fi list, or add the network by hand with the name and password shown in the app. If it still isn't there, the device can't see this kind of Wi-Fi: use your phone's own hotspot instead (see above).</li>
       <li><strong>Wi-Fi says "No internet":</strong> that's normal. Stay on it and finish the steps.</li>
       <li><strong>The setup file doesn't connect</strong> (Windows): make sure the window shows the IP and port shown in the app, keep sharing and mobile data on on the phone, then close the window and double-click <strong>TLU connect</strong> on the desktop.</li>

@@ -270,7 +270,7 @@
       },
       {
         "q": "Diğer cihazda Wi-Fi ağı görünmüyor. Ne yapmalıyım?",
-        "a": "Diğer cihaz bir Android telefonsa Wi-Fi listesine gerek yok: orada Tether Link Utility'yi aç, <strong>Başka bir telefonun internetini kullan</strong>'a, sonra <strong>QR kodu tara</strong>'ya dokun ve kamerayı paylaşan telefondaki koda tut. Wi-Fi'ye kendisi bağlanır. iPhone veya bilgisayarda paylaşan telefonun ekranını açık tut, cihaza yaklaştır ve Wi-Fi listesini yenile ya da uygulamada gösterilen ad ve şifreyle ağı elle ekle. Hâlâ görünmüyor mu? O cihaz bu tür Wi-Fi'yi göremiyor. Paylaşan telefonda <strong>DURDUR</strong>'a dokun, telefonun ayarlarından kendi hotspot'unu aç, sonra uygulamada <strong>Hotspot Wi-Fi bilgilerini ekle</strong>'ye dokun, o hotspot'un adını ve şifresini yaz ve paylaşımı yeniden başlat."
+        "a": "Diğer cihaz bir Android telefon veya tabletse Wi-Fi listesine gerek yok: orada Tether Link Utility'yi aç, <strong>Başka bir telefonun internetini kullan</strong>'a, sonra <strong>QR kodu tara</strong>'ya dokun ve kamerayı paylaşan telefondaki koda tut. Wi-Fi'ye kendisi bağlanır. iPhone veya bilgisayarda paylaşan telefonun ekranını açık tut, cihaza yaklaştır ve Wi-Fi listesini yenile ya da uygulamada gösterilen ad ve şifreyle ağı elle ekle. Hâlâ görünmüyor mu? O cihaz bu tür Wi-Fi'yi göremiyor. Paylaşan telefonda <strong>DURDUR</strong>'a dokun, telefonun ayarlarından kendi hotspot'unu aç, sonra uygulamada <strong>Hotspot Wi-Fi bilgilerini ekle</strong>'ye dokun, o hotspot'un adını ve şifresini yaz ve paylaşımı yeniden başlat."
       }
     ],
     "more": "12 sorunun tümü &rarr;",

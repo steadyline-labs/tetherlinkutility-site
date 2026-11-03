@@ -268,7 +268,7 @@
       },
       {
         "q": "The other device can't see the Wi-Fi network. What can I do?",
-        "a": "On another Android phone you don't need the Wi-Fi list: open Tether Link Utility there, tap <strong>Use another phone's internet</strong>, then <strong>Scan QR code</strong>, and point the camera at the code on the sharing phone. It joins the Wi-Fi by itself. On an iPhone or a computer, keep the sharing phone's screen on and close by, then refresh the Wi-Fi list, or add the network by hand with the name and password shown in the app. Still not there? That device can't see this kind of Wi-Fi. On the sharing phone, tap <strong>STOP</strong>, turn on the phone's own hotspot in its settings, then tap <strong>Add hotspot Wi-Fi details</strong> in the app, type that hotspot's name and password and start sharing again."
+        "a": "On another Android phone or tablet you don't need the Wi-Fi list: open Tether Link Utility there, tap <strong>Use another phone's internet</strong>, then <strong>Scan QR code</strong>, and point the camera at the code on the sharing phone. It joins the Wi-Fi by itself. On an iPhone or a computer, keep the sharing phone's screen on and close by, then refresh the Wi-Fi list, or add the network by hand with the name and password shown in the app. Still not there? That device can't see this kind of Wi-Fi. On the sharing phone, tap <strong>STOP</strong>, turn on the phone's own hotspot in its settings, then tap <strong>Add hotspot Wi-Fi details</strong> in the app, type that hotspot's name and password and start sharing again."
       }
     ],
     "more": "All 12 questions &rarr;",
