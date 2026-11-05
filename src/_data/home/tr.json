@@ -1,7 +1,7 @@
 {
-  "title": "Tether Link Utility: Telefonunun Mobil Verisini SOCKS5 ile Paylaş",
-  "ogTitle": "Tether Link Utility: Telefonunun Mobil Verisini SOCKS5 ile Paylaş",
-  "description": "Android telefonunun mobil verisini dizüstü bilgisayarın, tabletin veya başka bir telefonla yerel bir SOCKS5 proxy üzerinden paylaş. Root yok, hesap yok, uzak sunucu yok.",
+  "title": "Tether Link Utility: Operatörün Hotspot Sınırlarını Aş, Mobil Veriyi SOCKS5 ile Paylaş",
+  "ogTitle": "Tether Link Utility: Operatörün Hotspot Sınırlarını Aş, Mobil Veriyi SOCKS5 ile Paylaş",
+  "description": "Operatörün hotspot sınırlarını aş ve Android telefonunun mobil verisini dizüstü bilgisayarın, tabletin veya başka bir telefonla yerel bir SOCKS5 proxy üzerinden paylaş. Root yok, hesap yok, uzak sunucu yok.",
   "jsonld": [
     {
       "type": "website"
@@ -48,7 +48,7 @@
     ]
   },
   "app": {
-    "description": "Android telefonunun mobil verisini yerel bir SOCKS5 proxy ile Wi-Fi üzerinden diğer cihazlarınla paylaştırır. Root yok, hesap yok, uzak sunucu yok.",
+    "description": "Operatörün hotspot sınırlarını aş. Android telefonunun mobil verisini yerel bir SOCKS5 proxy ile Wi-Fi üzerinden diğer cihazlarınla paylaştırır. Root yok, hesap yok, uzak sunucu yok.",
     "featureList": [
       "Mobil veriyi dizüstü bilgisayar, tablet ve telefonlarla Wi-Fi üzerinden paylaşma",
       "Ücretsiz katman root gerektirmeden bağlantıyı 1 cihazla paylaşır",
@@ -62,8 +62,8 @@
   },
   "hero": {
     "iosPill": "çok yakında",
-    "h1": "Telefonunun mobil verisi, ",
-    "h1Accent": "tüm cihazlarında.",
+    "h1": "Operatörün hotspot sınırlarını aş. ",
+    "h1Accent": "Telefonunun verisini tüm cihazlarında kullan.",
     "body": "Tether Link Utility, Android telefonunda yerel bir SOCKS5 proxy çalıştırır ve bunu Wi-Fi hotspot üzerinden paylaşır; böylece dizüstü bilgisayarın, tabletin veya başka bir telefon mobil verini kullanabilir. Her şey cihazında çalışır.",
     "playLabel": "Google Play'den Hemen İndir",
     "playEyebrow": "GOOGLE PLAY'DE",
@@ -278,5 +278,6 @@
   },
   "closing": {
     "title": "Google Play'den ücretsiz indir"
-  }
+  },
+  "ogImageAlt": "Tether Link Utility: Operatörün hotspot sınırlarını aş ve telefonunun mobil verisini paylaş"
 }

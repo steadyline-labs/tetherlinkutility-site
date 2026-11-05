@@ -1,7 +1,7 @@
 {
-  "title": "Tether Link Utility: compartir internet del celular con otro dispositivo",
-  "ogTitle": "Tether Link Utility: comparte internet del celular con otro dispositivo",
-  "description": "Comparte los datos móviles de tu celular Android con otro dispositivo por el punto de acceso Wi-Fi y un proxy SOCKS5 local. Conecta con QR, sin root ni cuenta.",
+  "title": "Tether Link Utility: supera los límites de punto de acceso de tu operador",
+  "ogTitle": "Tether Link Utility: supera los límites de punto de acceso de tu operador",
+  "description": "Supera los límites de punto de acceso de tu operador y comparte los datos móviles de tu celular Android con otro dispositivo mediante un proxy SOCKS5 local. Conecta con QR, sin root ni cuenta.",
   "inLanguage": "es-419",
   "jsonld": [
     {
@@ -47,7 +47,7 @@
     ]
   },
   "app": {
-    "description": "Comparte los datos móviles de tu teléfono Android con tus otros dispositivos por Wi-Fi mediante un proxy SOCKS5 local. Sin root, sin cuenta, sin servidor remoto.",
+    "description": "Supera los límites de punto de acceso de tu operador. Comparte los datos móviles de tu teléfono Android con tus otros dispositivos por Wi-Fi mediante un proxy SOCKS5 local. Sin root, sin cuenta, sin servidor remoto.",
     "featureList": [
       "Comparte datos móviles con computadoras, tablets y teléfonos por Wi-Fi",
       "La versión gratuita comparte tu conexión con 1 dispositivo a la vez, sin necesidad de root",
@@ -61,8 +61,8 @@
   },
   "hero": {
     "iosPill": "muy pronto",
-    "h1": "Comparte el internet de tu celular con ",
-    "h1Accent": "todos tus dispositivos.",
+    "h1": "Supera los límites de punto de acceso de tu operador. ",
+    "h1Accent": "Comparte el internet de tu celular con todos tus dispositivos.",
     "body": "Tether Link Utility ejecuta un proxy SOCKS5 local en tu teléfono Android y lo comparte por punto de acceso Wi-Fi, para que tu computadora, tu tablet u otro teléfono puedan usar tus datos móviles. Todo funciona en tu dispositivo.",
     "playLabel": "Disponible en Google Play",
     "playEyebrow": "DISPONIBLE EN",
@@ -277,5 +277,6 @@
   },
   "closing": {
     "title": "Instálala gratis desde Google Play"
-  }
+  },
+  "ogImageAlt": "Tether Link Utility: supera los límites de punto de acceso de tu operador y comparte los datos de tu celular"
 }

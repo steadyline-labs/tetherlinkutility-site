@@ -1,7 +1,7 @@
 {
-  "title": "Tether Link Utility: compartilhar internet do celular com outro dispositivo",
-  "ogTitle": "Tether Link Utility: compartilhe a internet do celular com outro dispositivo",
-  "description": "Compartilhe os dados móveis do seu celular Android com outro dispositivo pelo roteador Wi-Fi e um proxy SOCKS5 local. Conexão por QR, sem root e sem conta.",
+  "title": "Tether Link Utility: contorne os limites de roteamento da sua operadora",
+  "ogTitle": "Tether Link Utility: contorne os limites de roteamento da sua operadora",
+  "description": "Contorne os limites de roteamento da sua operadora e compartilhe os dados móveis do seu celular Android com outro dispositivo por um proxy SOCKS5 local. Conexão por QR, sem root e sem conta.",
   "inLanguage": "pt-BR",
   "jsonld": [
     {
@@ -47,7 +47,7 @@
     ]
   },
   "app": {
-    "description": "Compartilha os dados móveis do seu celular Android com seus outros dispositivos por Wi-Fi por meio de um proxy SOCKS5 local. Sem root, sem conta, sem servidor remoto.",
+    "description": "Contorne os limites de roteamento da sua operadora. Compartilha os dados móveis do seu celular Android com seus outros dispositivos por Wi-Fi por meio de um proxy SOCKS5 local. Sem root, sem conta, sem servidor remoto.",
     "featureList": [
       "Compartilhe dados móveis com computadores, tablets e celulares por Wi-Fi",
       "O plano gratuito compartilha sua conexão com 1 dispositivo por vez, sem precisar de root",
@@ -61,8 +61,8 @@
   },
   "hero": {
     "iosPill": "em breve",
-    "h1": "Compartilhe a internet do seu celular com ",
-    "h1Accent": "todos os seus dispositivos.",
+    "h1": "Contorne os limites de roteamento da sua operadora. ",
+    "h1Accent": "Compartilhe a internet do seu celular com todos os seus dispositivos.",
     "body": "O Tether Link Utility roda um proxy SOCKS5 local no seu celular Android e o compartilha pelo ponto de acesso Wi-Fi, para que seu computador, seu tablet ou outro celular possam usar seus dados móveis. Tudo funciona no seu dispositivo.",
     "playLabel": "Disponível no Google Play",
     "playEyebrow": "DISPONÍVEL NO",
@@ -277,5 +277,6 @@
   },
   "closing": {
     "title": "Instale grátis pelo Google Play"
-  }
+  },
+  "ogImageAlt": "Tether Link Utility: contorne os limites de roteamento da sua operadora e compartilhe a internet do celular"
 }

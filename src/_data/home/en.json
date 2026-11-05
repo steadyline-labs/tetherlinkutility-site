@@ -1,7 +1,7 @@
 {
-  "title": "Tether Link Utility: Share Your Phone's Mobile Data via SOCKS5",
-  "ogTitle": "Tether Link Utility: Share Your Phone&#x27;s Mobile Data via SOCKS5",
-  "description": "Share your Android phone&#x27;s mobile data with your laptop, tablet or another phone through a local SOCKS5 proxy. No root, no account, no remote server.",
+  "title": "Tether Link Utility: Bypass Carrier Hotspot Limits and Share Mobile Data via SOCKS5",
+  "ogTitle": "Tether Link Utility: Bypass Carrier Hotspot Limits and Share Mobile Data via SOCKS5",
+  "description": "Bypass carrier hotspot limits and share your Android phone&#x27;s mobile data with your laptop, tablet or another phone through a local SOCKS5 proxy. No root, no account, no remote server.",
   "jsonld": [
     {
       "type": "website"
@@ -46,7 +46,7 @@
     ]
   },
   "app": {
-    "description": "Shares your Android phone's mobile data with your other devices over Wi-Fi through a local SOCKS5 proxy. No root, no account, no remote server.",
+    "description": "Bypass carrier hotspot limits. Shares your Android phone's mobile data with your other devices over Wi-Fi through a local SOCKS5 proxy. No root, no account, no remote server.",
     "featureList": [
       "Share mobile data with laptops, tablets and phones over Wi-Fi",
       "Free tier shares your connection with 1 device at a time, no root required",
@@ -60,8 +60,8 @@
   },
   "hero": {
     "iosPill": "coming soon",
-    "h1": "Your phone's mobile data, on ",
-    "h1Accent": "every device.",
+    "h1": "Bypass carrier hotspot limits. ",
+    "h1Accent": "Share your phone's data on every device.",
     "body": "Tether Link Utility runs a local SOCKS5 proxy on your Android phone and shares it over Wi-Fi hotspot, so your laptop, tablet or another phone can use your mobile data. Everything runs on your device.",
     "playLabel": "Get it on Google Play",
     "playEyebrow": "GET IT ON",
@@ -276,5 +276,6 @@
   },
   "closing": {
     "title": "Install free on Google Play"
-  }
+  },
+  "ogImageAlt": "Tether Link Utility: Bypass carrier hotspot limits and share your phone's mobile data"
 }

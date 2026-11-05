@@ -1,5 +1,5 @@
-// Positioning (since 2026-09-25): Tether Link Utility is a data-sharing app. No page, URL, meta tag,
-// JSON-LD block, sitemap or llms.txt entry may describe it as a way around carrier limits.
+// Positioning (owner decision 2026-11-05): the site says "Bypass carrier hotspot limits" prominently, so
+// "bypass" is allowed. The other evasion wording below (detection, circumvent, no restrictions) stays banned.
 // Old URLs that contained such words survive only as noindex redirect stubs.
 // Carrier guides may still explain what a carrier does (caps, slowdowns); that is not checked here.
 // One exception: owner override 2026-09-27 keeps the "5 ways" guide at its old URL as a search page
@@ -10,7 +10,6 @@ import { htmlPages, read, isRedirectStub, robots, sitemap, links, decode } from 
 
 // Words that frame the app as evading the carrier, in any language the site uses.
 const BANNED = [
-  /bypass/i,
   /circumvent/i,
   /undetect/i,
   /no restrictions/i,
