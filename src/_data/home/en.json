@@ -60,8 +60,8 @@
   },
   "hero": {
     "iosPill": "coming soon",
-    "h1": "Bypass carrier hotspot limits. ",
-    "h1Accent": "Share your phone's data on every device.",
+    "h1": "Bypass carrier hotspot limits ",
+    "h1Accent": "on every device.",
     "body": "No root. No tether fees. Tether Link Utility runs a local SOCKS5 proxy on your Android phone and shares it over Wi-Fi hotspot, so your laptop, tablet or another phone can use your mobile data. Everything runs on your device.",
     "playLabel": "Get it on Google Play",
     "playEyebrow": "GET IT ON",

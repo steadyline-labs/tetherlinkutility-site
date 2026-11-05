@@ -62,8 +62,8 @@
   },
   "hero": {
     "iosPill": "çok yakında",
-    "h1": "Operatörün hotspot sınırlarını aş. ",
-    "h1Accent": "Telefonunun verisini tüm cihazlarında kullan.",
+    "h1": "Operatörün hotspot sınırlarını aş, ",
+    "h1Accent": "tüm cihazlarında.",
     "body": "Root yok. Ek hotspot ücreti yok. Tether Link Utility, Android telefonunda yerel bir SOCKS5 proxy çalıştırır ve bunu Wi-Fi hotspot üzerinden paylaşır; böylece dizüstü bilgisayarın, tabletin veya başka bir telefon mobil verini kullanabilir. Her şey cihazında çalışır.",
     "playLabel": "Google Play'den Hemen İndir",
     "playEyebrow": "GOOGLE PLAY'DE",

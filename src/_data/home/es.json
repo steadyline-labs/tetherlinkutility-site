@@ -61,8 +61,8 @@
   },
   "hero": {
     "iosPill": "muy pronto",
-    "h1": "Supera los límites de punto de acceso de tu operador. ",
-    "h1Accent": "Comparte el internet de tu celular con todos tus dispositivos.",
+    "h1": "Supera el límite de tu operador en ",
+    "h1Accent": "todos tus dispositivos.",
     "body": "Sin root. Sin cargos por compartir internet. Tether Link Utility ejecuta un proxy SOCKS5 local en tu teléfono Android y lo comparte por punto de acceso Wi-Fi, para que tu computadora, tu tablet u otro teléfono puedan usar tus datos móviles. Todo funciona en tu dispositivo.",
     "playLabel": "Disponible en Google Play",
     "playEyebrow": "DISPONIBLE EN",
