@@ -141,7 +141,11 @@
         "title": "Avisos de cambio de IP",
         "text": "La IP del operador puede cambiar entre sesiones. La app reconoce el cambio y avisa automáticamente a los dispositivos conectados."
       }
-    ]
+    ],
+    "proof": {
+      "title": "La prueba de que funciona",
+      "text": "Se descargó un archivo de prueba de 1 GB por la conexión del celular y el paquete de hotspot del operador no cambió."
+    }
   },
   "demo": {
     "title": "Míralo en acción",

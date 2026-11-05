@@ -140,7 +140,11 @@
         "title": "IP change alerts",
         "text": "Carrier IPs can change between sessions. The app notices the change and alerts connected devices automatically."
       }
-    ]
+    ],
+    "proof": {
+      "title": "Proof it works",
+      "text": "A 1 GB test download ran through the phone's connection, and the carrier's hotspot package stayed unchanged."
+    }
   },
   "demo": {
     "title": "See it in action",

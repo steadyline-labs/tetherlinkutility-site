@@ -142,7 +142,11 @@
         "title": "IP değişikliği uyarısı",
         "text": "Operatör IP'leri oturumlar arasında değişebilir. Uygulama değişikliği fark eder ve bağlı cihazları otomatik olarak uyarır."
       }
-    ]
+    ],
+    "proof": {
+      "title": "Çalıştığının kanıtı",
+      "text": "Telefonun bağlantısı üzerinden 1 GB'lık bir test dosyası indirildi, operatörün hotspot paketi hiç değişmedi."
+    }
   },
   "demo": {
     "title": "Nasıl çalıştığını gör",
