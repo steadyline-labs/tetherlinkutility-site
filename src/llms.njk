@@ -50,5 +50,9 @@ Most guides are also available in Turkish (https://tetherlinkutility.com/tr/blog
 {% endif %}{% endfor %}{% endif %}{% if collections | hasBlog("pt") %}Brazilian Portuguese guides: {{ site.url }}/pt/blog/ . Translations of the general English guides use the same filenames; carrier guides have their own filenames:
 {% for post in collections.posts_pt %}{% if post.data.carrier %}- {{ site.url }}{{ post.url }} : {{ post.data.title | plainText }}
 {% endif %}{% endfor %}{% endif %}
+## Bypass hotspot limits guides
+Guides on getting around carrier hotspot limits by sharing the phone's data through a local SOCKS5 proxy (English, Hindi, Turkish, Spanish, Portuguese):
+{% for l in ["en","hi","tr","es","pt"] %}{% for post in collections["posts_" + l] %}{% if post.data.bypassGuide %}- {{ site.url }}{{ post.url }} : {{ post.data.title | plainText }}: {{ post.data.index.excerpt }}
+{% endif %}{% endfor %}{% endfor %}
 ## Contact
 support@tetherlinkutility.com
