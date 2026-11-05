@@ -1,7 +1,7 @@
 {
   "title": "Tether Link Utility: supera los límites de punto de acceso de tu operador",
   "ogTitle": "Tether Link Utility: supera los límites de punto de acceso de tu operador",
-  "description": "Supera los límites de punto de acceso de tu operador y comparte los datos móviles de tu celular Android con otro dispositivo mediante un proxy SOCKS5 local. Conecta con QR, sin root ni cuenta.",
+  "description": "Supera los límites de punto de acceso de tu operador y comparte los datos móviles de tu celular Android con otro dispositivo mediante un proxy SOCKS5 local. Sin root. Sin cargos por compartir internet. Conecta con QR, sin cuenta.",
   "inLanguage": "es-419",
   "jsonld": [
     {
@@ -63,7 +63,7 @@
     "iosPill": "muy pronto",
     "h1": "Supera los límites de punto de acceso de tu operador. ",
     "h1Accent": "Comparte el internet de tu celular con todos tus dispositivos.",
-    "body": "Tether Link Utility ejecuta un proxy SOCKS5 local en tu teléfono Android y lo comparte por punto de acceso Wi-Fi, para que tu computadora, tu tablet u otro teléfono puedan usar tus datos móviles. Todo funciona en tu dispositivo.",
+    "body": "Sin root. Sin cargos por compartir internet. Tether Link Utility ejecuta un proxy SOCKS5 local en tu teléfono Android y lo comparte por punto de acceso Wi-Fi, para que tu computadora, tu tablet u otro teléfono puedan usar tus datos móviles. Todo funciona en tu dispositivo.",
     "playLabel": "Disponible en Google Play",
     "playEyebrow": "DISPONIBLE EN",
     "playWord": "Google Play",

@@ -1,7 +1,7 @@
 {
   "title": "Tether Link Utility: contorne os limites de roteamento da sua operadora",
   "ogTitle": "Tether Link Utility: contorne os limites de roteamento da sua operadora",
-  "description": "Contorne os limites de roteamento da sua operadora e compartilhe os dados móveis do seu celular Android com outro dispositivo por um proxy SOCKS5 local. Conexão por QR, sem root e sem conta.",
+  "description": "Contorne os limites de roteamento da sua operadora e compartilhe os dados móveis do seu celular Android com outro dispositivo por um proxy SOCKS5 local. Sem root. Sem taxa de roteamento. Conexão por QR, sem conta.",
   "inLanguage": "pt-BR",
   "jsonld": [
     {
@@ -63,7 +63,7 @@
     "iosPill": "em breve",
     "h1": "Contorne os limites de roteamento da sua operadora. ",
     "h1Accent": "Compartilhe a internet do seu celular com todos os seus dispositivos.",
-    "body": "O Tether Link Utility roda um proxy SOCKS5 local no seu celular Android e o compartilha pelo ponto de acesso Wi-Fi, para que seu computador, seu tablet ou outro celular possam usar seus dados móveis. Tudo funciona no seu dispositivo.",
+    "body": "Sem root. Sem taxa de roteamento. O Tether Link Utility roda um proxy SOCKS5 local no seu celular Android e o compartilha pelo ponto de acesso Wi-Fi, para que seu computador, seu tablet ou outro celular possam usar seus dados móveis. Tudo funciona no seu dispositivo.",
     "playLabel": "Disponível no Google Play",
     "playEyebrow": "DISPONÍVEL NO",
     "playWord": "Google Play",
