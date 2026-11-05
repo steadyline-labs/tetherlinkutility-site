@@ -35,11 +35,6 @@
       background: linear-gradient(transparent 80%, rgba(232,98,42,0.20) 80%, rgba(232,98,42,0.20) 94%, transparent 94%);
       -webkit-box-decoration-break: clone; box-decoration-break: clone;
     }
-    h1 .hero-brand {
-      display: block; margin-bottom: 14px;
-      font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: 0;
-      color: var(--muted); background: none;
-    }
 
     .hero-body {
       font-size: 19px; color: var(--muted); line-height: 1.6;
@@ -50,7 +45,7 @@
     .hero-actions > * { justify-content: center; }
 
     .hero-trust {
-      margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 24px; display: grid; grid-template-columns: repeat(2, max-content); gap: 8px;
       font-size: 14px; color: var(--success-text); list-style: none;
     }
     .hero-trust li {
@@ -173,18 +168,13 @@
       display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px;
       list-style: none;
     }
-    .step {
-      position: relative; background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--border-md);
-      border-radius: 16px; padding: 20px 20px 22px; box-shadow: var(--shadow-sm);
-    }
-    .step:first-child { border-top-color: var(--accent); }
+    .step { position: relative; }
     .step-num {
       display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;
-      background: var(--accent-soft); font-size: 13px; font-weight: 800; color: var(--accent-text); letter-spacing: 0.02em; margin-bottom: 14px;
+      background: var(--accent-btn); font-size: 13px; font-weight: 800; color: #fff; letter-spacing: 0.02em; margin-bottom: 14px;
     }
-    .step:first-child .step-num { background: var(--accent-btn); color: #fff; }
     .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
-    .step p  { font-size: 15px; color: var(--muted); line-height: 1.55; }
+    .step p  { font-size: 16px; color: var(--muted); line-height: 1.55; }
 
     /* ── Before you start ────────────────── */
     .before { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow-sm); padding: 28px; margin-bottom: 40px; }
@@ -193,14 +183,14 @@
     .roles { display: grid; grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr); align-items: start; }
     .role { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
     .role h4 { font-size: 17px; font-weight: 700; line-height: 1.3; }
-    .role p { font-size: 15px; color: var(--muted); line-height: 1.6; text-wrap: pretty; }
+    .role p { font-size: 16px; color: var(--muted); line-height: 1.6; text-wrap: pretty; }
     .role p b { color: var(--text); font-weight: 600; }
     .role p a, .platform-info p a { text-decoration: underline; text-underline-offset: 2px; }
     .role p a.video-hint, .platform-info p a.video-hint { display: inline-block; font-weight: 600; }
     .role-tag { align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; line-height: 1.4; }
     .role-share .role-tag { color: var(--accent-text); background: var(--accent-soft); border: 1px solid rgba(232, 98, 42, 0.35); }
     .role-connect .role-tag { color: var(--success-text); background: var(--success-bg); border: 1px solid rgba(0, 191, 138, 0.30); }
-    .roles-arrow { align-self: center; justify-self: center; width: 24px; height: 2px; background: var(--accent); position: relative; margin-top: 12px; }
+    .roles-arrow { align-self: center; justify-self: center; width: 24px; height: 2px; background: var(--accent); position: relative; }
     .roles-arrow::after { content: ""; position: absolute; right: -1px; top: -4px; border: 5px solid transparent; border-left: 7px solid var(--accent); border-right: 0; }
     .app-ui { display: inline; font-weight: 700; color: var(--text); background: var(--elevated); border: 1px solid var(--border-md); border-radius: 6px; padding: 0 6px; white-space: nowrap; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
     .before-help { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 14px; color: var(--muted); }
@@ -212,23 +202,17 @@
     }
     @media (max-width: 380px) { .app-ui { white-space: normal; } }
 
-    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 48px; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; box-shadow: var(--shadow-sm); }
     .card h3::before { content: ""; display: block; width: 28px; height: 4px; border-radius: 2px; background: var(--success); margin-bottom: 14px; }
     .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
     .card p { font-size: 15px; color: var(--muted); line-height: 1.55; }
     /* Links inside card text are underlined: colour alone is not enough next to grey text (WCAG 1.4.1). */
     .card p a { text-decoration: underline; text-underline-offset: 2px; }
-    .notes {
-      margin-top: 24px; font-size: 14px; color: var(--muted); line-height: 1.6;
-      background: var(--elevated); border: 1px solid var(--border); border-left: 4px solid var(--accent);
-      border-radius: 12px; padding: 16px 20px;
-    }
-    .notes strong { color: var(--text); font-weight: 600; }
 
     /* ── Video showcase: Windows and Mac how-to videos first (16:9), demo Short last (9:16) ── */
-    .video-showcase h2 { text-align: center; margin-bottom: 10px; }
-    .video-sub { text-align: center; font-size: 17px; color: var(--muted); line-height: 1.55; max-width: 560px; margin: 0 auto 32px; text-wrap: pretty; }
+    .video-showcase h2 { margin-bottom: 10px; }
+    .video-sub { font-size: 17px; color: var(--muted); line-height: 1.55; max-width: 560px; margin: 0 0 32px; text-wrap: pretty; }
     .video-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 216px; gap: 20px; align-items: start; }
     .video-card {
       background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
@@ -304,9 +288,9 @@
     .price-card h3 { font-size: 15px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
     .price-card.pro h3 { color: var(--accent-text); }
     .price { display: flex; align-items: baseline; flex-wrap: wrap; margin-bottom: 20px; }
-    .price span:first-child { margin-right: 6px; }
+    .price .price-pre { flex-basis: 100%; margin: 0 0 8px; font-size: 14px; }
     .price b + span { margin-left: 2px; }
-    .price b { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+    .price b { white-space: nowrap; font-size: 40px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
     .price span { font-size: 15px; color: var(--muted); }
     .price-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
     .price-card li { font-size: 15px; display: flex; gap: 10px; align-items: baseline; }
@@ -383,10 +367,11 @@
     /* ── Directory badges ───────────────── */
     .badges-strip { border-top: 1px solid var(--border); padding-top: 32px; padding-bottom: 32px; text-align: center; }
     .badges-strip .section-label { margin-bottom: 16px; }
-    .badges-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; }
+    .badges-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; }
+    .badges-row > a { display: inline-flex; align-items: center; height: 44px; }
     .badge-pill {
       display: inline-flex; align-items: center;
-      padding: 8px 16px; border: 1px solid var(--border); border-radius: 999px;
+      height: 44px; padding: 0 16px; border: 1px solid var(--border); border-radius: 999px;
       font-size: 14px; font-weight: 600; color: var(--text); text-decoration: none;
       transition: border-color .2s, color .2s;
     }
@@ -419,6 +404,7 @@
       transition: transform 0.25s ease;
     }
     .sticky-cta.is-visible { transform: translateY(0); }
+    @media (min-width: 861px) { .sticky-cta { display: none; } }
     .sticky-cta span { font-size: 14px; color: var(--muted); }
     .sticky-cta .btn-primary { padding: 10px 18px; font-size: 14px; }
     @media (max-width: 560px) { .sticky-cta span { display: none; } }
@@ -438,10 +424,11 @@
       .hero-content { display: contents; }
       .hero-pills { order: 1; margin-bottom: 18px; }
       .hero h1 { order: 2; margin-bottom: 20px; }
-      .hero-visual { order: 3; margin-bottom: 26px; }
-      .hero-body { order: 4; }
-      .hero-actions { order: 5; }
-      .hero-trust { order: 6; }
+      .hero-body { order: 3; margin-bottom: 24px; }
+      .hero-actions { order: 4; }
+      .hero-trust { order: 5; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-visual { order: 6; margin-top: 28px; }
+      .ios-soon-badge { display: none; }
       .hero-visual::before { width: 340px; height: 340px; margin: -170px 0 0 -170px; }
       .hv-card { --phone-w: 104px; --slot-h: 58px; max-width: 420px; padding: 12px 14px 14px; border-radius: 20px; }
       .hv-stage { margin-top: 10px; }
@@ -470,6 +457,7 @@
     @media (max-width: 640px) {
       .steps { grid-template-columns: 1fr; }
       .guides-grid { grid-template-columns: 1fr; }
+      .guide-featured-title { font-size: 18px; font-weight: 700; }
       .price-card { width: 100%; }
       .hero-body { font-size: 17px; }
       .platform { flex-wrap: wrap; }

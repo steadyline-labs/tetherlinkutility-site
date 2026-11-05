@@ -3,10 +3,10 @@
   <div class="badges-row">
     <a href="https://www.producthunt.com/products/tether-link-utility?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-tether-link-utility" target="_blank" rel="noopener noreferrer" class="badge-pill">Product Hunt</a>
     <a href="https://www.nxgntools.com/tools/tether-link-utility?utm_source=tether-link-utility" target="_blank" rel="noopener">
-      <img src="https://www.nxgntools.com/api/embed/tether-link-utility?type=FIND_US_ON&amp;hideUpvotes=true" alt="Find us on NxGn Tools" loading="lazy" decoding="async" style="height: 48px; width: auto;" />
+      <img src="https://www.nxgntools.com/api/embed/tether-link-utility?type=FIND_US_ON&amp;hideUpvotes=true" alt="Find us on NxGn Tools" loading="lazy" decoding="async" style="height: 44px; width: auto;" />
     </a>
     <a href="https://launchnest.io/p/tether-link-utility" target="_blank" rel="noopener">
-      <img src="https://launchnest.io/badge/tether-link-utility.svg?variant=featured&amp;theme=light" alt="Tether Link Utility on LaunchNest" width="220" height="56" loading="lazy" decoding="async" style="height: 48px; width: auto;" />
+      <img src="https://launchnest.io/badge/tether-link-utility.svg?variant=featured&amp;theme=light" alt="Tether Link Utility on LaunchNest" width="220" height="44" loading="lazy" decoding="async" style="height: 44px; width: auto;" />
     </a>
     <a href="https://viberank.dev/apps/Tether%20Link%20Utility" target="_blank" rel="noopener noreferrer" class="badge-pill">VibeRank</a>
   </div>
@@ -45,13 +45,14 @@
   }());
 
   (function () {
-    // Shows a compact install CTA once the user has scrolled past the hero, and hides
+    // Phones only (hidden by CSS on desktop): shows a compact install CTA once the hero Play badge has scrolled off screen, and hides
     // it again near the very bottom so it doesn't sit on top of the footer.
     var bar = document.getElementById('stickyCta');
     var hero = document.querySelector('.hero');
     if (!bar || !hero) return;
     window.addEventListener('scroll', function () {
-      var pastHero = window.scrollY > hero.offsetTop + hero.offsetHeight;
+      var badge = hero.querySelector('.hero-actions .play-badge');
+      var pastHero = badge ? badge.getBoundingClientRect().bottom < 0 : window.scrollY > hero.offsetTop + hero.offsetHeight;
       var nearBottom = window.scrollY + window.innerHeight > document.body.scrollHeight - 300;
       bar.classList.toggle('is-visible', pastHero && !nearBottom);
     }, { passive: true });

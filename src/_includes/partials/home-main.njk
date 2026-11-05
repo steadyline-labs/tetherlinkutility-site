@@ -5,7 +5,7 @@
   <section class="hero wrap">
     <div class="hero-content">
       <div class="hero-pills"><span class="pill pill-muted"><span><span class="keep-case">iOS</span> {{ h.hero.iosPill }}</span></span></div>
-      <h1><span class="hero-brand">{{ site.name }}</span>{{ h.hero.h1 }}<span>{{ h.hero.h1Accent }}</span></h1>
+      <h1>{{ h.hero.h1 }}<span>{{ h.hero.h1Accent }}</span></h1>
       <p class="hero-body">{{ h.hero.body }}</p>
       <div class="hero-actions">
         <a href="{{ page.url | playLink(lang) }}" class="play-badge" aria-label="{{ h.hero.playLabel }}">
@@ -93,14 +93,6 @@
         <p>{{ step.text }}</p>
       </li>
 {% endfor %}    </ol>
-    <span class="anchor-alias" id="features"></span>
-    <div class="cards">
-{% for card in h.how.cards %}      <div class="card">
-        <h3>{{ card.title }}</h3>
-        <p>{{ card.text }}</p>
-      </div>
-{% endfor %}    </div>
-    <p class="notes">{{ h.how.notes }}</p>
   </section>
 
   <section class="section wrap video-showcase band-peach" id="demo">
@@ -140,6 +132,16 @@
     </div>
   </section>
 
+  <section class="section wrap features">
+    <span class="anchor-alias" id="features"></span>
+    <div class="cards">
+{% for card in h.how.cards %}      <div class="card">
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.text }}</p>
+      </div>
+{% endfor %}    </div>
+  </section>
+
   <section class="section wrap band-navy" id="platforms">
     <div class="platforms-grid">
       <div class="platforms-intro">
@@ -160,7 +162,7 @@
     <div class="pricing-cards">
 {% for plan in h.pricing.plans %}      <div class="price-card{% if plan.pro %} pro{% endif %}">
         <h3>{{ plan.name }}</h3>
-        <div class="price">{% if plan.pricePrefix %}<span>{{ plan.pricePrefix }}</span>{% endif %}<b>{{ plan.price }}</b>{% if plan.priceSuffix %}<span>{{ plan.priceSuffix }}</span>{% endif %}</div>
+        <div class="price">{% if plan.pricePrefix %}<span class="price-pre">{{ plan.pricePrefix }}</span>{% endif %}<b>{{ plan.price }}</b>{% if plan.priceSuffix %}<span>{{ plan.priceSuffix }}</span>{% endif %}</div>
         <ul>
 {% for f in plan.features %}          <li>{{ f }}</li>
 {% endfor %}        </ul>

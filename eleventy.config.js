@@ -226,6 +226,12 @@ export default function (eleventyConfig) {
       html = html
         .replace(/<!--help:([a-z]*):([a-z-]+)-->/g, (m, device, step) =>
           `<a class="step-help" href="${helpUrl(device, step)}">${o.help.stepLink}</a>`)
+        .replace(/<ol\b[\s\S]*?<\/ol>/g, (ol) => {
+          // One "Stuck on this step?" link per list of steps (the last one), not one per step.
+          const all = [...ol.matchAll(/<a class="step-help"[^>]*>[^<]*<\/a>/g)];
+          let i = 0;
+          return all.length < 2 ? ol : ol.replace(/<a class="step-help"[^>]*>[^<]*<\/a>/g, (m) => (++i === all.length ? m : ""));
+        })
         .replace(/<!--help-end:([a-z]*)-->/g, (m, device) =>
           `<div class="help-end"><p>${o.help.endText}</p><a class="help-end-btn" href="${helpUrl(device)}">${o.help.endButton}</a></div>`);
     }
@@ -274,13 +280,16 @@ export default function (eleventyConfig) {
           })
           .join("");
         const pickedSlugs = picks.map((p) => p.data.slug);
-        const rest = links.filter((l) => !pickedSlugs.includes(l.slug));
+        const restCards = links
+          .filter((l) => !pickedSlugs.includes(l.slug))
+          .map((l) => {
+            const text = l.li.replace(/<[^>]+>/g, "");
+            const href = l.li.match(/href="([^"]+)"/)[1];
+            return `        <a class="related-card" href="${href}"><span class="related-eyebrow">${o.labels.guide}</span><span class="related-title">${text}</span></a>\n`;
+          })
+          .join("");
         const h3 = inner.match(/<h3>[\s\S]*?<\/h3>/)?.[0] || "";
-        return (
-          `<div class="related">\n      ${h3}\n      <div class="related-cards">\n${cards}      </div>\n` +
-          (rest.length ? `      <ul>\n${rest.map((l) => `        <li>${l.li}</li>\n`).join("")}      </ul>\n` : "") +
-          `    </div>`
-        );
+        return `<div class="related">\n      ${h3}\n      <div class="related-cards">\n${cards}${restCards}      </div>\n    </div>`;
       });
     }
     return html;

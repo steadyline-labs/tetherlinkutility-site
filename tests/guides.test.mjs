@@ -13,7 +13,7 @@ for (const lang of LANGS) {
     test(`${url}: step links use local text and the local help page`, () => {
       const html = read(url);
       const all = stepLinks(html);
-      assert.ok(all.length >= 5, `only ${all.length} step links`);
+      assert.ok(all.length >= 1, "no step link");
       for (const a of all) {
         assert.equal(a.text, i18n[lang].help.stepLink);
         const u = new URL(a.href, "https://x");
@@ -44,12 +44,10 @@ test("SOCKS5 guide: device sections prefill their device, shared steps carry onl
     const hrefs = stepLinks(html).map((a) => a.href.replace(prefix(lang), "/"));
     for (const want of [
       "/help.html?device=windows&step=set-proxy",
-      "/help.html?device=mac&step=install",
+      "/help.html?device=mac&step=set-proxy",
       "/help.html?device=linux&step=set-proxy",
       "/help.html?device=ios&step=ios-proxy-app",
-      "/help.html?step=install",
       "/help.html?step=start-sharing",
-      "/help.html?step=join-wifi",
     ]) assert.ok(hrefs.includes(want), `${lang}: ${want}`);
     assert.equal(endLinks(html)[0].href, `${prefix(lang)}help.html`);
   }

@@ -102,7 +102,7 @@
           "title": "Your other devices",
           "lines": [
             "<b>Android phone:</b> no app yet? The sharing phone shows how to install it, even without internet. Then tap <span class=\"app-ui\">Use another phone's internet</span> and <span class=\"app-ui\">Scan QR code</span>.",
-            "<b>Windows PC or Mac:</b> while it still has internet, download the <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows setup file</a> or the <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac script</a>. It installs and runs sing-box for you, so every app uses the phone's internet. Then join the Wi-Fi shown on the sharing phone and type the two values. <a class=\"video-hint\" href=\"/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Watch the Windows video (1:21)</a> <a class=\"video-hint\" href=\"/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Watch the Mac video (1:19)</a>",
+            "<b>Windows PC or Mac:</b> while it still has internet, download the <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows setup file</a> or the <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac script</a>, then join the Wi-Fi shown on the sharing phone and type the two values.",
             "<b>iPhone or Linux:</b> install Potatso (iPhone) or Firefox (Linux) first, then join the Wi-Fi shown and enter the two values."
           ]
         }
@@ -140,8 +140,7 @@
         "title": "IP change alerts",
         "text": "Carrier IPs can change between sessions. The app notices the change and alerts connected devices automatically."
       }
-    ],
-    "notes": "<strong>Using your phone's own hotspot?</strong> If you turn on Mobile Hotspot (Android) or Personal Hotspot (iPhone) yourself, save its name and password once with <strong>Add hotspot Wi-Fi details</strong> in the app. They stay on your device, the hotspot itself isn't changed, and they're added to the QR code so other devices join by scanning. Not needed when the Android app starts its own hotspot. Data used by connected devices counts toward your mobile plan. Check your carrier's terms for tethering."
+    ]
   },
   "demo": {
     "title": "See it in action",

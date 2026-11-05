@@ -104,7 +104,7 @@
           "title": "Diğer cihazların",
           "lines": [
             "<b>Android telefon:</b> uygulama yok mu? Paylaşan telefon, internet olmasa bile nasıl kuracağını gösterir. Sonra <span class=\"app-ui\">Başka bir telefonun internetini kullan</span>'a ve <span class=\"app-ui\">QR kodu tara</span>'ya dokun.",
-            "<b>Windows bilgisayar veya Mac:</b> cihazda internet hâlâ varken <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows kurulum dosyasını</a> ya da <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac betiğini</a> indir. sing-box'ı senin için kurup çalıştırır, böylece tüm uygulamalar telefonun internetini kullanır. Sonra paylaşan telefonda gösterilen Wi-Fi'ye bağlan ve iki değeri yaz. <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Windows videosunu izle (1:21)</a> <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Mac videosunu izle (1:19)</a>",
+            "<b>Windows bilgisayar veya Mac:</b> cihazda internet hâlâ varken <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows kurulum dosyasını</a> ya da <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac betiğini</a> indir, sonra paylaşan telefonda gösterilen Wi-Fi'ye bağlanıp iki değeri yaz.",
             "<b>iPhone veya Linux:</b> önce Potatso'yu (iPhone) ya da Firefox'u (Linux) kur, sonra gösterilen Wi-Fi'ye bağlan ve iki değeri gir."
           ]
         }
@@ -142,8 +142,7 @@
         "title": "IP değişikliği uyarısı",
         "text": "Operatör IP'leri oturumlar arasında değişebilir. Uygulama değişikliği fark eder ve bağlı cihazları otomatik olarak uyarır."
       }
-    ],
-    "notes": "<strong>Telefonunun kendi hotspot'unu mu kullanıyorsun?</strong> Mobil Hotspot'u (Android) veya Kişisel Erişim Noktası'nı (iPhone) kendin açıyorsan, ağ adını ve şifresini uygulamadaki <strong>Hotspot Wi-Fi bilgilerini ekle</strong> ile bir kez kaydet. Bilgiler yalnızca cihazında saklanır, hotspot ayarların değiştirilmez ve QR koda eklenir; böylece diğer cihazlar tarayarak ağa katılır. Android uygulaması hotspot'u kendisi başlattığında buna gerek yoktur. Bağlı cihazların kullandığı veri mobil paketinden düşer. Tethering için operatörünün koşullarını kontrol et."
+    ]
   },
   "demo": {
     "title": "Nasıl çalıştığını gör",
@@ -208,9 +207,8 @@
       {
         "name": "Pro",
         "pro": true,
-        "pricePrefix": "aylık",
+        "pricePrefix": "Aylık başlangıç fiyatı",
         "price": "109,99 TL",
-        "priceSuffix": "'den başlayan",
         "features": [
           "Aynı anda 5 cihaz",
           "Reklam yok",

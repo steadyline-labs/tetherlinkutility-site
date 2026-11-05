@@ -102,7 +102,7 @@
           "title": "आपके बाकी डिवाइस",
           "lines": [
             "<b>Android फ़ोन:</b> उसमें अभी ऐप नहीं है? शेयर करने वाला फ़ोन इंस्टॉल करने का तरीका दिखाता है, इंटरनेट न हो तब भी। फिर <span class=\"app-ui\">Use another phone's internet</span> और <span class=\"app-ui\">Scan QR code</span> पर टैप करें।",
-            "<b>Windows PC या Mac:</b> जब तक उस पर इंटरनेट है, <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows सेटअप फ़ाइल</a> या <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac स्क्रिप्ट</a> डाउनलोड कर लें। यह आपके लिए sing-box इंस्टॉल करके चलाती है, ताकि सभी ऐप्स फ़ोन का इंटरनेट इस्तेमाल करें। फिर शेयर करने वाले फ़ोन पर दिखे Wi-Fi से जुड़ें और दो वैल्यू टाइप करें। <a class=\"video-hint\" href=\"/hi/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Windows वाला वीडियो देखें (1:21, अंग्रेज़ी में)</a> <a class=\"video-hint\" href=\"/hi/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Mac वाला वीडियो देखें (1:19, अंग्रेज़ी में)</a>",
+            "<b>Windows PC या Mac:</b> जब तक उस पर इंटरनेट है, <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows सेटअप फ़ाइल</a> या <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac स्क्रिप्ट</a> डाउनलोड कर लें, फिर शेयर करने वाले फ़ोन पर दिखे Wi-Fi से जुड़ें और दो वैल्यू टाइप करें।",
             "<b>iPhone या Linux:</b> पहले Potatso (iPhone) या Firefox (Linux) इंस्टॉल करें, फिर दिखे Wi-Fi से जुड़ें और दो वैल्यू डालें।"
           ]
         }
@@ -140,8 +140,7 @@
         "title": "IP बदलाव अलर्ट",
         "text": "कैरियर के IP सेशन के बीच बदल सकते हैं। ऐप बदलाव को नोटिस करता है और जुड़े डिवाइसों को अपने आप अलर्ट करता है।"
       }
-    ],
-    "notes": "<strong>फ़ोन का अपना हॉटस्पॉट इस्तेमाल कर रहे हैं?</strong> अगर आप Mobile Hotspot (Android) या Personal Hotspot (iPhone) खुद ऑन करते हैं, तो उसका नाम और पासवर्ड ऐप में <strong>Add hotspot Wi-Fi details</strong> से एक बार सेव करें। ये सिर्फ़ आपके डिवाइस पर रहते हैं, हॉटस्पॉट में कोई बदलाव नहीं होता, और ये QR कोड में जुड़ जाते हैं ताकि दूसरे डिवाइस स्कैन करके जुड़ सकें। जब Android ऐप खुद हॉटस्पॉट शुरू करता है, तब इसकी ज़रूरत नहीं। जुड़े हुए डिवाइस जो डेटा इस्तेमाल करते हैं, वह आपके मोबाइल प्लान में गिना जाता है। टेदरिंग के लिए अपने कैरियर की शर्तें देखें।"
+    ]
   },
   "demo": {
     "title": "इसे काम करते देखें",

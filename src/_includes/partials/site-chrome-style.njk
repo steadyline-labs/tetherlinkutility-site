@@ -127,21 +127,20 @@
     /* ── Footer ──────────────────────────── */
     footer {
       padding-top: 32px; padding-bottom: 32px;
-      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px;
+      display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
       font-size: 14px; color: var(--dim);
     }
     footer a { color: var(--muted); }
     footer .footer-brand a { color: var(--accent-text); }
     footer a:hover { color: var(--text); text-decoration: none; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; }
+    .footer-links, .footer-langs { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; }
+    .footer-langs { width: 100%; padding-top: 16px; border-top: 1px solid var(--border); }
+    .footer-langs .is-current { color: var(--text); font-weight: 700; }
+    .footer-brand { display: flex; flex-wrap: wrap; gap: 4px 0; }
     .footer-brand .sep { padding: 0 6px; }
     @media (max-width: 640px) {
-      footer { flex-direction: column; align-items: flex-start; }
-      /* Even rows on phones instead of a ragged wrap. */
-      .footer-brand { display: flex; flex-direction: column; gap: 4px; }
+      .footer-brand { flex-direction: column; gap: 4px; }
       .footer-brand .sep { display: none; }
-      .footer-links { display: grid; grid-template-columns: repeat(3, minmax(0, max-content)); gap: 10px 20px; max-width: 100%; min-width: 0; overflow-wrap: anywhere; }
-      .footer-links a { min-width: 0; }
     }
 
     @media (max-width: 860px) {

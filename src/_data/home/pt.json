@@ -103,7 +103,7 @@
           "title": "Seus outros dispositivos",
           "lines": [
             "<b>Celular Android:</b> ainda sem o app? O celular que compartilha mostra como instalar, mesmo sem internet. Depois toque em <span class=\"app-ui\">Use another phone's internet</span> e em <span class=\"app-ui\">Scan QR code</span>.",
-            "<b>PC com Windows ou Mac:</b> enquanto ainda tiver internet, baixe o <a href=\"/downloads/TLU-Windows-Setup.cmd\">arquivo de instalação para Windows</a> ou o <a href=\"/downloads/tlu-mac-tunnel.zip\">script para Mac</a>. Ele instala e roda o sing-box para você, então todos os apps usam a internet do celular. Depois entre no Wi-Fi mostrado no celular que compartilha e digite os dois valores. <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Assista ao vídeo para Windows (1:21, em inglês)</a> <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Assista ao vídeo para Mac (1:19, em inglês)</a>",
+            "<b>PC com Windows ou Mac:</b> enquanto ainda tiver internet, baixe o <a href=\"/downloads/TLU-Windows-Setup.cmd\">arquivo de instalação para Windows</a> ou o <a href=\"/downloads/tlu-mac-tunnel.zip\">script para Mac</a>, depois entre no Wi-Fi mostrado no celular que compartilha e digite os dois valores.",
             "<b>iPhone ou Linux:</b> primeiro instale o Potatso (iPhone) ou o Firefox (Linux), depois entre no Wi-Fi mostrado e digite os dois valores."
           ]
         }
@@ -141,8 +141,7 @@
         "title": "Alertas de mudança de IP",
         "text": "Os IPs da operadora podem mudar entre as sessões. O app percebe a mudança e avisa os dispositivos conectados automaticamente."
       }
-    ],
-    "notes": "<strong>Usando o ponto de acesso do próprio celular?</strong> Se você mesmo ativar o Roteador Wi-Fi (Android) ou o Acesso Pessoal (iPhone), salve o nome e a senha dele uma vez em <strong>Add hotspot Wi-Fi details</strong> no app. Eles ficam no seu dispositivo, o ponto de acesso não é alterado, e são incluídos no QR code para que outros dispositivos entrem na rede escaneando. Não é necessário quando o app Android inicia o próprio ponto de acesso. Os dados usados pelos dispositivos conectados contam no seu plano de dados. Confira os termos da sua operadora sobre ancoragem."
+    ]
   },
   "demo": {
     "title": "Veja funcionando",
