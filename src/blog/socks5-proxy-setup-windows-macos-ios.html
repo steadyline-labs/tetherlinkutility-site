@@ -1,13 +1,13 @@
 ---
 title: "How to Set Up a SOCKS5 Proxy on Windows, macOS &amp; iOS"
-description: "Step-by-step setup for every app on Windows and Mac (a setup file and a script that run sing-box for you), plus browser-only options and iPhone apps."
+description: "Step-by-step setup for every app on Windows and Mac (a setup file and a script that run sing-box for you), plus browser-only options and iPhone apps. Get around your hotspot cap, no tether fees."
 published: "2026-09-18"
 modified: "2026-11-03"
 ldHeadline: "How to Set Up a SOCKS5 Proxy on Windows, macOS & iOS"
 h3Style: true
 sitemap:
   order: 7
-  lastmod: "2026-11-03"
+  lastmod: "2026-11-05"
   changefreq: "monthly"
   priority: "0.6"
 index:
@@ -72,7 +72,7 @@ extraJsonLd: |2
     <h1>How to Set Up a SOCKS5 Proxy on Windows, macOS &amp; iOS</h1>
     <div class="post-meta">Published September 18, 2026 &middot; Updated November 3, 2026</div>
 
-    <p>Tether Link Utility runs a local SOCKS5 proxy on your Android phone. Other devices use it over the Wi-Fi network the app creates. On a Windows PC or a Mac, one small file sets up every app for you: it installs and runs sing-box, so the whole computer uses the phone's internet. On an iPhone, a lightweight app is needed. Here is how to set up each platform.</p>
+    <p>Tether Link Utility runs a local SOCKS5 proxy on your Android phone. Other devices use it over the Wi-Fi network the app creates. On a Windows PC or a Mac, one small file sets up every app for you: it installs and runs sing-box, so the whole computer uses the phone's internet. On an iPhone, a lightweight app is needed. Here is how to set up each platform. To get around your hotspot cap on Android, Tether Link Utility shares your phone's mobile data over a local SOCKS5 proxy. No root. No tether fees.</p>
 
     <h2>Before you start</h2>
     <p>Do these in this order. The phone's Wi-Fi may have no internet of its own (it only reaches the proxy on the phone), so install everything first.</p>
@@ -171,6 +171,13 @@ extraJsonLd: |2
     <video controls playsinline preload="metadata" style="width:100%; border-radius: 8px; display: block; margin-top: 12px;" poster="/mac-tunnel-script-demo.png">
       <source src="/sing-box-mac-how-to.mp4" type="video/mp4">
     </video>
+
+<h3>Does it actually work? Here's proof</h3>
+    <p>We ran the script, downloaded a 1GB test file through the tunnel, and checked the phone's carrier account before and after. The hotspot-sharing data package showed the same amount left both times, nothing was counted against it, even though the app's own counter shows well over 1GB routed through the tunnel.</p>
+    <video controls playsinline preload="metadata" style="width:100%; border-radius: 8px; display: block; margin-top: 12px;" poster="/mac-tunnel-script-demo.png">
+      <source src="/sing-box-proof-demo.mp4" type="video/mp4">
+    </video>
+    <p style="margin-top: 12px; font-size: 14px;">The carrier account shown is Vodafone, see the <a href="/blog/vodafone-hotspot-data-limit.html">full Vodafone hotspot data breakdown</a>.</p>
 
     <p>Or set it up by hand:</p>
     <ol>
@@ -281,7 +288,7 @@ extraJsonLd: |2
 
     <div class="cta-box">
       <h3>Tether Link Utility</h3>
-      <p>An Android app that shares your phone's mobile data with your other devices through a local SOCKS5 proxy. No root, no account, no remote server.</p>
+      <p>Bypass carrier hotspot limits. An Android app that shares your phone's mobile data with your other devices through a local SOCKS5 proxy. No root. No tether fees.</p>
       <a class="cta-button" href="/">See how it works</a>
     </div>
 

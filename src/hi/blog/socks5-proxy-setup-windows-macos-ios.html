@@ -1,6 +1,6 @@
 ---
 title: "Windows, macOS और iOS पर SOCKS5 प्रॉक्सी कैसे सेट करें"
-description: "Windows और Mac पर सभी ऐप्स के लिए स्टेप-बाय-स्टेप सेटअप (सेटअप फ़ाइल और स्क्रिप्ट जो आपके लिए sing-box चलाती हैं), साथ में सिर्फ़-ब्राउज़र विकल्प और iOS ऐप्स।"
+description: "Windows और Mac पर सभी ऐप्स के लिए स्टेप-बाय-स्टेप सेटअप (सेटअप फ़ाइल और स्क्रिप्ट जो आपके लिए sing-box चलाती हैं), साथ में सिर्फ़-ब्राउज़र विकल्प और iOS ऐप्स। बिना टेदरिंग शुल्क के हॉटस्पॉट लिमिट बायपास करें।"
 published: "2026-09-18"
 modified: "2026-11-03"
 ldDescription: "Step-by-step setup for every app on Windows and Mac (a setup file and a script that run sing-box for you), plus browser-only options and iPhone apps."
@@ -8,7 +8,7 @@ carrierTable: true
 h3Style: true
 sitemap:
   order: 39
-  lastmod: "2026-11-03"
+  lastmod: "2026-11-05"
   changefreq: "monthly"
   priority: "0.6"
 index:
@@ -69,7 +69,7 @@ extraJsonLd: |2-
     <h1>Windows, macOS और iOS पर SOCKS5 प्रॉक्सी कैसे सेट करें</h1>
     <div class="post-meta">प्रकाशित 18 सितंबर, 2026 &middot; अपडेट 3 नवंबर, 2026</div>
 
-    <p>Tether Link Utility आपके Android फ़ोन पर एक लोकल SOCKS5 प्रॉक्सी चलाता है। दूसरे डिवाइस ऐप के बनाए Wi-Fi से जुड़कर इसे इस्तेमाल करते हैं। Windows PC या Mac पर एक छोटी फ़ाइल आपके लिए सब सेट कर देती है: यह sing-box इंस्टॉल करके चलाती है, ताकि पूरा कंप्यूटर फ़ोन का इंटरनेट इस्तेमाल करे। iOS पर एक हल्का ऐप चाहिए। यहां हर प्लेटफ़ॉर्म को जोड़ने का तरीका बताया गया है।</p>
+    <p>Tether Link Utility आपके Android फ़ोन पर एक लोकल SOCKS5 प्रॉक्सी चलाता है। दूसरे डिवाइस ऐप के बनाए Wi-Fi से जुड़कर इसे इस्तेमाल करते हैं। Windows PC या Mac पर एक छोटी फ़ाइल आपके लिए सब सेट कर देती है: यह sing-box इंस्टॉल करके चलाती है, ताकि पूरा कंप्यूटर फ़ोन का इंटरनेट इस्तेमाल करे। iOS पर एक हल्का ऐप चाहिए। यहां हर प्लेटफ़ॉर्म को जोड़ने का तरीका बताया गया है। Android पर कैरियर की हॉटस्पॉट लिमिट बायपास करने के लिए Tether Link Utility इस्तेमाल करें: न root, न टेदरिंग शुल्क।</p>
 
     <h2>शुरू करने से पहले</h2>
     <p>इसी क्रम में करें। हो सकता है फ़ोन के Wi-Fi पर अपना इंटरनेट न हो (वह सिर्फ़ फ़ोन के प्रॉक्सी तक पहुंचाता है), इसलिए पहले सब कुछ इंस्टॉल कर लें।</p>
@@ -168,6 +168,13 @@ extraJsonLd: |2-
     <video controls playsinline preload="metadata" style="width:100%; border-radius: 8px; display: block; margin-top: 12px;" poster="/mac-tunnel-script-demo.png">
       <source src="/sing-box-mac-how-to.mp4" type="video/mp4">
     </video>
+
+<h3>क्या यह असल में काम करता है? यहां प्रूफ है</h3>
+    <p>हमने स्क्रिप्ट चलाई, टनल के ज़रिए एक 1GB टेस्ट फ़ाइल डाउनलोड की, और फ़ोन के कैरियर अकाउंट को पहले और बाद में चेक किया। हॉटस्पॉट-शेयरिंग डेटा पैकेज में दोनों बार उतनी ही मात्रा बची दिखी, कुछ भी उसमें नहीं गिना गया, भले ही ऐप का अपना काउंटर 1GB से कहीं ज़्यादा टनल से रूट होते दिखा रहा था।</p>
+    <video controls playsinline preload="metadata" style="width:100%; border-radius: 8px; display: block; margin-top: 12px;" poster="/mac-tunnel-script-demo.png">
+      <source src="/sing-box-proof-demo.mp4" type="video/mp4">
+    </video>
+    <p style="margin-top: 12px; font-size: 14px;">दिखाया गया कैरियर अकाउंट Vodafone का है, देखें <a href="/hi/blog/vodafone-hotspot-data-limit.html">पूरा Vodafone हॉटस्पॉट डेटा विश्लेषण</a>।</p>
 
     <p>या इसे हाथ से सेटअप करें:</p>
     <ol>
@@ -279,7 +286,7 @@ extraJsonLd: |2-
 
     <div class="cta-box">
       <h3>Tether Link Utility</h3>
-      <p>एक Android ऐप जो आपके फ़ोन का मोबाइल डेटा आपके दूसरे डिवाइसों के साथ एक लोकल SOCKS5 प्रॉक्सी के ज़रिए शेयर करता है। न root, न अकाउंट, न रिमोट सर्वर।</p>
+      <p>कैरियर की हॉटस्पॉट लिमिट बायपास करें। एक Android ऐप जो आपके फ़ोन का मोबाइल डेटा एक लोकल SOCKS5 प्रॉक्सी के ज़रिए आपके दूसरे डिवाइस के साथ शेयर करता है। न root, न टेदरिंग शुल्क।</p>
       <a class="cta-button" href="/hi/">यह कैसे काम करता है देखें</a>
     </div>
 

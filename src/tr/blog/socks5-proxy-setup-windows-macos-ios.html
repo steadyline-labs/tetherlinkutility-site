@@ -1,12 +1,12 @@
 ---
 title: "SOCKS5 Proxy Kurulumu: Windows, macOS ve iOS"
-description: "Windows ve Mac'te tüm uygulamalar için adım adım kurulum (sing-box'ı senin için çalıştıran kurulum dosyası ve betik), sadece tarayıcı seçenekleri ve iOS uygulamaları."
+description: "Windows ve Mac'te tüm uygulamalar için adım adım kurulum (sing-box'ı senin için çalıştıran kurulum dosyası ve betik), sadece tarayıcı seçenekleri ve iOS uygulamaları. Operatörün tethering sınırını aş."
 published: "2026-09-18"
 modified: "2026-11-03"
 h3Style: true
 sitemap:
   order: 28
-  lastmod: "2026-11-03"
+  lastmod: "2026-11-05"
   changefreq: "monthly"
   priority: "0.6"
 index:
@@ -67,7 +67,7 @@ extraJsonLd: |2
     <h1>SOCKS5 Proxy Kurulumu: Windows, macOS ve iOS</h1>
     <div class="post-meta">18 Eylül 2026'da yayınlandı &middot; 3 Kasım 2026'da güncellendi</div>
 
-    <p>SOCKS5, bir cihazın internet trafiğini başka bir cihazdaki proxy sunucusu üzerinden iletmesini sağlayan yaygın bir protokol. Tether Link Utility bu proxy'yi Android telefonunda çalıştırır. Windows bilgisayarda ya da Mac'te tek bir dosya her şeyi senin için kurar: sing-box'ı kurup çalıştırır, böylece bilgisayardaki tüm uygulamalar telefonun internetini kullanır. Bu rehberde bunu, sadece tarayıcıyı kapsayan diğer yolları ve iOS uygulamalarını adım adım anlatıyoruz.</p>
+    <p>SOCKS5, bir cihazın internet trafiğini başka bir cihazdaki proxy sunucusu üzerinden iletmesini sağlayan yaygın bir protokol. Tether Link Utility bu proxy'yi Android telefonunda çalıştırır. Windows bilgisayarda ya da Mac'te tek bir dosya her şeyi senin için kurar: sing-box'ı kurup çalıştırır, böylece bilgisayardaki tüm uygulamalar telefonun internetini kullanır. Bu rehberde bunu, sadece tarayıcıyı kapsayan diğer yolları ve iOS uygulamalarını adım adım anlatıyoruz. Operatörün tethering sınırını aş: Tether Link Utility, Android telefonunun verisini dizüstü bilgisayarınla veya tabletinle paylaşır; root gerekmez, ek hotspot ücreti yok.</p>
     <p>Örnekler, Android telefonda yerel bir SOCKS5 proxy çalıştıran Tether Link Utility'ye göre yazıldı, ama adımlar IP adresi ve portu bilinen herhangi bir SOCKS5 sunucusu için aynıdır.</p>
 
     <h2>Başlamadan önce</h2>
@@ -167,6 +167,13 @@ extraJsonLd: |2
     <video controls playsinline preload="metadata" style="width:100%; border-radius: 8px; display: block; margin-top: 12px;" poster="/mac-tunnel-script-demo.png">
       <source src="/sing-box-mac-how-to.mp4" type="video/mp4">
     </video>
+
+<h3>Gerçekten çalışıyor mu? İşte kanıtı</h3>
+    <p>Script'i çalıştırdık, tünel üzerinden 1GB'lık bir test dosyası indirdik ve öncesinde/sonrasında telefonun operatör hesabını kontrol ettik. Hotspot paylaşım veri paketi her iki seferde de aynı kalan miktarı gösterdi, hiçbir şey ondan düşülmedi, uygulamanın kendi sayacı tünel üzerinden 1GB'ın çok üzerinde bir aktarım gösterse bile.</p>
+    <video controls playsinline preload="metadata" style="width:100%; border-radius: 8px; display: block; margin-top: 12px;" poster="/mac-tunnel-script-demo.png">
+      <source src="/sing-box-proof-demo.mp4" type="video/mp4">
+    </video>
+    <p style="margin-top: 12px; font-size: 14px;">Gösterilen operatör hesabı Vodafone, <a href="/tr/blog/vodafone-hotspot-data-limit.html">tam Vodafone hotspot veri açıklamasına bakın</a>.</p>
 
     <p>Ya da elle kur:</p>
     <ol>
@@ -286,7 +293,7 @@ extraJsonLd: |2
 
     <div class="cta-box">
       <h3>Tether Link Utility</h3>
-      <p>Telefonunun mobil verisini yerel bir SOCKS5 proxy üzerinden diğer cihazlarınla paylaşan bir Android uygulaması. Root yok, hesap yok, uzak sunucu yok.</p>
+      <p>Operatörün hotspot sınırlarını aş. Telefonunun mobil verisini yerel bir SOCKS5 proxy üzerinden diğer cihazlarınla paylaşan bir Android uygulaması. Root yok. Ek hotspot ücreti yok.</p>
       <a class="cta-button" href="/tr/">Nasıl çalıştığını gör</a>
     </div>
 
