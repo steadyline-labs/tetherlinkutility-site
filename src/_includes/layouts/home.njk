@@ -28,7 +28,7 @@
 {% for l in site.languages %}{% if l != lang %}  <meta property="og:locale:alternate" content="{{ i18n[l].ogLocale }}">
 {% endif %}{% endfor %}  <meta property="og:title" content="{{ ogTitle }}">
   <meta property="og:description" content="{{ description }}">
-  <meta property="og:image" content="{{ site.url }}/og-image.png">
+  <meta property="og:image" content="{{ site.url }}/og-image{% if lang != "en" %}-{{ lang }}{% endif %}.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="{{ home[lang].ogImageAlt }}">
@@ -38,7 +38,7 @@
   <meta name="twitter:site" content="@{{ site.twitter }}">
   <meta name="twitter:title" content="{{ ogTitle }}">
   <meta name="twitter:description" content="{{ description }}">
-  <meta name="twitter:image" content="{{ site.url }}/og-image.png">
+  <meta name="twitter:image" content="{{ site.url }}/og-image{% if lang != "en" %}-{{ lang }}{% endif %}.png">
   <meta name="twitter:image:alt" content="{{ home[lang].ogImageAlt }}">
 
 {% if not shortHeadComments %}  <!-- Structured data for search engines -->
