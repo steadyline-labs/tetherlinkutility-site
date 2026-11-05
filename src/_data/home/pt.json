@@ -1,7 +1,7 @@
 {
   "title": "Tether Link Utility: contorne os limites de roteamento da sua operadora",
   "ogTitle": "Tether Link Utility: contorne os limites de roteamento da sua operadora",
-  "description": "Contorne os limites de roteamento da sua operadora e compartilhe os dados móveis do seu celular Android com outro dispositivo por um proxy SOCKS5 local. Sem root. Sem taxa de roteamento. Conexão por QR, sem conta.",
+  "description": "Contorne os limites de roteamento da sua operadora e compartilhe os dados móveis do seu celular com outro dispositivo por um proxy SOCKS5 local. Sem root. Sem taxa de roteamento. Conexão por QR, sem conta.",
   "inLanguage": "pt-BR",
   "jsonld": [
     {
@@ -47,12 +47,12 @@
     ]
   },
   "app": {
-    "description": "Contorne os limites de roteamento da sua operadora. Compartilha os dados móveis do seu celular Android com seus outros dispositivos por Wi-Fi por meio de um proxy SOCKS5 local. Sem root, sem conta, sem servidor remoto.",
+    "description": "Contorne os limites de roteamento da sua operadora. Compartilha os dados móveis do seu celular com seus outros dispositivos por Wi-Fi por meio de um proxy SOCKS5 local. Sem root, sem conta, sem servidor remoto.",
     "featureList": [
       "Compartilhe dados móveis com computadores, tablets e celulares por Wi-Fi",
       "O plano gratuito compartilha sua conexão com 1 dispositivo por vez, sem precisar de root",
       "Sem servidor remoto, todo o tráfego do proxy é roteado localmente no dispositivo",
-      "Ponto de acesso automático com um toque e conexão Wi-Fi entre dispositivos Android",
+      "Ponto de acesso automático com um toque e conexão Wi-Fi entre dispositivos",
       "Configuração por QR code para conexão instantânea",
       "Suporte a proxy SOCKS5 para clientes Windows, macOS e iOS"
     ],
@@ -63,7 +63,7 @@
     "iosPill": "em breve",
     "h1": "Contorne o limite da sua operadora em ",
     "h1Accent": "todos os dispositivos.",
-    "body": "Sem root. Sem taxa de roteamento. O Tether Link Utility roda um proxy SOCKS5 local no seu celular Android e o compartilha pelo ponto de acesso Wi-Fi, para que seu computador, seu tablet ou outro celular possam usar seus dados móveis. Tudo funciona no seu dispositivo.",
+    "body": "Sem root. Sem taxa de roteamento. O Tether Link Utility roda um proxy SOCKS5 local no seu celular e o compartilha pelo ponto de acesso Wi-Fi, para que seu computador, seu tablet ou outro celular possam usar seus dados móveis. Tudo funciona no seu dispositivo.",
     "playLabel": "Disponível no Google Play",
     "playEyebrow": "DISPONÍVEL NO",
     "playWord": "Google Play",
@@ -76,11 +76,11 @@
       "Sem servidor remoto"
     ],
     "visual": {
-      "host": "Seu celular Android",
+      "host": "Seu celular",
       "devices": "Seus outros dispositivos"
     },
     "screenshot": "/app-screenshot.png",
-    "screenshotAlt": "Tether Link Utility rodando no Android: velocidade de download e upload em tempo real, estatísticas da sessão, 1 dispositivo conectado e host e porta SOCKS5"
+    "screenshotAlt": "Tether Link Utility rodando em um celular: velocidade de download e upload em tempo real, estatísticas da sessão, 1 dispositivo conectado e host e porta SOCKS5"
   },
   "how": {
     "title": "Conectado em quatro passos",
@@ -225,7 +225,7 @@
     "items": [
       {
         "q": "Como o Tether Link Utility funciona?",
-        "a": "Ele roda um proxy SOCKS5 local no seu celular Android, usando a API VpnService do Android, e o compartilha pelo ponto de acesso Wi-Fi do celular (sem cabo USB). Seus outros dispositivos enviam o tráfego para esse proxy, e o celular o encaminha pela conexão de dados móveis. Não há nenhum servidor remoto no meio."
+        "a": "Ele roda um proxy SOCKS5 local no seu celular, usando a API VpnService do Android, e o compartilha pelo ponto de acesso Wi-Fi do celular (sem cabo USB). Seus outros dispositivos enviam o tráfego para esse proxy, e o celular o encaminha pela conexão de dados móveis. Não há nenhum servidor remoto no meio."
       },
       {
         "q": "Preciso de acesso root?",

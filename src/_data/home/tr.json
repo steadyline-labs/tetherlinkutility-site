@@ -1,7 +1,7 @@
 {
   "title": "Tether Link Utility: Operatörün Hotspot Sınırlarını Aş, Mobil Veriyi SOCKS5 ile Paylaş",
   "ogTitle": "Tether Link Utility: Operatörün Hotspot Sınırlarını Aş, Mobil Veriyi SOCKS5 ile Paylaş",
-  "description": "Operatörün hotspot sınırlarını aş ve Android telefonunun mobil verisini dizüstü bilgisayarın, tabletin veya başka bir telefonla yerel bir SOCKS5 proxy üzerinden paylaş. Root yok. Ek hotspot ücreti yok. Hesap yok, uzak sunucu yok.",
+  "description": "Operatörün hotspot sınırlarını aş ve telefonunun mobil verisini dizüstü bilgisayarın, tabletin veya başka bir telefonla yerel bir SOCKS5 proxy üzerinden paylaş. Root yok. Ek hotspot ücreti yok. Hesap yok, uzak sunucu yok.",
   "jsonld": [
     {
       "type": "website"
@@ -48,12 +48,12 @@
     ]
   },
   "app": {
-    "description": "Operatörün hotspot sınırlarını aş. Android telefonunun mobil verisini yerel bir SOCKS5 proxy ile Wi-Fi üzerinden diğer cihazlarınla paylaştırır. Root yok, hesap yok, uzak sunucu yok.",
+    "description": "Operatörün hotspot sınırlarını aş. telefonunun mobil verisini yerel bir SOCKS5 proxy ile Wi-Fi üzerinden diğer cihazlarınla paylaştırır. Root yok, hesap yok, uzak sunucu yok.",
     "featureList": [
       "Mobil veriyi dizüstü bilgisayar, tablet ve telefonlarla Wi-Fi üzerinden paylaşma",
       "Ücretsiz katman root gerektirmeden bağlantıyı 1 cihazla paylaşır",
       "Uzak sunucu yok, tüm proxy trafiği cihaz üzerinde yerel olarak yönlendirilir",
-      "Android cihazlar arasında tek dokunuşla otomatik hotspot ve Wi-Fi bağlantısı",
+      "Cihazlar arasında tek dokunuşla otomatik hotspot ve Wi-Fi bağlantısı",
       "Anında bağlantı için QR kod kurulumu",
       "Windows, macOS, Linux ve iOS istemcileri için SOCKS5 proxy desteği"
     ],
@@ -64,7 +64,7 @@
     "iosPill": "çok yakında",
     "h1": "Operatörün hotspot sınırlarını aş, ",
     "h1Accent": "tüm cihazlarında.",
-    "body": "Root yok. Ek hotspot ücreti yok. Tether Link Utility, Android telefonunda yerel bir SOCKS5 proxy çalıştırır ve bunu Wi-Fi hotspot üzerinden paylaşır; böylece dizüstü bilgisayarın, tabletin veya başka bir telefon mobil verini kullanabilir. Her şey cihazında çalışır.",
+    "body": "Root yok. Ek hotspot ücreti yok. Tether Link Utility, telefonunda yerel bir SOCKS5 proxy çalıştırır ve bunu Wi-Fi hotspot üzerinden paylaşır; böylece dizüstü bilgisayarın, tabletin veya başka bir telefon mobil verini kullanabilir. Her şey cihazında çalışır.",
     "playLabel": "Google Play'den Hemen İndir",
     "playEyebrow": "GOOGLE PLAY'DE",
     "playWord": "Hemen İndir",
@@ -77,11 +77,11 @@
       "Uzak sunucu yok"
     ],
     "visual": {
-      "host": "Android telefonun",
+      "host": "Telefonun",
       "devices": "Diğer cihazların"
     },
     "screenshot": "/app-screenshot-tr.png",
-    "screenshotAlt": "Android'de çalışan Tether Link Utility: anlık indirme ve yükleme hızı, oturum istatistikleri, 1 bağlı cihaz ve SOCKS5 host ile port bilgisi"
+    "screenshotAlt": "Telefonda çalışan Tether Link Utility: anlık indirme ve yükleme hızı, oturum istatistikleri, 1 bağlı cihaz ve SOCKS5 host ile port bilgisi"
   },
   "how": {
     "title": "Dört adımda bağlan",
@@ -226,7 +226,7 @@
     "items": [
       {
         "q": "Tether Link Utility nasıl çalışır?",
-        "a": "Android telefonunda, Android'in VpnService API'sini kullanarak yerel bir SOCKS5 proxy çalıştırır ve bunu telefonun Wi-Fi hotspot'u üzerinden paylaşır (USB kablo yok). Diğer cihazların trafiklerini bu proxy'ye gönderir, telefon da bunu mobil veri bağlantısı üzerinden iletir. Arada uzak bir sunucu yoktur."
+        "a": "Telefonunda, Android'in VpnService API'sini kullanarak yerel bir SOCKS5 proxy çalıştırır ve bunu telefonun Wi-Fi hotspot'u üzerinden paylaşır (USB kablo yok). Diğer cihazların trafiklerini bu proxy'ye gönderir, telefon da bunu mobil veri bağlantısı üzerinden iletir. Arada uzak bir sunucu yoktur."
       },
       {
         "q": "Root yetkisi gerekiyor mu?",
