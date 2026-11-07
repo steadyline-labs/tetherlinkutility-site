@@ -4,3 +4,5 @@ node_modules/
 _site/
 .compare/
 tests/visual/out/
+tests/visual/*.png
+tests/visual/hashes.json

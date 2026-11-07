@@ -109,6 +109,7 @@ export function sitemap() {
   const xml = read("/sitemap.xml");
   return [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((m) => ({
     loc: (m[1].match(/<loc>([^<]+)<\/loc>/) || [])[1],
+    lastmod: (m[1].match(/<lastmod>([^<]+)<\/lastmod>/) || [])[1],
     alternates: Object.fromEntries(
       [...m[1].matchAll(/<xhtml:link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((a) => [a[1], a[2]])
     ),

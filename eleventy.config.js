@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { gitLastmods } from "./tools/git-lastmod.mjs";
 
 // Site languages (single source of truth: src/_data/site.json).
 const { languages } = JSON.parse(fs.readFileSync(new URL("./src/_data/site.json", import.meta.url), "utf8"));
@@ -128,15 +129,17 @@ export default function (eleventyConfig) {
     const emptyBlogIndex = (p) =>
       !p.data.isPost && p.data.lang && i18n[p.data.lang] &&
       p.url === `${i18n[p.data.lang].prefix}blog/` && !blogLang(p.data.lang);
+    const { lastmodFor } = gitLastmods();
     const entries = pages
       .filter((p) => p.data.sitemap && !emptyBlogIndex(p))
       .map((p) => ({
         url: p.url,
         ...p.data.sitemap,
-        lastmod: p.data.sitemap.lastmod || p.data.modified || p.data.published,
+        // Newest visible change in git, never older than the front matter date (tools/git-lastmod.mjs).
+        lastmod: lastmodFor(p.inputPath.replace(/^\.\//, ""), p.data.sitemap.lastmod || p.data.modified || p.data.published),
         alternates: alternatesFor(p),
       }))
-      .concat(extra || []);
+      .concat((extra || []).map((e) => ({ ...e, lastmod: lastmodFor(`public${e.url}`, e.lastmod) })));
     const key = (e) => (e.order === undefined ? Infinity : e.order);
     return entries.sort((a, b) => key(a) - key(b) || a.url.localeCompare(b.url));
   });

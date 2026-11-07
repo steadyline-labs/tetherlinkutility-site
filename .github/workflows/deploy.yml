@@ -2,8 +2,9 @@
 #
 # Runs on pushes to main, daily, or by hand. A manual run on another branch
 # (gh workflow run deploy.yml --ref <branch>) only tests and builds; it never deploys.
-# `-f update_snapshots=true` re-renders the visual baselines instead of comparing them; download
-# them from the run's visual-snapshots artifact and commit them to tests/visual/.
+# Visual baselines live on the `visual-baselines` branch: copied into tests/visual/ before the tests,
+# changed ones (new page text, or `-f update_snapshots=true` to re-render all) pushed back after a
+# green run on main. sitemap.xml lastmod comes from git history at build time (tools/git-lastmod.mjs).
 name: Deploy site
 
 on:
@@ -30,6 +31,9 @@ concurrency:
 
 jobs:
   build:
+    # contents: write only to push changed visual baselines to the visual-baselines branch.
+    permissions:
+      contents: write
     # Pinned, not ubuntu-latest: the visual baselines depend on the runner's fonts and Chrome build.
     runs-on: ubuntu-24.04
     # A normal run takes about a minute; a hung browser test must not hold the pages queue for 6 hours.
@@ -37,8 +41,13 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          # Full history: the sitemap test compares lastmod with git commit dates.
+          # Full history: sitemap lastmod is taken from git commit dates.
           fetch-depth: 0
+      - name: Restore visual baselines
+        run: |
+          git fetch --no-tags origin +visual-baselines:refs/remotes/origin/visual-baselines
+          git checkout origin/visual-baselines -- tests/visual
+          git reset -q -- tests/visual
       - uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
@@ -50,7 +59,22 @@ jobs:
       - run: npm test
         env:
           UPDATE_SNAPSHOTS: ${{ inputs.update_snapshots && '1' || '' }}
-      # New baselines (update run) or the actual and diff images of a failed visual comparison.
+      # Baselines that changed in this run (new page text, first render, or update_snapshots) are
+      # kept on the visual-baselines branch. Runs are serialized (concurrency: pages), so no push race.
+      - name: Save visual baselines
+        if: github.ref == 'refs/heads/main'
+        continue-on-error: true
+        run: |
+          dst="$RUNNER_TEMP/visual-baselines"
+          git worktree add --detach "$dst" origin/visual-baselines
+          cp tests/visual/*.png tests/visual/hashes.json "$dst/tests/visual/"
+          cd "$dst"
+          git add tests/visual
+          if git diff --cached --quiet; then echo "visual baselines unchanged"; exit 0; fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -q -m "Visual baselines for ${GITHUB_SHA::7}"
+          git push origin HEAD:refs/heads/visual-baselines
+      # New baselines, previous renders of changed pages, or the actual and diff images of a failed comparison.
       - uses: actions/upload-artifact@v7
         if: always()
         with:
