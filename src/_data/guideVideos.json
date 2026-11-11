@@ -50,5 +50,60 @@
       "length": "0:32",
       "cover": "/video-cover-share-en-2026-11.jpg"
     }
+  },
+  "carrierblocked": {
+    "en": {
+      "id": "PTKiAEzfzGU",
+      "name": "Carrier blocked your hotspot? Here is what to do | Tether Link Utility",
+      "description": "Open Tether Link Utility on your Android phone, tap Start Sharing, and your laptop gets online on your phone's mobile data.",
+      "uploadDate": "2026-11-11T22:30:00+03:00",
+      "duration": "PT23S",
+      "length": "0:23",
+      "cover": "/video-cover-carrier-blocked-en-2026-11.jpg"
+    }
+  },
+  "prepaidnohotspot": {
+    "en": {
+      "id": "HzVy6c3TJ24",
+      "name": "Prepaid plan with no hotspot? Share your data anyway | Tether Link Utility",
+      "description": "Open Tether Link Utility, tap Start Sharing, and connect another phone with a QR code.",
+      "uploadDate": "2026-11-11T22:30:00+03:00",
+      "duration": "PT24S",
+      "length": "0:24",
+      "cover": "/video-cover-prepaid-no-hotspot-en-2026-11.jpg"
+    }
+  },
+  "slowvideocalls": {
+    "en": {
+      "id": "UJvh11l9gpc",
+      "name": "Hotspot too slow for video calls? Try this | Tether Link Utility",
+      "description": "Share your phone's data with Tether Link Utility and watch the live speed on your phone.",
+      "uploadDate": "2026-11-11T22:30:00+03:00",
+      "duration": "PT24S",
+      "length": "0:24",
+      "cover": "/video-cover-slow-video-calls-en-2026-11.jpg"
+    }
+  },
+  "windowspc": {
+    "en": {
+      "id": "5a--BIUNyXM",
+      "name": "Hotspot blocked on your Windows PC? Use your phone's internet | Tether Link Utility",
+      "description": "Download the setup file, tap Start Sharing on your Android phone, pick the phone's Wi-Fi, and websites open in Edge.",
+      "uploadDate": "2026-11-11T22:30:00+03:00",
+      "duration": "PT24S",
+      "length": "0:24",
+      "cover": "/video-cover-windows-pc-en-2026-11.jpg"
+    }
+  },
+  "macshort": {
+    "en": {
+      "id": "o9hyLkyQmwI",
+      "name": "Hotspot blocked on your Mac? Use your phone's internet | Tether Link Utility",
+      "description": "Download the Mac file, tap Start Sharing on your Android phone, pick the phone's Wi-Fi, and Safari opens.",
+      "uploadDate": "2026-11-11T22:30:00+03:00",
+      "duration": "PT24S",
+      "length": "0:24",
+      "cover": "/video-cover-mac-en-2026-11.jpg"
+    }
   }
 }

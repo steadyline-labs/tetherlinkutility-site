@@ -68,7 +68,12 @@
       "play": "Play video",
       "windows": "Watch the Windows video",
       "mac": "Watch the Mac video",
-      "share": "Watch the 30-second video"
+      "share": "Watch the 30-second video",
+      "carrierblocked": "Watch the 23-second video",
+      "prepaidnohotspot": "Watch the 24-second video",
+      "slowvideocalls": "Watch the 24-second video",
+      "windowspc": "Watch the 24-second video",
+      "macshort": "Watch the 24-second video"
     }
   },
   "tr": {
