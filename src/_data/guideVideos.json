@@ -39,5 +39,16 @@
       "length": "1:19",
       "cover": "/video-cover-mac-tr-2026-10.jpg"
     }
+  },
+  "share": {
+    "en": {
+      "id": "866HxsnLb2U",
+      "name": "Share your phone's internet with another device in 30 seconds | Tether Link Utility",
+      "description": "Share your Android phone's mobile data with a computer or another phone using Tether Link Utility: start sharing, join the Wi-Fi, enter the SOCKS5 address, and browse.",
+      "uploadDate": "2026-09-29T11:55:13-07:00",
+      "duration": "PT32S",
+      "length": "0:32",
+      "cover": "/video-cover-share-en-2026-11.jpg"
+    }
   }
 }

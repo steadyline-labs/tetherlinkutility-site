@@ -1,0 +1,120 @@
+---
+title: "Hotspot Too Slow for Video Calls? Keep Working on Another Device (2026)"
+description: "Hotspot slow after you used your hotspot data? What slow hotspot speeds mean for Zoom and Teams calls, quick checks to run, and a no-root way to share your phone's data with another device."
+published: "2026-11-11"
+bypassGuide: true
+modified: "2026-11-11"
+ogTitle: "Hotspot Too Slow for Video Calls? (2026)"
+quick:
+  checked: "Nov 2026"
+  rows:
+    - { k: "The problem", v: "After a hotspot allowance runs out, carriers often slow shared data to a crawl." }
+    - { k: "Quick checks", v: "Is the phone itself fast? Is only the other device slow?" }
+    - { k: "The workaround", v: "Share through a local SOCKS5 proxy: Tether Link Utility, no root, free for 1 device." }
+    - { k: "Honest limit", v: "If your carrier slows the whole line, nothing on the phone can change that." }
+faq:
+  - { q: "Why is my hotspot so slow for video calls?", a: "Many plans slow hotspot data after a hotspot allowance is used. Video calls need a steady connection of a few megabits, so a very slow hotspot struggles even when messages and email still work." }
+  - { q: "Will Tether Link Utility make it faster?", a: "Not always. It shares your phone's connection through a local proxy instead of the built-in hotspot. If the slowdown only applies to the built-in hotspot, the other device may get the phone's normal speed. If your carrier slows the whole line, it will not change that. Results vary by carrier and plan." }
+  - { q: "How do I check if the phone itself is fast?", a: "Run a speed test in the phone's browser. If the phone is fast and the connected device is slow, the slowdown is probably on the hotspot side." }
+  - { q: "Do I need root?", a: "No. Tether Link Utility needs no root." }
+  - { q: "Does it work for Zoom or Teams?", a: "It works with any app on a device that sends all its traffic through the proxy, such as a Windows PC or a Mac set up with our setup file or script. Browser-only setups cover only the browser." }
+sitemap:
+  lastmod: "2026-11-11"
+  changefreq: "monthly"
+  priority: "0.7"
+index:
+  excerpt: "Why a throttled hotspot struggles with video calls, two quick checks, and a no-root way to share your phone's data."
+llms:
+  text: "Hotspot Too Slow for Video Calls? Keep Working on Another Device (2026)"
+---
+    <div class="page-eyebrow">Blog</div>
+    <h1>Hotspot Too Slow for Video Calls? Keep Working on Another Device (2026)</h1>
+    <div class="post-meta">Published November 11, 2026</div>
+
+    <p><strong>Short answer:</strong> after a hotspot allowance runs out, many carriers slow shared data so much that video calls freeze while messages still work. First check whether the phone itself is fast. If it is, sharing your data through a local proxy with Tether Link Utility may get your other device the phone's normal speed. If your carrier slows the whole line, nothing on the phone can fix that. Results vary by carrier.</p>
+
+    <h2>Why calls break when messages still work</h2>
+    <p>A text chat needs almost no speed. A video call needs a steady connection of a few megabits in both directions, and it falls apart quickly on a very slow one. That is why a slowed hotspot can load a chat app yet turn a call into a frozen picture.</p>
+
+    <h2>Two quick checks</h2>
+    <ol>
+      <li><strong>Test the phone.</strong> Open a speed test in the phone's own browser. A fast result means the phone's connection is fine.</li>
+      <li><strong>Test the other device.</strong> Run the same test on the device that is connected to the hotspot. If it is far slower than the phone, the slowdown is likely tied to the built-in hotspot.</li>
+    </ol>
+    <p>If both are slow, the line itself is slowed or the signal is weak. Moving near a window or to another room sometimes helps more than any setting.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 720 210" role="img" aria-labelledby="dg-t dg-d" xmlns="http://www.w3.org/2000/svg">
+        <title id="dg-t">How sharing works</title>
+        <desc id="dg-d">Your phone with mobile data connects over Wi&#8209;Fi to your other device, such as a computer, a tablet or another phone.</desc>
+        <g fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round">
+          <path d="M215 100 H265" /><path d="M255 90 L265 100 L255 110" />
+          <path d="M455 100 H505" /><path d="M495 90 L505 100 L495 110" />
+        </g>
+        <g fill="var(--elevated)" stroke="var(--border-md)" stroke-width="2">
+          <rect x="95" y="30" width="80" height="140" rx="14" />
+          <rect x="545" y="45" width="130" height="86" rx="8" />
+          <path d="M530 145 H690 L680 160 H540 Z" />
+        </g>
+        <g fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round">
+          <path d="M322 82 Q360 56 398 82" /><path d="M336 96 Q360 78 384 96" />
+        </g>
+        <circle cx="360" cy="112" r="6" fill="var(--accent)" />
+        <circle cx="135" cy="150" r="5" fill="var(--muted)" />
+        <g fill="var(--text)" font-family="system-ui, sans-serif" font-size="16" font-weight="600" text-anchor="middle">
+          <text x="135" y="196">Your phone</text>
+          <text x="360" y="150">Wi&#8209;Fi</text>
+          <text x="610" y="196">Your other device</text>
+        </g>
+        <g fill="var(--muted)" font-family="system-ui, sans-serif" font-size="13" text-anchor="middle">
+          <text x="135" y="105">mobile</text><text x="135" y="122">data</text>
+          <text x="610" y="93">computer, tablet</text><text x="610" y="111">or phone</text>
+        </g>
+      </svg>
+      <figcaption>The phone shares its own mobile data. The other device joins the phone's Wi&#8209;Fi and uses it to get online.</figcaption>
+    </figure>
+
+    <h2>Share the phone's connection another way</h2>
+    <p>Tether Link Utility gives your other device a Wi-Fi network from your phone and sends its traffic through a local proxy on the phone. It does not use the built-in hotspot feature. When a slowdown applies only to that feature, the other device may get the speed the phone itself gets. When the whole line is slowed, you will see the same slow speed on both.</p>
+
+    <div class="callout">
+      <p><strong>What this does and does not do.</strong> It does not create extra data. Everything the other device uses still comes out of your mobile plan, and your carrier's terms for sharing data still apply. What changes is how the data is shared: through a local proxy on your phone instead of the phone's built-in hotspot feature. Results can vary by carrier and plan.</p>
+    </div>
+
+    <h2>Set it up in 3 steps</h2>
+    <ol class="steps">
+      <li><strong>Install and start sharing</strong> Install Tether Link Utility from Google Play on the phone that has the mobile data, open it and tap <strong>START SHARING</strong>.</li>
+      <li><strong>Join the phone's Wi-Fi</strong> On the other device, join the Wi-Fi network shown in the app, with the password shown. It may say "No internet". That is normal at this point.</li>
+      <li><strong>Enter the two numbers</strong> The app shows two numbers, a host and a port. Type them into the other device's proxy settings. The step-by-step guide for each device is here: <a href="/blog/socks5-proxy-setup-windows-macos-ios.html">How to Set Up a SOCKS5 Proxy on Windows, macOS &amp; iOS</a>.</li>
+    </ol>
+    <div class="shots">
+      <figure><img src="/tlu-step-start.webp" alt="Tether Link Utility home screen with the large orange START SHARING button" width="640" height="663" loading="lazy" decoding="async" /><figcaption>1. Tap START SHARING.</figcaption></figure>
+      <figure><img src="/tlu-step-pick.webp" alt="Tether Link Utility asking which device will use this phone's internet, with Android phone or tablet, iPhone or iPad, and Computer choices" width="640" height="770" loading="lazy" decoding="async" /><figcaption>2. Choose the device that will connect.</figcaption></figure>
+      <figure><img src="/tlu-step-connect.webp" alt="Tether Link Utility connect screen showing the Wi-Fi name, password, host address and port, with a Show QR code button" width="720" height="526" loading="lazy" decoding="async" /><figcaption>3. The app shows the Wi-Fi name, password and the two numbers to enter.</figcaption></figure>
+    </div>
+    <div class="shots">
+      <figure><img src="/tlu-app-sharing.webp" alt="Tether Link Utility while sharing: a timer, download and upload counters and one device connected" width="540" height="1200" loading="lazy" decoding="async" /><figcaption>While sharing, the app shows the timer, the data used and how many devices are connected.</figcaption></figure>
+    </div>
+    <!--video:share-->
+
+    <h2>Small changes that help calls on any connection</h2>
+    <ol>
+      <li><strong>Turn your camera off</strong> for the call. Audio alone needs far less speed.</li>
+      <li><strong>Close other tabs and downloads</strong> on the connected device while you talk.</li>
+      <li><strong>Pause cloud backups and updates</strong> on both the phone and the other device.</li>
+    </ol>
+
+    <div class="cta-box">
+      <h3>Tether Link Utility</h3>
+      <p>Bypass carrier hotspot limits. An app that shares your phone's mobile data with your other devices through a local SOCKS5 proxy. No root. No tether fees. Free for 1 device, Pro for 5 devices ($3.99 a month or $19.99 a year).</p>
+      <a class="cta-button" href="/">See how it works</a>
+    </div>
+    <div class="related">
+      <h3>Related reading</h3>
+      <ul>
+        <li><a href="/blog/best-ways-to-bypass-hotspot-throttling.html">Hotspot Throttled? 5 Ways to Share Your Phone's Internet With Another Device (2026)</a></li>
+        <li><a href="/blog/how-much-hotspot-data-do-i-need.html">How Much Hotspot Data Do I Need? Usage by Activity (2026)</a></li>
+        <li><a href="/blog/carrier-blocked-hotspot-what-to-do.html">Carrier Blocked Your Hotspot? What It Means and What to Do (2026)</a></li>
+        <li><a href="/blog/hotspot-prepaid-mvno-plan-not-allowed.html">Hotspot Not Included on Your Prepaid or Budget Plan? What You Can Do (2026)</a></li>
+      </ul>
+    </div>

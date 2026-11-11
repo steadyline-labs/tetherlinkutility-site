@@ -1,0 +1,116 @@
+---
+title: "Hotspot Blocked? Use Your Phone's Internet on a Mac (2026)"
+description: "Hotspot blocked or capped and you need your Mac online? Use your Android phone's mobile data on the Mac with one script, every app included. No root."
+published: "2026-11-11"
+bypassGuide: true
+modified: "2026-11-11"
+ogTitle: "Use Your Phone's Internet on a Mac (2026)"
+quick:
+  checked: "Nov 2026"
+  rows:
+    - { k: "What you need", v: "An Android phone with mobile data and a Mac that can join Wi-Fi." }
+    - { k: "How", v: "Tether Link Utility on the phone, plus one script on the Mac. No root." }
+    - { k: "Covers", v: "Every app on the Mac, not just the browser." }
+    - { k: "Honest limit", v: "Data comes from your plan and results can vary by carrier." }
+faq:
+  - { q: "Can I use my phone's internet on a Mac if hotspot is blocked?", a: "Yes. Tether Link Utility shares your phone's data through a local proxy instead of the built-in hotspot, and a small script connects the Mac so every app uses it. Your carrier's terms still apply and results can vary by carrier." }
+  - { q: "Do I need to install anything on the Mac?", a: "You download one script, run it in Terminal and type the two numbers shown in the app. The full guide shows each step." }
+  - { q: "Does it work for every app or only the browser?", a: "The script covers every app on the Mac." }
+  - { q: "Why does the Mac say no internet on the phone's Wi-Fi?", a: "That is normal before the script connects. Once it says it is connected, apps work." }
+  - { q: "Is it free?", a: "Free for 1 device at a time. Pro shares with up to 5 devices for $3.99 a month or $19.99 a year." }
+sitemap:
+  lastmod: "2026-11-11"
+  changefreq: "monthly"
+  priority: "0.7"
+index:
+  excerpt: "A Mac online through your Android phone's data when hotspot is blocked or capped: one script, every app, no root."
+llms:
+  text: "Hotspot Blocked? Use Your Phone's Internet on a Mac (2026)"
+---
+    <div class="page-eyebrow">Blog</div>
+    <h1>Hotspot Blocked? Use Your Phone's Internet on a Mac (2026)</h1>
+    <div class="post-meta">Published November 11, 2026</div>
+
+    <p><strong>Short answer:</strong> install Tether Link Utility on your Android phone, tap START SHARING, join the phone's Wi-Fi from the Mac and run our script. The Mac then uses your phone's mobile data for every app, without the phone's built-in hotspot. No root, free for 1 device. Data still comes from your plan, and results can vary by carrier.</p>
+
+    <h2>Before you start</h2>
+    <ul>
+      <li>An Android phone with mobile data.</li>
+      <li>A Mac that can join a Wi-Fi network.</li>
+      <li>The script, <a href="/downloads/tlu-mac-tunnel.zip" download>tlu-mac-tunnel.zip</a>. Download it while the Mac still has internet, or on the phone and send it over by Bluetooth or cable.</li>
+    </ul>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 720 210" role="img" aria-labelledby="dg-t dg-d" xmlns="http://www.w3.org/2000/svg">
+        <title id="dg-t">How sharing works</title>
+        <desc id="dg-d">Your phone with mobile data connects over Wi&#8209;Fi to your other device, such as a computer, a tablet or another phone.</desc>
+        <g fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round">
+          <path d="M215 100 H265" /><path d="M255 90 L265 100 L255 110" />
+          <path d="M455 100 H505" /><path d="M495 90 L505 100 L495 110" />
+        </g>
+        <g fill="var(--elevated)" stroke="var(--border-md)" stroke-width="2">
+          <rect x="95" y="30" width="80" height="140" rx="14" />
+          <rect x="545" y="45" width="130" height="86" rx="8" />
+          <path d="M530 145 H690 L680 160 H540 Z" />
+        </g>
+        <g fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round">
+          <path d="M322 82 Q360 56 398 82" /><path d="M336 96 Q360 78 384 96" />
+        </g>
+        <circle cx="360" cy="112" r="6" fill="var(--accent)" />
+        <circle cx="135" cy="150" r="5" fill="var(--muted)" />
+        <g fill="var(--text)" font-family="system-ui, sans-serif" font-size="16" font-weight="600" text-anchor="middle">
+          <text x="135" y="196">Your phone</text>
+          <text x="360" y="150">Wi&#8209;Fi</text>
+          <text x="610" y="196">Your other device</text>
+        </g>
+        <g fill="var(--muted)" font-family="system-ui, sans-serif" font-size="13" text-anchor="middle">
+          <text x="135" y="105">mobile</text><text x="135" y="122">data</text>
+          <text x="610" y="93">computer, tablet</text><text x="610" y="111">or phone</text>
+        </g>
+      </svg>
+      <figcaption>The phone shares its own mobile data. The other device joins the phone's Wi&#8209;Fi and uses it to get online.</figcaption>
+    </figure>
+
+    <h2>The steps</h2>
+    <ol class="steps">
+      <li><strong>Start sharing on the phone</strong> Open Tether Link Utility and tap <strong>START SHARING</strong>.</li>
+      <li><strong>Choose Computer</strong> When the app asks which device will use the phone's internet, tap <strong>Computer, TV or other</strong>.</li>
+      <li><strong>Join the phone's Wi-Fi on the Mac</strong> Pick the network name shown in the app and type the password shown. The Mac may say there is no internet. That is normal for now.</li>
+      <li><strong>Open the script folder</strong> Double-click the downloaded zip so the <strong>tlu-mac-tunnel</strong> folder appears in Downloads. Open <strong>Terminal</strong>, type <code>cd ~/Downloads/tlu-mac-tunnel</code> and press Return.</li>
+      <li><strong>Run the script and type the numbers</strong> Type <code>bash tlu-mac-tunnel.sh</code> and press Return. When it asks, enter the phone's IP address, the port shown in the app and your Mac password. More detail is in the <a href="/blog/socks5-proxy-setup-windows-macos-ios.html#macos">Mac section of the full guide</a>.</li>
+      <li><strong>Wait for the connected message</strong> When the script says the connection is up, you are online. Keep the window open while you work.</li>
+    </ol>
+    <div class="shots">
+      <figure><img src="/tlu-step-start.webp" alt="Tether Link Utility home screen with the large orange START SHARING button" width="640" height="663" loading="lazy" decoding="async" /><figcaption>1. Tap START SHARING.</figcaption></figure>
+      <figure><img src="/tlu-step-pick.webp" alt="Tether Link Utility asking which device will use this phone's internet, with Android phone or tablet, iPhone or iPad, and Computer choices" width="640" height="770" loading="lazy" decoding="async" /><figcaption>2. Choose the device that will connect.</figcaption></figure>
+      <figure><img src="/tlu-step-connect.webp" alt="Tether Link Utility connect screen showing the Wi-Fi name, password, host address and port, with a Show QR code button" width="720" height="526" loading="lazy" decoding="async" /><figcaption>3. The app shows the Wi-Fi name, password and the two numbers to enter.</figcaption></figure>
+    </div>
+
+    <figure class="diagram"><img src="/tlu-mac-terminal.webp" alt="Terminal running the script, asking for the phone's IP and port, then confirming the connection is up" width="722" height="342" loading="lazy" decoding="async" /><figcaption>What Terminal shows when the Mac connects.</figcaption></figure>
+
+    <!--video:mac-->
+
+    <div class="callout">
+      <p><strong>What this does and does not do.</strong> It does not create extra data. Everything the other device uses still comes out of your mobile plan, and your carrier's terms for sharing data still apply. What changes is how the data is shared: through a local proxy on your phone instead of the phone's built-in hotspot feature. Results can vary by carrier and plan.</p>
+    </div>
+
+    <h2>If something does not work</h2>
+    <ul>
+      <li><strong>Still no internet:</strong> check the app still says sharing and shows your Mac as connected, then run the script again.</li>
+      <li><strong>Browser only:</strong> the full guide also covers using a single browser with the proxy.</li>
+    </ul>
+
+    <div class="cta-box">
+      <h3>Tether Link Utility</h3>
+      <p>Bypass carrier hotspot limits. An app that shares your phone's mobile data with your other devices through a local SOCKS5 proxy. No root. No tether fees. Free for 1 device, Pro for 5 devices ($3.99 a month or $19.99 a year).</p>
+      <a class="cta-button" href="/">See how it works</a>
+    </div>
+    <div class="related">
+      <h3>Related reading</h3>
+      <ul>
+        <li><a href="/blog/socks5-proxy-setup-windows-macos-ios.html">How to Set Up a SOCKS5 Proxy on Windows, macOS &amp; iOS</a></li>
+        <li><a href="/blog/how-to-bypass-hotspot-limit.html">How to Bypass a Hotspot Limit (2026): What Works, No Root</a></li>
+        <li><a href="/blog/carrier-blocked-hotspot-what-to-do.html">Carrier Blocked Your Hotspot? What It Means and What to Do (2026)</a></li>
+        <li><a href="/blog/hotspot-prepaid-mvno-plan-not-allowed.html">Hotspot Not Included on Your Prepaid or Budget Plan? What You Can Do (2026)</a></li>
+      </ul>
+    </div>

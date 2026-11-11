@@ -1,0 +1,123 @@
+---
+title: "Carrier Blocked Your Hotspot? What It Means and What to Do (2026)"
+description: "Your carrier turned off hotspot, or says tethering is not part of your plan? What the message means, how to check your plan and how to share your phone's data with another device anyway."
+published: "2026-11-11"
+bypassGuide: true
+modified: "2026-11-11"
+ogTitle: "Carrier Blocked Your Hotspot? What to Do (2026)"
+quick:
+  checked: "Nov 2026"
+  rows:
+    - { k: "What it means", v: "Your plan does not include hotspot, or your carrier is not letting shared data through the built-in hotspot." }
+    - { k: "Check first", v: "Your carrier app or account page: look for a hotspot or tethering line in your plan." }
+    - { k: "The workaround", v: "Share through a local SOCKS5 proxy on your phone instead of the built-in hotspot: Tether Link Utility, no root." }
+    - { k: "Honest limit", v: "Data still counts against your plan and results can vary by carrier." }
+faq:
+  - { q: "Why did my carrier block my hotspot?", a: "Usually because your plan has no hotspot allowance, the allowance has run out, or the carrier only allows tethering on a higher plan. Your carrier app or account page lists what your plan includes." }
+  - { q: "Can I still share my phone's data with another device?", a: "You can share through a local SOCKS5 proxy with Tether Link Utility instead of the built-in hotspot. It needs no root. The data still comes from your plan and your carrier's terms still apply, and results can vary by carrier." }
+  - { q: "Do I need root or a new plan?", a: "No. Tether Link Utility needs no root and no plan change to set up." }
+  - { q: "Is it free?", a: "Free for 1 device at a time. Pro lets 5 devices share at once and costs $3.99 a month or $19.99 a year." }
+  - { q: "Is it private or encrypted?", a: "No. It is not a VPN and does not encrypt anything. It only shares your phone's connection with your other device." }
+sitemap:
+  lastmod: "2026-11-11"
+  changefreq: "monthly"
+  priority: "0.7"
+index:
+  excerpt: "What a blocked hotspot message means, how to check your plan, and a no-root way to share your phone's data with another device."
+llms:
+  text: "Carrier Blocked Your Hotspot? What It Means and What to Do (2026)"
+---
+    <div class="page-eyebrow">Blog</div>
+    <h1>Carrier Blocked Your Hotspot? What It Means and What to Do (2026)</h1>
+    <div class="post-meta">Published November 11, 2026</div>
+
+    <p><strong>Short answer:</strong> a blocked hotspot usually means your plan does not include hotspot, the hotspot data is used up, or your carrier only allows it on a higher plan. You can check which one it is in your carrier app in about a minute. If you still need another device online, Tether Link Utility shares your phone's data through a local proxy instead of the built-in hotspot. No root, free for 1 device.</p>
+
+    <h2>What a blocked hotspot looks like</h2>
+    <p>People usually notice it in one of these ways:</p>
+    <ul>
+      <li>You turn hotspot on and a message tells you to subscribe or add hotspot to your plan.</li>
+      <li>The hotspot switch turns itself off after a moment.</li>
+      <li>Your computer joins the hotspot Wi-Fi but never gets online.</li>
+      <li>Websites work on the phone but not on the device connected to it.</li>
+    </ul>
+    <p>All four have the same cause: the phone is online, but your carrier is not letting that connection be shared the usual way.</p>
+
+    <h2>Why carriers do this</h2>
+    <p>Many plans give you data on the phone itself and treat data used by other devices as a separate thing, with its own allowance or a higher price. Some plans have no hotspot at all. Rules differ by carrier and by plan, so there is no single answer for everyone.</p>
+
+    <h2>Check what your plan says first</h2>
+    <p>Open your carrier's app or your account page and look at your plan details. Find a line that mentions <strong>hotspot</strong>, <strong>tethering</strong> or <strong>shared data</strong>. Note whether it lists an amount, and whether you have used it up this month. Our guide to <a href="/blog/how-to-check-if-hotspot-is-unlimited.html">checking if your hotspot is really unlimited</a> shows what to look for.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 720 210" role="img" aria-labelledby="dg-t dg-d" xmlns="http://www.w3.org/2000/svg">
+        <title id="dg-t">How sharing works</title>
+        <desc id="dg-d">Your phone with mobile data connects over Wi&#8209;Fi to your other device, such as a computer, a tablet or another phone.</desc>
+        <g fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round">
+          <path d="M215 100 H265" /><path d="M255 90 L265 100 L255 110" />
+          <path d="M455 100 H505" /><path d="M495 90 L505 100 L495 110" />
+        </g>
+        <g fill="var(--elevated)" stroke="var(--border-md)" stroke-width="2">
+          <rect x="95" y="30" width="80" height="140" rx="14" />
+          <rect x="545" y="45" width="130" height="86" rx="8" />
+          <path d="M530 145 H690 L680 160 H540 Z" />
+        </g>
+        <g fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round">
+          <path d="M322 82 Q360 56 398 82" /><path d="M336 96 Q360 78 384 96" />
+        </g>
+        <circle cx="360" cy="112" r="6" fill="var(--accent)" />
+        <circle cx="135" cy="150" r="5" fill="var(--muted)" />
+        <g fill="var(--text)" font-family="system-ui, sans-serif" font-size="16" font-weight="600" text-anchor="middle">
+          <text x="135" y="196">Your phone</text>
+          <text x="360" y="150">Wi&#8209;Fi</text>
+          <text x="610" y="196">Your other device</text>
+        </g>
+        <g fill="var(--muted)" font-family="system-ui, sans-serif" font-size="13" text-anchor="middle">
+          <text x="135" y="105">mobile</text><text x="135" y="122">data</text>
+          <text x="610" y="93">computer, tablet</text><text x="610" y="111">or phone</text>
+        </g>
+      </svg>
+      <figcaption>The phone shares its own mobile data. The other device joins the phone's Wi&#8209;Fi and uses it to get online.</figcaption>
+    </figure>
+
+    <h2>Share your data another way</h2>
+    <p>Tether Link Utility runs a small proxy on your phone and gives your other device a Wi-Fi network to join. The other device's traffic goes through the proxy and out over your phone's own mobile data, so it does not use the built-in hotspot feature. It works with any device that can join Wi-Fi and use a proxy, such as a Windows PC, a Mac, a tablet or another phone.</p>
+
+    <div class="callout">
+      <p><strong>What this does and does not do.</strong> It does not create extra data. Everything the other device uses still comes out of your mobile plan, and your carrier's terms for sharing data still apply. What changes is how the data is shared: through a local proxy on your phone instead of the phone's built-in hotspot feature. Results can vary by carrier and plan.</p>
+    </div>
+
+    <h2>Set it up in 3 steps</h2>
+    <ol class="steps">
+      <li><strong>Install and start sharing</strong> Install Tether Link Utility from Google Play on the phone that has the mobile data, open it and tap <strong>START SHARING</strong>.</li>
+      <li><strong>Join the phone's Wi-Fi</strong> On the other device, join the Wi-Fi network shown in the app, with the password shown. It may say "No internet". That is normal at this point.</li>
+      <li><strong>Enter the two numbers</strong> The app shows two numbers, a host and a port. Type them into the other device's proxy settings. The step-by-step guide for each device is here: <a href="/blog/socks5-proxy-setup-windows-macos-ios.html">How to Set Up a SOCKS5 Proxy on Windows, macOS &amp; iOS</a>.</li>
+    </ol>
+    <div class="shots">
+      <figure><img src="/tlu-step-start.webp" alt="Tether Link Utility home screen with the large orange START SHARING button" width="640" height="663" loading="lazy" decoding="async" /><figcaption>1. Tap START SHARING.</figcaption></figure>
+      <figure><img src="/tlu-step-pick.webp" alt="Tether Link Utility asking which device will use this phone's internet, with Android phone or tablet, iPhone or iPad, and Computer choices" width="640" height="770" loading="lazy" decoding="async" /><figcaption>2. Choose the device that will connect.</figcaption></figure>
+      <figure><img src="/tlu-step-connect.webp" alt="Tether Link Utility connect screen showing the Wi-Fi name, password, host address and port, with a Show QR code button" width="720" height="526" loading="lazy" decoding="async" /><figcaption>3. The app shows the Wi-Fi name, password and the two numbers to enter.</figcaption></figure>
+    </div>
+    <!--video:share-->
+
+    <h2>Other options if you would rather stay on your plan's hotspot</h2>
+    <ol>
+      <li><strong>Add hotspot to your plan</strong> if your carrier sells it, or move to a plan that includes it.</li>
+      <li><strong>Use Wi-Fi</strong> at home, work or a cafe for large downloads and updates.</li>
+      <li><strong>Wait for the next billing cycle</strong> if the allowance simply ran out.</li>
+    </ol>
+
+    <div class="cta-box">
+      <h3>Tether Link Utility</h3>
+      <p>Bypass carrier hotspot limits. An app that shares your phone's mobile data with your other devices through a local SOCKS5 proxy. No root. No tether fees. Free for 1 device, Pro for 5 devices ($3.99 a month or $19.99 a year).</p>
+      <a class="cta-button" href="/">See how it works</a>
+    </div>
+    <div class="related">
+      <h3>Related reading</h3>
+      <ul>
+        <li><a href="/blog/how-to-bypass-hotspot-limit.html">How to Bypass a Hotspot Limit (2026): What Works, No Root</a></li>
+        <li><a href="/blog/understanding-carrier-hotspot-throttling.html">Why Is My Hotspot Slow? Carrier Hotspot Limits Explained</a></li>
+        <li><a href="/blog/hotspot-prepaid-mvno-plan-not-allowed.html">Hotspot Not Included on Your Prepaid or Budget Plan? What You Can Do (2026)</a></li>
+        <li><a href="/blog/hotspot-too-slow-video-calls.html">Hotspot Too Slow for Video Calls? Keep Working on Another Device (2026)</a></li>
+      </ul>
+    </div>

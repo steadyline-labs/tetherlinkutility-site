@@ -67,7 +67,8 @@
     "video": {
       "play": "Play video",
       "windows": "Watch the Windows video",
-      "mac": "Watch the Mac video"
+      "mac": "Watch the Mac video",
+      "share": "Watch the 30-second video"
     }
   },
   "tr": {
