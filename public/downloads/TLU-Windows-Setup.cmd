@@ -166,7 +166,7 @@ $config = @'
     "strategy": "ipv4_only"
   },
   "inbounds": [
-    { "type": "tun", "tag": "tun-in", "address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"], "mtu": 1500,
+    { "type": "tun", "tag": "tun-in", "address": ["172.19.0.1/30"], "mtu": 1500,
       "auto_route": true, "strict_route": true, "stack": "system" }
   ],
   "outbounds": [
