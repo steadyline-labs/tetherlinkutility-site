@@ -211,10 +211,11 @@ write_config() {
       { "type": "udp", "tag": "remote", "server": "8.8.8.8", "detour": "phone-socks5" },
       { "type": "local", "tag": "local", "detour": "direct" }
     ],
-    "final": "remote"
+    "final": "remote",
+    "strategy": "ipv4_only"
   },
   "inbounds": [
-    { "type": "tun", "tag": "tun-in", "address": ["172.19.0.1/30"], "mtu": 1500,
+    { "type": "tun", "tag": "tun-in", "address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"], "mtu": 1500,
       "auto_route": true, "strict_route": true, "stack": "system" }
   ],
   "outbounds": [
@@ -222,7 +223,7 @@ write_config() {
     { "type": "direct", "tag": "direct" }
   ],
   "route": {
-    "rules": [ { "ip_cidr": ["$PHONE_IP/32"], "outbound": "direct" } ],
+    "rules": [ { "ip_cidr": ["$PHONE_IP/32"], "outbound": "direct" }, { "ip_version": 6, "action": "reject" } ],
     "final": "phone-socks5",
     "auto_detect_interface": true,
     "default_domain_resolver": "remote"
