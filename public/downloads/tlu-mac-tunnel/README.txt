@@ -40,6 +40,7 @@ Where things are saved
 ----------------------
 ~/Library/Application Support/TLU (sing-box, config.json and the last IP
 and port). The script sends nothing anywhere and is safe to run again.
+It also checks for a newer version and asks before updating.
 
 More help:
 https://tetherlinkutility.com/blog/socks5-proxy-setup-windows-macos-ios.html#macos

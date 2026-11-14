@@ -17,8 +17,10 @@ rem      (only the first time) and checks its SHA256 hash.
 rem   5. Saves everything in %LOCALAPPDATA%\TLU and starts sing-box.
 rem   6. Adds a "TLU connect" shortcut on your desktop for next time.
 rem
-rem  No other network calls, nothing is sent anywhere. The rest of this
-rem  file is plain PowerShell you can read below.
+rem  The only other network call: it reads our small version file
+rem  (tetherlinkutility.com/downloads/desktop-versions.txt) and, when a
+rem  newer setup file exists, offers to update itself. Nothing is sent
+rem  anywhere. The rest of this file is plain PowerShell you can read below.
 rem ======================================================================
 set "TLU_SELF=%~f0"
 powershell -NoProfile -ExecutionPolicy Bypass -Command "& ([scriptblock]::Create([IO.File]::ReadAllText($env:TLU_SELF)))"
@@ -29,6 +31,11 @@ param([string]$AppDir = '', [string]$Desktop = '', [string]$Self = '')
 
 $ErrorActionPreference = 'Stop'
 $Host.UI.RawUI.WindowTitle = 'TLU connect'
+
+# --- This file's version (desktop-versions.txt "windows=" on the site) ---
+$ScriptVersion = 20261114
+$ScriptUrl   = 'https://tetherlinkutility.com/downloads/TLU-Windows-Setup.cmd'
+$VersionsUrl = 'https://tetherlinkutility.com/downloads/desktop-versions.txt'
 
 # --- Pinned sing-box release and its SHA256 hashes (from the official release) ---
 $Version = '1.14.3'
@@ -121,6 +128,44 @@ if (-not (Test-Port $ip $port)) {
 }
 Set-Content -Path $saved -Value @($ip, $port)
 Say 'Phone found.' 'Green'
+
+# --- 3b. A newer setup file? (direct first, then through the phone) ------------
+# Never stops the connection: any problem just keeps this version.
+function Get-Url($url, $out, $proxy) {
+  $ErrorActionPreference = 'Continue'  # curl's stderr must not become a terminating error
+  $a = @('-fsSL', '--connect-timeout', '5', '--max-time', '60')
+  if ($proxy) { $a += @('-x', $proxy) }
+  if ($out) { $a += @('-o', $out) }
+  $r = & curl.exe @a $url 2>$null
+  if ($LASTEXITCODE -ne 0) { return $null }
+  if ($out) { return $true } else { return ($r -join "`n") }
+}
+$via = $null
+$versions = Get-Url $VersionsUrl $null $null
+if (-not $versions) { $via = "socks5h://$ip`:$port"; $versions = Get-Url $VersionsUrl $null $via }
+$latest = 0
+if ($versions -match '(?m)^windows=(\d+)\s*$') { $latest = [long]$Matches[1] }
+if ($latest -gt $ScriptVersion -and $Self) {
+  Say ''
+  Say 'A newer version of this setup file is available.' 'Cyan'
+  if ((Read-Host 'Update now? (y/n)').Trim() -match '^(y|yes)$') {
+    $new = Join-Path $AppDir 'TLU-Windows-Setup.new'
+    $ok = (Get-Url $ScriptUrl $new $via) -and (Test-Path $new)
+    if ($ok) {
+      $text = [IO.File]::ReadAllText($new)
+      $ok = $text.StartsWith('<# :') -and ($text -match "(?m)^\`$ScriptVersion = $latest\s*$")
+    }
+    if ($ok) {
+      Copy-Item $new $Self -Force
+      Remove-Item $new -Force -ErrorAction SilentlyContinue
+      Say 'Updated. Starting the new version ...' 'Green'
+      & ([scriptblock]::Create([IO.File]::ReadAllText($Self))) -Self $Self -AppDir $AppDir -Desktop $Desktop
+      exit 0
+    }
+    Remove-Item $new -Force -ErrorAction SilentlyContinue
+    Say 'Could not update right now, continuing with this version.' 'Yellow'
+  }
+}
 
 # --- 4. sing-box (downloaded once, hash checked) -------------------------------
 $arch = if ($env:PROCESSOR_ARCHITEW6432) { $env:PROCESSOR_ARCHITEW6432 } else { $env:PROCESSOR_ARCHITECTURE }

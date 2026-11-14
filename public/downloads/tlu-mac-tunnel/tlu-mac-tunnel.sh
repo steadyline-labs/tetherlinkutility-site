@@ -21,9 +21,18 @@
 #   5. Control + C in this window stops it. If sing-box stops by itself, the
 #      window comes back with a message.
 #
-# No other network calls, nothing is sent anywhere. Safe to run again.
+# The only other network call: it reads our small version file
+# (tetherlinkutility.com/downloads/desktop-versions.txt) and, when a newer
+# script exists, offers to update itself. Nothing is sent anywhere.
+# Safe to run again.
 
 set -u
+
+# --- This script's version (desktop-versions.txt "mac=" on the site) ---
+SCRIPT_VERSION=20261114
+SCRIPT_URL="${TLU_SCRIPT_URL:-https://tetherlinkutility.com/downloads/tlu-mac-tunnel/tlu-mac-tunnel.sh}"
+VERSIONS_URL="${TLU_VERSIONS_URL:-https://tetherlinkutility.com/downloads/desktop-versions.txt}"
+UPDATE_CHECKED=0
 
 # --- Pinned sing-box release and its SHA256 hashes (from the official release) ---
 SB_VERSION="1.14.3"
@@ -122,6 +131,42 @@ install_singbox() {
   chmod 755 "$(our_binary)"
   rm -rf "$tmp"
   SINGBOX_BIN="$(our_binary)"
+  return 0
+}
+
+# --- self update ---
+
+# Newest Mac script version on the site, or nothing (offline, slow, odd answer).
+latest_version() {
+  local proxy="${1:-}" args=(-fsS --connect-timeout 4 --max-time 8)
+  [ -n "$proxy" ] && args+=(-x "$proxy")
+  curl "${args[@]}" "$VERSIONS_URL" 2>/dev/null | tr -d '\r' | sed -n 's/^mac=\([0-9][0-9]*\)$/\1/p' | head -1
+}
+
+# Offers a newer script once per run; on yes it replaces this file and starts it again.
+# Never stops the connection: any problem just keeps this version.
+check_update() {
+  local proxy="${1:-}" latest answer tmp self
+  latest="$(latest_version "$proxy")"
+  [ -n "$latest" ] || return 0
+  UPDATE_CHECKED=1
+  [ "$latest" -gt "$SCRIPT_VERSION" ] 2>/dev/null || return 0
+  say ""
+  say "A newer version of this script is available."
+  read -rp "Update now? (y/n): " answer
+  case "$answer" in y|Y|yes|YES) ;; *) say "OK, continuing with this version."; return 0 ;; esac
+  self="${BASH_SOURCE[0]}"
+  tmp="$(mktemp "${TMPDIR:-/tmp}/tlu-mac-tunnel.XXXXXX")" || return 0
+  local args=(-fsSL --connect-timeout 10 --max-time 60 -o "$tmp")
+  [ -n "$proxy" ] && args+=(-x "$proxy")
+  if curl "${args[@]}" "$SCRIPT_URL" && head -1 "$tmp" | grep -q '^#!/bin/bash' \
+     && grep -q "^SCRIPT_VERSION=$latest\$" "$tmp" && bash -n "$tmp" && cat "$tmp" > "$self"; then
+    rm -f "$tmp"
+    say "Updated. Starting the new version ..."
+    exec bash "$self"
+  fi
+  rm -f "$tmp"
+  say "Could not update right now, continuing with this version."
   return 0
 }
 
@@ -268,6 +313,9 @@ main() {
   say "Tether Link Utility: connect this Mac to your phone"
   say "---------------------------------------------------"
 
+  # 0. A newer script? Checked while this Mac still has its own internet, else through the phone below.
+  check_update
+
   # 1. sing-box, downloaded while this Mac still has its own internet.
   if ! find_singbox; then
     say "Downloading sing-box $SB_VERSION (about 30 MB, only the first time) ..."
@@ -291,6 +339,7 @@ main() {
     fail "Can't reach your phone. Make sure this Mac is on the phone's Wi-Fi and sharing is on in the app, then run this script again."
   fi
   say "Phone found."
+  [ "$UPDATE_CHECKED" = 1 ] || check_update "socks5h://$PHONE_IP:$PHONE_PORT"
 
   if [ "$need_download" = 1 ]; then
     say "Downloading sing-box $SB_VERSION through the phone (about 30 MB) ..."
