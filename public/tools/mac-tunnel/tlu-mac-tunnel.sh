@@ -29,7 +29,7 @@
 set -u
 
 # --- This script's version (desktop-versions.txt "mac=" on the site) ---
-SCRIPT_VERSION=20261114
+SCRIPT_VERSION=20261120
 SCRIPT_URL="${TLU_SCRIPT_URL:-https://tetherlinkutility.com/downloads/tlu-mac-tunnel/tlu-mac-tunnel.sh}"
 VERSIONS_URL="${TLU_VERSIONS_URL:-https://tetherlinkutility.com/downloads/desktop-versions.txt}"
 UPDATE_CHECKED=0
@@ -256,19 +256,24 @@ write_config() {
       { "type": "udp", "tag": "remote", "server": "8.8.8.8", "detour": "phone-socks5" },
       { "type": "local", "tag": "local", "detour": "direct" }
     ],
+    "rules": [ { "query_type": ["AAAA", "HTTPS"], "action": "predefined" } ],
     "final": "remote",
     "strategy": "ipv4_only"
   },
   "inbounds": [
     { "type": "tun", "tag": "tun-in", "address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"], "mtu": 1500,
-      "auto_route": true, "strict_route": true, "stack": "system" }
+      "auto_route": true, "strict_route": true, "stack": "gvisor" }
   ],
   "outbounds": [
     { "type": "socks", "tag": "phone-socks5", "server": "$PHONE_IP", "server_port": $PHONE_PORT, "version": "5" },
     { "type": "direct", "tag": "direct" }
   ],
   "route": {
-    "rules": [ { "ip_cidr": ["$PHONE_IP/32"], "outbound": "direct" }, { "ip_version": 6, "action": "reject" } ],
+    "rules": [
+      { "port": 53, "action": "hijack-dns" },
+      { "ip_cidr": ["$PHONE_IP/32"], "outbound": "direct" },
+      { "ip_version": 6, "action": "reject", "no_drop": true }
+    ],
     "final": "phone-socks5",
     "auto_detect_interface": true,
     "default_domain_resolver": "remote"
