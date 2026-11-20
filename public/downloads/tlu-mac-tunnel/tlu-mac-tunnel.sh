@@ -29,7 +29,7 @@
 set -u
 
 # --- This script's version (desktop-versions.txt "mac=" on the site) ---
-SCRIPT_VERSION=20261120
+SCRIPT_VERSION=20261121
 SCRIPT_URL="${TLU_SCRIPT_URL:-https://tetherlinkutility.com/downloads/tlu-mac-tunnel/tlu-mac-tunnel.sh}"
 VERSIONS_URL="${TLU_VERSIONS_URL:-https://tetherlinkutility.com/downloads/desktop-versions.txt}"
 UPDATE_CHECKED=0
@@ -43,6 +43,8 @@ APP_DIR="$HOME/Library/Application Support/TLU"
 CONFIG_FILE="$APP_DIR/config.json"
 SAVED_FILE="$APP_DIR/phone.txt"                 # last IP and port you entered
 OLD_CONFIG="$HOME/Documents/sing-box.config"    # written by older versions of this script
+NET_STATE_FILE="$APP_DIR/network-restore.txt"   # DNS and IPv6 settings to put back on stop
+TUN_DNS="172.19.0.2"                            # inside the tunnel, so DNS is caught by it
 
 SINGBOX_BIN=""
 PHONE_IP=""
@@ -283,6 +285,55 @@ EOF
   printf '%s %s\n' "$PHONE_IP" "$PHONE_PORT" > "$SAVED_FILE"
 }
 
+# --- DNS through the tunnel ---
+# The phone is this Mac's DNS server and sits on the same Wi-Fi, so DNS would
+# skip the tunnel. While connected, DNS points inside the tunnel and IPv6 is
+# off on that network; both are put back on stop.
+
+# Name of the network service (for example "Wi-Fi") behind the default route.
+active_service() {
+  local dev
+  dev="$(route -n get default 2>/dev/null | awk '/interface:/{print $2; exit}')"
+  [ -n "$dev" ] || return 0
+  networksetup -listnetworkserviceorder 2>/dev/null | awk -v dev="$dev" '
+    /^\([0-9*]+\) / { sub(/^\([0-9*]+\) /, ""); name = $0 }
+    index($0, "Device: " dev ")") { print name; exit }'
+}
+
+flush_dns() {
+  sudo dscacheutil -flushcache 2>/dev/null
+  sudo killall -HUP mDNSResponder 2>/dev/null || true
+}
+
+# $1 = service name. Saves its DNS and IPv6 settings, then points DNS into the tunnel.
+set_tunnel_dns() {
+  local svc="$1" dns v6
+  dns="$(networksetup -getdnsservers "$svc" 2>/dev/null | grep -E '^[0-9a-fA-F:.]+$' | tr '\n' ' ')"
+  v6="$(networksetup -getinfo "$svc" 2>/dev/null | sed -n 's/^IPv6: //p' | head -1)"
+  printf '%s\n%s\n%s\n' "$svc" "${dns:-Empty}" "${v6:-Automatic}" > "$NET_STATE_FILE"
+  sudo networksetup -setdnsservers "$svc" "$TUN_DNS"
+  sudo networksetup -setv6off "$svc"
+  flush_dns
+}
+
+# Puts the saved DNS and IPv6 settings back. Safe to call more than once.
+restore_dns() {
+  [ -f "$NET_STATE_FILE" ] || return 0
+  local svc="" dns="" v6=""
+  { read -r svc; read -r dns; read -r v6; } < "$NET_STATE_FILE"
+  if [ -n "$svc" ]; then
+    # shellcheck disable=SC2086  # several DNS servers, one per word
+    sudo networksetup -setdnsservers "$svc" ${dns:-Empty}
+    case "$v6" in
+      Off) ;;
+      Link*) sudo networksetup -setv6LinkLocal "$svc" ;;
+      *) sudo networksetup -setv6automatic "$svc" ;;
+    esac
+  fi
+  rm -f "$NET_STATE_FILE"
+  flush_dns
+}
+
 # --- window ---
 
 minimize_window() {
@@ -373,6 +424,9 @@ main() {
   sudo pkill -f "sing-box run --config $CONFIG_FILE" 2>/dev/null
   sudo pkill -f "sing-box run --config $OLD_CONFIG" 2>/dev/null
   sleep 1
+  restore_dns   # left over from a run that was cut off
+  local service
+  service="$(active_service)"
 
   sudo "$SINGBOX_BIN" run --config "$CONFIG_FILE" &
   SINGBOX_PID=$!
@@ -383,16 +437,21 @@ main() {
     say "Stopping ..."
     sudo kill "$SINGBOX_PID" 2>/dev/null
     sudo pkill -f "sing-box run --config $CONFIG_FILE" 2>/dev/null
+    restore_dns
     kill "$KEEPALIVE_PID" 2>/dev/null
     say "Stopped. You can turn sharing off in the app now."
     exit 0
   }
   trap cleanup INT TERM HUP
+  trap restore_dns EXIT
 
   sleep 3
   if ! kill -0 "$SINGBOX_PID" 2>/dev/null; then
     kill "$KEEPALIVE_PID" 2>/dev/null
     fail "sing-box stopped right away. Check the IP and port in the app and run this script again."
+  fi
+  if [ -n "$service" ]; then
+    set_tunnel_dns "$service"
   fi
 
   say ""
@@ -406,6 +465,7 @@ main() {
   while kill -0 "$SINGBOX_PID" 2>/dev/null; do
     sleep 2
   done
+  restore_dns
   kill "$KEEPALIVE_PID" 2>/dev/null
   restore_window
   fail "sing-box stopped. Run this script again to reconnect."
