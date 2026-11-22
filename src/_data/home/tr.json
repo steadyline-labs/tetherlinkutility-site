@@ -104,8 +104,8 @@
           "title": "Diğer cihazların",
           "lines": [
             "<b>Android telefon:</b> uygulama yok mu? Paylaşan telefon, internet olmasa bile nasıl kuracağını gösterir. Sonra <span class=\"app-ui\">Başka bir telefonun internetini kullan</span>'a ve <span class=\"app-ui\">QR kodu tara</span>'ya dokun.",
-            "<b>Windows bilgisayar veya Mac:</b> cihazda internet hâlâ varken <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows kurulum dosyasını</a> ya da <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac betiğini</a> indir, sonra paylaşan telefonda gösterilen Wi-Fi'ye bağlanıp iki değeri yaz.",
-            "<b>iPhone veya Linux:</b> önce Potatso'yu (iPhone) ya da Firefox'u (Linux) kur, sonra gösterilen Wi-Fi'ye bağlan ve iki değeri gir."
+            "<b>Windows bilgisayar, Mac veya Linux:</b> cihazda internet hâlâ varken <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows kurulum dosyasını</a>, <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac betiğini</a> ya da <a href=\"/downloads/tlu-linux-tunnel.sh\">Linux betiğini</a> indir, sonra paylaşan telefonda gösterilen Wi-Fi'ye bağlanıp iki değeri yaz.",
+            "<b>iPhone:</b> önce Potatso'yu kur, sonra gösterilen Wi-Fi'ye bağlan ve iki değeri gir."
           ]
         }
       ],
@@ -166,7 +166,7 @@
   "platforms": {
     "label": "Platformlar",
     "title": "Zaten kullandığın cihazlarla çalışır",
-    "text": "Windows bilgisayarlar ve Mac'ler: tek bir dosya <strong>sing-box</strong>'ı senin için kurup çalıştırır; bilgisayardaki tüm uygulamalar, DNS dahil, telefonun internetini kullanır. iPhone'lar ücretsiz Potatso uygulamasıyla bağlanır.",
+    "text": "Windows bilgisayarlar, Mac'ler ve Linux: tek bir dosya <strong>sing-box</strong>'ı senin için kurup çalıştırır; bilgisayardaki tüm uygulamalar, DNS dahil, telefonun internetini kullanır. iPhone'lar ücretsiz Potatso uygulamasıyla bağlanır.",
     "guideLink": "Tam kurulum rehberi &rarr;",
     "items": [
       {
@@ -179,6 +179,12 @@
         "mono": "MAC",
         "name": "macOS",
         "text": "Önerilen: <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac betiği</a>. Terminal'de çalıştır, iki değeri yaz, tüm uygulamalar çalışır. <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Mac videosunu izle (1:19)</a>",
+        "chip": "tüm uygulamalar"
+      },
+      {
+        "mono": "LNX",
+        "name": "Linux",
+        "text": "Önerilen: <a href=\"/downloads/tlu-linux-tunnel.sh\">Linux betiği</a>. Terminalde çalıştır, iki değeri yaz, tüm uygulamalar çalışır.",
         "chip": "tüm uygulamalar"
       },
       {
@@ -240,7 +246,7 @@
       },
       {
         "q": "Windows veya Mac dizüstü bilgisayar bağlayabilir miyim?",
-        "a": "Evet. Windows'ta <a href=\"/downloads/TLU-Windows-Setup.cmd\">kurulum dosyasını</a>, Mac'te <a href=\"/downloads/tlu-mac-tunnel.zip\">betiği</a> indir. İkisi de sing-box'ı senin için kurup çalıştırır; bilgisayardaki tüm uygulamalar, DNS dahil, telefonun internetini kullanır. Sonra uygulamada gösterilen IP'yi ve portu yaz. Daha az uygulamayı kapsayan yollar da var (Firefox, FoxyProxy, Mac'in proxy ayarı). <a href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#windows\">Yazılı adımlar</a>. <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Windows videosunu izle (1:21)</a> <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Mac videosunu izle (1:19)</a>"
+        "a": "Evet. Windows'ta <a href=\"/downloads/TLU-Windows-Setup.cmd\">kurulum dosyasını</a>, Mac'te <a href=\"/downloads/tlu-mac-tunnel.zip\">betiği</a>, Linux'ta <a href=\"/downloads/tlu-linux-tunnel.sh\">Linux betiğini</a> indir. Hepsi sing-box'ı senin için kurup çalıştırır; bilgisayardaki tüm uygulamalar, DNS dahil, telefonun internetini kullanır. Sonra uygulamada gösterilen IP'yi ve portu yaz. Daha az uygulamayı kapsayan yollar da var (Firefox, FoxyProxy, Mac'in proxy ayarı). <a href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#windows\">Yazılı adımlar</a>. <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Windows videosunu izle (1:21)</a> <a class=\"video-hint\" href=\"/tr/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Mac videosunu izle (1:19)</a>"
       },
       {
         "q": "SOCKS5 proxy ayarı tüm trafiğimi korur mu?",

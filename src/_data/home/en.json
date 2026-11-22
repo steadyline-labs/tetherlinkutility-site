@@ -102,8 +102,8 @@
           "title": "Your other devices",
           "lines": [
             "<b>Android phone:</b> no app yet? The sharing phone shows how to install it, even without internet. Then tap <span class=\"app-ui\">Use another phone's internet</span> and <span class=\"app-ui\">Scan QR code</span>.",
-            "<b>Windows PC or Mac:</b> while it still has internet, download the <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows setup file</a> or the <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac script</a>, then join the Wi-Fi shown on the sharing phone and type the two values.",
-            "<b>iPhone or Linux:</b> install Potatso (iPhone) or Firefox (Linux) first, then join the Wi-Fi shown and enter the two values."
+            "<b>Windows PC, Mac or Linux:</b> while it still has internet, download the <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows setup file</a>, the <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac script</a> or the <a href=\"/downloads/tlu-linux-tunnel.sh\">Linux script</a>, then join the Wi-Fi shown on the sharing phone and type the two values.",
+            "<b>iPhone:</b> install Potatso first, then join the Wi-Fi shown and enter the two values."
           ]
         }
       ],
@@ -164,7 +164,7 @@
   "platforms": {
     "label": "Platforms",
     "title": "Works with what you already have",
-    "text": "Windows PCs and Macs: one file installs and runs <strong>sing-box</strong> for you, so every app on the computer uses the phone's internet, DNS included. iPhones connect with the free Potatso app.",
+    "text": "Windows PCs, Macs and Linux: one file installs and runs <strong>sing-box</strong> for you, so every app on the computer uses the phone's internet, DNS included. iPhones connect with the free Potatso app.",
     "guideLink": "Full setup guide &rarr;",
     "items": [
       {
@@ -177,6 +177,12 @@
         "mono": "MAC",
         "name": "macOS",
         "text": "Recommended: the <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac script</a>. Run it in Terminal, type the two values and every app works. <a class=\"video-hint\" href=\"/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Watch the Mac video (1:19)</a>",
+        "chip": "every app"
+      },
+      {
+        "mono": "LNX",
+        "name": "Linux",
+        "text": "Recommended: the <a href=\"/downloads/tlu-linux-tunnel.sh\">Linux script</a>. Run it in a terminal, type the two values and every app works.",
         "chip": "every app"
       },
       {
@@ -239,7 +245,7 @@
       },
       {
         "q": "Can I connect a Windows or Mac laptop?",
-        "a": "Yes. On Windows, download the <a href=\"/downloads/TLU-Windows-Setup.cmd\">setup file</a>; on a Mac, the <a href=\"/downloads/tlu-mac-tunnel.zip\">script</a>. Each one installs and runs sing-box for you, so every app on the computer, DNS included, uses the phone's internet. Then type the IP and port shown in the app. Options that cover fewer apps (Firefox, FoxyProxy, the Mac's proxy setting) also exist. <a href=\"/blog/socks5-proxy-setup-windows-macos-ios.html#windows\">Written steps</a>. <a class=\"video-hint\" href=\"/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Watch the Windows video (1:21)</a> <a class=\"video-hint\" href=\"/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Watch the Mac video (1:19)</a>"
+        "a": "Yes. On Windows, download the <a href=\"/downloads/TLU-Windows-Setup.cmd\">setup file</a>; on a Mac, the <a href=\"/downloads/tlu-mac-tunnel.zip\">script</a>; on Linux, the <a href=\"/downloads/tlu-linux-tunnel.sh\">Linux script</a>. Each one installs and runs sing-box for you, so every app on the computer, DNS included, uses the phone's internet. Then type the IP and port shown in the app. Options that cover fewer apps (Firefox, FoxyProxy, the Mac's proxy setting) also exist. <a href=\"/blog/socks5-proxy-setup-windows-macos-ios.html#windows\">Written steps</a>. <a class=\"video-hint\" href=\"/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Watch the Windows video (1:21)</a> <a class=\"video-hint\" href=\"/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Watch the Mac video (1:19)</a>"
       },
       {
         "q": "Does a SOCKS5 proxy setting protect all my traffic?",
