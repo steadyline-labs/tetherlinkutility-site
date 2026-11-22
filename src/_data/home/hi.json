@@ -102,8 +102,8 @@
           "title": "आपके बाकी डिवाइस",
           "lines": [
             "<b>Android फ़ोन:</b> उसमें अभी ऐप नहीं है? शेयर करने वाला फ़ोन इंस्टॉल करने का तरीका दिखाता है, इंटरनेट न हो तब भी। फिर <span class=\"app-ui\">Use another phone's internet</span> और <span class=\"app-ui\">Scan QR code</span> पर टैप करें।",
-            "<b>Windows PC, Mac या Linux:</b> जब तक उस पर इंटरनेट है, <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows सेटअप फ़ाइल</a>, <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac स्क्रिप्ट</a> या <a href=\"/downloads/tlu-linux-tunnel.sh\">Linux स्क्रिप्ट</a> डाउनलोड कर लें, फिर शेयर करने वाले फ़ोन पर दिखे Wi-Fi से जुड़ें और दो वैल्यू टाइप करें।",
-            "<b>iPhone:</b> पहले Potatso इंस्टॉल करें, फिर दिखे Wi-Fi से जुड़ें और दो वैल्यू डालें।"
+            "<b>Windows PC या Mac:</b> जब तक उस पर इंटरनेट है, <a href=\"/downloads/TLU-Windows-Setup.cmd\">Windows सेटअप फ़ाइल</a> या <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac स्क्रिप्ट</a> डाउनलोड कर लें, फिर शेयर करने वाले फ़ोन पर दिखे Wi-Fi से जुड़ें और दो वैल्यू टाइप करें।",
+            "<b>iPhone या Linux:</b> पहले Potatso (iPhone) या Firefox (Linux) इंस्टॉल करें, फिर दिखे Wi-Fi से जुड़ें और दो वैल्यू डालें।"
           ]
         }
       ],
@@ -164,7 +164,7 @@
   "platforms": {
     "label": "प्लेटफ़ॉर्म",
     "title": "आपके मौजूदा डिवाइस के साथ काम करता है",
-    "text": "Windows PC, Mac और Linux: एक ही फ़ाइल आपके लिए <strong>sing-box</strong> इंस्टॉल करके चलाती है, ताकि कंप्यूटर के सभी ऐप्स DNS सहित फ़ोन का इंटरनेट इस्तेमाल करें। iPhone मुफ़्त Potatso ऐप से कनेक्ट होते हैं।",
+    "text": "Windows PC और Mac: एक ही फ़ाइल आपके लिए <strong>sing-box</strong> इंस्टॉल करके चलाती है, ताकि कंप्यूटर के सभी ऐप्स DNS सहित फ़ोन का इंटरनेट इस्तेमाल करें। iPhone मुफ़्त Potatso ऐप से कनेक्ट होते हैं।",
     "guideLink": "पूरी सेटअप गाइड &rarr;",
     "items": [
       {
@@ -177,12 +177,6 @@
         "mono": "MAC",
         "name": "macOS",
         "text": "सुझाया गया: <a href=\"/downloads/tlu-mac-tunnel.zip\">Mac स्क्रिप्ट</a>। Terminal में चलाएं, दो वैल्यू टाइप करें, सभी ऐप्स काम करते हैं। <a class=\"video-hint\" href=\"/hi/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Mac वाला वीडियो देखें (1:19, अंग्रेज़ी में)</a>",
-        "chip": "सभी ऐप्स"
-      },
-      {
-        "mono": "LNX",
-        "name": "Linux",
-        "text": "सुझाया गया: <a href=\"/downloads/tlu-linux-tunnel.sh\">Linux स्क्रिप्ट</a>। टर्मिनल में चलाएं, दो वैल्यू टाइप करें, सभी ऐप्स काम करते हैं।",
         "chip": "सभी ऐप्स"
       },
       {
@@ -244,7 +238,7 @@
       },
       {
         "q": "क्या मैं Windows या Mac लैपटॉप कनेक्ट कर सकता हूं?",
-        "a": "हां। Windows पर <a href=\"/downloads/TLU-Windows-Setup.cmd\">सेटअप फ़ाइल</a> , Mac पर <a href=\"/downloads/tlu-mac-tunnel.zip\">स्क्रिप्ट</a> और Linux पर <a href=\"/downloads/tlu-linux-tunnel.sh\">Linux स्क्रिप्ट</a> डाउनलोड करें। ये सभी आपके लिए sing-box इंस्टॉल करके चलाते हैं, ताकि कंप्यूटर के सभी ऐप्स DNS सहित फ़ोन का इंटरनेट इस्तेमाल करें। फिर ऐप में दिखाए गए IP और पोर्ट टाइप करें। कम ऐप्स कवर करने वाले तरीके भी हैं (Firefox, FoxyProxy, Mac की प्रॉक्सी सेटिंग)। <a href=\"/hi/blog/socks5-proxy-setup-windows-macos-ios.html#windows\">लिखित स्टेप्स</a>। <a class=\"video-hint\" href=\"/hi/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Windows वाला वीडियो देखें (1:21, अंग्रेज़ी में)</a> <a class=\"video-hint\" href=\"/hi/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Mac वाला वीडियो देखें (1:19, अंग्रेज़ी में)</a>"
+        "a": "हां। Windows पर <a href=\"/downloads/TLU-Windows-Setup.cmd\">सेटअप फ़ाइल</a> और Mac पर <a href=\"/downloads/tlu-mac-tunnel.zip\">स्क्रिप्ट</a> डाउनलोड करें। दोनों आपके लिए sing-box इंस्टॉल करके चलाते हैं, ताकि कंप्यूटर के सभी ऐप्स DNS सहित फ़ोन का इंटरनेट इस्तेमाल करें। फिर ऐप में दिखाए गए IP और पोर्ट टाइप करें। कम ऐप्स कवर करने वाले तरीके भी हैं (Firefox, FoxyProxy, Mac की प्रॉक्सी सेटिंग)। <a href=\"/hi/blog/socks5-proxy-setup-windows-macos-ios.html#windows\">लिखित स्टेप्स</a>। <a class=\"video-hint\" href=\"/hi/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Windows वाला वीडियो देखें (1:21, अंग्रेज़ी में)</a> <a class=\"video-hint\" href=\"/hi/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Mac वाला वीडियो देखें (1:19, अंग्रेज़ी में)</a>"
       },
       {
         "q": "क्या SOCKS5 प्रॉक्सी सेटिंग मेरा पूरा ट्रैफ़िक सुरक्षित करती है?",

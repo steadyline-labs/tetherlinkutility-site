@@ -77,7 +77,7 @@ extraJsonLd: |2
           <li>Celular o tablet Android: Tether Link Utility desde Google Play. Es todo lo que necesita.</li>
           <li>iPhone o iPad: Potatso (gratis) o Shadowrocket (de pago) desde la App Store.</li>
           <li>Computadora con Windows: el archivo de instalación (ver <a href="#windows">Windows</a>). Instala y ejecuta sing-box por ti, así funcionan todas las apps.</li>
-          <li>Computadora con Linux: nuestro script (ver <a href="#linux">Linux</a>). Instala y ejecuta sing-box por ti, así funcionan todas las apps. Firefox solo también sirve, únicamente para ese navegador.</li>
+          <li>Computadora con Linux: sing-box para todas las apps (ver <a href="#linux">Linux</a>), o Firefox desde firefox.com solo para ese navegador.</li>
           <li>Mac: nuestro script (ver <a href="#macos">macOS</a>). Instala y ejecuta sing-box por ti, también a través del celular si hace falta.</li>
         </ul>
         <p>¿Ese dispositivo no tiene internet? Conéctalo unos minutos a cualquier otro Wi-Fi (casa, trabajo, café) y descarga desde ahí. Una PC con Windows también puede recibir el archivo de instalación desde el celular: descárgalo en el celular y envíalo a la PC por Bluetooth o con un cable USB.</p>
@@ -228,26 +228,6 @@ extraJsonLd: |2
     </div>
 
     <h2 id="linux">Linux</h2>
-
-    <h3>Recomendado: todas las apps con nuestro script (sing-box)</h3>
-    <p>Nuestro script instala y ejecuta <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> por ti en modo TUN, así todas las apps, DNS incluido, usan el internet del teléfono. Funciona en Ubuntu, Debian, Fedora, Mint y la mayoría de las otras distribuciones.</p>
-
-    <div class="callout" id="linux-script">
-      <p><strong>La forma más fácil: descarga nuestro script</strong></p>
-      <p>La primera vez, el script descarga sing-box desde su página oficial de GitHub (verificado con un hash SHA256), a través del teléfono si la computadora no tiene internet propio. Te pide la IP y el puerto que muestra la app.</p>
-      <p style="margin-top: 16px;"><a href="/downloads/tlu-linux-tunnel.sh" class="cta-button" style="display:inline-block;" download>Descargar tlu-linux-tunnel.sh</a></p>
-      <ol style="margin-top: 12px;">
-        <li>Descarga el script mientras la computadora todavía tenga su propio internet. Queda en tu carpeta Descargas.<!--help:linux:install--></li>
-        <li>Únete al Wi-Fi del teléfono y activa el uso compartido en la app.<!--help:linux:join-wifi--></li>
-        <li>Abre una terminal, escribe <code>cd ~/Descargas</code> (o <code>cd ~/Downloads</code>) y presiona Enter.<!--help:linux:set-proxy--></li>
-        <li>Escribe <code>bash tlu-linux-tunnel.sh</code> y presiona Enter.<!--help:linux:set-proxy--></li>
-        <li>Escribe la IP y el puerto que muestra la app, presionando Enter después de cada uno. La próxima vez pregunta <strong>Connect to IP:port? (y/n)</strong>: escribe <code>y</code> y presiona Enter para usar los mismos, o <code>n</code> para escribir otros.<!--help:linux:set-proxy--></li>
-        <li>Escribe tu contraseña y presiona Enter. No aparece nada mientras la escribes; es normal.<!--help:linux:set-proxy--></li>
-        <li>Cuando veas <strong>Connected.</strong>, listo. Deja la terminal abierta.<!--help:linux:no-internet--></li>
-      </ol>
-      <p style="margin-top: 12px;"><strong>Para detenerlo:</strong> presiona <strong>Control + C</strong> en la terminal. Detenlo aquí primero, antes de desactivar el uso compartido en la app. El DNS y el IPv6 vuelven solos a la normalidad.</p>
-      <p style="margin-top: 8px; font-size: 14px;">El script es texto plano: puedes abrirlo en cualquier editor de texto y leer cada paso. No envía nada a ningún lado; solo lee nuestro archivo de versión para ver si hay una más nueva.</p>
-    </div>
     <h3>Opción A: Firefox</h3>
     <ol>
       <li>En Firefox, abre <strong>Ajustes</strong>, escribe <strong>proxy</strong> en el cuadro de búsqueda, haz clic en <strong>Configurar proxy</strong> (o <strong>Configuración de proxy</strong>) y elige <strong>Configuración manual de proxy</strong>.<!--help:linux:set-proxy--></li>

@@ -78,7 +78,7 @@ extraJsonLd: |2
           <li>Android telefon veya tablet: Google Play'den Tether Link Utility. Ona gereken bu kadar.</li>
           <li>iPhone veya iPad: App Store'dan Potatso (ücretsiz) veya Shadowrocket (ücretli).</li>
           <li>Windows bilgisayar: kurulum dosyası (bkz. <a href="#windows">Windows</a>). sing-box'ı senin için kurup çalıştırır, tüm uygulamalar çalışır.</li>
-          <li>Linux bilgisayar: betiğimiz (bkz. <a href="#linux">Linux</a>). sing-box'ı senin için kurup çalıştırır, böylece tüm uygulamalar çalışır. Sadece o tarayıcı için Firefox da olur.</li>
+          <li>Linux bilgisayar: tüm uygulamalar için sing-box (bkz. <a href="#linux">Linux</a>) ya da sadece o tarayıcı için firefox.com'dan Firefox.</li>
           <li>Mac: betiğimiz (bkz. <a href="#macos">macOS</a>). sing-box'ı senin için kurup çalıştırır, gerekirse telefon üzerinden de indirir.</li>
         </ul>
         <p>Cihazın interneti yok mu? Birkaç dakikalığına başka bir Wi-Fi'ye bağla (ev, iş, kafe) ve oradan indir. Windows bilgisayar kurulum dosyasını telefondan da alabilir: dosyayı telefona indir ve Bluetooth ya da USB kabloyla bilgisayara gönder.</p>
@@ -229,26 +229,6 @@ extraJsonLd: |2
     </div>
 
     <h2 id="linux">Linux</h2>
-
-    <h3>Önerilen: betiğimizle tüm uygulamalar (sing-box)</h3>
-    <p>Betiğimiz <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a>'ı senin için TUN modunda kurup çalıştırır; tüm uygulamalar, DNS dahil, telefonun internetini kullanır. Ubuntu, Debian, Fedora, Mint ve diğer dağıtımların çoğunda çalışır.</p>
-
-    <div class="callout" id="linux-script">
-      <p><strong>En kolay yol: betiğimizi indir</strong></p>
-      <p>İlk seferde betik sing-box'ı resmi GitHub sayfasından indirir (SHA256 özetiyle doğrulanır); bilgisayarın kendi interneti yoksa telefon üzerinden indirir. Uygulamada gösterilen IP'yi ve portu sorar.</p>
-      <p style="margin-top: 16px;"><a href="/downloads/tlu-linux-tunnel.sh" class="cta-button" style="display:inline-block;" download>tlu-linux-tunnel.sh indir</a></p>
-      <ol style="margin-top: 12px;">
-        <li>Bilgisayarın kendi interneti hâlâ varken betiği indir. İndirilenler klasörüne gider.<!--help:linux:install--></li>
-        <li>Telefonun Wi-Fi'ına bağlan ve uygulamada paylaşımı aç.<!--help:linux:join-wifi--></li>
-        <li>Bir terminal aç, <code>cd ~/İndirilenler</code> (ya da <code>cd ~/Downloads</code>) yaz ve Enter'a bas.<!--help:linux:set-proxy--></li>
-        <li><code>bash tlu-linux-tunnel.sh</code> yaz ve Enter'a bas.<!--help:linux:set-proxy--></li>
-        <li>Uygulamada gösterilen IP'yi ve portu yaz, her birinden sonra Enter'a bas. Sonraki seferde <strong>Connect to IP:port? (y/n)</strong> diye sorar: aynılarını kullanmak için <code>y</code> yazıp Enter'a bas, yenilerini yazmak için <code>n</code>.<!--help:linux:set-proxy--></li>
-        <li>Parolanı yaz ve Enter'a bas. Yazarken hiçbir şey görünmez; bu normal.<!--help:linux:set-proxy--></li>
-        <li><strong>Connected.</strong> yazısını görünce tamamdır. Terminali açık bırak.<!--help:linux:no-internet--></li>
-      </ol>
-      <p style="margin-top: 12px;"><strong>Durdurmak için:</strong> terminalde <strong>Control + C</strong>'ye bas. Uygulamada paylaşımı kapatmadan önce burada durdur. DNS ve IPv6 kendiliğinden eski haline döner.</p>
-      <p style="margin-top: 8px; font-size: 14px;">Betik düz metindir: herhangi bir metin düzenleyicide açıp her adımı okuyabilirsin. Hiçbir yere bir şey göndermez; tek ek işi, yeni sürüm var mı diye sürüm dosyamızı okumaktır.</p>
-    </div>
     <h3>Seçenek A: Firefox</h3>
     <ol>
       <li>Firefox'ta <strong>Ayarlar</strong>'ı aç, arama kutusuna <strong>vekil</strong> yaz, <strong>Vekil sunucuyu yapılandır</strong>'a tıkla ve <strong>Vekil sunucuyu elle ayarla</strong>'yı seç.<!--help:linux:set-proxy--></li>

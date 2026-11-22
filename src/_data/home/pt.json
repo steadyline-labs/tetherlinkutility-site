@@ -103,8 +103,8 @@
           "title": "Seus outros dispositivos",
           "lines": [
             "<b>Celular Android:</b> ainda sem o app? O celular que compartilha mostra como instalar, mesmo sem internet. Depois toque em <span class=\"app-ui\">Use another phone's internet</span> e em <span class=\"app-ui\">Scan QR code</span>.",
-            "<b>PC com Windows, Mac ou Linux:</b> enquanto ainda tiver internet, baixe o <a href=\"/downloads/TLU-Windows-Setup.cmd\">arquivo de instalação para Windows</a>, o <a href=\"/downloads/tlu-mac-tunnel.zip\">script para Mac</a> ou o <a href=\"/downloads/tlu-linux-tunnel.sh\">script para Linux</a>, depois entre no Wi-Fi mostrado no celular que compartilha e digite os dois valores.",
-            "<b>iPhone:</b> primeiro instale o Potatso, depois entre no Wi-Fi mostrado e digite os dois valores."
+            "<b>PC com Windows ou Mac:</b> enquanto ainda tiver internet, baixe o <a href=\"/downloads/TLU-Windows-Setup.cmd\">arquivo de instalação para Windows</a> ou o <a href=\"/downloads/tlu-mac-tunnel.zip\">script para Mac</a>, depois entre no Wi-Fi mostrado no celular que compartilha e digite os dois valores.",
+            "<b>iPhone ou Linux:</b> primeiro instale o Potatso (iPhone) ou o Firefox (Linux), depois entre no Wi-Fi mostrado e digite os dois valores."
           ]
         }
       ],
@@ -165,7 +165,7 @@
   "platforms": {
     "label": "Plataformas",
     "title": "Funciona com o que você já tem",
-    "text": "PCs com Windows, Macs e Linux: um único arquivo instala e roda o <strong>sing-box</strong> para você, então todos os apps do computador usam a internet do celular, DNS incluído. iPhones se conectam pelo app gratuito Potatso.",
+    "text": "PCs com Windows e Macs: um único arquivo instala e roda o <strong>sing-box</strong> para você, então todos os apps do computador usam a internet do celular, DNS incluído. iPhones se conectam pelo app gratuito Potatso.",
     "guideLink": "Guia completo de configuração &rarr;",
     "items": [
       {
@@ -178,12 +178,6 @@
         "mono": "MAC",
         "name": "macOS",
         "text": "Recomendado: o <a href=\"/downloads/tlu-mac-tunnel.zip\">script para Mac</a>. Rode no Terminal, digite os dois valores e todos os apps funcionam. <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Assista ao vídeo para Mac (1:19, em inglês)</a>",
-        "chip": "todos os apps"
-      },
-      {
-        "mono": "LNX",
-        "name": "Linux",
-        "text": "Recomendado: o <a href=\"/downloads/tlu-linux-tunnel.sh\">script para Linux</a>. Rode num terminal, digite os dois valores e todos os apps funcionam.",
         "chip": "todos os apps"
       },
       {
@@ -246,7 +240,7 @@
       },
       {
         "q": "Posso conectar um computador Windows ou Mac?",
-        "a": "Sim. No Windows, baixe o <a href=\"/downloads/TLU-Windows-Setup.cmd\">arquivo de instalação</a>; no Mac, o <a href=\"/downloads/tlu-mac-tunnel.zip\">script</a>; no Linux, o <a href=\"/downloads/tlu-linux-tunnel.sh\">script para Linux</a>. Todos instalam e rodam o sing-box para você, então todos os apps do computador, DNS incluído, usam a internet do celular. Depois digite o IP e a porta mostrados no app. Também existem opções que cobrem menos apps (Firefox, FoxyProxy, o ajuste de proxy do Mac). <a href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#windows\">Passos por escrito</a>. <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Assista ao vídeo para Windows (1:21, em inglês)</a> <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Assista ao vídeo para Mac (1:19, em inglês)</a>"
+        "a": "Sim. No Windows, baixe o <a href=\"/downloads/TLU-Windows-Setup.cmd\">arquivo de instalação</a>; no Mac, o <a href=\"/downloads/tlu-mac-tunnel.zip\">script</a>. Os dois instalam e rodam o sing-box para você, então todos os apps do computador, DNS incluído, usam a internet do celular. Depois digite o IP e a porta mostrados no app. Também existem opções que cobrem menos apps (Firefox, FoxyProxy, o ajuste de proxy do Mac). <a href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#windows\">Passos por escrito</a>. <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#windows-video\">▶︎ Assista ao vídeo para Windows (1:21, em inglês)</a> <a class=\"video-hint\" href=\"/pt/blog/socks5-proxy-setup-windows-macos-ios.html#mac-video\">▶︎ Assista ao vídeo para Mac (1:19, em inglês)</a>"
       },
       {
         "q": "Uma configuração de proxy SOCKS5 protege todo o meu tráfego?",
