@@ -15,6 +15,9 @@ rem   3. Checks that the phone answers on that port.
 rem   4. Downloads sing-box 1.14.3 from its official GitHub releases page
 rem      (only the first time) and checks its SHA256 hash.
 rem   5. Saves everything in %LOCALAPPDATA%\TLU and starts sing-box.
+rem      While connected, this PC's Wi-Fi uses the tunnel for DNS and has
+rem      IPv6 off, so nothing skips the phone app. Both are put back when
+rem      you close the window (or on the next run, if that was missed).
 rem   6. Adds a "TLU connect" shortcut on your desktop for next time.
 rem
 rem  The only other network call: it reads our small version file
@@ -33,7 +36,7 @@ $ErrorActionPreference = 'Stop'
 $Host.UI.RawUI.WindowTitle = 'TLU connect'
 
 # --- This file's version (desktop-versions.txt "windows=" on the site) ---
-$ScriptVersion = 20261120
+$ScriptVersion = 20261123
 $ScriptUrl   = 'https://tetherlinkutility.com/downloads/TLU-Windows-Setup.cmd'
 $VersionsUrl = 'https://tetherlinkutility.com/downloads/desktop-versions.txt'
 
@@ -84,6 +87,78 @@ $saved = Join-Path $AppDir 'phone.txt'   # last IP and port you entered
 Get-Process sing-box -ErrorAction SilentlyContinue |
   Where-Object { $_.Path -like "$AppDir\*" } | Stop-Process -Force -ErrorAction SilentlyContinue
 Start-Sleep -Milliseconds 500
+
+# --- Network settings while connected --------------------------------------------
+# The phone is this PC's DNS server and sits on the same Wi-Fi, so DNS (and IPv6)
+# would skip the tunnel and count as hotspot data. While connected, DNS points
+# inside the tunnel and IPv6 is off on that adapter; tlu-restore.ps1 puts the
+# saved settings back. It runs on stop, when the window is closed, and here at
+# the start in case a previous run was cut off.
+$TunDns  = '172.19.0.2'
+$state   = Join-Path $AppDir 'network-restore.txt'
+$restore = Join-Path $AppDir 'tlu-restore.ps1'
+$restoreScript = @'
+$state = Join-Path $PSScriptRoot 'network-restore.txt'
+if (-not (Test-Path $state)) { return }
+$guid, $dns, $v6 = Get-Content $state -TotalCount 3
+$a = Get-NetAdapter -IncludeHidden -ErrorAction SilentlyContinue | Where-Object { "$($_.InterfaceGuid)" -eq $guid }
+if ($a) {
+  if ($dns -eq 'dhcp') {
+    Set-DnsClientServerAddress -InterfaceIndex $a.ifIndex -ResetServerAddresses -ErrorAction SilentlyContinue
+  } else {
+    Set-DnsClientServerAddress -InterfaceIndex $a.ifIndex -ServerAddresses ($dns -split ',') -ErrorAction SilentlyContinue
+  }
+  if ($v6 -eq 'True') { Enable-NetAdapterBinding -Name $a.Name -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue }
+}
+Clear-DnsClientCache -ErrorAction SilentlyContinue
+Remove-Item $state -Force -ErrorAction SilentlyContinue
+'@
+[IO.File]::WriteAllText($restore, $restoreScript, (New-Object Text.UTF8Encoding($false)))
+function Restore-Network { & $restore }
+Restore-Network   # left over from a run that was cut off
+
+# $ip = the phone. Saves the adapter's DNS and IPv6 settings, then points DNS into the tunnel.
+function Set-TunnelNetwork($ip) {
+  $ifx = (Find-NetRoute -RemoteIPAddress $ip -ErrorAction SilentlyContinue | Select-Object -First 1).InterfaceIndex
+  if (-not $ifx) { return }
+  $a = Get-NetAdapter -InterfaceIndex $ifx -ErrorAction SilentlyContinue
+  if (-not $a) { return }
+  $key = "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\$($a.InterfaceGuid)"
+  $static = (Get-ItemProperty $key -Name NameServer -ErrorAction SilentlyContinue).NameServer
+  $dns = if ($static) { (($static -split '[ ,]+') | Where-Object { $_ }) -join ',' } else { 'dhcp' }
+  $v6 = (Get-NetAdapterBinding -Name $a.Name -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue).Enabled
+  Set-Content -Path $state -Value @("$($a.InterfaceGuid)", $dns, "$v6")
+  Set-DnsClientServerAddress -InterfaceIndex $ifx -ServerAddresses $TunDns
+  Disable-NetAdapterBinding -Name $a.Name -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue
+  Clear-DnsClientCache
+}
+
+# Closing the window with X: Windows gives a few seconds, enough to run tlu-restore.ps1.
+if (-not ('TluWindowClose' -as [type])) {
+  Add-Type -TypeDefinition @'
+using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+public static class TluWindowClose {
+  delegate bool Handler(int ctrlType);
+  [DllImport("kernel32.dll")] static extern bool SetConsoleCtrlHandler(Handler h, bool add);
+  static Handler keep;
+  static string script;
+  public static void Watch(string path) { script = path; if (keep == null) { keep = OnEvent; SetConsoleCtrlHandler(keep, true); } }
+  static bool OnEvent(int ctrlType) {
+    if (ctrlType == 2 || ctrlType == 5 || ctrlType == 6) {  // close, logoff, shutdown
+      try {
+        var psi = new ProcessStartInfo("powershell.exe", "-NoProfile -ExecutionPolicy Bypass -File \"" + script + "\"");
+        psi.UseShellExecute = false; psi.CreateNoWindow = true;
+        Process.Start(psi).WaitForExit(4500);
+      } catch { }
+    }
+    return false;
+  }
+}
+'@
+}
+[TluWindowClose]::Watch($restore)
 
 # --- 2. Phone IP and port ------------------------------------------------------
 # True if a SOCKS5 server answers there (a short local greeting, no internet).
@@ -212,7 +287,7 @@ $config = @'
     "strategy": "ipv4_only"
   },
   "inbounds": [
-    { "type": "tun", "tag": "tun-in", "address": ["172.19.0.1/30"], "mtu": 1500,
+    { "type": "tun", "tag": "tun-in", "address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"], "mtu": 1500,
       "auto_route": true, "strict_route": true, "stack": "gvisor" }
   ],
   "outbounds": [
@@ -253,19 +328,51 @@ $log = Join-Path $AppDir 'sing-box.log'
 $err = Join-Path $AppDir 'sing-box-errors.log'
 Remove-Item $log -Force -ErrorAction SilentlyContinue
 Say 'Starting ...'
+Set-TunnelNetwork $ip
 $p = Start-Process -FilePath $exe -ArgumentList @('run', '-c', "`"$cfgPath`"") -WorkingDirectory $AppDir `
      -NoNewWindow -PassThru -RedirectStandardError $err
 Start-Sleep -Seconds 4
 if ($p.HasExited) {
   $tail = @(Get-Content $err -Tail 5 -ErrorAction SilentlyContinue) + @(Get-Content $log -Tail 5 -ErrorAction SilentlyContinue)
   Say ($tail -join "`n") 'DarkGray'
+  Restore-Network
   Fail "sing-box stopped right away. Details are in $log and $err"
+}
+
+# --- 7. Check that traffic really goes through the phone ---------------------------
+# A running sing-box is not proof: the tunnel must hold the default route and a test
+# page must load through the phone's port (sing-box logs that connection).
+# Returns $null when it works, otherwise what is wrong in plain words.
+function Test-Tunnel {
+  $tun = (Get-NetIPAddress -IPAddress '172.19.0.1' -ErrorAction SilentlyContinue | Select-Object -First 1).InterfaceIndex
+  if (-not $tun) { return 'the network tunnel was not created' }
+  $via = (Find-NetRoute -RemoteIPAddress '1.1.1.1' -ErrorAction SilentlyContinue | Select-Object -First 1).InterfaceIndex
+  if ($via -ne $tun) { return 'Windows is not sending traffic into the tunnel' }
+  $code = & curl.exe -4 -s -o NUL -w '%{http_code}' --max-time 10 'http://www.gstatic.com/generate_204' 2>$null
+  if ($code -ne '204') { return 'a test page did not load through the phone' }
+  $seen = Select-String -Path $log -SimpleMatch 'outbound/socks[phone-socks5]: outbound connection to' -Quiet -ErrorAction SilentlyContinue
+  if (-not $seen) { return 'the test page did not go through the phone' }
+  return $null
+}
+Say 'Checking the connection through the phone ...'
+$problem = 'not checked'
+for ($try = 0; $try -lt 4 -and $problem -and -not $p.HasExited; $try++) {
+  if ($try) { Start-Sleep -Seconds 3 }
+  $problem = Test-Tunnel
+}
+if ($p.HasExited) { $problem = 'sing-box stopped' }
+if ($problem) {
+  if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue }
+  Restore-Network
+  $tail = @(Get-Content $err -Tail 5 -ErrorAction SilentlyContinue) + @(Get-Content $log -Tail 5 -ErrorAction SilentlyContinue)
+  Say ($tail -join "`n") 'DarkGray'
+  Fail "Not connected: $problem. Turn sharing off and on in the app, then run this file again. Details are in $log"
 }
 
 Say ''
 Say 'Connected. Keep this window open. Close it to stop.' 'Green'
 Say "(Next time: double-click 'TLU connect' on your desktop.)" 'DarkGray'
-$p.WaitForExit()
+try { $p.WaitForExit() } finally { Restore-Network }
 Say ''
 Say 'sing-box stopped.' 'Yellow'
 Read-Host 'Press Enter to close'
