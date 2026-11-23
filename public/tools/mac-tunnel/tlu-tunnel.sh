@@ -50,31 +50,41 @@ flush_dns() {
 
 # $1 = service name. Saves its DNS and IPv6 settings, then points DNS into the tunnel.
 set_tunnel_dns() {
-  local svc="$1" dns v6
-  dns="$(networksetup -getdnsservers "$svc" 2>/dev/null | grep -E '^[0-9a-fA-F:.]+$' | tr '\n' ' ')"
-  v6="$(networksetup -getinfo "$svc" 2>/dev/null | sed -n 's/^IPv6: //p' | head -1)"
-  printf '%s\n%s\n%s\n' "$svc" "${dns:-Empty}" "${v6:-Automatic}" > "$NET_STATE_FILE"
+  local svc="$1" dns v6 saved=""
+  if [ -f "$NET_STATE_FILE" ]; then
+    # An earlier restore did not finish: the file still holds the original
+    # settings and the service still has the tunnel ones. Never save over it.
+    read -r saved < "$NET_STATE_FILE" || true
+    [ "$saved" = "$svc" ] || return 0
+  else
+    dns="$(networksetup -getdnsservers "$svc" 2>/dev/null | grep -E '^[0-9a-fA-F:.]+$' | tr '\n' ' ')"
+    v6="$(networksetup -getinfo "$svc" 2>/dev/null | sed -n 's/^IPv6: //p' | head -1)"
+    printf '%s\n%s\n%s\n' "$svc" "${dns:-Empty}" "${v6:-Automatic}" > "$NET_STATE_FILE"
+  fi
   sudo networksetup -setdnsservers "$svc" "$TUN_DNS"
   sudo networksetup -setv6off "$svc"
   flush_dns
 }
 
 # Puts the saved DNS and IPv6 settings back. Safe to call more than once.
+# The file is kept (and 1 returned) unless every setting went back, so the
+# next stop or the next run tries again with the original settings.
 restore_dns() {
   [ -f "$NET_STATE_FILE" ] || return 0
-  local svc="" dns="" v6=""
-  { read -r svc; read -r dns; read -r v6; } < "$NET_STATE_FILE"
+  local svc="" dns="" v6="" ok=1
+  { read -r svc; read -r dns; read -r v6; } < "$NET_STATE_FILE" || true
   if [ -n "$svc" ]; then
     # shellcheck disable=SC2086  # several DNS servers, one per word
-    sudo networksetup -setdnsservers "$svc" ${dns:-Empty}
+    sudo networksetup -setdnsservers "$svc" ${dns:-Empty} || ok=0
     case "$v6" in
       Off) ;;
-      Link*) sudo networksetup -setv6LinkLocal "$svc" ;;
-      *) sudo networksetup -setv6automatic "$svc" ;;
+      Link*) sudo networksetup -setv6LinkLocal "$svc" || ok=0 ;;
+      *) sudo networksetup -setv6automatic "$svc" || ok=0 ;;
     esac
   fi
-  rm -f "$NET_STATE_FILE"
   flush_dns
+  [ "$ok" = 1 ] || return 1
+  rm -f "$NET_STATE_FILE"
 }
 
 usage() {
@@ -159,7 +169,7 @@ case "$1" in
     write_config "$2" "$3"
     write_plist
     sudo launchctl bootout system "$PLIST_PATH" 2>/dev/null || true
-    restore_dns   # left over from an earlier start
+    restore_dns || true   # left over from an earlier start; if it fails, the file is kept for stop
     SERVICE="$(active_service)"
     trap 'restore_dns' ERR
     sudo launchctl bootstrap system "$PLIST_PATH"
@@ -175,7 +185,7 @@ case "$1" in
   stop)
     sudo launchctl bootout system "$PLIST_PATH" 2>/dev/null || true
     sudo rm -f "$PLIST_PATH"
-    restore_dns
+    restore_dns || echo "Could not put the DNS and IPv6 settings back yet. Run stop again."
     echo "Tunnel stopped."
     ;;
   status)
