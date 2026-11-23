@@ -18,6 +18,8 @@ rem   5. Saves everything in %LOCALAPPDATA%\TLU and starts sing-box.
 rem      While connected, this PC's Wi-Fi uses the tunnel for DNS and has
 rem      IPv6 off, so nothing skips the phone app. Both are put back when
 rem      you close the window (or on the next run, if that was missed).
+rem      If Windows restarts while connected, a small startup task
+rem      ("TLU network restore") puts them back and then removes itself.
 rem   6. Adds a "TLU connect" shortcut on your desktop for next time.
 rem
 rem  The only other network call: it reads our small version file
@@ -114,10 +116,16 @@ if ($a) {
   if ($v6 -eq 'True') {
     try { Enable-NetAdapterBinding -Name $a.Name -ComponentID ms_tcpip6 -ErrorAction Stop } catch { $ok = $false }
   }
+  # The DNS command can finish without an error and still change nothing, so check.
+  $now = (Get-DnsClientServerAddress -InterfaceIndex $a.ifIndex -AddressFamily IPv4 -ErrorAction SilentlyContinue).ServerAddresses
+  if ($now -contains '172.19.0.2') { $ok = $false }
 }
 Clear-DnsClientCache -ErrorAction SilentlyContinue
 # Keep the file unless every setting went back, so the next run tries again.
-if ($ok) { Remove-Item $state -Force -ErrorAction SilentlyContinue }
+if ($ok) {
+  Remove-Item $state -Force -ErrorAction SilentlyContinue
+  Unregister-ScheduledTask -TaskName 'TLU network restore' -Confirm:$false -ErrorAction SilentlyContinue
+}
 '@
 [IO.File]::WriteAllText($restore, $restoreScript, (New-Object Text.UTF8Encoding($false)))
 function Restore-Network { & $restore }
@@ -140,6 +148,16 @@ function Set-TunnelNetwork($ip) {
     $v6 = (Get-NetAdapterBinding -Name $a.Name -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue).Enabled
     Set-Content -Path $state -Value @("$($a.InterfaceGuid)", $dns, "$v6")
   }
+  # A restart while connected never reaches the code that puts the settings back,
+  # so a task does it at the next start or sign-in (tlu-restore.ps1 removes it).
+  try {
+    $act = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$restore`""
+    $trg = @((New-ScheduledTaskTrigger -AtStartup), (New-ScheduledTaskTrigger -AtLogOn))
+    $trg[0].Delay = 'PT20S'
+    $who = New-ScheduledTaskPrincipal -UserId 'SYSTEM' -LogonType ServiceAccount -RunLevel Highest
+    $set = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Minutes 5)
+    Register-ScheduledTask -TaskName 'TLU network restore' -Action $act -Trigger $trg -Principal $who -Settings $set -Force | Out-Null
+  } catch { }
   Set-DnsClientServerAddress -InterfaceIndex $ifx -ServerAddresses $TunDns
   Disable-NetAdapterBinding -Name $a.Name -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue
   Clear-DnsClientCache
@@ -286,6 +304,10 @@ if (-not (Test-Path $exe)) {
 # --- 5. config.json and start --------------------------------------------------
 # Same config as the guide on tetherlinkutility.com: all traffic and DNS go to
 # the phone's SOCKS5 port; the connection to the phone itself goes direct.
+# The tunnel takes two half routes (0.0.0.0/1 and 128.0.0.0/1) instead of one
+# default route: when the phone stops answering for a few seconds, Windows can
+# switch its default route back to the Wi-Fi and keep it there, which would send
+# everything past the phone app. Half routes always win over a default route.
 $config = @'
 {
   "log": { "level": "info", "timestamp": true, "output": "sing-box.log" },
@@ -300,6 +322,7 @@ $config = @'
   },
   "inbounds": [
     { "type": "tun", "tag": "tun-in", "address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"], "mtu": 1500,
+      "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
       "auto_route": true, "strict_route": true, "stack": "gvisor" }
   ],
   "outbounds": [
