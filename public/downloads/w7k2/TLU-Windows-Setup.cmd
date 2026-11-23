@@ -102,16 +102,22 @@ $state = Join-Path $PSScriptRoot 'network-restore.txt'
 if (-not (Test-Path $state)) { return }
 $guid, $dns, $v6 = Get-Content $state -TotalCount 3
 $a = Get-NetAdapter -IncludeHidden -ErrorAction SilentlyContinue | Where-Object { "$($_.InterfaceGuid)" -eq $guid }
+$ok = $true
 if ($a) {
-  if ($dns -eq 'dhcp') {
-    Set-DnsClientServerAddress -InterfaceIndex $a.ifIndex -ResetServerAddresses -ErrorAction SilentlyContinue
-  } else {
-    Set-DnsClientServerAddress -InterfaceIndex $a.ifIndex -ServerAddresses ($dns -split ',') -ErrorAction SilentlyContinue
+  try {
+    if ($dns -eq 'dhcp') {
+      Set-DnsClientServerAddress -InterfaceIndex $a.ifIndex -ResetServerAddresses -ErrorAction Stop
+    } else {
+      Set-DnsClientServerAddress -InterfaceIndex $a.ifIndex -ServerAddresses ($dns -split ',') -ErrorAction Stop
+    }
+  } catch { $ok = $false }
+  if ($v6 -eq 'True') {
+    try { Enable-NetAdapterBinding -Name $a.Name -ComponentID ms_tcpip6 -ErrorAction Stop } catch { $ok = $false }
   }
-  if ($v6 -eq 'True') { Enable-NetAdapterBinding -Name $a.Name -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue }
 }
 Clear-DnsClientCache -ErrorAction SilentlyContinue
-Remove-Item $state -Force -ErrorAction SilentlyContinue
+# Keep the file unless every setting went back, so the next run tries again.
+if ($ok) { Remove-Item $state -Force -ErrorAction SilentlyContinue }
 '@
 [IO.File]::WriteAllText($restore, $restoreScript, (New-Object Text.UTF8Encoding($false)))
 function Restore-Network { & $restore }
@@ -123,11 +129,17 @@ function Set-TunnelNetwork($ip) {
   if (-not $ifx) { return }
   $a = Get-NetAdapter -InterfaceIndex $ifx -ErrorAction SilentlyContinue
   if (-not $a) { return }
-  $key = "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\$($a.InterfaceGuid)"
-  $static = (Get-ItemProperty $key -Name NameServer -ErrorAction SilentlyContinue).NameServer
-  $dns = if ($static) { (($static -split '[ ,]+') | Where-Object { $_ }) -join ',' } else { 'dhcp' }
-  $v6 = (Get-NetAdapterBinding -Name $a.Name -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue).Enabled
-  Set-Content -Path $state -Value @("$($a.InterfaceGuid)", $dns, "$v6")
+  if (Test-Path $state) {
+    # An earlier restore did not finish: the file still holds the original settings
+    # and the adapter still has the tunnel ones. Never save over it.
+    if ("$(Get-Content $state -TotalCount 1)" -ne "$($a.InterfaceGuid)") { return }
+  } else {
+    $key = "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\$($a.InterfaceGuid)"
+    $static = (Get-ItemProperty $key -Name NameServer -ErrorAction SilentlyContinue).NameServer
+    $dns = if ($static) { (($static -split '[ ,]+') | Where-Object { $_ }) -join ',' } else { 'dhcp' }
+    $v6 = (Get-NetAdapterBinding -Name $a.Name -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue).Enabled
+    Set-Content -Path $state -Value @("$($a.InterfaceGuid)", $dns, "$v6")
+  }
   Set-DnsClientServerAddress -InterfaceIndex $ifx -ServerAddresses $TunDns
   Disable-NetAdapterBinding -Name $a.Name -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue
   Clear-DnsClientCache
@@ -279,7 +291,7 @@ $config = @'
   "log": { "level": "info", "timestamp": true, "output": "sing-box.log" },
   "dns": {
     "servers": [
-      { "type": "udp", "tag": "remote", "server": "8.8.8.8", "detour": "phone-socks5" },
+      { "type": "tcp", "tag": "remote", "server": "8.8.8.8", "detour": "phone-socks5" },
       { "type": "local", "tag": "local", "detour": "direct" }
     ],
     "rules": [ { "query_type": ["AAAA", "HTTPS"], "action": "predefined" } ],
