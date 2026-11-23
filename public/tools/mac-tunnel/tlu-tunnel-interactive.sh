@@ -197,7 +197,7 @@ cat > "$CONFIG_FILE" <<EOF
   "log": { "level": "info" },
   "dns": {
     "servers": [
-      { "type": "udp", "tag": "remote", "server": "8.8.8.8", "detour": "phone-socks5" },
+      { "type": "tcp", "tag": "remote", "server": "8.8.8.8", "detour": "phone-socks5" },
       { "type": "local", "tag": "local", "detour": "direct" }
     ],
     "rules": [ { "query_type": ["AAAA", "HTTPS"], "action": "predefined" } ],

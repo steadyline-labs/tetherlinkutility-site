@@ -29,7 +29,7 @@
 set -u
 
 # --- This script's version (desktop-versions.txt "mac=" on the site) ---
-SCRIPT_VERSION=20261121
+SCRIPT_VERSION=20261123
 SCRIPT_URL="${TLU_SCRIPT_URL:-https://tetherlinkutility.com/downloads/tlu-mac-tunnel/tlu-mac-tunnel.sh}"
 VERSIONS_URL="${TLU_VERSIONS_URL:-https://tetherlinkutility.com/downloads/desktop-versions.txt}"
 UPDATE_CHECKED=0
@@ -255,7 +255,7 @@ write_config() {
   "log": { "level": "info" },
   "dns": {
     "servers": [
-      { "type": "udp", "tag": "remote", "server": "8.8.8.8", "detour": "phone-socks5" },
+      { "type": "tcp", "tag": "remote", "server": "8.8.8.8", "detour": "phone-socks5" },
       { "type": "local", "tag": "local", "detour": "direct" }
     ],
     "rules": [ { "query_type": ["AAAA", "HTTPS"], "action": "predefined" } ],
