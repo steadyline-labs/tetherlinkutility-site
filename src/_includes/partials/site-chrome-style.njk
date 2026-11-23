@@ -84,7 +84,7 @@
     }
     .nav-brand:hover { text-decoration: none; }
     .nav-links { display: flex; gap: 26px; align-items: center; }
-    .nav-links a { color: var(--muted); font-size: 14px; }
+    .nav-links a { color: var(--muted); font-size: 14px; white-space: nowrap; }
     .nav-links a:hover { color: var(--text); text-decoration: none; }
     .nav-links a.btn-nav {
       background: var(--accent-btn); color: #fff; font-size: 14px; font-weight: 700;
@@ -152,6 +152,8 @@
       .footer-contact, .footer-links { gap: 16px; }
       .footer-right { gap: 24px; }
       .footer-langs { gap: 12px; }
+      /* Tablet widths: links and languages wrap instead of running past the edge. */
+      .footer-bottom, .footer-right { flex-wrap: wrap; row-gap: 12px; }
     }
     /* Phone: one left-aligned stack in reading order; Blog, Privacy and X share a line. */
     @media (max-width: 767px) {
@@ -168,7 +170,8 @@
       .footer-brand { order: 7; flex: 0 0 100%; flex-wrap: wrap; column-gap: 6px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; line-height: 20px; }
     }
 
-    @media (max-width: 860px) {
+    /* The header links need about 1060px in the longest language (Spanish); below that they go into the drawer. */
+    @media (max-width: 1080px) {
       /* backdrop-filter on <nav> makes it a containing block for fixed-position
          descendants, which breaks the drawer's fixed positioning. Drop the blur on mobile. */
       nav { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(251,246,240,0.98); }

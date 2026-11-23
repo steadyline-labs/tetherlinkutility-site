@@ -122,3 +122,16 @@ test("the unlinked test copy in /downloads/w7k2/ is linked from no page", () => 
   assert.ok(!read("/llms.txt").includes("w7k2"));
   assert.ok(!read("/sitemap.xml").includes("w7k2"));
 });
+
+test("the header's first link is the Downloads page of the page's language, on every page", () => {
+  const bad = [];
+  for (const p of htmlPages()) {
+    const html = read(p);
+    const start = html.indexOf('id="navLinks"');
+    if (start < 0) continue;
+    const lang = LANGS.find((l) => l !== "en" && p.startsWith(prefix(l))) || "en";
+    const first = links(html.slice(start))[0];
+    if (!first || first.href !== `${prefix(lang)}downloads/` || first.text !== i18n[lang].downloads.link) bad.push(`${p}: ${first && first.href} "${first && first.text}"`);
+  }
+  assert.deepEqual(bad, []);
+});

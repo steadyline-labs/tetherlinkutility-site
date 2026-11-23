@@ -20,6 +20,7 @@
     </svg>
   </button>
   <div class="nav-links" id="navLinks">
+    <a href="{{ t.prefix }}downloads/"{% if navMode == "downloads" %} aria-current="page"{% endif %}>{{ t.downloads.link }}</a>
     <a href="{{ navBase }}#how">{{ t.homeNav.how }}</a>
     <a href="{{ navBase }}#platforms">{{ t.homeNav.platforms }}</a>
     <a href="{{ navBase }}#pricing">{{ t.homeNav.pricing }}</a>
