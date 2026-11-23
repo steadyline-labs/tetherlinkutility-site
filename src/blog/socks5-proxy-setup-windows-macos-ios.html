@@ -203,7 +203,7 @@ extraJsonLd: |2
       <pre style="background:var(--ground); border:1px solid var(--border); border-radius:10px; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; color:var(--muted);">{
   "dns": {
     "servers": [
-      { "type": "udp", "tag": "remote", "server": "8.8.8.8", "detour": "phone-socks5" },
+      { "type": "tcp", "tag": "remote", "server": "8.8.8.8", "detour": "phone-socks5" },
       { "type": "local", "tag": "local", "detour": "direct" }
     ],
     "rules": [ { "query_type": ["AAAA", "HTTPS"], "action": "predefined" } ],
