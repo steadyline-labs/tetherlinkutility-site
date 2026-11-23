@@ -286,6 +286,10 @@ if (-not (Test-Path $exe)) {
 # --- 5. config.json and start --------------------------------------------------
 # Same config as the guide on tetherlinkutility.com: all traffic and DNS go to
 # the phone's SOCKS5 port; the connection to the phone itself goes direct.
+# The tunnel takes two half routes (0.0.0.0/1 and 128.0.0.0/1) instead of one
+# default route: when the phone stops answering for a few seconds, Windows can
+# switch its default route back to the Wi-Fi and keep it there, which would send
+# everything past the phone app. Half routes always win over a default route.
 $config = @'
 {
   "log": { "level": "info", "timestamp": true, "output": "sing-box.log" },
@@ -300,6 +304,7 @@ $config = @'
   },
   "inbounds": [
     { "type": "tun", "tag": "tun-in", "address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"], "mtu": 1500,
+      "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
       "auto_route": true, "strict_route": true, "stack": "gvisor" }
   ],
   "outbounds": [
