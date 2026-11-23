@@ -1,0 +1,15 @@
+sing-box 1.14.3, unmodified copies of the official release files
+
+These files are exact copies of the sing-box 1.14.3 release files published by
+the sing-box project. They are kept here only as a second download location
+for the Tether Link Utility desktop scripts, which check every file against the
+SHA256 hashes in SHA256SUMS (the same hashes as the official release).
+Tether Link Utility is not part of the sing-box project and is not endorsed by it.
+
+sing-box is free software, licensed under the GNU General Public License,
+version 3 or later (see LICENSE and COPYING in this folder).
+
+Official release: https://github.com/SagerNet/sing-box/releases/tag/v1.14.3
+Source code for these files (tag v1.14.3):
+  https://github.com/steadyline-labs/sing-box/tree/v1.14.3
+  https://github.com/SagerNet/sing-box/tree/v1.14.3

@@ -13,7 +13,8 @@ rem      adapter sing-box creates).
 rem   2. Asks for the IP and port shown in the TLU app.
 rem   3. Checks that the phone answers on that port.
 rem   4. Downloads sing-box 1.14.3 from its official GitHub releases page
-rem      (only the first time) and checks its SHA256 hash.
+rem      (only the first time; if GitHub does not answer, the same file from
+rem      tetherlinkutility.com) and checks its SHA256 hash.
 rem   5. Saves everything in %LOCALAPPDATA%\TLU and starts sing-box.
 rem      While connected, this PC's Wi-Fi uses the tunnel for DNS and has
 rem      IPv6 off, so nothing skips the phone app. Both are put back when
@@ -38,7 +39,7 @@ $ErrorActionPreference = 'Stop'
 $Host.UI.RawUI.WindowTitle = 'TLU connect'
 
 # --- This file's version (desktop-versions.txt "windows=" on the site) ---
-$ScriptVersion = 20261123
+$ScriptVersion = 20261124
 $ScriptUrl   = 'https://tetherlinkutility.com/downloads/TLU-Windows-Setup.cmd'
 $VersionsUrl = 'https://tetherlinkutility.com/downloads/desktop-versions.txt'
 
@@ -277,25 +278,47 @@ $arch = if ($env:PROCESSOR_ARCHITEW6432) { $env:PROCESSOR_ARCHITEW6432 } else { 
 $arch = switch ($arch) { 'AMD64' { 'amd64' } 'ARM64' { 'arm64' } default { '' } }
 if (-not $arch) { Fail 'This PC type is not supported (64-bit Windows is needed).' }
 
+# From the official GitHub release first, then our copy of the same file on
+# tetherlinkutility.com; directly first, then through the phone. The file must
+# match the pinned SHA256 hash wherever it came from.
+$SbUpstream = "https://github.com/SagerNet/sing-box/releases/download/v$Version"
+$SbMirror   = "https://tetherlinkutility.com/downloads/sing-box/$Version"
+if ($env:TLU_SB_UPSTREAM) { $SbUpstream = $env:TLU_SB_UPSTREAM }
+if ($env:TLU_SB_MIRROR)   { $SbMirror   = $env:TLU_SB_MIRROR }
+
+# Saves $file to $zip. $proxies = $null for direct, then the phone's SOCKS5 address.
+# Returns 'ok', 'mismatch' (a file arrived but failed the hash check) or 'failed'.
+function Get-SingBox($zip, $file, $expected, $proxies) {
+  $mismatch = $false
+  foreach ($proxy in $proxies) {
+    if ($proxy) { Say 'Trying through the phone ...' }
+    foreach ($base in @($SbUpstream, $SbMirror)) {
+      if ($base -eq $SbMirror) { Say 'Trying the second download location (tetherlinkutility.com) ...' }
+      Remove-Item $zip -Force -ErrorAction SilentlyContinue
+      $wait = if ($proxy) { '15' } else { '10' }
+      $a = @('-fL', '--connect-timeout', $wait, '--speed-limit', '1000', '--speed-time', '30', '-o', $zip)
+      if ($proxy) { $a += @('-x', $proxy) }
+      & curl.exe @a "$base/$file" | Out-Null
+      if ($LASTEXITCODE -ne 0 -or -not (Test-Path $zip)) { continue }
+      if ((Get-FileHash $zip -Algorithm SHA256).Hash.ToLower() -eq $expected) { return 'ok' }
+      Remove-Item $zip -Force -ErrorAction SilentlyContinue
+      $mismatch = $true
+      Say 'That download did not pass the safety check (SHA256 mismatch).' 'Yellow'
+    }
+    if ($mismatch) { break }
+  }
+  if ($mismatch) { return 'mismatch' }
+  return 'failed'
+}
+
 $name = "sing-box-$Version-windows-$arch"
 $exe  = Join-Path $AppDir "$name\sing-box.exe"
 if (-not (Test-Path $exe)) {
   $zip = Join-Path $AppDir "$name.zip"
-  $url = "https://github.com/SagerNet/sing-box/releases/download/v$Version/$name.zip"
   Say "Downloading sing-box $Version ($arch), about 30 MB ..."
-  # Built-in curl.exe: try directly first, then through the phone.
-  & curl.exe -fL --connect-timeout 10 --speed-limit 1000 --speed-time 30 -o $zip $url
-  if ($LASTEXITCODE -ne 0) {
-    Say 'Trying through the phone ...'
-    & curl.exe -fL --connect-timeout 15 --speed-limit 1000 --speed-time 30 -x "socks5h://$ip`:$port" -o $zip $url
-  }
-  if ($LASTEXITCODE -ne 0 -or -not (Test-Path $zip)) { Fail 'Download failed. Check that sharing is on in the app and run this file again.' }
-
-  $hash = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
-  if ($hash -ne $Hashes[$arch]) {
-    Remove-Item $zip -Force
-    Fail 'The downloaded file did not pass the safety check (SHA256 mismatch). Nothing was installed.'
-  }
+  $got = Get-SingBox $zip "$name.zip" $Hashes[$arch] @($null, "socks5h://$ip`:$port")
+  if ($got -eq 'mismatch') { Fail 'The downloaded file did not pass the safety check (SHA256 mismatch). Nothing was installed.' }
+  if ($got -ne 'ok') { Fail 'Download failed. Check that sharing is on in the app and run this file again.' }
   Say 'Download checked (SHA256 OK).' 'Green'
   Expand-Archive -Path $zip -DestinationPath $AppDir -Force
   Remove-Item $zip -Force

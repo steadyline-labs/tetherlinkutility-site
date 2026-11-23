@@ -12,7 +12,8 @@ Requirements
 ------------
 - A Mac (Apple silicon or Intel).
 - Nothing else. Homebrew is not needed. The first time, the script downloads
-  sing-box 1.14.3 from its official GitHub page (about 30 MB) and checks it
+  sing-box 1.14.3 from its official GitHub page (about 30 MB; if GitHub
+  does not answer, the same file from tetherlinkutility.com) and checks it
   with a SHA256 hash. If your Mac has no internet of its own, it downloads
   it through the phone after you enter the IP and port.
 

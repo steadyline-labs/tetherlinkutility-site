@@ -9,6 +9,20 @@
       "guideAnchor": "windows-setup-file",
       "versions": [
         {
+          "version": "20261124",
+          "date": "2026-11-24",
+          "url": "/downloads/archive/windows/20261124/TLU-Windows-Setup.cmd",
+          "sha256": "e9b3633ca57871e56da429e9b502729a7ae04a96956b3ea01c9760b0429f2c30",
+          "size": 22028,
+          "notes": {
+            "en": "More reliable first-time setup.",
+            "es": "Primera configuración más fiable.",
+            "hi": "पहली बार का सेटअप अब ज़्यादा भरोसेमंद है।",
+            "pt": "Primeira configuração mais confiável.",
+            "tr": "İlk kurulum artık daha güvenilir."
+          }
+        },
+        {
           "version": "20261123",
           "date": "2026-11-23",
           "url": "/downloads/archive/windows/20261123/TLU-Windows-Setup.cmd",
@@ -33,6 +47,20 @@
       "guideAnchor": "mac-script",
       "versions": [
         {
+          "version": "20261124",
+          "date": "2026-11-24",
+          "url": "/downloads/archive/mac/20261124/tlu-mac-tunnel.zip",
+          "sha256": "f78981b92603b813fdde16319469e1f3a6d292ec3e1b894b278f13406568ecb2",
+          "size": 7610,
+          "notes": {
+            "en": "More reliable first-time setup.",
+            "es": "Primera configuración más fiable.",
+            "hi": "पहली बार का सेटअप अब ज़्यादा भरोसेमंद है।",
+            "pt": "Primeira configuração mais confiável.",
+            "tr": "İlk kurulum artık daha güvenilir."
+          }
+        },
+        {
           "version": "20261123",
           "date": "2026-11-23",
           "url": "/downloads/archive/mac/20261123/tlu-mac-tunnel.zip",
@@ -56,6 +84,20 @@
       "latestUrl": "/downloads/tlu-linux-tunnel.sh",
       "guideAnchor": "linux-script",
       "versions": [
+        {
+          "version": "20261124",
+          "date": "2026-11-24",
+          "url": "/downloads/archive/linux/20261124/tlu-linux-tunnel.sh",
+          "sha256": "a706bd66dd0fc8be1637c85ebf6b3690f0dd4df317ac77cadb0591fe0e88a8b3",
+          "size": 21989,
+          "notes": {
+            "en": "More reliable first-time setup.",
+            "es": "Primera configuración más fiable.",
+            "hi": "पहली बार का सेटअप अब ज़्यादा भरोसेमंद है।",
+            "pt": "Primeira configuração mais confiável.",
+            "tr": "İlk kurulum artık daha güvenilir."
+          }
+        },
         {
           "version": "20261123",
           "date": "2026-11-23",

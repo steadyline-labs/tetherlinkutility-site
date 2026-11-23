@@ -9,9 +9,10 @@
 # What it does:
 #   1. Finds sing-box: our own copy, or Homebrew's if you already have it.
 #      Otherwise it downloads sing-box 1.14.3 once from its official GitHub
-#      releases page while this Mac still has its own internet, and checks
-#      its SHA256 hash. If that download fails, it tries again through the
-#      phone after you enter the IP and port.
+#      releases page while this Mac still has its own internet (or, if
+#      GitHub does not answer, the same file from tetherlinkutility.com),
+#      and checks its SHA256 hash. If that download fails, it tries again
+#      through the phone after you enter the IP and port.
 #   2. Asks for the IP and port shown in the TLU app (or offers the last
 #      ones), and checks that the phone answers.
 #   3. Saves everything in ~/Library/Application Support/TLU (no admin
@@ -29,7 +30,7 @@
 set -u
 
 # --- This script's version (desktop-versions.txt "mac=" on the site) ---
-SCRIPT_VERSION=20261123
+SCRIPT_VERSION=20261124
 SCRIPT_URL="${TLU_SCRIPT_URL:-https://tetherlinkutility.com/downloads/tlu-mac-tunnel/tlu-mac-tunnel.sh}"
 VERSIONS_URL="${TLU_VERSIONS_URL:-https://tetherlinkutility.com/downloads/desktop-versions.txt}"
 UPDATE_CHECKED=0
@@ -68,6 +69,11 @@ sb_arch() {
   esac
 }
 
+# Where sing-box comes from: the official GitHub release first, then our copy of
+# the same files on tetherlinkutility.com. Both are checked against the hashes above.
+SB_UPSTREAM="${TLU_SB_UPSTREAM:-https://github.com/SagerNet/sing-box/releases/download/v$SB_VERSION}"
+SB_MIRROR="${TLU_SB_MIRROR:-https://tetherlinkutility.com/downloads/sing-box/$SB_VERSION}"
+
 sb_expected_hash() {
   case "$1" in
     arm64) echo "$SB_SHA256_ARM64" ;;
@@ -76,7 +82,6 @@ sb_expected_hash() {
 }
 
 sb_name()    { echo "sing-box-$SB_VERSION-darwin-$1"; }
-sb_url()     { echo "https://github.com/SagerNet/sing-box/releases/download/v$SB_VERSION/$(sb_name "$1").tar.gz"; }
 our_binary() { echo "$APP_DIR/sing-box-$SB_VERSION/sing-box"; }
 
 # Sets SINGBOX_BIN if a working sing-box is already here. Returns 1 if not.
@@ -95,6 +100,8 @@ find_singbox() {
 }
 
 # Downloads, checks and installs sing-box. $1 = optional proxy (socks5h://IP:PORT).
+# Returns 1 if neither download location answered; stops if a file arrived but
+# none passed the hash check.
 install_singbox() {
   local proxy="${1:-}" arch expected tmp archive got
   arch="$(sb_arch)"
@@ -111,15 +118,27 @@ install_singbox() {
   if [ -n "$proxy" ]; then
     curl_args+=(-x "$proxy")
   fi
-  if ! curl "${curl_args[@]}" "$(sb_url "$arch")"; then
+  local base ok=0 mismatch=0
+  for base in "$SB_UPSTREAM" "$SB_MIRROR"; do
+    if [ "$base" = "$SB_MIRROR" ]; then
+      say "Trying the second download location (tetherlinkutility.com) ..."
+    fi
+    rm -f "$archive"
+    curl "${curl_args[@]}" "$base/$(sb_name "$arch").tar.gz" || continue
+    got="$(shasum -a 256 "$archive" | awk '{print $1}')"
+    if [ "$got" = "$expected" ]; then
+      ok=1
+      break
+    fi
+    mismatch=1
+    say "That download did not pass the safety check (SHA256 mismatch)."
+  done
+  if [ "$ok" != 1 ]; then
     rm -rf "$tmp"
+    if [ "$mismatch" = 1 ]; then
+      fail "The downloaded file did not pass the safety check (SHA256 mismatch). Nothing was installed."
+    fi
     return 1
-  fi
-
-  got="$(shasum -a 256 "$archive" | awk '{print $1}')"
-  if [ "$got" != "$expected" ]; then
-    rm -rf "$tmp"
-    fail "The downloaded file did not pass the safety check (SHA256 mismatch). Nothing was installed."
   fi
   say "Download checked (SHA256 OK)."
 
