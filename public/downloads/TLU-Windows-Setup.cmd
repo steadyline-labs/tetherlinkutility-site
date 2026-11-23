@@ -116,6 +116,9 @@ if ($a) {
   if ($v6 -eq 'True') {
     try { Enable-NetAdapterBinding -Name $a.Name -ComponentID ms_tcpip6 -ErrorAction Stop } catch { $ok = $false }
   }
+  # The DNS command can finish without an error and still change nothing, so check.
+  $now = (Get-DnsClientServerAddress -InterfaceIndex $a.ifIndex -AddressFamily IPv4 -ErrorAction SilentlyContinue).ServerAddresses
+  if ($now -contains '172.19.0.2') { $ok = $false }
 }
 Clear-DnsClientCache -ErrorAction SilentlyContinue
 # Keep the file unless every setting went back, so the next run tries again.
