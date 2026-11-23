@@ -18,6 +18,8 @@ rem   5. Saves everything in %LOCALAPPDATA%\TLU and starts sing-box.
 rem      While connected, this PC's Wi-Fi uses the tunnel for DNS and has
 rem      IPv6 off, so nothing skips the phone app. Both are put back when
 rem      you close the window (or on the next run, if that was missed).
+rem      If Windows restarts while connected, a small startup task
+rem      ("TLU network restore") puts them back and then removes itself.
 rem   6. Adds a "TLU connect" shortcut on your desktop for next time.
 rem
 rem  The only other network call: it reads our small version file
@@ -117,7 +119,10 @@ if ($a) {
 }
 Clear-DnsClientCache -ErrorAction SilentlyContinue
 # Keep the file unless every setting went back, so the next run tries again.
-if ($ok) { Remove-Item $state -Force -ErrorAction SilentlyContinue }
+if ($ok) {
+  Remove-Item $state -Force -ErrorAction SilentlyContinue
+  Unregister-ScheduledTask -TaskName 'TLU network restore' -Confirm:$false -ErrorAction SilentlyContinue
+}
 '@
 [IO.File]::WriteAllText($restore, $restoreScript, (New-Object Text.UTF8Encoding($false)))
 function Restore-Network { & $restore }
@@ -140,6 +145,16 @@ function Set-TunnelNetwork($ip) {
     $v6 = (Get-NetAdapterBinding -Name $a.Name -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue).Enabled
     Set-Content -Path $state -Value @("$($a.InterfaceGuid)", $dns, "$v6")
   }
+  # A restart while connected never reaches the code that puts the settings back,
+  # so a task does it at the next start or sign-in (tlu-restore.ps1 removes it).
+  try {
+    $act = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$restore`""
+    $trg = @((New-ScheduledTaskTrigger -AtStartup), (New-ScheduledTaskTrigger -AtLogOn))
+    $trg[0].Delay = 'PT20S'
+    $who = New-ScheduledTaskPrincipal -UserId 'SYSTEM' -LogonType ServiceAccount -RunLevel Highest
+    $set = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Minutes 5)
+    Register-ScheduledTask -TaskName 'TLU network restore' -Action $act -Trigger $trg -Principal $who -Settings $set -Force | Out-Null
+  } catch { }
   Set-DnsClientServerAddress -InterfaceIndex $ifx -ServerAddresses $TunDns
   Disable-NetAdapterBinding -Name $a.Name -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue
   Clear-DnsClientCache
