@@ -12,6 +12,7 @@ const AXE = fs.readFileSync(createRequire(import.meta.url).resolve("axe-core/axe
 const PAGES = [
   ...LANGS.map(prefix),
   "/help.html", "/tr/help.html",
+  "/downloads/", "/tr/downloads/", "/hi/downloads/",
   "/privacy.html",
   `/blog/${GUIDES[0]}`, `/tr/blog/${GUIDES[0]}`,
   "/blog/jio-hotspot-data-limit.html", "/tr/blog/turkcell-hotspot-data-limit.html",

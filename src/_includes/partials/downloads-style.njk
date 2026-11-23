@@ -1,0 +1,27 @@
+{#- Styles for the /downloads/ page (src/downloads.njk). Included inside the <style> block after
+    site-chrome-style.njk and read-base-style.njk. Sizes and colours reuse the existing tokens:
+    card = .help-end, button = .help-wa, meta = .post-meta, small headings = .related h3, note = .help-note. -#}
+    .dl-intro { color: var(--muted); margin-bottom: 28px; }
+    .dl-card { margin: 0 0 20px; padding: 22px 24px; background: var(--elevated); border: 1px solid var(--border); border-radius: 16px; }
+    main .dl-card h2 { margin: 0 0 4px; }
+    main .dl-meta { color: var(--dim); font-size: 14px; margin-bottom: 12px; }
+    .dl-version { font-family: ui-monospace, "SF Mono", "Cascadia Code", "Fira Code", monospace; }
+    main .dl-btn {
+      display: inline-flex; align-items: center; min-height: 48px; text-decoration: none;
+      font-weight: 700; font-size: 16px; background: var(--accent-btn); color: #fff; padding: 13px 32px; border-radius: 12px;
+      box-shadow: 0 6px 16px -6px rgba(196,80,31,0.6); transition: background-color 0.15s;
+    }
+    main .dl-btn:hover { background: var(--accent-btn-hover); text-decoration: none; }
+    .dl-btn:focus-visible { outline: 2px solid var(--accent-btn); outline-offset: 2px; }
+    main .dl-card h3, .dl-previous summary { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+    main .dl-card h3 { margin: 24px 0 8px; }
+    main .dl-need { margin-bottom: 8px; }
+    .dl-previous { margin-top: 12px; }
+    .dl-previous summary { cursor: pointer; padding: 8px 0; }
+    main .dl-previous ul { font-size: 14px; margin: 4px 0 0; }
+    main .dl-soon { font-weight: 700; color: var(--muted); margin: 8px 0 0; }
+    main .dl-guide { margin-top: 28px; }
+    main .dl-note { font-size: 13px; line-height: 1.6; color: var(--dim); margin-bottom: 0; }
+    @media (max-width: 640px) {
+      .dl-card { padding: 20px 18px; }
+    }

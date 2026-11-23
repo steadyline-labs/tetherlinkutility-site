@@ -1,0 +1,76 @@
+{
+  "platforms": [
+    {
+      "id": "windows",
+      "name": "Windows",
+      "status": "available",
+      "file": "TLU-Windows-Setup.cmd",
+      "latestUrl": "/downloads/TLU-Windows-Setup.cmd",
+      "guideAnchor": "windows-setup-file",
+      "versions": [
+        {
+          "version": "20261123",
+          "date": "2026-11-23",
+          "url": "/downloads/archive/windows/20261123/TLU-Windows-Setup.cmd",
+          "sha256": "98c41295fdf3fd29adea878e57fa99b99d2e1c4656ef7c1d4e7eec106f36909c",
+          "size": 20682,
+          "notes": {
+            "en": "Pages load fast again after quiet periods, the connection stays on the phone after short drops, and Wi-Fi settings come back safely, even after a restart.",
+            "es": "Las páginas vuelven a cargar rápido tras un rato sin uso, la conexión sigue pasando por el teléfono tras cortes breves y los ajustes de Wi-Fi se restauran con seguridad, incluso después de reiniciar.",
+            "hi": "कुछ देर इस्तेमाल न होने के बाद भी पेज फिर से तेज़ी से खुलते हैं, छोटी रुकावटों के बाद भी कनेक्शन फ़ोन से ही चलता है, और Wi-Fi सेटिंग्स रीस्टार्ट के बाद भी सुरक्षित रूप से वापस आ जाती हैं।",
+            "pt": "As páginas voltam a abrir rápido depois de um tempo parado, a conexão continua passando pelo celular após quedas curtas e as configurações de Wi-Fi voltam com segurança, mesmo depois de reiniciar.",
+            "tr": "Bir süre boşta kaldıktan sonra sayfalar yine hızlı açılıyor, kısa kesintilerden sonra bağlantı telefonda kalıyor ve Wi-Fi ayarları, bilgisayar yeniden başlasa bile güvenle geri geliyor."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mac",
+      "name": "Mac",
+      "status": "available",
+      "file": "tlu-mac-tunnel.zip",
+      "latestUrl": "/downloads/tlu-mac-tunnel.zip",
+      "guideAnchor": "mac-script",
+      "versions": [
+        {
+          "version": "20261123",
+          "date": "2026-11-23",
+          "url": "/downloads/archive/mac/20261123/tlu-mac-tunnel.zip",
+          "sha256": "edef07649bb4a5f2a0592df0606f011d43e12e8d7a8fcacb43573705855ccd7f",
+          "size": 7314,
+          "notes": {
+            "en": "Pages load fast again after quiet periods, and network settings are put back safely when you stop.",
+            "es": "Las páginas vuelven a cargar rápido tras un rato sin uso y los ajustes de red se restauran con seguridad al detenerlo.",
+            "hi": "कुछ देर इस्तेमाल न होने के बाद भी पेज फिर से तेज़ी से खुलते हैं, और रोकने पर नेटवर्क सेटिंग्स सुरक्षित रूप से वापस आ जाती हैं।",
+            "pt": "As páginas voltam a abrir rápido depois de um tempo parado, e as configurações de rede voltam com segurança quando você para.",
+            "tr": "Bir süre boşta kaldıktan sonra sayfalar yine hızlı açılıyor; durdurduğunda ağ ayarları güvenle geri yükleniyor."
+          }
+        }
+      ]
+    },
+    {
+      "id": "linux",
+      "name": "Linux",
+      "status": "available",
+      "file": "tlu-linux-tunnel.sh",
+      "latestUrl": "/downloads/tlu-linux-tunnel.sh",
+      "guideAnchor": "linux-script",
+      "versions": [
+        {
+          "version": "20261123",
+          "date": "2026-11-23",
+          "url": "/downloads/archive/linux/20261123/tlu-linux-tunnel.sh",
+          "sha256": "4d20e9057982871ff73e12af13a9a84b49f2636e2d024004c49d085af3272f96",
+          "size": 21146,
+          "notes": {
+            "en": "First release: every app on the computer uses the phone's internet, and network settings are put back safely when you stop.",
+            "es": "Primera versión: todas las apps de la computadora usan el internet del teléfono y los ajustes de red se restauran con seguridad al detenerlo.",
+            "hi": "पहला वर्ज़न: कंप्यूटर के सभी ऐप फ़ोन का इंटरनेट इस्तेमाल करते हैं, और रोकने पर नेटवर्क सेटिंग्स सुरक्षित रूप से वापस आ जाती हैं।",
+            "pt": "Primeira versão: todos os apps do computador usam a internet do celular, e as configurações de rede voltam com segurança quando você para.",
+            "tr": "İlk sürüm: bilgisayardaki tüm uygulamalar telefonun internetini kullanır; durdurduğunda ağ ayarları güvenle geri yüklenir."
+          }
+        }
+      ]
+    }
+  ]
+}

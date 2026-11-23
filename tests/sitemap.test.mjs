@@ -81,9 +81,12 @@ test("sitemap lastmod is not older than the last content change in git", () => {
   const sourceFor = (loc) => {
     const p = path(loc);
     const base = p.endsWith("/") ? `${p}index` : p.replace(/\.html$/, "");
+    // A page built in every language from one template (src/downloads.njk -> /downloads/, /tr/downloads/, ...).
+    const lang = LANGS.find((l) => l !== "en" && p.startsWith(prefix(l)));
+    const shared = `src${(lang ? base.slice(prefix(lang).length - 1) : base).replace(/\/index$/, "")}.njk`;
     const candidates = sitemapExtra.some((e) => e.url === p)
       ? [`public${p}`]
-      : [`src${base}.njk`, `src${base}.html`, `src${base}.md`];
+      : [`src${base}.njk`, `src${base}.html`, `src${base}.md`, shared];
     return candidates.find((c) => fs.existsSync(nodePath.join(root, c)));
   };
 

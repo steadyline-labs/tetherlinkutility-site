@@ -34,6 +34,7 @@ Bypass carrier hotspot limits. No root. No tether fees.
 - Spanish homepage: https://tetherlinkutility.com/es/ : same content in Spanish
 - Portuguese homepage: https://tetherlinkutility.com/pt/ : same content in Brazilian Portuguese
 - Help connecting (WhatsApp or email support): https://tetherlinkutility.com/help.html : Turkish /tr/help.html, Hindi /hi/help.html, Spanish /es/help.html, Portuguese /pt/help.html (same path under each language prefix)
+- Downloads for Windows, Mac and Linux (current version, release date, what's new, previous versions): https://tetherlinkutility.com/downloads/ : Turkish /tr/downloads/, Hindi /hi/downloads/, Spanish /es/downloads/, Portuguese /pt/downloads/. Current versions:{% for p in downloads.platforms %}{% if p.status == "available" %} {{ p.name }} {{ p.versions[0].version }} ({{ site.url }}{{ p.latestUrl }}){{ "," if not loop.last else "." }}{% endif %}{% endfor %} Every version also stays at /downloads/archive/<platform>/<version>/.
 - Privacy Policy: https://tetherlinkutility.com/privacy.html (English, Turkish, Hindi, Spanish, and Portuguese sections on one page, via #en/#tr/#hi/#es/#pt anchors)
 - Pricing (structured, machine-readable): https://tetherlinkutility.com/pricing.md
 - Google Play listing: https://play.google.com/store/apps/details?id=com.alparslan.tetherlinkutility

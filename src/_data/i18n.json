@@ -74,6 +74,38 @@
       "slowvideocalls": "Watch the 24-second video",
       "windowspc": "Watch the 24-second video",
       "macshort": "Watch the 24-second video"
+    },
+    "downloads": {
+      "link": "Downloads",
+      "metaTitle": "Downloads for Windows, Mac and Linux: Tether Link Utility",
+      "metaDescription": "Download the Tether Link Utility setup file for Windows or the script for Mac and Linux. Every app on your computer then uses your phone's internet. Current versions, what's new and previous versions.",
+      "title": "Downloads for your computer",
+      "intro": "One small file connects your computer to your phone's internet, so every app on the computer uses it. Download it while the computer still has its own internet. Each file keeps itself up to date.",
+      "version": "Version",
+      "released": "Released",
+      "whatsNew": "What's new",
+      "download": "Download for {name}",
+      "soon": "Coming soon",
+      "howTo": "How to use it",
+      "step1": "On the phone, open Tether Link Utility and tap <strong>START SHARING</strong>.",
+      "step2": "On this computer, join the phone's Wi-Fi (the app shows its name and password).",
+      "step3": {
+        "windows": "Double-click the file, click <strong>Yes</strong> when Windows asks, then type the IP and port shown in the app.",
+        "mac": "Open the zip. In Terminal, type <code>cd ~/Downloads/tlu-mac-tunnel</code>, then <code>bash tlu-mac-tunnel.sh</code>, and type the IP and port shown in the app.",
+        "linux": "In a terminal, go to the folder with the file, type <code>bash tlu-linux-tunnel.sh</code>, then type the IP and port shown in the app."
+      },
+      "needs": "You need",
+      "need": {
+        "windows": "administrator rights on the PC (Windows asks once).",
+        "mac": "your Mac password (asked once).",
+        "linux": "sudo rights (your password, asked once)."
+      },
+      "guide": "Full steps with pictures",
+      "previous": "Previous versions",
+      "current": "current",
+      "note": "These files are plain text: you can open them and read every step. They send nothing anywhere; the only extra thing they do is check our site for a newer version.",
+      "guideIntro": "Step-by-step help with pictures and videos:",
+      "guideLink": "full setup guide"
     }
   },
   "tr": {
@@ -146,6 +178,38 @@
       "play": "Videoyu oynat",
       "windows": "Windows videosunu izle",
       "mac": "Mac videosunu izle"
+    },
+    "downloads": {
+      "link": "İndirmeler",
+      "metaTitle": "Windows, Mac ve Linux için İndirmeler: Tether Link Utility",
+      "metaDescription": "Windows için Tether Link Utility kurulum dosyasını ya da Mac ve Linux için betiği indir. Böylece bilgisayardaki tüm uygulamalar telefonunun internetini kullanır. Güncel sürümler, yenilikler ve önceki sürümler.",
+      "title": "Bilgisayarın için indirmeler",
+      "intro": "Küçük bir dosya bilgisayarını telefonunun internetine bağlar; bilgisayardaki tüm uygulamalar bu bağlantıyı kullanır. Dosyayı bilgisayarın kendi interneti varken indir. Her dosya kendini güncel tutar.",
+      "version": "Sürüm",
+      "released": "Yayın tarihi",
+      "whatsNew": "Yenilikler",
+      "download": "{name} için indir",
+      "soon": "Yakında",
+      "howTo": "Nasıl kullanılır",
+      "step1": "Telefonda Tether Link Utility'yi aç ve <strong>PAYLAŞIMI BAŞLAT</strong>'a dokun.",
+      "step2": "Bu bilgisayarı telefonun Wi-Fi ağına bağla (ağ adını ve şifresini uygulama gösterir).",
+      "step3": {
+        "windows": "Dosyaya çift tıkla, Windows sorduğunda <strong>Evet</strong>'e tıkla, sonra uygulamada görünen IP'yi ve portu yaz.",
+        "mac": "Zip dosyasını aç. Terminal'de <code>cd ~/Downloads/tlu-mac-tunnel</code>, ardından <code>bash tlu-mac-tunnel.sh</code> yaz; sonra uygulamada görünen IP'yi ve portu gir.",
+        "linux": "Terminalde dosyanın bulunduğu klasöre geç, <code>bash tlu-linux-tunnel.sh</code> yaz, sonra uygulamada görünen IP'yi ve portu gir."
+      },
+      "needs": "Gerekenler",
+      "need": {
+        "windows": "bilgisayarda yönetici yetkisi (Windows bir kez sorar).",
+        "mac": "Mac şifren (bir kez sorulur).",
+        "linux": "sudo yetkisi (şifren, bir kez sorulur)."
+      },
+      "guide": "Resimli adım adım anlatım",
+      "previous": "Önceki sürümler",
+      "current": "güncel",
+      "note": "Bu dosyalar düz metindir: açıp her adımı okuyabilirsin. Hiçbir yere bir şey göndermezler; tek ek işleri sitemizde yeni sürüm olup olmadığına bakmaktır.",
+      "guideIntro": "Resimli ve videolu adım adım yardım:",
+      "guideLink": "kurulum rehberinin tamamı"
     }
   },
   "hi": {
@@ -218,6 +282,38 @@
       "windows": "Windows वाला वीडियो देखें",
       "mac": "Mac वाला वीडियो देखें",
       "note": "अंग्रेज़ी में"
+    },
+    "downloads": {
+      "link": "डाउनलोड",
+      "metaTitle": "Windows, Mac और Linux के लिए डाउनलोड: Tether Link Utility",
+      "metaDescription": "Windows के लिए Tether Link Utility की सेटअप फ़ाइल या Mac और Linux के लिए स्क्रिप्ट डाउनलोड करें। फिर आपके कंप्यूटर का हर ऐप आपके फ़ोन का इंटरनेट इस्तेमाल करता है। मौजूदा वर्ज़न, नया क्या है और पिछले वर्ज़न।",
+      "title": "आपके कंप्यूटर के लिए डाउनलोड",
+      "intro": "एक छोटी फ़ाइल आपके कंप्यूटर को फ़ोन के इंटरनेट से जोड़ती है, ताकि कंप्यूटर का हर ऐप उसे इस्तेमाल करे। इसे तब डाउनलोड करें जब कंप्यूटर में अभी उसका अपना इंटरनेट हो। हर फ़ाइल खुद को अपडेट रखती है।",
+      "version": "वर्ज़न",
+      "released": "जारी",
+      "whatsNew": "नया क्या है",
+      "download": "{name} के लिए डाउनलोड करें",
+      "soon": "जल्द आ रहा है",
+      "howTo": "इस्तेमाल कैसे करें",
+      "step1": "फ़ोन पर Tether Link Utility खोलें और <strong>START SHARING</strong> पर टैप करें।",
+      "step2": "इस कंप्यूटर को फ़ोन के Wi-Fi से जोड़ें (ऐप उसका नाम और पासवर्ड दिखाता है)।",
+      "step3": {
+        "windows": "फ़ाइल पर डबल-क्लिक करें, Windows पूछे तो <strong>Yes</strong> पर क्लिक करें, फिर ऐप में दिखाया गया IP और पोर्ट टाइप करें।",
+        "mac": "zip खोलें। Terminal में <code>cd ~/Downloads/tlu-mac-tunnel</code> टाइप करें, फिर <code>bash tlu-mac-tunnel.sh</code>, और ऐप में दिखाया गया IP और पोर्ट टाइप करें।",
+        "linux": "टर्मिनल में फ़ाइल वाले फ़ोल्डर में जाएँ, <code>bash tlu-linux-tunnel.sh</code> टाइप करें, फिर ऐप में दिखाया गया IP और पोर्ट टाइप करें।"
+      },
+      "needs": "ज़रूरी",
+      "need": {
+        "windows": "PC पर एडमिनिस्ट्रेटर अधिकार (Windows एक बार पूछता है)।",
+        "mac": "आपके Mac का पासवर्ड (एक बार पूछा जाता है)।",
+        "linux": "sudo अधिकार (आपका पासवर्ड, एक बार पूछा जाता है)।"
+      },
+      "guide": "तस्वीरों के साथ पूरे स्टेप",
+      "previous": "पिछले वर्ज़न",
+      "current": "मौजूदा",
+      "note": "ये फ़ाइलें सादा टेक्स्ट हैं: आप इन्हें खोलकर हर स्टेप पढ़ सकते हैं। ये कहीं कुछ नहीं भेजतीं; बस हमारी साइट पर नया वर्ज़न देखती हैं।",
+      "guideIntro": "तस्वीरों और वीडियो के साथ स्टेप-बाय-स्टेप मदद:",
+      "guideLink": "पूरी सेटअप गाइड"
     }
   },
   "es": {
@@ -294,6 +390,38 @@
       "windows": "Ver el video para Windows",
       "mac": "Ver el video para Mac",
       "note": "en inglés"
+    },
+    "downloads": {
+      "link": "Descargas",
+      "metaTitle": "Descargas para Windows, Mac y Linux: Tether Link Utility",
+      "metaDescription": "Descarga el archivo de instalación de Tether Link Utility para Windows o el script para Mac y Linux. Así todas las apps de tu computadora usan el internet de tu teléfono. Versiones actuales, novedades y versiones anteriores.",
+      "title": "Descargas para tu computadora",
+      "intro": "Un archivo pequeño conecta tu computadora al internet de tu teléfono, para que todas sus apps lo usen. Descárgalo mientras la computadora todavía tiene su propio internet. Cada archivo se mantiene actualizado solo.",
+      "version": "Versión",
+      "released": "Publicada",
+      "whatsNew": "Novedades",
+      "download": "Descargar para {name}",
+      "soon": "Próximamente",
+      "howTo": "Cómo usarlo",
+      "step1": "En el teléfono, abre Tether Link Utility y toca <strong>START SHARING</strong>.",
+      "step2": "En esta computadora, conéctate al Wi-Fi del teléfono (la app muestra su nombre y contraseña).",
+      "step3": {
+        "windows": "Haz doble clic en el archivo, haz clic en <strong>Sí</strong> cuando Windows lo pregunte y escribe la IP y el puerto que muestra la app.",
+        "mac": "Abre el zip. En Terminal, escribe <code>cd ~/Downloads/tlu-mac-tunnel</code>, luego <code>bash tlu-mac-tunnel.sh</code>, y escribe la IP y el puerto que muestra la app.",
+        "linux": "En una terminal, ve a la carpeta del archivo, escribe <code>bash tlu-linux-tunnel.sh</code> y luego la IP y el puerto que muestra la app."
+      },
+      "needs": "Necesitas",
+      "need": {
+        "windows": "permisos de administrador en la PC (Windows los pide una vez).",
+        "mac": "la contraseña de tu Mac (se pide una vez).",
+        "linux": "permisos sudo (tu contraseña, se pide una vez)."
+      },
+      "guide": "Pasos completos con imágenes",
+      "previous": "Versiones anteriores",
+      "current": "actual",
+      "note": "Estos archivos son texto plano: puedes abrirlos y leer cada paso. No envían nada a ningún lado; lo único extra que hacen es revisar en nuestro sitio si hay una versión más nueva.",
+      "guideIntro": "Ayuda paso a paso con imágenes y videos:",
+      "guideLink": "guía de configuración completa"
     }
   },
   "pt": {
@@ -369,6 +497,38 @@
       "windows": "Assista ao vídeo para Windows",
       "mac": "Assista ao vídeo para Mac",
       "note": "em inglês"
+    },
+    "downloads": {
+      "link": "Downloads",
+      "metaTitle": "Downloads para Windows, Mac e Linux: Tether Link Utility",
+      "metaDescription": "Baixe o arquivo de instalação do Tether Link Utility para Windows ou o script para Mac e Linux. Assim todos os apps do seu computador usam a internet do seu celular. Versões atuais, novidades e versões anteriores.",
+      "title": "Downloads para o seu computador",
+      "intro": "Um arquivo pequeno conecta o seu computador à internet do celular, para que todos os apps do computador usem essa conexão. Baixe enquanto o computador ainda tem internet própria. Cada arquivo se mantém atualizado sozinho.",
+      "version": "Versão",
+      "released": "Lançada em",
+      "whatsNew": "Novidades",
+      "download": "Baixar para {name}",
+      "soon": "Em breve",
+      "howTo": "Como usar",
+      "step1": "No celular, abra o Tether Link Utility e toque em <strong>START SHARING</strong>.",
+      "step2": "Neste computador, conecte-se ao Wi-Fi do celular (o app mostra o nome e a senha).",
+      "step3": {
+        "windows": "Clique duas vezes no arquivo, clique em <strong>Sim</strong> quando o Windows perguntar e digite o IP e a porta mostrados no app.",
+        "mac": "Abra o zip. No Terminal, digite <code>cd ~/Downloads/tlu-mac-tunnel</code>, depois <code>bash tlu-mac-tunnel.sh</code>, e digite o IP e a porta mostrados no app.",
+        "linux": "Em um terminal, vá até a pasta do arquivo, digite <code>bash tlu-linux-tunnel.sh</code> e depois o IP e a porta mostrados no app."
+      },
+      "needs": "Você precisa de",
+      "need": {
+        "windows": "permissão de administrador no PC (o Windows pede uma vez).",
+        "mac": "senha do seu Mac (pedida uma vez).",
+        "linux": "permissão sudo (sua senha, pedida uma vez)."
+      },
+      "guide": "Passos completos com imagens",
+      "previous": "Versões anteriores",
+      "current": "atual",
+      "note": "Estes arquivos são texto simples: você pode abri-los e ler cada passo. Eles não enviam nada para lugar nenhum; a única coisa extra que fazem é verificar no nosso site se existe uma versão mais nova.",
+      "guideIntro": "Ajuda passo a passo com imagens e vídeos:",
+      "guideLink": "guia de configuração completo"
     }
   }
 }

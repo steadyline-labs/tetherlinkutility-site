@@ -1,0 +1,92 @@
+---
+# Downloads page, one per language: /downloads/, /tr/downloads/, ...
+# Versions, dates, files and "what's new" come from src/_data/downloads.json (written by the desktop
+# scripts' release job); page texts from i18n[lang].downloads. Files live in public/downloads/:
+# the latest under a stable URL, every version also under archive/<platform>/<version>/.
+pagination:
+  data: site.languages
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "{{ i18n[lang].prefix }}downloads/index.html"
+altPath: "downloads/"
+sitemap:
+  order: 3
+  lastmod: "2026-11-23"
+  changefreq: "weekly"
+  priority: "0.6"
+---
+{%- set t = i18n[lang] -%}
+{%- set dl = t.downloads -%}
+{%- set blogPrefix = t.prefix if (collections | hasBlog(lang)) else i18n[t.blogLang or "en"].prefix -%}
+{%- set navMode = "downloads" -%}
+{%- set pageUrl = site.url + t.prefix + "downloads/" -%}
+{%- set guideSlug = "socks5-proxy-setup-windows-macos-ios" -%}
+{%- set guideUrl = (t.prefix if (collections | hasPost(lang, guideSlug)) else "/") + "blog/" + guideSlug + ".html" -%}
+<!DOCTYPE html>
+<html lang="{{ t.hreflang or lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ pageUrl }}" />
+{% for l in site.languages %}  <link rel="alternate" hreflang="{{ i18n[l].hreflang or l }}" href="{{ site.url }}{{ i18n[l].prefix }}downloads/" />
+{% endfor %}  <link rel="alternate" hreflang="x-default" href="{{ site.url }}/downloads/" />
+  <title>{{ dl.metaTitle }}</title>
+  <meta name="description" content="{{ dl.metaDescription }}">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tether Link Utility">
+  <meta property="og:url" content="{{ pageUrl }}">
+  <meta property="og:locale" content="{{ t.ogLocale }}">
+  <meta property="og:title" content="{{ dl.metaTitle }}">
+  <meta property="og:description" content="{{ dl.metaDescription }}">
+  <meta property="og:image" content="{{ site.url }}/og-image{% if lang != "en" %}-{{ lang }}{% endif %}.png">
+
+  <style>
+{% include "partials/site-chrome-style.njk" %}
+{% include "partials/read-base-style.njk" %}
+{% include "partials/downloads-style.njk" %}
+  </style>
+</head>
+<body>
+
+{% include "partials/site-nav.njk" %}
+
+<main>
+  <h1>{{ dl.title }}</h1>
+  <p class="dl-intro">{{ dl.intro }}</p>
+{% for p in downloads.platforms %}{% set v = p.versions[0] %}
+  <section class="dl-card" id="{{ p.id }}" aria-labelledby="{{ p.id }}-title">
+    <h2 id="{{ p.id }}-title">{{ p.name }}</h2>
+{% if p.status == "available" %}    <p class="dl-meta">{{ dl.version }} <span class="dl-version">{{ v.version }}</span> &middot; {{ dl.released }} {{ v.date | displayDate(lang) }}</p>
+    <p class="dl-new"><strong>{{ dl.whatsNew }}:</strong> {{ v.notes[lang] or v.notes.en }}</p>
+    <a class="dl-btn" href="{{ p.latestUrl }}" download>{{ dl.download | replace("{name}", p.name) }}</a>
+    <h3>{{ dl.howTo }}</h3>
+    <ol class="dl-steps">
+      <li>{{ dl.step1 }}</li>
+      <li>{{ dl.step2 }}</li>
+      <li>{{ dl.step3[p.id] }}</li>
+    </ol>
+    <p class="dl-need"><strong>{{ dl.needs }}:</strong> {{ dl.need[p.id] }} <a href="{{ guideUrl }}#{{ p.guideAnchor }}">{{ dl.guide }}</a></p>
+    <details class="dl-previous">
+      <summary>{{ dl.previous }}</summary>
+      <ul>
+{% for pv in p.versions %}        <li><a href="{{ pv.url }}" download>{{ p.file }}</a> &middot; {{ dl.version }} {{ pv.version }} &middot; {{ pv.date | displayDate(lang) }}{% if loop.first %} ({{ dl.current }}){% endif %}</li>
+{% endfor %}      </ul>
+    </details>
+{% else %}    <p class="dl-soon">{{ dl.soon }}</p>
+{% endif %}  </section>
+{% endfor %}
+  <p class="dl-guide">{{ dl.guideIntro }} <a href="{{ guideUrl }}">{{ dl.guideLink }}</a></p>
+  <p class="dl-note">{{ dl.note }}</p>
+</main>
+
+{% include "partials/site-footer.njk" %}
+
+{% include "partials/site-nav-script.njk" %}
+</body>
+</html>

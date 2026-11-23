@@ -17,9 +17,13 @@ export const root = path.resolve(path.dirname(new URL(import.meta.url).pathname)
 const { languages } = JSON.parse(fs.readFileSync(path.join(root, "src/_data/site.json"), "utf8"));
 
 // Page source -> data files that hold its visible text; the newest change of any of them counts.
-export const DATA_DEPS = Object.fromEntries(
-  languages.map((l) => [l === "en" ? "src/index.njk" : `src/${l}/index.njk`, [`src/_data/home/${l}.json`]]),
-);
+export const DATA_DEPS = {
+  ...Object.fromEntries(
+    languages.map((l) => [l === "en" ? "src/index.njk" : `src/${l}/index.njk`, [`src/_data/home/${l}.json`]]),
+  ),
+  // Versions, dates and "what's new" lines of the downloads page.
+  "src/downloads.njk": ["src/_data/downloads.json"],
+};
 
 const git = (...args) =>
   execFileSync("git", args, { cwd: root, encoding: "utf8", maxBuffer: 512 * 1024 * 1024, stdio: ["ignore", "pipe", "ignore"] });

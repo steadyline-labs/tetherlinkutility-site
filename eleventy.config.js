@@ -95,8 +95,9 @@ export default function (eleventyConfig) {
   // src/_data/sitemapExtra.json (for passthrough files such as pricing.md), sorted by `order`.
   // Pages without an `order` go last, sorted by URL.
   // Each entry may carry `alternates` ([{ hreflang, href }]) for pages that exist in several
-  // languages. These match the hreflang tags in the page heads: home pages list every language,
-  // blog index pages the languages with their own blog, posts the languages that have that post;
+  // languages. These match the hreflang tags in the page heads: home pages and pages with `altPath`
+  // (built in every language, e.g. downloads/) list every language, blog index pages the languages
+  // with their own blog, posts the languages that have that post;
   // x-default is the English URL when there is one. Pages with a single language get no alternates.
   eleventyConfig.addFilter("sitemapEntries", (pages, extra, site, i18n) => {
     const hl = (l) => i18n[l].hreflang || l;
@@ -117,6 +118,10 @@ export default function (eleventyConfig) {
       } else if (url === `${prefix}blog/`) {
         langs = languages.filter(blogLang);
         path = "blog/";
+      } else if (p.data.altPath) {
+        // A page built once per language under the same path (e.g. downloads/).
+        langs = languages;
+        path = p.data.altPath;
       } else return null;
       if (langs.length < 2) return null;
       return langs

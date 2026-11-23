@@ -1,0 +1,9 @@
+---
+# Version file the desktop scripts check (TLU-Windows-Setup.cmd "windows=", tlu-mac-tunnel.sh "mac=",
+# tlu-linux-tunnel.sh "linux="): one "<id>=<yyyymmdd>" line per available platform, built from
+# src/_data/downloads.json (newest version first). Keep the URL and the line format: shipped scripts read it.
+permalink: /downloads/desktop-versions.txt
+eleventyExcludeFromCollections: true
+---
+{% for p in downloads.platforms %}{% if p.status == "available" %}{{ p.id }}={{ p.versions[0].version }}
+{% endif %}{% endfor -%}
