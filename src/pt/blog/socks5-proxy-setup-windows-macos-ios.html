@@ -77,7 +77,7 @@ extraJsonLd: |2
           <li>Celular ou tablet Android: Tether Link Utility no Google Play. É tudo de que ele precisa.</li>
           <li>iPhone ou iPad: Potatso (gratuito) ou Shadowrocket (pago) na App Store.</li>
           <li>Computador com Windows: o arquivo de instalação (veja <a href="#windows">Windows</a>). Ele instala e roda o sing-box para você, então todos os apps funcionam.</li>
-          <li>Computador com Linux: sing-box para todos os apps (veja <a href="#linux">Linux</a>), ou o Firefox em firefox.com só para esse navegador.</li>
+          <li>Computador com Linux: nosso script (veja <a href="#linux">Linux</a>). Ele instala e roda o sing-box para você, então todos os apps funcionam. Só o Firefox também serve, apenas para esse navegador.</li>
           <li>Mac: nosso script (veja <a href="#macos">macOS</a>). Ele instala e roda o sing-box para você, pelo celular também se precisar.</li>
         </ul>
         <p>O dispositivo está sem internet? Conecte-o a qualquer outro Wi-Fi por alguns minutos (casa, trabalho, café) e baixe por lá. Um PC com Windows também pode receber o arquivo de instalação pelo celular: baixe no celular e envie para o PC por Bluetooth ou cabo USB.</p>
@@ -228,6 +228,26 @@ extraJsonLd: |2
     </div>
 
     <h2 id="linux">Linux</h2>
+
+    <h3>Recomendado: todos os apps com nosso script (sing-box)</h3>
+    <p>Nosso script instala e roda o <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener">sing-box</a> para você em modo TUN, então todos os apps, DNS incluído, usam a internet do celular. Funciona no Ubuntu, Debian, Fedora, Mint e na maioria das outras distribuições.</p>
+
+    <div class="callout" id="linux-script">
+      <p><strong>Jeito mais fácil: baixe nosso script</strong></p>
+      <p>Na primeira vez, o script baixa o sing-box da página oficial no GitHub (verificado com um hash SHA256), pelo celular se o computador não tiver internet própria. Ele pede o IP e a porta mostrados no app.</p>
+      <p style="margin-top: 16px;"><a href="/downloads/tlu-linux-tunnel.sh" class="cta-button" style="display:inline-block;" download>Baixar tlu-linux-tunnel.sh</a></p>
+      <ol style="margin-top: 12px;">
+        <li>Baixe o script enquanto o computador ainda tem internet própria. Ele vai para a pasta Downloads.<!--help:linux:install--></li>
+        <li>Entre no Wi-Fi do celular e ative o compartilhamento no app.<!--help:linux:join-wifi--></li>
+        <li>Abra um terminal, digite <code>cd ~/Downloads</code> e aperte Enter.<!--help:linux:set-proxy--></li>
+        <li>Digite <code>bash tlu-linux-tunnel.sh</code> e aperte Enter.<!--help:linux:set-proxy--></li>
+        <li>Digite o IP e a porta mostrados no app, apertando Enter depois de cada um. Da próxima vez ele pergunta <strong>Connect to IP:port? (y/n)</strong>: digite <code>y</code> e aperte Enter para usar os mesmos, ou <code>n</code> para digitar outros.<!--help:linux:set-proxy--></li>
+        <li>Digite sua senha e aperte Enter. Nada aparece enquanto você digita; é normal.<!--help:linux:set-proxy--></li>
+        <li>Quando aparecer <strong>Connected.</strong>, pronto. Deixe o terminal aberto.<!--help:linux:no-internet--></li>
+      </ol>
+      <p style="margin-top: 12px;"><strong>Para parar:</strong> aperte <strong>Control + C</strong> no terminal. Pare aqui primeiro, antes de desativar o compartilhamento no app. O DNS e o IPv6 voltam ao normal sozinhos.</p>
+      <p style="margin-top: 8px; font-size: 14px;">O script é texto simples: você pode abrir em qualquer editor de texto e ler cada passo. Ele não envia nada para lugar nenhum; só lê o nosso arquivo de versão para ver se há uma versão mais nova.</p>
+    </div>
     <h3>Opção A: Firefox</h3>
     <ol>
       <li>No Firefox, abra <strong>Configurações</strong>, digite <strong>proxy</strong> na caixa de pesquisa, clique em <strong>Configurar proxy</strong> e escolha <strong>Configuração manual de proxy</strong>.<!--help:linux:set-proxy--></li>
